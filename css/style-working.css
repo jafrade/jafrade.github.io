@@ -1,0 +1,807 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    padding: 0.2em 0;
+    background: #ccc;
+    color: #000;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	font: inherit;
+	font-size: 100%;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	container: '';
+	container: none;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+/************************************************************************
+
+Classes CSS
+
+************************************************************************/
+*{
+	-moz-box-sizing: border-box;
+	
+	box-sizing: border-box;
+}
+@font-face {
+    font-family: 'rawengulksansregular';
+    src: url('../fonts/rawengulksans-webfont.eot');
+    src: url('../fonts/rawengulksans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/rawengulksans-webfont.woff') format('woff'),
+         url('../fonts/rawengulksans-webfont.ttf') format('truetype'),
+         url('../fonts/rawengulksans-webfont.svg#rawengulksansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+
+    font-family:'SourceSansPro-ExtraLight';
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.eot');
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.woff') format('woff'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.ttf') format('truetype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.svg#SourceSansPro-ExtraLight') format('svg');
+	font-weight: 200;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+
+	font-family:'SourceSansPro-Light';
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.eot');
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.woff') format('woff'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.ttf') format('truetype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.svg#SourceSansPro-Light') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+
+	font-family:'SourceSansPro-Regular';
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.eot');
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.woff') format('woff'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.ttf') format('truetype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.svg#SourceSansPro-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+
+	font-family:'SourceSansPro-Semibold';
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.eot');
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.woff') format('woff'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.ttf') format('truetype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.svg#SourceSansPro-Semibold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+
+	font-family:'SourceSansPro-Bold';
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.eot');
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.woff') format('woff'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.ttf') format('truetype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.svg#SourceSansPro-Bold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+
+    font-family:'SourceSansPro-Black';
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.eot');
+	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.woff') format('woff'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.ttf') format('truetype'),
+		url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.svg#SourceSansPro-Black') format('svg');
+	font-weight: 900;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+0020-25CA;
+
+
+
+}
+a{
+	color:#08c;
+	text-decoration: none;
+}
+a:hover{
+	color:#08c;
+	text-decoration:underline;
+}
+.row{
+	width: 100%;
+	max-width: 1140px;
+	min-width: 755px;
+	margin: 0 auto;
+	overflow: hidden;
+
+}
+.row:before, .row:after {
+	display: table;
+	content: '';
+	line-height: 0;
+}
+.row:after {
+	clear: both;
+}
+
+.row_space_top_1 {
+    padding-top: 10px;
+}
+.row_space_top_2 {
+    padding-top: 20px;
+}
+.row_space_top_3 {
+    padding-top: 30px;
+}
+.row_space_top_4 {
+    padding-top: 40px;
+}
+.row_space_top_5 {
+    padding-top: 50px;
+}
+.row_space_top_6 {
+    padding-top: 60px;
+}
+.row_space_top_7 {
+    padding-top: 70px;
+}
+.row_space_1 {
+    padding-bottom: 10px;
+}
+.row_space_2 {
+    padding-bottom: 20px;
+}
+.row_space_3 {
+    padding-bottom: 30px;
+}
+.row_space_4 {
+    padding-bottom: 40px;
+}
+.row_space_5 {
+    padding-bottom: 50px;
+}
+.row_space_6 {
+    padding-bottom: 60px;
+}
+.row_space_7 {
+    padding-bottom: 70px;
+}
+
+.row_top_border {
+    border-top: solid 1px #dddddd;
+}
+
+
+
+.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+	float: left;
+	margin: 0 30px 0 0;	
+}
+
+
+.col-12{
+	width:99%;
+}
+.col-11{
+	width:90.5%;
+}
+.col-10{
+	width:82%;
+}
+.col-9{
+	width:73.5%;
+}
+.col-8{
+	width:65%;
+}
+.col-7{
+	width:56.5%;
+}
+.col-6{
+	width:48%;
+}
+.col-5{
+	width:39.5%;
+}
+.col-4{
+	width:31%;
+}
+.col-3{
+	width:22.5%;
+}
+.col-2{
+	width: 14%;
+}
+.col-1{
+	width:5.5%;
+}
+
+.last{
+	margin: 0;	
+}
+
+.last img{
+	float:right;
+	/*margin-right: auto;
+	margin-left: auto;*/
+}
+
+
+.container{
+	z-index:-1;
+	display:block;
+	overflow:hidden;
+	margin:0 auto;
+	max-width:1184px;
+	width:100%;
+}
+h1,h2,h3,h4,h5,h6{
+	/*font-family: "SourceSansPro-Regular";*/
+	color:#414141;
+	margin-bottom: 15px;
+	line-height: 1.3;
+}
+
+h1{
+	font-size: 56px;
+	font-family: "SourceSansPro-Light";
+}
+h2{
+	font-family: "SourceSansPro-Regular";
+	font-size: 33px;
+	line-height: 26px;
+}
+h3{
+	font-family: "SourceSansPro-Regular";
+	font-size: 26px;
+	line-height: 26px;
+}
+h4{
+	font-family: "SourceSansPro-Regular";
+	font-size: 20px;
+}
+h5{
+	font-family: "SourceSansPro-Regular";
+	font-size: 18px;
+	line-height: 26px;
+}
+h6{
+	font-family: "SourceSansPro-Regular";
+	font-size: 13px;
+	line-height: 26px;
+}
+
+p{
+	font-family: "SourceSansPro-Light";
+	font-size: 16px;
+	color:#414141;
+	line-height: 1.8;
+	margin-bottom: 30px;
+}
+
+blockquote{
+	color:#777777;
+	text-align:center;
+	font-size:20px;
+	font-family:"SourceSansPro-Light";
+	line-height: 1.5;
+	margin-bottom: 15px;
+}
+
+.section_header{
+	display:block;
+	overflow:hidden;
+	margin:5% 0 5% 0;
+	width:100%;
+}
+
+.clear{
+	clear:both;
+}
+.btn{
+	font-size: 18px;
+	text-align: center;
+	display:inline-block;
+	font-family: "SourceSansPro-Regular";
+	font-weight: 400;
+	padding:15px 30px 15px 30px;
+	color:#333333;
+	/*background: #444444;*/
+	border:solid 2px #444444;
+	text-decoration: none;
+	list-style: none;
+	letter-spacing: 1px;
+	border-radius: 4px;
+}
+.btn:hover{
+	background: #444444;
+	color:#ffffff;
+	cursor: pointer;
+	text-decoration: none;
+}
+.btn-large{
+	padding:15px 30px 15px 30px;
+}
+.no_hero_shot{
+	margin-top: 120px;
+}
+.no_border{
+	border: none;
+}
+
+
+img{
+	max-width: 100%;
+}
+.img_center{
+	display: block;
+	margin: 0 auto;
+}
+
+
+
+.screen{
+	/*border-bottom: solid 1px #dddddd;*/
+}
+.screen img{
+	display: block;
+	margin: 0 auto;
+}
+section{
+	min-height: 740px;
+}
+.center_text{
+	text-align: center;
+}
+.hero_text{
+	text-align: center;
+}
+.pagination{
+	font-family: "SourceSansPro-Regular";
+	border-top: dashed 1px #dddddd;
+	border-bottom: dashed 1px #dddddd;
+	padding-top:1%;	
+	padding-bottom:1%;
+	margin-top: 30px;
+	margin-bottom: 50px;
+}
+.pagination a{
+	text-decoration: none;
+	list-style: none;	
+	color:#6c6c6c;
+}
+.pagination a:hover{
+	text-decoration: none;
+	list-style: none;	
+	color:#444444;
+}
+
+.next_project{
+	float:right;
+}
+.prev_project{
+	float:left;
+}
+.school_project_warning{
+	font-family: "SourceSansPro-Regular";
+	font-size: 12px;
+	color:#666666;
+	text-align: center;
+}
+
+
+/************************************************************************
+
+Header CSS
+
+************************************************************************/
+header{
+	position:fixed;
+	z-index:-1;
+	z-index:777;
+	margin:0;
+	padding:0;
+	max-height:97px;
+	width:100%;
+	height:75px;
+	background-color:#f4f4f4;
+	opacity: .98;
+
+}
+header #logo{
+	font-family: "SourceSansPro-Light";
+	font-size: 40px;
+	padding-top: 12px;
+}
+header #logo a{
+	color:#777;
+	text-decoration:none;
+	display: block;
+}
+header #logo span{
+	vertical-align: top;
+	line-height:50px;
+}
+nav{
+	display:block;
+	overflow:hidden;
+	max-height:90px;
+	width:100%;
+	height:100%;
+}
+nav ul{
+	float:right;
+	display: block;
+	overflow:hidden;
+	margin:30px 0 0 0;
+}
+nav ul li{
+	float:left;
+	margin:0 0 0 40px;
+	color:#888888;
+	font-size:18px;
+	font-weight: 500;
+	font-family:"SourceSansPro-Light";
+}
+nav ul li a:hover{
+	color:#57875e;
+	text-decoration: none;
+}
+
+.current a{
+	color:#57875e;
+}
+nav ul li a{
+	color:#777777;
+	list-style:none;
+	text-decoration:none;
+}
+#welcome{
+	position: absolute;
+	left:900px;
+	top:10px;
+}
+.hero_shot img{
+	display: block;
+	width: 100%;
+	margin:0;
+}
+/************************************************************************
+
+Work CSS
+
+************************************************************************/
+#work{
+	position:relative;
+	z-index:1;
+	margin:0;
+	padding-bottom:20px;
+	width:100%;
+	background-color:#f4f4f4;
+	min-height: 820px;
+}
+.work_col a{
+	overflow: hidden;
+	text-decoration: none;
+	list-style: none;
+	border:solid 1px #dddddd;
+	display: block;
+	padding: 25px 0 30px 0;
+}
+.work_col a:hover{
+	background-color: #e6e6e6;
+}
+
+.project_title{
+	font-family: "SourceSansPro-Regular";
+	font-size: 20px;
+	font-weight: 400;
+	color:#666666;
+	text-align: center;
+	/*being used to overwrite parrallax margin on p tags*/	
+	margin-bottom: 0;
+	line-height: 40px;
+}
+.project_desc{
+	font-family: "SourceSansPro-Regular";
+	font-size: 14px;
+	font-weight: 100;
+	color:#666666;
+	text-align: center;
+	/*being used to overwrite parrallax margin on p tags*/	
+	margin-bottom: 0;	
+}
+	
+
+/************************************************************************
+
+About CSS
+
+************************************************************************/
+#about{
+	position:relative;
+	z-index:1;
+	margin:0 0 5% 0;
+	padding:0;
+	width:100%;
+	background-color:white;
+}
+#aboutLand{
+	float:left;
+	margin-top:-100px;
+	height:100px;
+}
+
+.about_copy p{
+	text-align:justify;
+	font-size:18px;
+	font-family:"SourceSansPro-Light";
+	line-height: 1.5;
+	margin-bottom: 15px;
+}
+.about_img img{
+	margin:0 auto;
+}
+.resume_btn{
+	width: 100%;
+	margin-top: 30px;
+}
+
+
+/************************************************************************
+
+Contact CSS
+
+************************************************************************/
+
+#contact{
+	position:relative;
+	z-index:1;
+	margin:0;
+	padding-bottom:57px;
+	width:100%;
+	background-color:#DDDDDD;
+	border-top:#333333;
+	height:100%;
+}
+input,textarea{
+	color:#6c6c6c;
+	padding-left: 10px;
+}
+.form_required{
+	font-family: "SourceSansPro-Light";
+	color:#883737;
+	font-size:14px;
+	font-weight: 300;
+}
+
+.contact_form input{
+	width:100%;
+	height:40px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	border: solid 1px #dddddd;
+}
+.contact_form textarea{
+	width:100%;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	height:80px;
+	border: solid 1px #dddddd;
+}
+.contact_form label{
+	font-family: "SourceSansPro-Regular";
+	color:#414141;
+	font-size:18px;
+}
+.center_form{
+	margin-left: auto;
+	margin-right: auto;
+	width:70%;
+}
+
+.submit_btn{
+	font-size: 18px;
+	text-align: center;
+	display:inline-block;
+	font-family: "SourceSansPro-Regular";
+	font-weight: 400;
+	color:white;
+	background: #444444;
+	text-decoration: none;
+	list-style: none;
+	letter-spacing: 1px;
+	border-radius: 4px;
+}
+
+.messages{
+	color:#C00;
+	font-size: 12px;
+	float: right;
+}
+#thankYou{
+	position:absolute;
+	left:163px;
+	top:300px;
+	z-index:9999;
+}
+#thankYou h1{
+	height: 150px;
+	width: 340px;
+	padding-top:30px 
+}
+/************************************************************************
+
+footer CSS
+
+************************************************************************/
+footer{
+	position:relative;
+	width:100%;
+	background-color: #333333;
+}
+footer .container{
+	padding:20px 0 20px 0;
+}
+.copywrite{
+	display:block;
+	overflow:hidden;
+	padding-left:5px;
+}
+.copy{
+	display:inline-block;
+	color:white;
+	font-size:14px;
+	font-family:"SourceSansPro-Light"	
+}
+.contact_social_media{
+	/*padding:10px 0 0 0;*/
+}
+.contact_social_media li{
+	margin-right: 30px;
+	float: right;
+}
+
+.contact_social_media i{
+	font-size: 24px;
+	color:white;
+}
+.contact_social_media i:hover{
+	color:#999999;
+}
+/*#miniLogo{
+	float:right;
+	margin:0 0 0 ;
+}*/
