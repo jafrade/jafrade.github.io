@@ -1,3 +1,16 @@
+// Breakpoints
+$breakpoints: (
+  xs: 32em,
+  sm: 40em,
+  md: 52em,
+  lg: 64em
+);
+
+// Loop Counts
+$margin-count: 8; //Generates margin classes 0.5rem increments
+$padding-count: 8; //Generates padding classes in 0.5rem increments
+$layout-count: 25; //Generates height/width classes in 0.5rem increments
+
 // UI Color Definitions
 $white: #FFFFFF;
 $black: #2A3D51;
