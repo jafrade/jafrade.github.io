@@ -838,7 +838,7 @@ input[type="checkbox"] {
 .fill-danger-low {
   fill: #DB1A4E; }
 
-.font-body {
+body {
   font-family: "SF UI Text", "San Francisco", -apple-system, BlinkMacSystemFont, sans-serif; }
 
 /* Basscss Typography */
