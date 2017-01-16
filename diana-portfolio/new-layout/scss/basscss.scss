@@ -1,5 +1,7 @@
 @import "config";
 
+@import 'reset';
+
 @import "layout";
 @import "grid";
 @import "margin";
@@ -14,6 +16,6 @@
 @import "btn-outline";
 @import "btn-primary";
 @import "color";
-@import "type-scale";
 @import "typography";
+@import "type-scale";
 @import "custom";
