@@ -7,29 +7,29 @@ $breakpoints: (
 );
 
 // Loop Counts
-$margin-count: 8; //Generates margin classes 0.5rem increments
-$padding-count: 8; //Generates padding classes in 0.5rem increments
+$margin-count: 10; //Generates margin classes 0.5rem increments
+$padding-count: 10; //Generates padding classes in 0.5rem increments
 $layout-count: 6; //Generates height/width classes in 0.5rem increments
 
 // UI Color Definitions
 $white: #FFFFFF;
-$black: #2A3D51;
-$phantom-gray: #7F8A96;
-$wraith-gray: #D4D8DC;
-$ghost-gray: #E1ECF2;
-$shade-gray: #F6F7F8;
+$black: #606167;
+$grey-1: #c0c2ce;
+$grey-2: #e5e6eb;
+$grey-3: #f8f8fa;
+$grey-4: #F6F7F8;
 
 // UI Palette
 $ui-palette: (
   primary: $black,
-  secondary: $phantom-gray,
-  tertiary: $wraith-gray,
-  placeholder: $ghost-gray,
+  secondary: $grey-1,
+  tertiary: $grey-2,
+  placeholder: $grey-3,
   inverted: $white
 );
 
 // Brand Color Definitions
-$brand: #fe7c60;
+$brand: #c0c2ce;
   $brand-high: #1B7EFF;
   $brand-low: #0069F2;
 

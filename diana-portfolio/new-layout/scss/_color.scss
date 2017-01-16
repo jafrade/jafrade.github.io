@@ -2,6 +2,7 @@
   .color-#{$id} { color: $color; }
   .fill-#{$id} {fill: $color;}
   .border-#{$id} {border-color:$color;}
+  .bg-#{$id} {background-color:$color;}
 }
 
 @each $id, $color in $brand-palette {

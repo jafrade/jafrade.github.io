@@ -1,5 +1,5 @@
 .bg-page {
-  background-color: $wraith-gray;
+  background-color: $grey-3;
 }
 
 .bg-component {
@@ -9,6 +9,6 @@
 @each $id, $color in $brand-palette {
   .bg-#{$id} {background-color: nth($color, 1);}
   .bg-#{$id}-high {background-color: nth($color, 2);}
-  .bg-#{id}-low {background-color: nth($color, 3);}
-  .bg-#{id}-gradient {background: radial-gradient(farthest-corner at 0% 0%, nth($color, 2), nth($color, 3));}
+  .bg-#{$id}-low {background-color: nth($color, 3);}
+  .bg-#{$id}-gradient {background: radial-gradient(farthest-corner at 0% 0%, nth($color, 2), nth($color, 3));}
 }
