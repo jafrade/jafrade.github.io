@@ -1,0 +1,60 @@
+// Custom fonts
+@font-face {
+  font-family: 'riddleregular';
+  src: url('../fonts/riddle_script/riddle-script-webfont.eot');
+  src: url('../fonts/riddle_script/riddle-script-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/riddle_script/riddle-script-webfont.woff') format('woff'), url('../fonts/riddle_script/riddle-script-webfont.ttf') format('truetype'), url('../fonts/riddle_script/riddle-script-webfont.svg#riddleregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latoregular';
+  src: url('../fonts/skyfonts-google/lato_regular-webfont.eot');
+  src: url('../fonts/skyfonts-google/lato_regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/skyfonts-google/lato_regular-webfont.woff') format('woff'), url('../fonts/skyfonts-google/lato_regular-webfont.ttf') format('truetype'), url('../fonts/skyfonts-google/lato_regular-webfont.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latobold';
+  src: url('../fonts/skyfonts-google/lato_700-webfont.eot');
+  src: url('../fonts/skyfonts-google/lato_700-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/skyfonts-google/lato_700-webfont.woff') format('woff'), url('../fonts/skyfonts-google/lato_700-webfont.ttf') format('truetype'), url('../fonts/skyfonts-google/lato_700-webfont.svg#latobold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latoblack';
+  src: url('../fonts/skyfonts-google/lato_900-webfont.eot');
+  src: url('../fonts/skyfonts-google/lato_900-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/skyfonts-google/lato_900-webfont.woff') format('woff'), url('../fonts/skyfonts-google/lato_900-webfont.ttf') format('truetype'), url('../fonts/skyfonts-google/lato_900-webfont.svg#latoblack') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latolight';
+  src: url('../fonts/skyfonts-google/lato_300-webfont.eot');
+  src: url('../fonts/skyfonts-google/lato_300-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/skyfonts-google/lato_300-webfont.woff') format('woff'), url('../fonts/skyfonts-google/lato_300-webfont.ttf') format('truetype'), url('../fonts/skyfonts-google/lato_300-webfont.svg#latolight') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'latohairline';
+  src: url('../fonts/skyfonts-google/lato_100-webfont.eot');
+  src: url('../fonts/skyfonts-google/lato_100-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/skyfonts-google/lato_100-webfont.woff') format('woff'), url('../fonts/skyfonts-google/lato_100-webfont.ttf') format('truetype'), url('../fonts/skyfonts-google/lato_100-webfont.svg#latohairline') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-logo: 'riddleregular';
+$font-light: 'latolight';
+
+
+
+.font-logo{font-family:$font-logo;font-size:60px;}
+
+.font-light{font-family:$font-light;}
+
+a{
+  text-decoration:none; 
+}
+
+.container{width:$width-6; margin-left: auto; margin-right: auto;}
+
+
