@@ -1,0 +1,45 @@
+// UI Color Definitions
+$white: #FFFFFF;
+$black: #2A3D51;
+$phantom-gray: #7F8A96;
+$wraith-gray: #D4D8DC;
+$ghost-gray: #E1ECF2;
+$shade-gray: #F6F7F8;
+
+// UI Palette
+$ui-palette: (
+  primary: $black,
+  secondary: $phantom-gray,
+  tertiary: $wraith-gray,
+  placeholder: $ghost-gray,
+);
+
+// Brand Color Definitions
+$brand: #006FFF;
+  $brand-high: #1B7EFF;
+  $brand-low: #0069F2;
+
+$success: #26D58F;
+  $success-high: #F7D830;
+  $success-low: #DEC22B;
+
+$attention: #EBCD2E;
+  $attention-high: #28E398;
+  $attention-low: #24C987;
+
+$danger: #E91C53;
+  $danger-high: #F51D57;
+  $danger-low: #DB1A4E;
+
+// Brand Palette
+$brand-palette: (
+  brand:($brand, $brand-high, $brand-low),
+  success:($success, $success-high, $success-low),
+  attention:($attention, $attention-high, $attention-low),
+  danger:($danger, $danger-high, $danger-low),
+);
+
+input[type="checkbox"] {
+    height:1rem;
+    width:1rem;
+}
