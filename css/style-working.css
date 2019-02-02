@@ -117,6 +117,8 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	font: inherit;
 	font-size: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	/*font-family: 'Open Sans', sans-serif;*/
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -151,86 +153,7 @@ Classes CSS
 	
 	box-sizing: border-box;
 }
-@font-face {
-    font-family: 'rawengulksansregular';
-    src: url('../fonts/rawengulksans-webfont.eot');
-    src: url('../fonts/rawengulksans-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/rawengulksans-webfont.woff') format('woff'),
-         url('../fonts/rawengulksans-webfont.ttf') format('truetype'),
-         url('../fonts/rawengulksans-webfont.svg#rawengulksansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
 
-
-    font-family:'SourceSansPro-ExtraLight';
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.eot');
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.woff') format('woff'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.ttf') format('truetype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-ExtraLight_gdi.svg#SourceSansPro-ExtraLight') format('svg');
-	font-weight: 200;
-	font-style: normal;
-	font-stretch: normal;
-	unicode-range: U+0020-25CA;
-
-	font-family:'SourceSansPro-Light';
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.eot');
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.woff') format('woff'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.ttf') format('truetype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Light_gdi.svg#SourceSansPro-Light') format('svg');
-	font-weight: 300;
-	font-style: normal;
-	font-stretch: normal;
-	unicode-range: U+0020-25CA;
-
-	font-family:'SourceSansPro-Regular';
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.eot');
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.woff') format('woff'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.ttf') format('truetype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Regular_gdi.svg#SourceSansPro-Regular') format('svg');
-	font-weight: 400;
-	font-style: normal;
-	font-stretch: normal;
-	unicode-range: U+0020-25CA;
-
-	font-family:'SourceSansPro-Semibold';
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.eot');
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.woff') format('woff'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.ttf') format('truetype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Semibold_gdi.svg#SourceSansPro-Semibold') format('svg');
-	font-weight: 600;
-	font-style: normal;
-	font-stretch: normal;
-	unicode-range: U+0020-25CA;
-
-	font-family:'SourceSansPro-Bold';
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.eot');
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.woff') format('woff'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.ttf') format('truetype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Bold_gdi.svg#SourceSansPro-Bold') format('svg');
-	font-weight: 700;
-	font-style: normal;
-	font-stretch: normal;
-	unicode-range: U+0020-25CA;
-
-    font-family:'SourceSansPro-Black';
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.eot');
-	src: url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.woff') format('woff'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.ttf') format('truetype'),
-		url('../fonts/SourceSansPro-Regular/SourceSansPro-Black_gdi.svg#SourceSansPro-Black') format('svg');
-	font-weight: 900;
-	font-style: normal;
-	font-stretch: normal;
-	unicode-range: U+0020-25CA;
-
-
-
-}
 a{
 	color:#08c;
 	text-decoration: none;
@@ -368,7 +291,7 @@ a:hover{
 	width:100%;
 }
 h1,h2,h3,h4,h5,h6{
-	/*font-family: "SourceSansPro-Regular";*/
+	
 	color:#414141;
 	margin-bottom: 15px;
 	line-height: 1.3;
@@ -376,35 +299,35 @@ h1,h2,h3,h4,h5,h6{
 
 h1{
 	font-size: 56px;
-	font-family: "SourceSansPro-Light";
+	
 }
 h2{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 33px;
 	line-height: 26px;
 }
 h3{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 26px;
 	line-height: 26px;
 }
 h4{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 20px;
 }
 h5{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 18px;
 	line-height: 26px;
 }
 h6{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 13px;
 	line-height: 26px;
 }
 
 p{
-	font-family: "SourceSansPro-Light";
+	
 	font-size: 16px;
 	color:#414141;
 	line-height: 1.8;
@@ -415,7 +338,7 @@ blockquote{
 	color:#777777;
 	text-align:center;
 	font-size:20px;
-	font-family:"SourceSansPro-Light";
+	
 	line-height: 1.5;
 	margin-bottom: 15px;
 }
@@ -434,7 +357,7 @@ blockquote{
 	font-size: 18px;
 	text-align: center;
 	display:inline-block;
-	font-family: "SourceSansPro-Regular";
+	
 	font-weight: 400;
 	padding:15px 30px 15px 30px;
 	color:#333333;
@@ -489,7 +412,7 @@ section{
 	text-align: center;
 }
 .pagination{
-	font-family: "SourceSansPro-Regular";
+	
 	border-top: dashed 1px #dddddd;
 	border-bottom: dashed 1px #dddddd;
 	padding-top:1%;	
@@ -515,7 +438,7 @@ section{
 	float:left;
 }
 .school_project_warning{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 12px;
 	color:#666666;
 	text-align: center;
@@ -541,7 +464,7 @@ header{
 
 }
 header #logo{
-	font-family: "SourceSansPro-Light";
+	
 	font-size: 40px;
 	padding-top: 12px;
 }
@@ -573,7 +496,7 @@ nav ul li{
 	color:#888888;
 	font-size:18px;
 	font-weight: 500;
-	font-family:"SourceSansPro-Light";
+	
 }
 nav ul li a:hover{
 	color:#57875e;
@@ -609,7 +532,7 @@ Work CSS
 	margin:0;
 	padding-bottom:20px;
 	width:100%;
-	background-color:#f4f4f4;
+	background-color:#ecf0f3;
 	min-height: 820px;
 }
 .work_col a{
@@ -625,7 +548,7 @@ Work CSS
 }
 
 .project_title{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 20px;
 	font-weight: 400;
 	color:#666666;
@@ -635,7 +558,7 @@ Work CSS
 	line-height: 40px;
 }
 .project_desc{
-	font-family: "SourceSansPro-Regular";
+	
 	font-size: 14px;
 	font-weight: 100;
 	color:#666666;
@@ -667,7 +590,7 @@ About CSS
 .about_copy p{
 	text-align:justify;
 	font-size:18px;
-	font-family:"SourceSansPro-Light";
+	
 	line-height: 1.5;
 	margin-bottom: 15px;
 }
@@ -701,7 +624,7 @@ input,textarea{
 	padding-left: 10px;
 }
 .form_required{
-	font-family: "SourceSansPro-Light";
+	
 	color:#883737;
 	font-size:14px;
 	font-weight: 300;
@@ -722,7 +645,7 @@ input,textarea{
 	border: solid 1px #dddddd;
 }
 .contact_form label{
-	font-family: "SourceSansPro-Regular";
+	
 	color:#414141;
 	font-size:18px;
 }
@@ -736,7 +659,7 @@ input,textarea{
 	font-size: 18px;
 	text-align: center;
 	display:inline-block;
-	font-family: "SourceSansPro-Regular";
+	
 	font-weight: 400;
 	color:white;
 	background: #444444;
@@ -784,7 +707,6 @@ footer .container{
 	display:inline-block;
 	color:white;
 	font-size:14px;
-	font-family:"SourceSansPro-Light"	
 }
 .contact_social_media{
 	/*padding:10px 0 0 0;*/
