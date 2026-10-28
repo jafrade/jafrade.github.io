@@ -150,21 +150,19 @@ The test also showed something I didn't expect: the builder's design changed how
 
 With customers split, we went with the sentence version the stakeholders favored, and I led its visual design from there.
 
+I started by exploring how the sentences should look. I tried a few builder layouts, from plain sentences to each step in its own card, and several styles for the parts people could edit, including tinted chips, bold underlined text, and dashed outlines for empty fields.
+
 <!-- carousel -->
-![February: the first vision, Automate as a modal](images/embedded-automate-panel/iteration-1.jpg)
-![March: the concept we tested with customers](images/embedded-automate-panel/iteration-2.jpg)
-![April: a side panel next to the contacts list](images/embedded-automate-panel/iteration-3.jpg)
-![June: the sentence builder's visual style](images/embedded-automate-panel/iteration-4.jpg)
+![Builder layout: plain sentences with no containers](images/embedded-automate-panel/builder-1.jpg)
+![Builder layout: each step in its own card](images/embedded-automate-panel/builder-2.jpg)
+![Builder layout: connected cards on a gray background](images/embedded-automate-panel/builder-3.jpg)
+![Token styles: tinted chips colored by action type, compared with bold underlined text](images/embedded-automate-panel/tokens-1.jpg)
+![Token styles: a single accent color, compared with dashed outlines on empty fields](images/embedded-automate-panel/tokens-2.jpg)
 <!-- /carousel -->
 
 My biggest concern had been scale, since every action needs its own sentence. So I built a rulebook and an agent skill that read an action's definition (its field labels, input order, and dependencies) and write its sentence automatically, for every existing and future action. The definition decides the structure, and the skill only handles the grammar.
 
 Translation was the tradeoff we accepted. Each sentence follows the order of the fields in the form, so translators can change the words but can't reorder them. In languages with a different word order, some sentences read less naturally.
-
-My PM and I also mapped out what Starter and Pro customers could each edit and add, so the same panel could work for both.
-
-![Starter vs. Pro: what each tier can edit, add, and use](images/embedded-automate-panel/tier-map.jpg)
-<!-- IMAGE: brainstorm Starter/Pro allow-restrict map (unnamed-5) -->
 
 ## 06 · Final design {#solution}
 ### Each part of the panel addresses something we saw in research
