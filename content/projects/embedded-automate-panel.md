@@ -11,7 +11,7 @@ order: 1
 featured: true
 focus: ["0→1", "Activation", "Adoption", "Platform"]
 
-card_thumbnail: images/embedded-automate-panel/card.jpg
+card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as the case study hero
 card_context: "HubSpot · B2B CRM · 2026"
 card_summary: "Led design and co-led strategy for HubSpot's Automate panel. 72% of the workflows customers built used features new to Starter, and AI-recommended ones went live at 2× the rate."
 

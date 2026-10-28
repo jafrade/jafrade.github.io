@@ -13,6 +13,7 @@ project files use: ## / ### headings with {#id}, paragraphs, - lists,
 <!-- carousel --> and <!-- /carousel --> become one carousel, with each
 image's alt text as its slide caption.
 """
+import hashlib
 import html
 import json
 import re
@@ -247,6 +248,9 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400'
          '&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">')
 
+# Changes whenever site.css does, so browsers fetch the new file instead of a cached one
+CSS_VERSION = hashlib.md5((ROOT / "css" / "site.css").read_bytes()).hexdigest()[:8]
+
 # Card panel colours, in order down the page
 CARD_COLOURS = ("sage", "oak", "stone", "walnut")
 
@@ -318,7 +322,7 @@ def page(meta, chapters, next_project=None):
 <title>{esc(meta["title"])} — Jason Frade</title>
 <meta name="description" content="{esc(meta.get("page_subtitle", ""))}">
 {FONTS}
-<link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/site.css?v={CSS_VERSION}">
 </head>
 <body>
 
@@ -446,7 +450,7 @@ def home(projects):
 <meta name="description" content="Product design portfolio of Jason Frade.">
 <link rel="icon" href="favicon.ico">
 {FONTS}
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 </head>
 <body>
 

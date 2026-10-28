@@ -176,7 +176,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .pull { margin: 12px 0 40px; padding: 4px 0 4px 26px; border-left: 2px solid var(--accent); }
 .pull p { font-size: clamp(22px, 2.4vw, 28px); line-height: 1.4; font-weight: 300; margin: 0 0 12px; }
 .pull cite { font-style: normal; }
-.pulls { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 12px 0 40px; }
+.pulls { display: grid; gap: 32px; margin: 12px 0 40px; }
 .pulls .pull { margin: 0; }
 .pulls .pull:nth-child(2) { border-color: var(--sage); }
 
@@ -233,7 +233,7 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
 @media (max-width: 860px) {
   .cs-summary { grid-template-columns: 1fr; gap: 48px; }
   .facts { grid-template-columns: 1fr 1fr; }
-  .pulls, .fig-row { grid-template-columns: 1fr; }
+  .fig-row { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   body { font-size: 17px; }
