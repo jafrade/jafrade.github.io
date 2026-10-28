@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en" data-palette="oak" data-mode="full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:   #F8F3EA;
+    --paper-2: #F1EADD;
+    --neutral: #E5DCCD;
+    --ink:     #2A2724;
+    --ink-soft:#625B53;
+    --rule:    #E4DBCC;
+    --edge:    rgba(42,39,36,.16);
+
+    --font-display: "Jost", "Futura", system-ui, sans-serif;
+    --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+    --shadow:    0 1px 3px rgba(42,39,36,.08), 6px 10px 24px rgba(42,39,36,.16);
+    --shadow-sm: 0 1px 2px rgba(42,39,36,.08), 4px 8px 18px rgba(42,39,36,.16);
+    --gutter: clamp(16px, 4vw, 48px);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+
+  /* Palettes: four project colours each, plus paper tones */
+  [data-palette="teak"]   { --p1: #C7653F; --p2: #A7B29A; --p3: #D9A846; --p4: #2F6763; }
+  [data-palette="eames"]  { --p1: #B5452F; --p2: #3B5B7A; --p3: #E0B13E; --p4: #2B2A28; }
+  [data-palette="hinoki"] { --p1: #D06A3B; --p2: #2F3E5C; --p3: #C8A57E; --p4: #7E8C5E;
+                            --paper: #F7F2E8; --paper-2: #EEE6D6; }
+  [data-palette="sumi"]   { --p1: #9C7A62; --p2: #6E7458; --p3: #A69E92; --p4: #3A3835;
+                            --paper: #F5F2EC; --paper-2: #ECE7DE; --neutral: #DFD8CC; }
+  [data-palette="fjord"]  { --p1: #A34A4F; --p2: #5E8C8A; --p3: #C9B48A; --p4: #3E5468;
+                            --paper: #F4F3EF; --paper-2: #E9E7E1; --neutral: #DCD9D1; --rule: #DEDBD3; }
+  [data-palette="bauhaus"]{ --p1: #8E3B32; --p2: #2E3F57; --p3: #C9973A; --p4: #8A8F8E; }
+  /* From your references */
+  [data-palette="japandi"]{ --p1: #AB896E; --p2: #5E6B5A; --p3: #E2C9B3; --p4: #5D5D5D;
+                            --paper: #F3EFE6; --paper-2: #EBE2DB; --neutral: #E0D5CB; --rule: #E2D9CF; }
+  [data-palette="oak"]    { --p1: #B88B60; --p2: #7F8A74; --p3: #AFA091; --p4: #4B3E33;
+                            --paper: #F5F0E7; --paper-2: #EDE6DB; --neutral: #D6CCBD; --rule: #E0D8CB; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--font-display); transition: background .4s; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
+  header { padding: 64px 0 24px; }
+  h1, h2 { font-family: var(--font-display); font-weight: 300; margin: 0; letter-spacing: -.01em; }
+  h1 { font-size: clamp(40px, 6vw, 60px); }
+  h2 { font-size: clamp(26px, 3vw, 32px); font-weight: 400; }
+  .label { font: 500 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .intro { max-width: 62ch; color: var(--ink-soft); margin: 12px 0 0; }
+
+  /* Controls */
+  .controls { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+  .controls .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; padding-top: 14px; padding-bottom: 14px; align-items: center; }
+  .group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; gap: 2px; }
+  .seg button { font: 500 12px/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); background: none; border: 0; border-radius: 999px; padding: 8px 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .chips { display: inline-flex; }
+  .chips i { width: 9px; height: 9px; border-radius: 50%; margin-left: -2px; border: 1px solid rgba(255,255,255,.5); }
+
+  section { padding: 56px 0 72px; border-top: 1px solid var(--rule); }
+  section:first-of-type { border-top: 0; }
+  .section-head { margin-bottom: 32px; }
+  .section-head .label { color: var(--p1); }
+  .section-head h2 { margin-top: 10px; }
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px 32px; }
+
+  /* Card */
+  .card { text-decoration: none; color: inherit; display: block; }
+  .stage { position: relative; aspect-ratio: 5/4; display: grid; place-items: center; overflow: hidden; border-radius: 6px; background: var(--paper-2); transition: background .4s; }
+  .art { position: relative; z-index: 2; display: flex; justify-content: center; transition: transform .4s var(--ease); }
+  .card:hover .art { transform: translate(-3px, -3px); }
+  .phones { width: 86%; gap: 5%; align-items: center; margin-top: 12%; }
+  .phones img { width: 30%; border: 1px solid var(--edge); border-radius: 12px; box-shadow: var(--shadow-sm); }
+  .phones img:nth-child(2) { transform: translateY(-7%); }
+  .screen { margin-top: 10%; }
+  .screen img { width: 70%; margin: 0 auto; border: 1px solid var(--edge); border-radius: 10px; box-shadow: var(--shadow); }
+  .sheets { align-items: flex-start; margin-top: 10%; }
+  .sheets img { background: #fff; border: 1px solid var(--edge); box-shadow: var(--shadow-sm); }
+  .sheets.portrait img { width: 36%; }
+  .sheets.portrait img + img { margin: 14% 0 0 -12%; }
+  .sheets.landscape { width: 92%; }
+  .sheets.landscape img { width: 62%; }
+  .sheets.landscape img + img { margin: 18% 0 0 -38%; }
+
+  .info { padding-top: 18px; }
+  .info h3 { font: 400 24px/1.25 var(--font-display); letter-spacing: -.005em; margin: 10px 0 10px; max-width: 26ch; }
+  .info .outcome { margin: 0; color: var(--ink-soft); font-size: 16px; line-height: 1.55; max-width: 46ch; }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; }
+  .tags li { font: 500 11px/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); padding: 6px 9px; border: 1px solid var(--rule); border-radius: 999px; }
+
+  /* Colour modes: what the shape looks like at rest; hover always shows full colour */
+  .deco { position: absolute; z-index: 1; background: var(--fill); transition: background-color .5s var(--ease); }
+  [data-mode="full"]  .card       { --fill: var(--c); }
+  [data-mode="tonal"] .card       { --fill: color-mix(in srgb, var(--c) 26%, var(--paper-2)); }
+  [data-mode="hover"] .card       { --fill: var(--neutral); }
+  .card:hover                     { --fill: var(--c) !important; }
+
+  /* Horizon split */
+  .split .deco { left: 0; right: 0; bottom: 0; height: 46%; }
+  /* Off-centre disc */
+  .disc .deco { width: 46%; aspect-ratio: 1; border-radius: 50%; right: 8%; top: 8%; }
+  /* Shoji grid: hairline panes, one filled */
+  .shoji .stage { background:
+      linear-gradient(90deg, transparent calc(62% - 1px), var(--edge) calc(62% - 1px) 62%, transparent 62%),
+      linear-gradient(90deg, transparent calc(24% - 1px), var(--edge) calc(24% - 1px) 24%, transparent 24%),
+      linear-gradient(transparent calc(42% - 1px), var(--edge) calc(42% - 1px) 42%, transparent 42%),
+      var(--paper-2); }
+  .shoji .deco { left: 62%; right: 0; top: 42%; bottom: 0; }
+
+  /* Solid circle / solid square: one centred shape on bare paper, no panel behind it */
+  .circle .stage, .square .stage { background: transparent; overflow: visible; }
+  .circle .art, .square .art { margin-top: 0; scale: .78; }
+  .circle .featured .art, .square .featured .art { scale: .62; }
+  .circle .deco, .square .deco { height: 88%; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .circle .deco { border-radius: 50%; }
+  .square .deco { height: 78%; }
+
+  /* Colour field with a small mark: the whole panel is tinted; the mark stays full colour */
+  [data-mode="full"]  .card { --tint: color-mix(in srgb, var(--c) 36%, var(--paper-2)); }
+  [data-mode="tonal"] .card { --tint: color-mix(in srgb, var(--c) 16%, var(--paper-2)); }
+  [data-mode="hover"] .card { --tint: var(--paper-2); }
+  .card:hover               { --tint: color-mix(in srgb, var(--c) 36%, var(--paper-2)) !important; }
+  .field .stage { background-color: var(--tint); }
+  .field .deco { display: none; }
+
+  /* Featured project spans the row */
+  .card.featured { grid-column: 1 / -1; }
+  .card.featured .stage { aspect-ratio: 21/9; }
+  .card.featured .screen img { width: 58%; }
+  .card.featured .info { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+  .card.featured .info .label, .card.featured .info h3 { grid-column: 1; }
+  .card.featured .info .outcome, .card.featured .info .tags { grid-column: 2; }
+  .card.featured .info .outcome { grid-row: 1 / span 2; align-self: end; }
+
+  @media (max-width: 720px) {
+    .projects { grid-template-columns: 1fr; }
+    .card.featured .stage { aspect-ratio: 5/4; }
+    .card.featured .screen img { width: 80%; }
+    .card.featured .info { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="label">Style tile · card explorer</p>
+    <h1 style="margin-top:14px">Colour &amp; palette</h1>
+    <p class="intro">The card shapes, with controls for how loud the colour is at rest and which palette it uses. Hovering any card always shows full colour.</p>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="group"><span class="label">Colour at rest</span>
+      <div class="seg" id="mode">
+        <button data-v="full">Full</button>
+        <button data-v="tonal">Muted</button>
+        <button data-v="hover">On hover</button>
+      </div>
+    </div>
+    <div class="group"><span class="label">Palette</span>
+      <div class="seg" id="palette">
+        <button data-v="japandi"><span class="chips"><i style="background:#AB896E"></i><i style="background:#5E6B5A"></i><i style="background:#E2C9B3"></i><i style="background:#5D5D5D"></i></span>Japandi</button>
+        <button data-v="oak"><span class="chips"><i style="background:#B88B60"></i><i style="background:#7F8A74"></i><i style="background:#AFA091"></i><i style="background:#4B3E33"></i></span>Oak &amp; stone</button>
+        <button data-v="teak"><span class="chips"><i style="background:#C7653F"></i><i style="background:#A7B29A"></i><i style="background:#D9A846"></i><i style="background:#2F6763"></i></span>Teak</button>
+        <button data-v="eames"><span class="chips"><i style="background:#B5452F"></i><i style="background:#3B5B7A"></i><i style="background:#E0B13E"></i><i style="background:#2B2A28"></i></span>Eames</button>
+        <button data-v="hinoki"><span class="chips"><i style="background:#D06A3B"></i><i style="background:#2F3E5C"></i><i style="background:#C8A57E"></i><i style="background:#7E8C5E"></i></span>Hinoki</button>
+        <button data-v="sumi"><span class="chips"><i style="background:#9C7A62"></i><i style="background:#6E7458"></i><i style="background:#A69E92"></i><i style="background:#3A3835"></i></span>Sumi</button>
+        <button data-v="fjord"><span class="chips"><i style="background:#A34A4F"></i><i style="background:#5E8C8A"></i><i style="background:#C9B48A"></i><i style="background:#3E5468"></i></span>Fjord</button>
+        <button data-v="bauhaus"><span class="chips"><i style="background:#8E3B32"></i><i style="background:#2E3F57"></i><i style="background:#C9973A"></i><i style="background:#8A8F8E"></i></span>Bauhaus</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="sections"></main>
+
+<template id="cards">
+  <div class="projects">
+    <a class="card featured" href="../work/embedded-automate-panel.html" style="--c:var(--p2)"><div class="stage"><span class="deco"></span>
+        <div class="art screen"><img src="../images/embedded-automate-panel/card.jpg" alt="The Automate panel open beside a HubSpot contacts list"></div></div>
+      <div class="info"><span class="label">HubSpot · B2B CRM · 2026</span><h3>Bringing automation to HubSpot Starter</h3><p class="outcome">Led design and co-led strategy for HubSpot's Automate panel. 7 in 10 workflows customers built were new to Starter, and AI-recommended ones went live at 2× the rate.</p><ul class="tags"><li>0→1</li><li>Activation</li><li>Adoption</li><li>Platform</li></ul></div></a>
+    <a class="card" href="#" style="--c:var(--p1)"><div class="stage"><span class="deco"></span>
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt="Freetime task list"><img src="../img/cards/freetime-screen-2.png" alt="Freetime timer running"><img src="../img/cards/freetime-screen-3.png" alt="Freetime project detail"></div></div>
+      <div class="info"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+    <a class="card" href="#" style="--c:var(--p2)"><div class="stage"><span class="deco"></span>
+        <div class="art screen"><img src="../img/cards/prius-screen.jpg" alt="Prius console energy screen"></div></div>
+      <div class="info"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+    <a class="card" href="#" style="--c:var(--p3)"><div class="stage"><span class="deco"></span>
+        <div class="art sheets portrait"><img src="../img/cards/coke-page-1.png" alt="Coca-Cola report cover"><img src="../img/cards/coke-page-10.png" alt="Annotated home page findings"></div></div>
+      <div class="info"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+    <a class="card" href="#" style="--c:var(--p4)"><div class="stage"><span class="deco"></span>
+        <div class="art sheets landscape"><img src="../img/cards/opentable-page-1.png" alt="OpenTable executive summary"><img src="../img/cards/opentable-page-7.png" alt="Annotated OpenTable findings"></div></div>
+      <div class="info"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+  </div>
+</template>
+
+<script>
+  const shapes = [
+    ['split',  'Horizon split'],
+    ['field',  'Colour field (chosen)'],
+    ['circle', 'Solid circle'],
+    ['square', 'Solid square'],
+    ['disc',   'Off-centre disc'],
+    ['shoji',  'Shoji grid'],
+  ];
+  const main = document.getElementById('sections');
+  const tpl = document.getElementById('cards');
+  shapes.forEach(([cls, name], i) => {
+    const s = document.createElement('section');
+    s.className = cls;
+    s.innerHTML = `<div class="wrap"><div class="section-head"><p class="label">0${i + 1}</p><h2>${name}</h2></div></div>`;
+    s.querySelector('.wrap').appendChild(tpl.content.cloneNode(true));
+    main.appendChild(s);
+  });
+
+  const root = document.documentElement;
+  function bind(id, attr) {
+    const seg = document.getElementById(id);
+    let saved = null;
+    try { saved = localStorage.getItem('explorer-' + attr); } catch (e) {}
+    if (saved && seg.querySelector(`[data-v="${saved}"]`)) root.dataset[attr] = saved;
+    const sync = () => seg.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.v === root.dataset[attr]));
+    seg.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      root.dataset[attr] = b.dataset.v;
+      try { localStorage.setItem('explorer-' + attr, b.dataset.v); } catch (e) {}
+      sync();
+    });
+    sync();
+  }
+  bind('mode', 'mode');
+  bind('palette', 'palette');
+</script>
+</body>
+</html>

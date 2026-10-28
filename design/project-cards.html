@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Card Variations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:      #F8F3EA;
+    --paper-2:    #F1EADD;
+    --ink:        #2A2724;
+    --ink-soft:   #625B53;
+    --rule:       #E4DBCC;
+
+    --mustard:    #D9A846;
+    --terracotta: #C7653F;
+    --teal:       #2F6763;
+    --sage:       #A7B29A;
+
+    /* Soft tints of the accents, for full colour fields */
+    --mustard-t:    #F1DDAE;
+    --terracotta-t: #EBC5B2;
+    --teal-t:       #BCD0CC;
+    --sage-t:       #D9DFCF;
+
+    --font-display: "Jost", "Futura", system-ui, sans-serif;
+    --font-body:    "Jost", "Futura", system-ui, sans-serif;
+    --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--font-body); }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
+  section { padding: 88px 0; border-top: 1px solid var(--rule); }
+  header { padding: 72px 0 56px; }
+  h1, h2 { font-family: var(--font-display); font-weight: 300; margin: 0; letter-spacing: -.01em; }
+  h1 { font-size: clamp(40px, 6vw, 64px); }
+  h2 { font-size: clamp(28px, 3.5vw, 38px); }
+  .label { font: 500 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .intro { max-width: 60ch; color: var(--ink-soft); margin: 14px 0 0; }
+  .section-head { margin-bottom: 48px; }
+  .section-head .label { color: var(--terracotta); }
+  .section-head h2 { margin: 10px 0 8px; }
+
+  /* Shared card */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 64px 48px; }
+  .card { text-decoration: none; color: inherit; display: block; }
+  .stage { position: relative; aspect-ratio: 5/4; display: grid; place-items: center; overflow: hidden; }
+  .stage img { position: relative; z-index: 1; max-width: 80%; max-height: 80%; object-fit: contain; transition: transform .5s var(--ease); }
+  .info { padding-top: 22px; }
+  .info h3 { font: 500 20px/1.3 var(--font-mono); letter-spacing: -.01em; margin: 8px 0 6px; }
+  .info p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+  /* Richer card: context line, outcome-led title, result, tags */
+  .info.rich h3 { font: 400 24px/1.25 var(--font-display); letter-spacing: -.005em; margin: 10px 0 10px; max-width: 26ch; }
+  .info.rich .outcome { font-style: normal; font-size: 16px; line-height: 1.55; max-width: 46ch; }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; padding: 0; }
+  .tags li { font: 500 11px/1 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); padding: 6px 9px; border: 1px solid var(--rule); border-radius: 999px; }
+
+  /* A — One shape, many colours: the same upright arch on every card */
+  .v-arch .stage { overflow: visible; }
+  .v-arch .shape { position: absolute; left: 20%; right: 20%; top: 6%; bottom: 0; border-radius: 999px 999px 0 0; background: var(--c); transition: transform .5s var(--ease); transform-origin: bottom; }
+  .v-arch .stage img { transform: translateY(8%); }
+  .v-arch .card:hover .shape { transform: scaleY(1.04); }
+
+  /* B — Colour field + mark: a straight, softly tinted panel with a small MCM motif */
+  .v-field .stage { background: var(--t); border-radius: 6px; }
+  .v-field .motif { position: absolute; top: 20px; right: 20px; width: 36px; height: 36px; z-index: 2; }
+  .v-field .stage img { transform: translateY(6%); }
+  .v-field .card:hover .stage img { transform: translateY(4%); }
+
+  /* C — Horizon: a large sun setting behind the work, cropped by the frame */
+  .v-sun .stage { background: var(--paper-2); border-radius: 6px; }
+  .v-sun .sun { position: absolute; width: 64%; aspect-ratio: 1; left: 18%; top: 6%; border-radius: 50%; background: var(--c); transition: transform .6s var(--ease); }
+  .v-sun .card:hover .sun { transform: translateY(-5%); }
+  .v-sun .stage img { max-width: 72%; max-height: 66%; transform: translateY(18%); }
+
+  /* Frameless — real screens and report pages, no device hardware */
+  .frameless {
+    --edge: rgba(42,39,36,.16);
+    --shadow: 0 1px 3px rgba(42,39,36,.08), 6px 10px 24px rgba(42,39,36,.16);
+    --shadow-sm: 0 1px 2px rgba(42,39,36,.08), 4px 8px 18px rgba(42,39,36,.16);
+  }
+  .frameless .stage img { max-width: none; max-height: none; transform: none; z-index: auto; }
+  .frameless .art { position: relative; z-index: 1; display: flex; justify-content: center; transition: transform .4s var(--ease); }
+  .frameless .card:hover .art { transform: translate(-3px, -3px); }
+
+  /* Browser frame: a thin bar and three dots, drawn in CSS */
+  .frameless .art.browser { display: block; width: 72%; background: #fff; border: 1px solid var(--edge); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .browser .bar { height: 20px; display: flex; gap: 5px; align-items: center; padding: 0 9px; background: var(--paper); border-bottom: 1px solid var(--edge); }
+  .browser .bar i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid rgba(42,39,36,.35); }
+  .browser img { width: 100%; }
+
+  /* Flat screen */
+  .frameless .screen img { width: 70%; border: 1px solid var(--edge); border-radius: 10px; box-shadow: var(--shadow); }
+
+  /* Phone screens side by side, middle one lifted */
+  .phones { width: 86%; gap: 5%; align-items: center; }
+  .frameless .phones img { width: 30%; border: 1px solid var(--edge); border-radius: 12px; box-shadow: var(--shadow-sm); }
+  .frameless .phones img:nth-child(2) { transform: translateY(-7%); }
+
+  /* Report pages, overlapped but kept square to the grid */
+  .sheets { align-items: flex-start; }
+  .frameless .sheets img { background: #fff; border: 1px solid var(--edge); box-shadow: var(--shadow-sm); }
+  .frameless .sheets.portrait img { width: 40%; }
+  .frameless .sheets.portrait img + img { margin: 14% 0 0 -14%; }
+  .frameless .sheets.landscape { width: 92%; }
+  .frameless .sheets.landscape img { width: 62%; }
+  .frameless .sheets.landscape img + img { margin: 18% 0 0 -38%; }
+
+  .f-arch .stage { overflow: visible; }
+  .f-arch .shape { position: absolute; left: 22%; right: 22%; top: 0; bottom: 4%; border-radius: 999px 999px 0 0; background: var(--c); }
+  .f-sun .stage { background: var(--paper-2); border-radius: 6px; }
+  .f-sun .sun { position: absolute; width: 96%; aspect-ratio: 1; left: 2%; top: 40%; border-radius: 50%; background: var(--c); transition: transform .6s var(--ease); }
+  .f-sun .card:hover .sun { transform: translateY(-3%); }
+  .f-sun .art { margin-top: 14%; }
+  .f-field .stage { background: var(--t); border-radius: 6px; }
+  .f-field .motif { position: absolute; top: 18px; right: 18px; width: 32px; height: 32px; }
+
+  @media (max-width: 760px) {
+    .projects { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="label">Style tile · project cards</p>
+    <h1 style="margin-top:14px">Frameless</h1>
+    <p class="intro">Device hardware removed. Phone screens are cropped out of the old mockup, web work sits in a thin CSS browser frame, and the heuristic analyses show your actual report pages. Everything sits on a soft, light shadow.</p>
+  </div>
+</header>
+
+<main>
+  <!-- Frameless on the horizon -->
+  <section class="frameless f-sun">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Frameless · horizon</p>
+        <h2>Option C, without devices</h2>
+      </div>
+      <div class="projects">
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--terracotta)"></span>
+            <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt="Freetime task list"><img src="../img/cards/freetime-screen-2.png" alt="Freetime timer running"><img src="../img/cards/freetime-screen-3.png" alt="Freetime project detail"></div></div>
+          <div class="info rich"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--sage)"></span>
+            <div class="art screen"><img src="../img/cards/prius-screen.jpg" alt="Prius console energy screen"></div></div>
+          <div class="info rich"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--mustard)"></span>
+            <div class="art sheets portrait"><img src="../img/cards/coke-page-1.png" alt="Coca-Cola report cover"><img src="../img/cards/coke-page-10.png" alt="Annotated home page findings"></div></div>
+          <div class="info rich"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--teal)"></span>
+            <div class="art sheets landscape"><img src="../img/cards/opentable-page-1.png" alt="OpenTable executive summary"><img src="../img/cards/opentable-page-7.png" alt="Annotated OpenTable findings"></div></div>
+          <div class="info rich"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameless on the arch -->
+  <section class="frameless f-arch">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Frameless · on the arch</p>
+        <h2>Option A, without devices</h2>
+      </div>
+      <div class="projects">
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--terracotta)"></span>
+            <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt="Freetime task list"><img src="../img/cards/freetime-screen-2.png" alt="Freetime timer running"><img src="../img/cards/freetime-screen-3.png" alt="Freetime project detail"></div></div>
+          <div class="info rich"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--sage)"></span>
+            <div class="art screen"><img src="../img/cards/prius-screen.jpg" alt="Prius console energy screen"></div></div>
+          <div class="info rich"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--mustard)"></span>
+            <div class="art sheets portrait"><img src="../img/cards/coke-page-1.png" alt="Coca-Cola report cover"><img src="../img/cards/coke-page-10.png" alt="Annotated home page findings"></div></div>
+          <div class="info rich"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--teal)"></span>
+            <div class="art sheets landscape"><img src="../img/cards/opentable-page-1.png" alt="OpenTable executive summary"><img src="../img/cards/opentable-page-7.png" alt="Annotated OpenTable findings"></div></div>
+          <div class="info rich"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frameless on the colour field -->
+  <section class="frameless f-field">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Frameless · on a colour field</p>
+        <h2>Option B, without devices</h2>
+      </div>
+      <div class="projects">
+        <a class="card" href="#"><div class="stage" style="--t:var(--terracotta-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--terracotta)"/></svg>
+            <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt="Freetime task list"><img src="../img/cards/freetime-screen-2.png" alt="Freetime timer running"><img src="../img/cards/freetime-screen-3.png" alt="Freetime project detail"></div></div>
+          <div class="info rich"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+        <a class="card" href="#"><div class="stage" style="--t:var(--sage-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--teal)" opacity=".7"/></svg>
+            <div class="art browser"><div class="bar"><i></i><i></i><i></i></div><img src="../img/cards/prius-screen.jpg" alt="Prius console energy screen"></div></div>
+          <div class="info rich"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage" style="--t:var(--mustard-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--mustard)"/></svg>
+            <div class="art sheets portrait"><img src="../img/cards/coke-page-1.png" alt="Coca-Cola report cover"><img src="../img/cards/coke-page-19.png" alt="Annotated findings"></div></div>
+          <div class="info rich"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage" style="--t:var(--teal-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--teal)"/></svg>
+            <div class="art sheets landscape"><img src="../img/cards/opentable-page-2.png" alt="OpenTable findings and recommendations"><img src="../img/cards/opentable-page-7.png" alt="Annotated OpenTable findings"></div></div>
+          <div class="info rich"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+      </div>
+    </div>
+  </section>
+
+  <header style="padding-bottom:0">
+    <div class="wrap">
+      <p class="label">Earlier round</p>
+      <h2 style="margin-top:12px">With device mockups</h2>
+    </div>
+  </header>
+  <!-- A -->
+  <section class="v-arch">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Option A</p>
+        <h2>One arch, four colours</h2>
+        <p class="intro">The same upright arch behind every project, like a row of mid-century doorways. The most graphic and the most MCM of the three.</p>
+      </div>
+      <div class="projects">
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--terracotta)"></span><img src="../img/large/freetime/freetime_overview.png" alt="Freetime app screens"></div>
+          <div class="info rich"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--sage)"></span><img src="../img/large/prius/prius_overview.png" alt="Prius console concept"></div>
+          <div class="info rich"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--mustard)"></span><img src="../img/large/coca_cola_overview.png" alt="Coca-Cola site analysis"></div>
+          <div class="info rich"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="shape" style="--c:var(--teal)"></span><img src="../img/large/open_table_overview.png" alt="OpenTable analysis"></div>
+          <div class="info rich"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- B -->
+  <section class="v-field">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Option B</p>
+        <h2>Colour field with a small mark</h2>
+        <p class="intro">A calm, tinted panel per project, with the mid-century shape shrunk down to a small signature in the corner. The quietest and most Scandinavian.</p>
+      </div>
+      <div class="projects">
+        <a class="card" href="#"><div class="stage" style="--t:var(--terracotta-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--terracotta)"/></svg>
+            <img src="../img/large/freetime/freetime_overview.png" alt="Freetime app screens"></div>
+          <div class="info rich"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+        <a class="card" href="#"><div class="stage" style="--t:var(--sage-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--teal)" opacity=".7"/></svg>
+            <img src="../img/large/prius/prius_overview.png" alt="Prius console concept"></div>
+          <div class="info rich"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage" style="--t:var(--mustard-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--mustard)"/></svg>
+            <img src="../img/large/coca_cola_overview.png" alt="Coca-Cola site analysis"></div>
+          <div class="info rich"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage" style="--t:var(--teal-t)">
+            <svg class="motif" viewBox="0 0 36 36" aria-hidden="true"><path d="M0 36 a18 18 0 0 1 36 0 z" fill="var(--teal)"/></svg>
+            <img src="../img/large/open_table_overview.png" alt="OpenTable analysis"></div>
+          <div class="info rich"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- C -->
+  <section class="v-sun">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Option C</p>
+        <h2>Horizon</h2>
+        <p class="intro">A big sun sinking behind each project, cropped by the frame. Warm and a little cinematic; on hover the sun rises a touch.</p>
+      </div>
+      <div class="projects">
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--terracotta)"></span><img src="../img/large/freetime/freetime_overview.png" alt="Freetime app screens"></div>
+          <div class="info rich"><span class="label">Concept · iOS app · 2014</span><h3>Making time tracking effortless for freelancers</h3><p class="outcome">A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task.</p><ul class="tags"><li>0→1</li><li>Mobile</li><li>Information architecture</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--sage)"></span><img src="../img/large/prius/prius_overview.png" alt="Prius console concept"></div>
+          <div class="info rich"><span class="label">Team project · In-car UI · 2013</span><h3>Redesigning the Prius console for the mileage game</h3><p class="outcome">Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for.</p><ul class="tags"><li>Interaction design</li><li>Prototyping</li><li>User testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--mustard)"></span><img src="../img/large/coca_cola_overview.png" alt="Coca-Cola site analysis"></div>
+          <div class="info rich"><span class="label">Independent study · Coca-Cola site · 2012</span><h3>Finding where Coke.com loses its visitors</h3><p class="outcome">Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li><li>Usability testing</li></ul></div></a>
+        <a class="card" href="#"><div class="stage"><span class="sun" style="--c:var(--teal)"></span><img src="../img/large/open_table_overview.png" alt="OpenTable analysis"></div>
+          <div class="info rich"><span class="label">Independent study · OpenTable site · 2013</span><h3>Smoothing the path from hungry to booked</h3><p class="outcome">Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix.</p><ul class="tags"><li>Research</li><li>Heuristic evaluation</li></ul></div></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

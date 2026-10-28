@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bringing automation to HubSpot Starter — Jason Frade</title>
+<meta name="description" content="One consistent Automate panel where customers already work, starting from AI recommendations instead of a blank page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="site-nav">
+    <a class="mark" href="../"><span class="disc"></span>JASON FRADE</a>
+    <ul><li><a href="../#work">Work</a></li><li><a href="../#about">About</a></li><li><a href="../documents/Frade_resume.pdf">Résumé</a></li></ul>
+  </nav>
+</div>
+
+<main>
+  <header class="wrap cs-hero">
+    <p class="label">HubSpot · B2B CRM · 2026</p>
+    <h1>Bringing automation to HubSpot Starter</h1>
+    <p class="lede">One consistent Automate panel where customers already work, starting from AI recommendations instead of a blank page.</p>
+    <ul class="tags"><li>0→1</li><li>Activation</li><li>Adoption</li><li>Platform</li></ul>
+  </header>
+
+  <div class="wrap cs-hero-media">
+    <div class="stage-panel"><img src="../images/embedded-automate-panel/hero.jpg" alt="The Automate panel open beside a HubSpot contacts list"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="cs-summary">
+      <div class="cs-problem">
+        <p class="label">The problem</p>
+        <p>Starter customers, mostly small teams without time to learn new tools, had no central place to automate. Their automation was scattered across five different patterns and hard to find, and customers who couldn&#x27;t get what they needed were leaving for other tools.</p>
+      </div>
+      <div>
+        <p class="label">Results</p>
+        <ul class="metrics"><li><b>3×</b><span>automation discovery from putting Automate on the deal records page instead of in settings (A/B test)</span></li><li><b>45%</b><span>of AI-recommended workflows went live, twice the rate of starting from a blank page</span></li><li><b>72%</b><span>of panel workflows used automation Starter customers never had before</span></li></ul>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">My role</dt><dd><ul><li>Lead product designer</li><li>Co-led vision with PM</li></ul></dd></div>
+        <div><dt class="label">Timeline</dt><dd>Feb – Oct 2026 (beta July 23, launched to all Starter customers July 28–30, iterated through October)</dd></div>
+        <div><dt class="label">Shipped to</dt><dd>HubSpot Starter</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="cs-body">
+      <nav class="toc" aria-label="Chapters">
+        <p class="label">Contents</p>
+        <ol><li><a href="#role"><span></span>My role</a></li><li><a href="#context"><span>01</span>Context</a></li><li><a href="#problem"><span>02</span>Problem</a></li><li><a href="#strategy"><span>03</span>Strategy</a></li><li><a href="#research"><span>04</span>Concept validation</a></li><li><a href="#decision"><span>05</span>Design direction</a></li><li><a href="#solution"><span>06</span>Final design</a></li><li><a href="#impact"><span>07</span>Impact</a></li><li><a href="#reflection"><span></span>Reflection</a></li></ol>
+      </nav>
+<section class="chapter" id="role">
+<h2>My role</h2>
+<p>I led design for the Automate panel from February to October 2026 and co-led the vision with my PM. I worked with six front-end and back-end engineers, and with partner product teams who reviewed the design and placement of the panel on their pages.</p>
+<p>I owned the interaction and visual design, from the first concepts in Lovable to the final specs in Figma. I ran the research, including the concept test with 12 customers and the usability test comparing the two builder designs. I also wrote the framework for how AI recommendations explain themselves, and built the rulebook and agent skill that write each automation's sentence.</p>
+<p>The panel went to beta on July 23 and launched to all Starter customers by July 30. I kept improving it through October.</p>
+</section>
+<section class="chapter" id="context">
+<p class="label num">01 · Context</p>
+<h2>Starter customers are small teams with little time to learn new tools</h2>
+<p>HubSpot Starter is the entry-level paid plan, used by more than 150,000 customers, mostly founders and early hires at companies with 1 to 25 people. They’re wearing a lot of hats, and their attention is on finding customers and growing the business. Learning a tool like HubSpot, and automation in particular, feels like a big investment of time they don’t have. What they need is simple: leads that don’t fall through the cracks, deals that get followed up on, and tasks that get created without doing it manually.</p>
+</section>
+<section class="chapter" id="problem">
+<p class="label num">02 · Problem</p>
+<h2>Automation for Starter customers was scattered and hard to find</h2>
+<p>Starter customers didn't have access to a central Workflows app. Instead, their automation experience was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt."</p>
+<blockquote class="pull"><p>"A little bit of an Easter egg hunt."</p><cite class="label">Customer, describing how they found existing automations</cite></blockquote>
+<p>Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Even our own teams had trouble keeping track of where automations lived. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.</p>
+<figure class="fig-sheet"><img src="../images/embedded-automate-panel/audit.jpg" alt="Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences" loading="lazy"><figcaption>Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences</figcaption></figure>
+</section>
+<section class="chapter" id="strategy">
+<p class="label num">03 · Strategy</p>
+<h2>We moved automation onto the pages people already use</h2>
+<p>My PM and I started with a brainstorm to define the goal for the project and how we might reach it. Our goal was to give Starter customers automation that was easy to find and easy to start, so they could stop doing repetitive work manually and wouldn't need to leave HubSpot for other tools.</p>
+<p>The idea that shaped how we'd get there was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it.</p>
+<p>From there I proposed a single Automate experience that would look and work the same on every page where people already do their work. AI-generated recommendations, based on how each customer used their account, would show them where to start.</p>
+<div class="fig-row"><figure class="fig-sheet"><img src="../images/embedded-automate-panel/all-workflows.jpg" alt="The foundational approach: source apps and templates on top, all backed by workflows" loading="lazy"><figcaption>The foundational approach: source apps and templates on top, all backed by workflows</figcaption></figure><figure class="fig-sheet"><img src="../images/embedded-automate-panel/vision-venn.jpg" alt="The 2026 vision: embedded experience, unified canvas, unified management, and agents" loading="lazy"><figcaption>The 2026 vision: embedded experience, unified canvas, unified management, and agents</figcaption></figure></div>
+</section>
+<section class="chapter" id="research">
+<p class="label num">04 · Concept validation</p>
+<h2>Customers backed the direction and showed us what was missing</h2>
+<p>We tested the idea in two steps before building the panel. First, we moved the Automate button from settings onto the deal records page and ran an A/B test. Discovery went up 3x and activation went up 2x, and the result was statistically significant.</p>
+<p>We then tested our first node and card design concept for the Automate panel with 12 customers, to check whether the new builder was easy to understand and use. Having automation right on the page made sense to them, and pre-filling the trigger from the record they were viewing made the biggest difference. One person said, "It's remembered all the context I've gone through. I haven't got to reselect or hunt for it."</p>
+<blockquote class="pull"><p>"It's remembered all the context I've gone through. I haven't got to reselect or hunt for it."</p><cite class="label">Customer, concept test</cite></blockquote>
+<p>One finding changed our plans: recommendations felt like ads unless they fit what the person was doing and explained why they mattered. That led to the recommendation framework in the final design.</p>
+</section>
+<section class="chapter" id="decision">
+<p class="label num">05 · Design direction</p>
+<h2>Stakeholders and my team disagreed on the builder, so we tested both</h2>
+<p>Partner teams and leadership thought the builder looked too technical, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team didn't think rewording triggers and conditions would make them easier to understand. We wanted to build on the node-and-card pattern people already knew from the Workflows app, so it would be easier to learn and customers who upgraded to Pro would find the full app familiar. Our first brainstorm also listed the downsides of sentences: lots of custom UI to build, and they might not translate well.</p>
+<figure class="fig-sheet"><img src="../images/embedded-automate-panel/pros-cons.jpg" alt="Early pros and cons: sentence-style builder vs. AI-first creation" loading="lazy"><figcaption>Early pros and cons: sentence-style builder vs. AI-first creation</figcaption></figure>
+<p>We took the stakeholders' feedback and built two Lovable prototypes to test both concepts with customers and see whether one was actually easier to use. The results were split. People who liked the sentence version said it felt "less like programming and more like just editing a Word doc." People who liked the node and canvas version said, "Makes me feel like I am building a workflow. Nodes are familiar."</p>
+<div class="pulls"><blockquote class="pull"><p>"Less like programming and more like just editing a Word doc."</p><cite class="label">Customer who preferred the sentence version</cite></blockquote><blockquote class="pull"><p>"Makes me feel like I am building a workflow. Nodes are familiar."</p><cite class="label">Customer who preferred the node and canvas version</cite></blockquote></div>
+<p>The test also showed something I didn't expect: the builder's design changed how people used AI. In the sentence version, people typed their changes to the AI. In the node and canvas version, they edited the cards directly.</p>
+<figure class="fig-board wide"><img src="../images/embedded-automate-panel/research-styles.jpg" alt="The sentence version and the node and canvas version, side by side as tested" loading="lazy"><figcaption>The sentence version and the node and canvas version, side by side as tested</figcaption></figure>
+<p>With customers split, we went with the sentence version the stakeholders favored, and I led its visual design from there.</p>
+<p>My biggest concern had been scale, since every action needs its own sentence. So I built a rulebook and an agent skill that read an action's definition (its field labels, input order, and dependencies) and write its sentence automatically, for every existing and future action. The definition decides the structure, and the skill only handles the grammar.</p>
+<p>Translation was the tradeoff we accepted. Each sentence follows the order of the fields in the form, so translators can change the words but can't reorder them. In languages with a different word order, some sentences read less naturally.</p>
+</section>
+<section class="chapter" id="solution">
+<p class="label num">06 · Final design</p>
+<h2>Each part of the panel addresses something we saw in research</h2>
+<ul class="shifts"><li><span class="was">Automation used to be buried in settings,</span><span class="now">so the Automate button now sits on the CRM pages people already use.</span></li><li><span class="was">People used to start from an empty builder,</span><span class="now">so the panel now opens with recommendations for the record they're viewing.</span></li><li><span class="was">Setting up a trigger from scratch confused people,</span><span class="now">so the panel fills in the trigger based on where it was opened.</span></li><li><span class="was">Fields used to be hidden inside forms,</span><span class="now">so each automation now reads as a sentence with the editable parts highlighted.</span></li></ul>
+<figure class="fig-board wide"><img src="../images/embedded-automate-panel/final-panel.jpg" alt="Final panel: recommendations, a sentence being edited inline, and the trigger pre-filled from context" loading="lazy"><figcaption>Final panel: recommendations, a sentence being edited inline, and the trigger pre-filled from context</figcaption></figure>
+<p>Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business and never why HubSpot picked it. If an account has enough activity, the recommendation can point to real evidence, like "28x this week deal owners were manually assigned." Newer accounts get suggestions that teach good habits instead.</p>
+<p>My PM and I also mapped out what Starter and Pro customers could each edit and add, so the same panel could work for both.</p>
+<figure class="fig-sheet"><img src="../images/embedded-automate-panel/tier-map.jpg" alt="Starter vs. Pro: what each tier can edit, add, and use" loading="lazy"><figcaption>Starter vs. Pro: what each tier can edit, add, and use</figcaption></figure>
+<figure class="fig-board wide"><img src="../images/embedded-automate-panel/iterations.jpg" alt="Design reviews from February vision to June visual styles" loading="lazy"><figcaption>Design reviews from February vision to June visual styles</figcaption></figure>
+</section>
+<section class="chapter" id="impact">
+<p class="label num">07 · Impact</p>
+<h2>Most workflows built in the panel used features Starter didn't have before</h2>
+<p>Starter customers had been leaving because HubSpot couldn't automate the work they needed. After launch, 72% of the workflows built in the panel used features that weren't available on Starter before.</p>
+<ul class="points"><li>44K Starter accounts clicked Automate in the first 11 weeks, which is more than 1 in 4 Starter customers.</li><li>About 2,000 accounts started 3,663 workflows in the panel.</li><li>About 1 in 3 of those workflows went live.</li></ul>
+<p>Workflows that started from an AI recommendation went live 45% of the time, compared with only 23% of workflows built from scratch.</p>
+<p>We built the panel so other teams could reuse it, and Agent Hub Starter did. It launched on September 21 with the panel as its builder, and gave Starter customers one place to create and manage all their workflows for the first time. Weekly workflows turned on went from about 100 to about 340 in the weeks after.</p>
+</section>
+<section class="chapter reflection" id="reflection">
+<p class="label num">Reflection</p>
+<h2>What I'd do differently</h2>
+<p>We looked at much more than ease of use. Our brainstorm weighed build time, scalability, and translation. But we didn't make that case strongly enough. If I'd laid out the pros, cons, and tradeoffs of each direction clearly for stakeholders, the conversation would have been about those tradeoffs.</p>
+<p>I'd also test more ideas, and test them sooner. Putting several directions in front of customers early would have given everyone the same evidence to work from.</p>
+<p>Once we committed to the sentence version, my job was to make it work. The scaling problem I'd worried about is what led me to build the rulebook and skill.</p>
+</section>
+    </article>
+  </div>
+  
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="label">Jason Frade · Product designer</span>
+    <a class="label" href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Highlight the chapter currently in view in the contents list.
+  const links = [...document.querySelectorAll('.toc a')];
+  const seen = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting ? seen.add(e.target.id) : seen.delete(e.target.id));
+    const first = links.find(a => seen.has(a.hash.slice(1)));
+    if (first) links.forEach(a => a.classList.toggle('active', a === first));
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  document.querySelectorAll('.chapter').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

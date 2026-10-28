@@ -1,0 +1,30 @@
+# Project card data, in the same shape as the new HubSpot project.
+# Years confirmed: Freetime 2014, Prius 2013, Coke 2012, OpenTable 2013.
+
+# HubSpot's card now lives in content/projects/embedded-automate-panel.md
+# (card_thumbnail, card_context, card_summary, focus). The older projects below
+# use the same fields so they can move into their own project files later.
+
+- title: "Making time tracking effortless for freelancers"
+  card_thumbnail: /img/cards/freetime-screen-2.png
+  card_context: "Concept · iOS app · 2014"          # screens are dated Oct 2014
+  card_summary: "A project-and-task flow a freelancer can pick up in seconds, with a one-tap timer on every task."
+  focus: ["0→1", "Mobile", "Information architecture"]
+
+- title: "Redesigning the Prius console for the mileage game"
+  card_thumbnail: /img/cards/prius-screen.jpg
+  card_context: "Team project · In-car UI · 2013"
+  card_summary: "Took a gas-and-electric dashboard from flowcharts to prototype, then reworked it after user testing surfaced pain points we hadn't planned for."
+  focus: ["Interaction design", "Prototyping", "User testing"]
+
+- title: "Finding where Coke.com loses its visitors"
+  card_thumbnail: /img/cards/coke-page-10.png
+  card_context: "Independent study · Coca-Cola site · 2012"   # report dated July 2012
+  card_summary: "Core tasks took users one to three minutes to finish, long enough that many would give up. Every issue got a severity rating and a fix."
+  focus: ["Research", "Heuristic evaluation", "Usability testing"]
+
+- title: "Smoothing the path from hungry to booked"
+  card_thumbnail: /img/cards/opentable-page-7.png
+  card_context: "Independent study · OpenTable site · 2013"
+  card_summary: "Audited reservation, sign-up and search against Nielsen's heuristics, pairing each issue with a severity rating and a recommended fix."
+  focus: ["Research", "Heuristic evaluation"]

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Style Tile — Jason Frade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Paper & ink */
+    --paper:      #F8F3EA;
+    --paper-2:    #F1EADD;
+    --ink:        #2A2724;
+    --ink-soft:   #625B53;
+    --rule:       #E4DBCC;
+
+    /* MCM accents, muted for Japandi restraint */
+    --mustard:    #D9A846;
+    --terracotta: #C7653F;
+    --teal:       #2F6763;
+    --sage:       #A7B29A;
+    --walnut:     #6B4A33;
+
+    --font-display: "Jost", "Futura", system-ui, sans-serif;
+    --font-body:    "Jost", "Futura", system-ui, sans-serif;
+    --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+
+    --gutter: clamp(16px, 4vw, 48px);
+
+    /* Barely-there texture: felt more than seen */
+    --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.16  0 0 0 0 0.14  0 0 0 0 0.12  0 0 0 .025 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    --dots: radial-gradient(rgba(42,39,36,.075) 1px, transparent 1.1px);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper) var(--grain);
+    color: var(--ink);
+    font: 400 17px/1.65 var(--font-body);
+  }
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
+  .read { max-width: 640px; margin: 0 auto; }
+  section { padding: 96px 0; }
+
+  /* Subtle dot grid, only on chosen surfaces, fading out toward the edges */
+  .dotted { position: relative; isolation: isolate; }
+  .dotted::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background-image: var(--dots); background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+            mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 75%);
+  }
+
+  /* Type */
+  .label {
+    font: 500 12px/1 var(--font-mono);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -.01em; margin: 0; }
+  .display { font-size: clamp(48px, 8vw, 96px); line-height: 1; font-weight: 300; }
+  h2 { font-size: clamp(30px, 4vw, 40px); line-height: 1.15; }
+  h3 { font-size: 22px; line-height: 1.3; font-weight: 500; }
+  .lede { font-size: clamp(19px, 2vw, 22px); line-height: 1.55; color: var(--ink-soft); }
+  .section-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 40px; }
+  .section-head .num { font: 500 13px var(--font-mono); color: var(--terracotta); }
+  a { color: var(--teal); text-underline-offset: 3px; }
+
+  /* Hero */
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 28px 0; }
+  .mark { display: flex; align-items: center; gap: 12px; font: 500 15px var(--font-display); letter-spacing: .04em; }
+  .mark .disc { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); position: relative; }
+  .mark .disc::after { content: ""; position: absolute; inset: 6px 6px 6px 13px; background: var(--mustard); border-radius: 0 13px 13px 0; }
+  .nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; font: 400 15px var(--font-display); }
+  .nav a { color: var(--ink); text-decoration: none; }
+  .nav a:hover { text-decoration: underline; }
+  .hero { padding: 96px 0 120px; text-align: center; }
+  .hero .ornament { width: 120px; margin: 0 auto 40px; }
+  .hero .lede { max-width: 36ch; margin: 24px auto 0; }
+
+  /* Palette */
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 20px; }
+  .swatch .chip { height: 88px; border-radius: 4px; border: 1px solid rgba(42,39,36,.06); }
+  .swatch b { display: block; margin-top: 10px; font: 500 15px var(--font-display); }
+  .swatch span { font: 400 12px var(--font-mono); color: var(--ink-soft); }
+
+  /* Type specimen */
+  .type-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .specimen .big { font-family: var(--font-display); font-size: 64px; line-height: 1; font-weight: 300; margin: 18px 0 14px; }
+  .specimen .big.mono { font-family: var(--font-mono); font-size: 44px; }
+  .specimen p { margin: 0; font-size: 16px; color: var(--ink-soft); }
+
+  /* Surfaces */
+  .surfaces { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .surface { aspect-ratio: 4/3; border-radius: 4px; border: 1px solid var(--rule); position: relative; display: flex; align-items: flex-end; padding: 16px; }
+  .surface.plain { background: var(--paper); }
+  .surface.tint  { background: var(--paper-2) var(--grain); }
+  .surface.grid  { background-color: var(--paper); background-image: var(--dots); background-size: 24px 24px; }
+
+  /* Project cards — mockup over a tilted mid-century colour block */
+  .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 72px 56px; }
+  .card { text-decoration: none; color: inherit; display: block; }
+  .card .stage { position: relative; aspect-ratio: 5/4; display: grid; place-items: center; padding: 8% 6%; }
+  .card .shape { position: absolute; inset: 10% 14%; border-radius: 6px; transform: rotate(-5deg); transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .card .shape.circle { inset: 6% 18%; border-radius: 50%; transform: none; }
+  .card .shape.arch { inset: 8% 16% 4%; border-radius: 999px 999px 6px 6px; transform: none; }
+  .card .stage img { position: relative; max-width: 84%; max-height: 84%; object-fit: contain; transform: translateY(6%); }
+  .card:hover .shape { transform: rotate(-2deg) scale(1.03); }
+  .card:hover .shape.circle, .card:hover .shape.arch { transform: scale(1.04); }
+  .card .info { padding-top: 24px; }
+  .card h3 { font-family: var(--font-mono); font-weight: 500; font-size: 20px; letter-spacing: -.01em; margin: 8px 0 6px; }
+  .card p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+  /* Controls */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font: 500 15px var(--font-display); letter-spacing: .02em;
+    padding: 13px 22px; border: 1.5px solid var(--ink); border-radius: 999px;
+    color: var(--ink); background: transparent; text-decoration: none; cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.solid { background: var(--ink); color: var(--paper); }
+  .btn.solid:hover { background: var(--teal); border-color: var(--teal); }
+  .tag { display: inline-block; font: 500 11px/1 var(--font-mono); letter-spacing: .1em; text-transform: uppercase; padding: 7px 10px; border-radius: 999px; background: var(--paper-2); color: var(--ink-soft); }
+
+  /* Case study */
+  .case-hero { text-align: center; }
+  .case-hero h2 { font-size: clamp(36px, 5vw, 56px); font-weight: 300; margin: 14px 0 18px; }
+  .case-hero .lede { max-width: 40ch; margin: 0 auto; }
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 56px 0; padding: 24px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .facts dt { font: 500 11px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .facts dd { margin: 4px 0 0; font: 400 16px var(--font-display); }
+  .read h3 { font-family: var(--font-mono); font-weight: 500; font-size: 22px; margin: 48px 0 12px; }
+  .pullquote { margin: 40px 0; padding-left: 22px; border-left: 2px solid var(--mustard); font: 300 24px/1.45 var(--font-display); }
+
+  .note { font: 400 13px var(--font-mono); color: var(--ink-soft); margin-top: 16px; }
+
+  @media (max-width: 760px) {
+    .nav ul { gap: 16px; }
+    .hero { padding: 56px 0 80px; }
+    .type-grid, .projects, .surfaces { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="nav">
+    <div class="mark"><span class="disc"></span>JASON FRADE</div>
+    <ul><li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#">Résumé</a></li></ul>
+  </nav>
+</div>
+
+<header class="hero dotted">
+  <div class="wrap">
+    <svg class="ornament" viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="68" cy="48" r="36" fill="var(--mustard)"/>
+      <path d="M24 100 a40 40 0 0 1 80 0 z" fill="var(--teal)"/>
+      <circle cx="36" cy="36" r="14" fill="none" stroke="var(--ink)" stroke-width="1.2"/>
+    </svg>
+    <p class="label">Style tile · v0.2</p>
+    <h1 class="display" style="margin-top:16px">Hi, I'm Jason.</h1>
+    <p class="lede">A product designer who makes complicated workflows feel calm, clear and a little bit warm.</p>
+  </div>
+</header>
+
+<main>
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head"><span class="num">01</span><h2>Project cards</h2></div>
+      <div class="projects">
+        <a class="card" href="#">
+          <div class="stage"><span class="shape" style="background:var(--terracotta)"></span><img src="../img/large/freetime/freetime_overview.png" alt="Freetime app screens"></div>
+          <div class="info">
+            <span class="label">Mobile · 0→1</span>
+            <h3>Freetime — Time Tracking</h3>
+            <p>Project setup and time tracking that take seconds, not a learning curve.</p>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="stage"><span class="shape arch" style="background:var(--sage)"></span><img src="../img/large/prius/prius_overview.png" alt="Prius console concept"></div>
+          <div class="info">
+            <span class="label">Automotive · Interaction</span>
+            <h3>Toyota Prius Console</h3>
+            <p>Rethinking in-car controls around glanceability and reach.</p>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="stage"><span class="shape circle" style="background:var(--mustard)"></span><img src="../img/large/coca_cola_overview.png" alt="Coca-Cola site analysis"></div>
+          <div class="info">
+            <span class="label">Research · Heuristics</span>
+            <h3>Coca-Cola UX Analysis</h3>
+            <p>A heuristic and user review of a global brand's web experience.</p>
+          </div>
+        </a>
+        <a class="card" href="#">
+          <div class="stage"><span class="shape" style="background:var(--teal); transform:rotate(4deg)"></span><img src="../img/large/open_table_overview.png" alt="OpenTable analysis"></div>
+          <div class="info">
+            <span class="label">Research · Heuristics</span>
+            <h3>OpenTable UX Analysis</h3>
+            <p>Finding the friction between hungry and booked.</p>
+          </div>
+        </a>
+      </div>
+      <p class="note">The shapes behind them rotate through mid-century forms: tilted card, arch, sun.</p>
+    </div>
+  </section>
+
+  <section style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head"><span class="num">02</span><h2>Palette</h2></div>
+      <div class="swatches">
+        <div class="swatch"><div class="chip" style="background:var(--paper)"></div><b>Rice paper</b><span>#F8F3EA · base</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--paper-2)"></div><b>Linen</b><span>#F1EADD · surface</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--ink)"></div><b>Sumi ink</b><span>#2A2724 · text</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--walnut)"></div><b>Walnut</b><span>#6B4A33 · detail</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--mustard)"></div><b>Mustard</b><span>#D9A846</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--terracotta)"></div><b>Terracotta</b><span>#C7653F</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--teal)"></div><b>Teal</b><span>#2F6763 · links</span></div>
+        <div class="swatch"><div class="chip" style="background:var(--sage)"></div><b>Sage</b><span>#A7B29A</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><span class="num">03</span><h2>Type</h2></div>
+      <div class="type-grid">
+        <div class="specimen">
+          <p class="label">Headlines &amp; reading · Jost</p>
+          <div class="big">Aa Bb</div>
+          <p>Geometric, Futura lineage. Light weights for big headlines, regular for body copy and case studies.</p>
+        </div>
+        <div class="specimen">
+          <p class="label">Labels &amp; metadata · Plex Mono</p>
+          <div class="big mono">Aa 01</div>
+          <p>Context lines, tags, section numbers and captions: the small notes in the margin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><span class="num">04</span><h2>Surfaces</h2></div>
+      <div class="surfaces">
+        <div class="surface plain"><span class="label">Plain paper — default</span></div>
+        <div class="surface tint"><span class="label">Linen tint — alt sections</span></div>
+        <div class="surface grid"><span class="label">Faint dot grid — hero only</span></div>
+      </div>
+      <p class="note">Texture is now a whisper: grain at ~2% and the dot grid only behind the hero, fading out at the edges.</p>
+    </div>
+  </section>
+
+  <section style="background:var(--paper-2)">
+    <div class="wrap">
+      <div class="section-head"><span class="num">05</span><h2>Controls</h2></div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+        <a class="btn solid" href="#">View case study →</a>
+        <a class="btn" href="#">Download résumé</a>
+        <span class="tag">Research</span><span class="tag">Prototyping</span><span class="tag">UX strategy</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><span class="num">06</span><h2>Case study page</h2></div>
+      <div class="case-hero">
+        <span class="label">Case study · 2024</span>
+        <h2>Freetime</h2>
+        <p class="lede">Turning a cluttered freelance workflow into a calm one. Placeholder framing: the problem, who it was for, and what changed.</p>
+      </div>
+      <div class="read">
+        <dl class="facts">
+          <div><dt>Role</dt><dd>Lead designer</dd></div>
+          <div><dt>Team</dt><dd>2 eng · 1 PM</dd></div>
+          <div><dt>Timeline</dt><dd>10 weeks</dd></div>
+          <div><dt>Outcome</dt><dd>−40% setup time</dd></div>
+        </dl>
+        <h3>Overview</h3>
+        <p>Case study text sits in a single narrow column, about 65 characters wide, so it reads like a well-set book. <b>Key sentences can be bolded</b> for people who skim, and <a href="#">links use the teal accent</a>.</p>
+        <blockquote class="pullquote">“The best tools disappear — you notice the work, not the software.”</blockquote>
+        <h3>My role</h3>
+        <p>Images break out wider than the text column; everything else stays in the reading line.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

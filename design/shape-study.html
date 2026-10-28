@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Card Shape Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:   #F8F3EA;
+    --paper-2: #F1EADD;
+    --ink:     #2A2724;
+    --ink-soft:#625B53;
+    --rule:    #E4DBCC;
+    --edge:    rgba(42,39,36,.16);
+
+    --mustard:    #D9A846;
+    --terracotta: #C7653F;
+    --teal:       #2F6763;
+    --sage:       #A7B29A;
+    --walnut:     #6B4A33;
+
+    --font-display: "Jost", "Futura", system-ui, sans-serif;
+    --font-mono:    "IBM Plex Mono", ui-monospace, monospace;
+    --shadow:    0 1px 3px rgba(42,39,36,.08), 6px 10px 24px rgba(42,39,36,.16);
+    --shadow-sm: 0 1px 2px rgba(42,39,36,.08), 4px 8px 18px rgba(42,39,36,.16);
+    --gutter: clamp(16px, 4vw, 48px);
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--font-display); }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--gutter); }
+  header { padding: 72px 0 40px; }
+  h1, h2 { font-family: var(--font-display); font-weight: 300; margin: 0; letter-spacing: -.01em; }
+  h1 { font-size: clamp(40px, 6vw, 60px); }
+  h2 { font-size: clamp(26px, 3vw, 32px); font-weight: 400; }
+  .label { font: 500 12px/1 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+  .intro { max-width: 62ch; color: var(--ink-soft); margin: 12px 0 0; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--rule); }
+  .idea { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+  .idea .label { color: var(--terracotta); }
+  .idea h2 { margin: 10px 0 10px; }
+  .idea p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+  .idea .why { margin-top: 14px; font: 400 13px/1.5 var(--font-mono); color: var(--ink-soft); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+  /* Shared stage + frameless art */
+  .stage { position: relative; aspect-ratio: 5/4; display: grid; place-items: center; overflow: hidden; border-radius: 6px; background: var(--paper-2); }
+  .art { position: relative; z-index: 2; display: flex; justify-content: center; transition: transform .4s var(--ease); }
+  .stage:hover .art { transform: translate(-3px, -3px); }
+  .phones { width: 86%; gap: 5%; align-items: center; margin-top: 12%; }
+  .phones img { width: 30%; border: 1px solid var(--edge); border-radius: 12px; box-shadow: var(--shadow-sm); }
+  .phones img:nth-child(2) { transform: translateY(-7%); }
+  .sheets { width: 92%; align-items: flex-start; margin-top: 10%; }
+  .sheets img { width: 62%; background: #fff; border: 1px solid var(--edge); box-shadow: var(--shadow-sm); }
+  .sheets img + img { margin: 18% 0 0 -38%; }
+  .deco { position: absolute; z-index: 1; }
+
+  /* 1 — Albers: nested squares, after Josef Albers' Homage to the Square */
+  .albers .o { inset: 12% 22% 0; background: var(--c2); }
+  .albers .i { inset: 30% 32% 0; background: var(--c); }
+
+  /* 2 — Horizon split: two-tone field, like a mid-century record sleeve */
+  .split .deco { left: 0; right: 0; bottom: 0; height: 46%; background: var(--c); }
+
+  /* 3 — Off-centre circle: a single disc, Japandi / hinomaru */
+  .disc .deco { width: 46%; aspect-ratio: 1; border-radius: 50%; right: 8%; top: 8%; background: var(--c); }
+
+  /* 4 — Slats: teak slat wall / credenza fronts */
+  .slats .deco { inset: 0; background: repeating-linear-gradient(90deg, var(--c) 0 14px, transparent 14px 24px); opacity: .9;
+                 -webkit-mask-image: linear-gradient(transparent 0 22%, #000 22%); mask-image: linear-gradient(transparent 0 22%, #000 22%); }
+
+  /* 5 — Shoji grid: thin rules dividing the panel, one pane filled */
+  .shoji .stage { background:
+      linear-gradient(var(--c) 0 0) 62% 100% / 38% 58% no-repeat,
+      linear-gradient(90deg, transparent calc(62% - 1px), var(--edge) calc(62% - 1px) 62%, transparent 62%),
+      linear-gradient(90deg, transparent calc(24% - 1px), var(--edge) calc(24% - 1px) 24%, transparent 24%),
+      linear-gradient(transparent calc(42% - 1px), var(--edge) calc(42% - 1px) 42%, transparent 42%),
+      var(--paper-2); }
+
+  /* 6 — Bauhaus stamp: a small geometric composition in the corner */
+  .stamp .stage { background: var(--t); }
+  .stamp .deco { top: 18px; right: 18px; width: 56px; height: 40px; }
+
+  @media (max-width: 860px) {
+    .idea { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 560px) {
+    .pair { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="label">Style tile · card shapes</p>
+    <h1 style="margin-top:14px">Beyond the arch</h1>
+    <p class="intro">Six directions that stay mid-century and Scandinavian without the rainbow-arch, sunset look. Each is shown on two real cards so you can see how the colour changes between projects.</p>
+  </div>
+</header>
+
+<main>
+  <section class="albers"><div class="wrap idea">
+    <div><p class="label">01</p><h2>Albers squares</h2>
+      <p>Two nested colour blocks rising from the bottom edge, straight and centred, after Josef Albers' <em>Homage to the Square</em>.</p>
+      <p class="why">Modernist art history. Rigorous, not decorative.</p></div>
+    <div class="pair">
+      <div class="stage" style="--c:var(--terracotta); --c2:#E2A98F"><span class="deco o"></span><span class="deco i"></span>
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt=""><img src="../img/cards/freetime-screen-2.png" alt=""><img src="../img/cards/freetime-screen-3.png" alt=""></div></div>
+      <div class="stage" style="--c:var(--teal); --c2:#93B3AE"><span class="deco o"></span><span class="deco i"></span>
+        <div class="art sheets"><img src="../img/cards/opentable-page-1.png" alt=""><img src="../img/cards/opentable-page-7.png" alt=""></div></div>
+    </div>
+  </div></section>
+
+  <section class="split"><div class="wrap idea">
+    <div><p class="label">02</p><h2>Horizon split</h2>
+      <p>The panel splits into two flat tones, and the work sits across the line, like a 1960s record sleeve or a Marimekko print.</p>
+      <p class="why">The simplest option. Colour does all the work.</p></div>
+    <div class="pair">
+      <div class="stage" style="--c:var(--terracotta)"><span class="deco"></span>
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt=""><img src="../img/cards/freetime-screen-2.png" alt=""><img src="../img/cards/freetime-screen-3.png" alt=""></div></div>
+      <div class="stage" style="--c:var(--teal)"><span class="deco"></span>
+        <div class="art sheets"><img src="../img/cards/opentable-page-1.png" alt=""><img src="../img/cards/opentable-page-7.png" alt=""></div></div>
+    </div>
+  </div></section>
+
+  <section class="disc"><div class="wrap idea">
+    <div><p class="label">03</p><h2>Off-centre disc</h2>
+      <p>One full circle, top right, with the work overlapping it. A complete circle reads as Japanese and modernist; only the half-circle reads as a sunset.</p>
+      <p class="why">Most Japandi. Calm, with lots of negative space.</p></div>
+    <div class="pair">
+      <div class="stage" style="--c:var(--terracotta)"><span class="deco"></span>
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt=""><img src="../img/cards/freetime-screen-2.png" alt=""><img src="../img/cards/freetime-screen-3.png" alt=""></div></div>
+      <div class="stage" style="--c:var(--teal)"><span class="deco"></span>
+        <div class="art sheets"><img src="../img/cards/opentable-page-1.png" alt=""><img src="../img/cards/opentable-page-7.png" alt=""></div></div>
+    </div>
+  </div></section>
+
+  <section class="slats"><div class="wrap idea">
+    <div><p class="label">04</p><h2>Slats</h2>
+      <p>Vertical bands in the project colour, like a teak slat wall or the front of a mid-century credenza.</p>
+      <p class="why">Furniture rather than graphics. The most textural option.</p></div>
+    <div class="pair">
+      <div class="stage" style="--c:#DDB3A0"><span class="deco"></span>
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt=""><img src="../img/cards/freetime-screen-2.png" alt=""><img src="../img/cards/freetime-screen-3.png" alt=""></div></div>
+      <div class="stage" style="--c:#A9C1BD"><span class="deco"></span>
+        <div class="art sheets"><img src="../img/cards/opentable-page-1.png" alt=""><img src="../img/cards/opentable-page-7.png" alt=""></div></div>
+    </div>
+  </div></section>
+
+  <section class="shoji"><div class="wrap idea">
+    <div><p class="label">05</p><h2>Shoji grid</h2>
+      <p>Hairline rules divide the panel into panes, like a shoji screen, with one pane filled in the project colour.</p>
+      <p class="why">Architectural. Pairs well with a grid-based layout.</p></div>
+    <div class="pair">
+      <div class="stage" style="--c:var(--terracotta)">
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt=""><img src="../img/cards/freetime-screen-2.png" alt=""><img src="../img/cards/freetime-screen-3.png" alt=""></div></div>
+      <div class="stage" style="--c:var(--teal)">
+        <div class="art sheets"><img src="../img/cards/opentable-page-1.png" alt=""><img src="../img/cards/opentable-page-7.png" alt=""></div></div>
+    </div>
+  </div></section>
+
+  <section class="stamp"><div class="wrap idea">
+    <div><p class="label">06</p><h2>Bauhaus stamp</h2>
+      <p>A soft tinted panel, with a tiny composition of circle, square and bar in the corner, like a maker's mark.</p>
+      <p class="why">The quietest. The shape becomes a signature, not a backdrop.</p></div>
+    <div class="pair">
+      <div class="stage" style="--t:#EBC5B2">
+        <svg class="deco" viewBox="0 0 56 40" aria-hidden="true"><circle cx="12" cy="20" r="12" fill="var(--terracotta)"/><rect x="28" y="8" width="24" height="24" fill="var(--ink)"/><rect x="0" y="36" width="56" height="4" fill="var(--mustard)"/></svg>
+        <div class="art phones"><img src="../img/cards/freetime-screen-1.png" alt=""><img src="../img/cards/freetime-screen-2.png" alt=""><img src="../img/cards/freetime-screen-3.png" alt=""></div></div>
+      <div class="stage" style="--t:#BCD0CC">
+        <svg class="deco" viewBox="0 0 56 40" aria-hidden="true"><circle cx="12" cy="20" r="12" fill="var(--teal)"/><rect x="28" y="8" width="24" height="24" fill="var(--ink)"/><rect x="0" y="36" width="56" height="4" fill="var(--mustard)"/></svg>
+        <div class="art sheets"><img src="../img/cards/opentable-page-1.png" alt=""><img src="../img/cards/opentable-page-7.png" alt=""></div></div>
+    </div>
+  </div></section>
+</main>
+
+</body>
+</html>
