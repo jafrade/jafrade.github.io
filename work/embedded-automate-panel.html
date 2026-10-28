@@ -28,7 +28,7 @@
   </header>
 
   <div class="wrap cs-hero-media">
-    <div class="stage-panel"><img src="../images/embedded-automate-panel/hero.jpg" alt="The Automate panel open beside a HubSpot contacts list"></div>
+    <div class="stage-panel"><img src="../images/embedded-automate-panel/hero.jpg" alt="Bringing automation to HubSpot Starter"></div>
   </div>
 
   <div class="wrap">
@@ -72,7 +72,7 @@
 <p>Starter customers didn't have access to a central Workflows app. Instead, their automation experience was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt."</p>
 <blockquote class="pull"><p>"A little bit of an Easter egg hunt."</p><cite class="label">Customer, describing how they found existing automations</cite></blockquote>
 <p>Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Even our own teams had trouble keeping track of where automations lived. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.</p>
-<figure class="fig-sheet"><img src="../images/embedded-automate-panel/audit.jpg" alt="Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences" loading="lazy"><figcaption>Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences</figcaption></figure>
+<figure class="fig-sheet"><img src="../images/embedded-automate-panel/audit.jpg" alt="Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences" width="1056" height="1164" loading="lazy"><figcaption>Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences</figcaption></figure>
 </section>
 <section class="chapter" id="strategy">
 <p class="label num">03 · Strategy</p>
@@ -80,7 +80,7 @@
 <p>My PM and I started with a brainstorm to define the goal for the project and how we might reach it. Our goal was to give Starter customers automation that was easy to find and easy to start, so they could stop doing repetitive work manually and wouldn't need to leave HubSpot for other tools.</p>
 <p>The idea that shaped how we'd get there was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it.</p>
 <p>From there I proposed a single Automate experience that would look and work the same on every page where people already do their work. AI-generated recommendations, based on how each customer used their account, would show them where to start.</p>
-<div class="fig-row"><figure class="fig-sheet"><img src="../images/embedded-automate-panel/all-workflows.jpg" alt="The foundational approach: source apps and templates on top, all backed by workflows" loading="lazy"><figcaption>The foundational approach: source apps and templates on top, all backed by workflows</figcaption></figure><figure class="fig-sheet"><img src="../images/embedded-automate-panel/vision-venn.jpg" alt="The 2026 vision: embedded experience, unified canvas, unified management, and agents" loading="lazy"><figcaption>The 2026 vision: embedded experience, unified canvas, unified management, and agents</figcaption></figure></div>
+<div class="fig-row"><figure class="fig-sheet"><img src="../images/embedded-automate-panel/all-workflows.jpg" alt="The foundational approach: source apps and templates on top, all backed by workflows" width="1394" height="742" loading="lazy"><figcaption>The foundational approach: source apps and templates on top, all backed by workflows</figcaption></figure><figure class="fig-sheet"><img src="../images/embedded-automate-panel/vision-venn.jpg" alt="The 2026 vision: embedded experience, unified canvas, unified management, and agents" width="974" height="1038" loading="lazy"><figcaption>The 2026 vision: embedded experience, unified canvas, unified management, and agents</figcaption></figure></div>
 </section>
 <section class="chapter" id="research">
 <p class="label num">04 · Concept validation</p>
@@ -94,11 +94,11 @@
 <p class="label num">05 · Design direction</p>
 <h2>Stakeholders and my team disagreed on the builder, so we tested both</h2>
 <p>Partner teams and leadership thought the builder looked too technical, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team didn't think rewording triggers and conditions would make them easier to understand. We wanted to build on the node-and-card pattern people already knew from the Workflows app, so it would be easier to learn and customers who upgraded to Pro would find the full app familiar. Our first brainstorm also listed the downsides of sentences: lots of custom UI to build, and they might not translate well.</p>
-<figure class="fig-sheet"><img src="../images/embedded-automate-panel/pros-cons.jpg" alt="Early pros and cons: sentence-style builder vs. AI-first creation" loading="lazy"><figcaption>Early pros and cons: sentence-style builder vs. AI-first creation</figcaption></figure>
+<figure class="fig-sheet"><img src="../images/embedded-automate-panel/pros-cons.jpg" alt="Early pros and cons: sentence-style builder vs. AI-first creation" width="1382" height="1164" loading="lazy"><figcaption>Early pros and cons: sentence-style builder vs. AI-first creation</figcaption></figure>
 <p>We took the stakeholders' feedback and built two Lovable prototypes to test both concepts with customers and see whether one was actually easier to use. The results were split. People who liked the sentence version said it felt "less like programming and more like just editing a Word doc." People who liked the node and canvas version said, "Makes me feel like I am building a workflow. Nodes are familiar."</p>
 <div class="pulls"><blockquote class="pull"><p>"Less like programming and more like just editing a Word doc."</p><cite class="label">Customer who preferred the sentence version</cite></blockquote><blockquote class="pull"><p>"Makes me feel like I am building a workflow. Nodes are familiar."</p><cite class="label">Customer who preferred the node and canvas version</cite></blockquote></div>
 <p>The test also showed something I didn't expect: the builder's design changed how people used AI. In the sentence version, people typed their changes to the AI. In the node and canvas version, they edited the cards directly.</p>
-<figure class="fig-board wide"><img src="../images/embedded-automate-panel/research-styles.jpg" alt="The sentence version and the node and canvas version, side by side as tested" loading="lazy"><figcaption>The sentence version and the node and canvas version, side by side as tested</figcaption></figure>
+<figure class="fig-board wide"><img src="../images/embedded-automate-panel/research-styles.jpg" alt="The sentence version and the node and canvas version, side by side as tested" width="1600" height="1481" loading="lazy"><figcaption>The sentence version and the node and canvas version, side by side as tested</figcaption></figure>
 <p>With customers split, we went with the sentence version the stakeholders favored, and I led its visual design from there.</p>
 <p>My biggest concern had been scale, since every action needs its own sentence. So I built a rulebook and an agent skill that read an action's definition (its field labels, input order, and dependencies) and write its sentence automatically, for every existing and future action. The definition decides the structure, and the skill only handles the grammar.</p>
 <p>Translation was the tradeoff we accepted. Each sentence follows the order of the fields in the form, so translators can change the words but can't reorder them. In languages with a different word order, some sentences read less naturally.</p>
@@ -107,11 +107,11 @@
 <p class="label num">06 · Final design</p>
 <h2>Each part of the panel addresses something we saw in research</h2>
 <ul class="shifts"><li><span class="was">Automation used to be buried in settings,</span><span class="now">so the Automate button now sits on the CRM pages people already use.</span></li><li><span class="was">People used to start from an empty builder,</span><span class="now">so the panel now opens with recommendations for the record they're viewing.</span></li><li><span class="was">Setting up a trigger from scratch confused people,</span><span class="now">so the panel fills in the trigger based on where it was opened.</span></li><li><span class="was">Fields used to be hidden inside forms,</span><span class="now">so each automation now reads as a sentence with the editable parts highlighted.</span></li></ul>
-<figure class="fig-board wide"><img src="../images/embedded-automate-panel/final-panel.jpg" alt="Final panel: recommendations, a sentence being edited inline, and the trigger pre-filled from context" loading="lazy"><figcaption>Final panel: recommendations, a sentence being edited inline, and the trigger pre-filled from context</figcaption></figure>
+<figure class="fig-board wide"><img src="../images/embedded-automate-panel/final-panel.jpg" alt="Final panel: recommendations, a sentence being edited inline, and the trigger pre-filled from context" width="1600" height="1473" loading="lazy"><figcaption>Final panel: recommendations, a sentence being edited inline, and the trigger pre-filled from context</figcaption></figure>
 <p>Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business and never why HubSpot picked it. If an account has enough activity, the recommendation can point to real evidence, like "28x this week deal owners were manually assigned." Newer accounts get suggestions that teach good habits instead.</p>
 <p>My PM and I also mapped out what Starter and Pro customers could each edit and add, so the same panel could work for both.</p>
-<figure class="fig-sheet"><img src="../images/embedded-automate-panel/tier-map.jpg" alt="Starter vs. Pro: what each tier can edit, add, and use" loading="lazy"><figcaption>Starter vs. Pro: what each tier can edit, add, and use</figcaption></figure>
-<figure class="fig-board wide"><img src="../images/embedded-automate-panel/iterations.jpg" alt="Design reviews from February vision to June visual styles" loading="lazy"><figcaption>Design reviews from February vision to June visual styles</figcaption></figure>
+<figure class="fig-sheet"><img src="../images/embedded-automate-panel/tier-map.jpg" alt="Starter vs. Pro: what each tier can edit, add, and use" width="1432" height="1080" loading="lazy"><figcaption>Starter vs. Pro: what each tier can edit, add, and use</figcaption></figure>
+<figure class="fig-board wide"><img src="../images/embedded-automate-panel/iterations.jpg" alt="Design reviews from February vision to June visual styles" width="2400" height="539" loading="lazy"><figcaption>Design reviews from February vision to June visual styles</figcaption></figure>
 </section>
 <section class="chapter" id="impact">
 <p class="label num">07 · Impact</p>
@@ -130,7 +130,7 @@
 </section>
     </article>
   </div>
-  
+  <div class="wrap cs-next"><a href="automation-overview.html"><p class="label">Next project</p><h2>Giving HubSpot customers one place to start automating →</h2></a></div>
 </main>
 
 <footer class="site-footer">
@@ -150,6 +150,40 @@
     if (first) links.forEach(a => a.classList.toggle('active', a === first));
   }, { rootMargin: '-20% 0px -60% 0px' });
   document.querySelectorAll('.chapter').forEach(el => observer.observe(el));
+
+  // Carousels: arrows step one slide; the caption and count follow the scroll.
+  document.querySelectorAll('.carousel').forEach(c => {
+    const track = c.querySelector('.carousel-track');
+    const slides = [...track.children];
+    const cap = c.querySelector('figcaption'), count = c.querySelector('.count');
+    const prev = c.querySelector('.prev'), next = c.querySelector('.next');
+    let current = 0, target = null;
+    const show = i => {
+      current = i;
+      cap.innerHTML = slides[i].dataset.caption;
+      count.textContent = `${i + 1} / ${slides.length}`;
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    };
+    // Arrows step from the slide we're heading to, so quick clicks add up.
+    const go = i => {
+      target = Math.max(0, Math.min(slides.length - 1, i));
+      show(target);
+      track.scrollTo({ left: target * track.clientWidth, behavior: 'smooth' });
+    };
+    prev.onclick = () => go(current - 1);
+    next.onclick = () => go(current + 1);
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+    });
+    // Swipes and trackpad scrolls update the caption once they settle on a slide.
+    track.addEventListener('scroll', () => {
+      const i = Math.round(track.scrollLeft / track.clientWidth);
+      if (target === null || i === target) { target = null; if (i !== current) show(i); }
+    }, { passive: true });
+    show(0);
+  });
 </script>
 </body>
 </html>
