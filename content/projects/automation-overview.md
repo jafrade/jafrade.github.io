@@ -99,8 +99,6 @@ We set one firm rule. HubSpot had tried a similar home page before, and it faile
 
 ![The jobs customers automate at each stage, and what we'd recommend next](images/automation-overview/jobs-by-stage.jpg)
 
-We started with a private beta in March 2025 for about 20 Pro accounts that had automated four or fewer jobs.
-
 ## 04 · Concept validation {#research}
 ### Customers wanted to fix what they had before building something new
 
