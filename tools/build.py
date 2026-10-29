@@ -138,7 +138,12 @@ def carousel(images):
     slides = "".join(
         f'<div class="slide" data-caption="{html.escape(inline(alt))}">'
         f'{img_tag(src, alt)}</div>' for alt, src in images)
+    # Thumbnails let readers scan every slide at a glance and jump to one.
+    thumbs = "".join(
+        f'<button class="thumb" aria-label="Show slide {i + 1}: {html.escape(alt)}">'
+        f'<img src="../{src}" alt="" loading="lazy"></button>' for i, (alt, src) in enumerate(images))
     return (f'<figure class="carousel wide"><div class="carousel-track" tabindex="0">{slides}</div>'
+            f'<div class="carousel-thumbs">{thumbs}</div>'
             f'<div class="carousel-bar"><figcaption aria-live="polite">{inline(images[0][0])}</figcaption>'
             f'<div class="carousel-nav"><span class="label count">1 / {len(images)}</span>'
             f'<button class="prev" aria-label="Previous slide">←</button>'
@@ -383,15 +388,17 @@ def page(meta, chapters, next_project=None):
   }}, {{ rootMargin: '-20% 0px -60% 0px' }});
   document.querySelectorAll('.chapter').forEach(el => observer.observe(el));
 
-  // Carousels: arrows step one slide; the caption and count follow the scroll.
+  // Carousels: arrows and thumbnails move between slides; the caption and count follow.
   document.querySelectorAll('.carousel').forEach(c => {{
     const track = c.querySelector('.carousel-track');
     const slides = [...track.children];
     const cap = c.querySelector('figcaption'), count = c.querySelector('.count');
     const prev = c.querySelector('.prev'), next = c.querySelector('.next');
+    const thumbs = [...c.querySelectorAll('.thumb')];
     let current = 0, target = null;
     const show = i => {{
       current = i;
+      thumbs.forEach((t, j) => t.setAttribute('aria-current', j === i));
       cap.innerHTML = slides[i].dataset.caption;
       count.textContent = `${{i + 1}} / ${{slides.length}}`;
       prev.disabled = i === 0;
@@ -405,6 +412,7 @@ def page(meta, chapters, next_project=None):
     }};
     prev.onclick = () => go(current - 1);
     next.onclick = () => go(current + 1);
+    thumbs.forEach((t, j) => t.onclick = () => go(j));
     track.addEventListener('keydown', e => {{
       if (e.key === 'ArrowLeft') {{ e.preventDefault(); go(current - 1); }}
       if (e.key === 'ArrowRight') {{ e.preventDefault(); go(current + 1); }}
