@@ -28,7 +28,7 @@ OUT = ROOT / "work"
 # background) break out of the reading column as they are; anything else is
 # a product screen on a panel.
 SHEET_HINTS = ("audit", "all-workflows", "vision", "pros-cons", "tier-map", "jobs-by-stage")
-WIDE_HINTS = ("iterations", "final-panel", "research-styles", "explorations", "ab-test", "concepts", "fit-diagram")
+WIDE_HINTS = ("iterations", "final-panel", "research-styles", "explorations", "ab-test", "concepts", "fit-diagram", "problem-map")
 
 
 # --- Front matter -----------------------------------------------------------

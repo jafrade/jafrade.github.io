@@ -15,8 +15,8 @@ card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as t
 card_context: "HubSpot · B2B CRM · 2026"
 card_summary: "Led design and co-led strategy for HubSpot's Automate panel. 72% of the workflows customers built used features new to Starter, and AI-recommended ones went live at 2× the rate."
 
-page_subtitle: "One consistent Automate panel where customers already work, starting from AI recommendations instead of a blank page."
-page_problem: "Starter customers, mostly small teams without time to learn new tools, had no central place to automate. Their automation was scattered across five different patterns and hard to find, and customers who couldn't get what they needed were leaving for other tools."
+page_subtitle: "An automation experience built into the pages where customers spend their time, with personalized recommendations that help them find what's worth automating."
+page_problem: "Automation was scattered across five different patterns, hard to find, and customers couldn't get what they needed."
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
   - value: "3×"

@@ -5,7 +5,7 @@
 #   page_       = case study page only
 #   filter_     = not displayed; used for filtering
 
-title: "Giving HubSpot customers one place to start automating"
+title: "Building HubSpot's first home page for automation"
 slug: automation-overview
 order: 2
 featured: true
@@ -13,19 +13,19 @@ focus: ["Adoption", "0→1", "Onboarding", "Activation"]
 
 card_thumbnail: images/automation-overview/card.jpg
 card_context: "HubSpot · B2B CRM · 2025"
-card_summary: "Led design for HubSpot's Automation Overview, from first concepts to Starter. Monthly page views nearly tripled in its first year, passing 2 million in total."
+card_summary: "Led design and co-led the vision for HubSpot's Automation Overview. Monthly visits grew from about 52,000 to 150,000 in a year, passing 2 million total views since launch."
 
-page_subtitle: "A home page for automation where every part leads to an action, shaped by concept tests and an A/B test, then adapted for Starter."
-page_problem: "HubSpot customers had powerful automation spread across many tools, and they didn't know which to use or where to start. Most automated about six jobs, while customers who automate ten or more keep their subscriptions at a higher rate."
+page_subtitle: "The first thing customers see when they open automation, with suggestions for what to automate next and a quick view of how their automation is running."
+page_problem: "Automation was spread across many tools, and customers didn't know where to start or whether their automation was working."
 page_hero_media: images/automation-overview/hero.jpg
 page_hero_fallback: images/automation-overview/hero.jpg
 page_metrics:
   - value: "2M+"
     label: "Overview page views from the May 2025 launch to October 2026"
-  - value: "31.7%"
-    label: "of visitors came back to the Overview within 7 days"
   - value: "26%"
     label: "of people who described an automation in the AI prompt turned on the workflow it drafted"
+  - value: "31.7%"
+    label: "of visitors came back to the Overview within 7 days"
 page_role_summary: "Lead product designer · Co-led vision with PM"
 page_timeline: "Aug 2024 – Jan 2026 (private beta March 2025, Pro and Enterprise launch May 2025, Starter launch January 2026)"
 page_shipped_to: "HubSpot Pro and Enterprise, then Starter"
@@ -65,22 +65,22 @@ I started on the project in August 2024. The Overview went to a private beta in 
 
 HubSpot's automation had grown from workflows into a whole set of tools, from sequences and chatbots to simple workflows inside forms and rules tucked into pipeline settings. HubSpot measured success by how many different jobs a customer automates, like updating a deal stage or emailing a new lead.
 
-Only 31% of customers using automation had automated ten or more jobs. More than half had automated six or fewer, and it took about five months to reach ten.
-
-We built the first version for Pro and Enterprise, HubSpot's higher paid plans. These customers are marketing, sales and operations teams with access to the most automation tools, and marketers used automation the most. Later we brought it to Starter, the entry-level plan.
+Only 31% of customers using automation had automated ten or more jobs. More than half had automated six or fewer, and it took about five months to reach ten. These were Pro and Enterprise customers, with access to the most automation tools, and only a fraction of them were getting the most value. We set out to understand why and what we could do about it.
 
 ## 02 · Problem {#problem}
 ### Customers didn't know which tool to use or where to start
 
 Each new tool was meant to save customers time, but together they made automation harder to use. Customers had so many options that they didn't know which tool fit which job, like choosing between a sequence and a workflow. Many ended up automating very little, or nothing at all.
 
-Customers told us as much. One said, "People were put off actually doing anything, because it was just too scary to go in there and sort it out yourself." Another said they "spend a lot of time going from tool to tool, or don't know you even offer solutions to my problems." Others couldn't tell whether their automation was working.
+![Fourteen places to create automation, spread across separate apps, marketing tools and settings](images/automation-overview/problem-map.jpg)
 
-That held customers back. They weren't saving the time HubSpot could save them, so they got less return on what they paid. And our data showed that the more jobs a company automated, the more of its revenue HubSpot kept over time.
+Customers said they "spend a lot of time going from tool to tool, or don't know you even offer solutions to my problems." Others couldn't tell whether their automation was working, and some avoided it altogether.
 
 > "People were put off actually doing anything, because it was just too scary to go in there and sort it out yourself."
 >
 > Customer, automation research
+
+That held customers back. They weren't saving the time HubSpot could save them, so they got less return on what they paid. And our data showed that the more jobs a company automated, the more of its revenue HubSpot kept over time.
 
 ## 03 · Strategy {#strategy}
 ### We set out to build one home for automation where everything leads to an action
@@ -89,7 +89,6 @@ My PM and I wrote the brief in August 2024 and ran a brainstorm with our enginee
 
 <!-- carousel -->
 ![Our brainstorm: problems, ideas, then a prioritization matrix](images/automation-overview/brainstorm-1-board.jpg)
-![The two problems we set out to solve](images/automation-overview/brainstorm-2-problems.jpg)
 ![Ideas grouped by theme, from learning and easy starts to AI recommendations and templates](images/automation-overview/brainstorm-3-ideas.jpg)
 ![The insights ideas, where we agreed everything on the page should be actionable](images/automation-overview/brainstorm-4-insights.jpg)
 ![We plotted every idea by effort and priority to pick what went into the first version](images/automation-overview/brainstorm-5-matrix.jpg)
@@ -105,36 +104,46 @@ We started with a private beta in March 2025 for about 20 Pro accounts that had 
 ## 04 · Concept validation {#research}
 ### Customers wanted to fix what they had before building something new
 
-I ran two rounds of concept tests. In the first, I walked four customers through an early concept and asked what they'd expect from a page called Overview compared to one called Workspace. They expected an overview to coach them and a workspace to be where they'd build. People also had to scroll too far, and one said, "Everything under here is going to be ignored." What they valued most was seeing issues and ways to improve the automations they already had.
+Our first concept was one long page with everything from our brainstorm: an AI prompt, recommended automations, marketing assets and apps to automate, ways to improve existing automations, issues to review, and reporting. I walked four customers through it to hear their first impressions.
 
-So I designed a second concept that put issues, a performance scorecard and recommendations at the top of a compact, workspace-style page. I tested it against the first concept with 10 customers at every experience level, and they preferred the compact version. They called it "intuitive" and "a place to come back to," and one said, "This is much more useful to me than what I currently see." The first concept felt "cluttered" and "heavy."
+I also asked what they'd expect from a page called Overview compared to one called Workspace. HubSpot already had a few pages that felt similar, but no shared framework defined what each kind of page should be, so the name mattered. Customers expected an overview to coach them and a workspace to be where they'd build.
+
+The page itself had problems. People had to scroll too far, and anything below the first few sections risked being ignored. What they valued most was seeing issues and ways to improve the automations they already had, so the next version needed to bring those up the page.
+
+> "Everything under here is going to be ignored."
+>
+> Customer, concept test 1
+
+<!-- carousel -->
+![The top of the first concept: the AI prompt and recommended automations](images/automation-overview/concept-1.jpg)
+![Further down: ways to improve existing automations and issues to review](images/automation-overview/concept-2.jpg)
+![A count of every automation by source](images/automation-overview/concept-3.jpg)
+![Reporting at the very bottom of a long scroll](images/automation-overview/concept-4.jpg)
+<!-- /carousel -->
+
+## 05 · Design direction {#decision}
+### Customers preferred a workspace, but the A/B test and the UX framework pointed to an overview
+
+So I designed a second concept in a compact, workspace style, with issues, a performance scorecard and recommendations at the top. I tested it against the first concept with 10 customers at every experience level, and they preferred the compact version. They called it "intuitive" and "a place to come back to." The first concept felt "cluttered" and "heavy."
 
 > "This is much more useful to me than what I currently see."
 >
 > Customer, concept test 2
 
-![The two concepts we tested with 10 customers](images/automation-overview/concepts.jpg)
+Beta customers were getting value from the first concept, but they found it hard to navigate, and advanced customers saw little in it for them. Interviews could only tell us so much, so we launched the first concept to all Pro and Enterprise customers on May 12, 2025, and built the workspace version to A/B test against it.
 
-## 05 · Design direction {#decision}
-### Customers preferred a workspace, but the A/B test and the UX framework pointed to an overview
-
-Private beta customers were getting value from our initial design concepts, but they were still expressing confusion on how to navigate the page and advanced customers felt there was little value for them. We decided to launch it to all Pro and Enterprise customers on May 12, 2025 while we waited on development for the new workspace concept.
+![The launched first concept and the workspace version we A/B tested](images/automation-overview/ab-test.jpg)
 
 At the same time, HubSpot's UX group was defining a framework for what each kind of page should be. A global home is a jumping-off point, and a workspace is where people spend most of their day doing work. An overview sits in between, as a signpost for one area of the product. Our workspace version stretched past that definition.
 
 ![Where the Automation Overview fits between a global home and a workspace](images/automation-overview/fit-diagram.jpg)
 <!-- IMAGE: redrawn from the PRD appendix and the "Overview v Workspace" deck -->
 
-The framework hadn't been tested with customers, so we wanted our own data before following it. From June 30 to July 14, 2025, we ran an A/B test of the workspace version against the launched page. The results were nearly identical across activation, interaction and retention. So the team kept the overview model.
+The framework hadn't been tested with customers, so we wanted our own data before following it. From June 30 to July 14, 2025, we ran the A/B test. The results were nearly identical across activation, interaction and retention, so the team kept the overview model.
 
-![The launched page and the workspace version we A/B tested](images/automation-overview/ab-test.jpg)
+The test still taught us something. In the launched page, the AI prompt came first and got the most use. In the workspace version, issues came first and usage shifted to issues. Whatever we put at the top got used.
 
-The test still taught us something. In the launched page, the AI prompt came first and got the most use. In the workspace version, issues came first and usage shifted to issues. Whatever we put at the top got used, so I took that lesson, along with what customers had said about clutter, into a redesign of the overview itself.
-
-## 06 · Final design {#solution}
-### Each part of the page answers something we heard from customers
-
-After launch, we turned to new accounts. With no automations, the page was mostly empty charts. I designed three versions of a zero state and ran unmoderated click tests with about seven people per version. In every version, the AI prompt was the most common place to start.
+After launch, we turned our attention to new accounts. Nearly half of new customers weren't getting any value from automation in their first month, and for an account with no automations, the Overview was mostly empty charts. I ran another round of research to find which zero state would get people started fastest: unmoderated click tests of three versions, with about seven people each. In every version, the AI prompt was the most common place to start. After the click tests, we combined the best of each version into one design and released it to customers.
 
 <!-- carousel -->
 ![Version 1, hero with widgets: encouraged exploring, with a first click in 11.6 seconds](images/automation-overview/zero-state-v1.jpg)
@@ -142,34 +151,31 @@ After launch, we turned to new accounts. With no automations, the page was mostl
 ![Version 3, onboarding guide: the fastest first click, at 6.6 seconds](images/automation-overview/zero-state-v3.jpg)
 <!-- /carousel -->
 
-We then A/B tested two versions with new accounts. About 14% of visitors interacted with each, so neither pulled ahead, and we shipped one in summer 2025.
+## 06 · Final design {#solution}
+### Each part of the page answers something we heard from customers
 
-![A zero state for new accounts: intro video, the AI prompt and popular automations](images/automation-overview/zero-state.jpg)
+With the overview model settled, we focused on two things: getting people to the page, and making it clear what each part was for.
 
-In September 2025 we made the Overview the first tab of the Automation app, since most people went straight to the Workflows list and skipped it.
+Most people went straight to the Workflows list and never saw the Overview, which lived on its own page. So in September 2025 we combined them into one Automation app with the Overview as the first tab. A month later, the redesign organized the page around four jobs:
 
-The redesign followed in October 2025. It kept the overview model and brought over what worked in the workspace concept.
+- Orient: customers didn't know where to start or what needed attention, so the top of the page holds the AI prompt, with suggested prompts based on the account's activity, plus issues to review and "Pick up where you left off."
+- Discover: recommendations felt random, so each card says why it's there, like "700 form submissions on this form aren't automated."
+- Monitor: the reporting read like a dashboard to look at and leave, so it's condensed into one row, and each count links to the automations behind it.
+- Learn: short HubSpot Academy videos sit at the bottom for people who want to go further.
 
-- Customers didn't know where to start, so the AI prompt stays at the top, where it got the most use.
-- Customers wanted to fix what they had, so automation issues sit right beside it.
-- People lost track of workflows they'd started, so "Pick up where you left off" shows ones that were edited but never turned on.
-- Recommendations felt random, so each card says why it's there, like "700 form submissions on this form aren't automated."
-- The reporting read like a dashboard to look at and leave, so it's condensed into one row, and each count links to the automations behind it.
+New accounts with no automations get a guided start instead: a short intro video, the AI prompt next to two of the most popular automations, and charts with sample data so they can see what to expect.
 
-![The redesigned Overview, shipped in October 2025](images/automation-overview/hero.jpg)
-
-In November 2025, HubSpot began a company-wide initiative to improve quality across the product. Our focus was improving Starter by bringing the Overview to Starter customers. Automation came up in about a third of Starter churn calls, often about features Starter already had.
+The last step was bringing the page to Starter. In November 2025, as part of a company-wide push to improve product quality, we brought the Overview to Starter. Automation came up in about a third of Starter churn calls, often about features Starter already had.
 
 I reframed the page around the automation Starter customers already have, like simple workflows in forms and emails and pipeline automation, instead of the Workflows tool they don't. Charts became a simple count of the customer's automations by type, because Starter customers can't drill into reporting. We launched it in January 2026 without testing first, and learned from live usage.
 
-![The Starter Overview: automations available on Starter, Academy lessons, and a count of active automations](images/automation-overview/starter.jpg)
-
 <!-- carousel -->
-![December 2024: the MVP](images/automation-overview/iteration-1-dec-2024.jpg)
-![March 2025: the workspace concept](images/automation-overview/iteration-2-mar-2025.jpg)
-![July 2025: zero state review](images/automation-overview/iteration-3-jul-2025.jpg)
-![August 2025: redesign review](images/automation-overview/iteration-4-aug-2025.jpg)
-![December 2025: Starter review](images/automation-overview/iteration-5-dec-2025.jpg)
+![The redesign, organized around four jobs: orient, discover, monitor and learn](images/automation-overview/final-1-four-jobs.jpg)
+![The top of the page: the AI prompt, issues to review and recent workflows, then recommended automations and a condensed performance row](images/automation-overview/final-2-orient-discover-monitor.jpg)
+![Suggested prompts open under the AI prompt, so people can start from an example instead of a blank box](images/automation-overview/final-3-suggestions.jpg)
+![Further down: apps to automate and short HubSpot Academy videos](images/automation-overview/final-4-apps-learn.jpg)
+![The zero state for new accounts: an intro video, the AI prompt and popular automations](images/automation-overview/final-5-zero-state.jpg)
+![The Starter Overview: automations available on Starter, Academy lessons, and a count of active automations](images/automation-overview/final-6-starter.jpg)
 <!-- /carousel -->
 
 ## 07 · Impact {#impact}
