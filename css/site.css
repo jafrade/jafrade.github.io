@@ -132,8 +132,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 /* Summary: problem, metrics, facts */
 .cs-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 56px 72px; padding-bottom: 40px; }
 .cs-problem p:not(.label) { font-size: clamp(21px, 2.3vw, 26px); line-height: 1.45; font-weight: 300; margin: 14px 0 0; }
-.metrics { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 24px; }
-.metrics li { display: grid; grid-template-columns: 104px 1fr; gap: 20px; align-items: baseline; padding-top: 20px; border-top: 1px solid var(--rule); }
+/* The number column is as wide as the widest number, so labels line up and never collide */
+.metrics { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: max-content 1fr; gap: 24px 28px; }
+.metrics li { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; padding-top: 20px; border-top: 1px solid var(--rule); }
 .metrics li:first-child { border-top: 0; padding-top: 0; }
 .metrics b { font-weight: 300; font-size: 52px; line-height: 1; letter-spacing: -.02em; color: var(--accent-text); }
 .metrics span { color: var(--ink-soft); font-size: 16px; line-height: 1.5; }
@@ -239,7 +240,7 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
   body { font-size: 17px; }
   .site-nav ul { gap: 16px; }
   .facts { grid-template-columns: 1fr; }
-  .metrics li { grid-template-columns: 80px 1fr; gap: 14px; }
+  .metrics { column-gap: 16px; }
   .metrics b { font-size: 40px; }
   .chapter ul.shifts li { grid-template-columns: 1fr; gap: 6px; }
   .chapter ul.shifts .now { padding-left: 22px; }
