@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=9bb3947b">
+<link rel="stylesheet" href="../css/site.css?v=698ddf67">
 </head>
 <body>
 
@@ -110,8 +110,8 @@
 <section class="chapter" id="solution">
 <p class="label num">06 · Final design</p>
 <h2>Each part of the panel addresses something we saw in research</h2>
-<ul class="shifts"><li><span class="was">Automation used to be buried in settings,</span><span class="now">so the Automate button now sits on the CRM pages people already use.</span></li><li><span class="was">People used to start from an empty builder,</span><span class="now">so the panel now opens with recommendations for the record they're viewing.</span></li><li><span class="was">Setting up a trigger from scratch confused people,</span><span class="now">so the panel fills in the trigger based on where it was opened.</span></li><li><span class="was">Fields used to be hidden inside forms,</span><span class="now">so each automation now reads as a sentence with the editable parts highlighted.</span></li></ul>
 <figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it"><img src="../images/embedded-automate-panel/final-2.jpg" alt="Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="Automate opens from the contacts page with suggestions based on the team&#x27;s activity"><img src="../images/embedded-automate-panel/final-1.jpg" alt="Automate opens from the contacts page with suggestions based on the team&#x27;s activity" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="Picking data from the trigger to fill in a task title"><img src="../images/embedded-automate-panel/final-3.jpg" alt="Picking data from the trigger to fill in a task title" width="1600" height="1100" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it"><img src="../images/embedded-automate-panel/final-2.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: Automate opens from the contacts page with suggestions based on the team&#x27;s activity"><img src="../images/embedded-automate-panel/final-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 3: Picking data from the trigger to fill in a task title"><img src="../images/embedded-automate-panel/final-3.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it</figcaption><div class="carousel-nav"><span class="label count">1 / 3</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+<ul class="shifts"><li><span class="was">Automation used to be buried in settings,</span><span class="now">so the Automate button now sits on the CRM pages people already use.</span></li><li><span class="was">People used to start from an empty builder,</span><span class="now">so the panel now opens with recommendations for the record they're viewing.</span></li><li><span class="was">Setting up a trigger from scratch confused people,</span><span class="now">so the panel fills in the trigger based on where it was opened.</span></li><li><span class="was">Fields used to be hidden inside forms,</span><span class="now">so each automation now reads as a sentence with the editable parts highlighted.</span></li></ul>
 <p>Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business and never why HubSpot picked it. If an account has enough activity, the recommendation can point to real evidence, like "28x this week deal owners were manually assigned." Newer accounts get suggestions that teach good habits instead.</p>
 </section>
 <section class="chapter" id="impact">
@@ -160,6 +160,8 @@
     const prev = c.querySelector('.prev'), next = c.querySelector('.next');
     const thumbs = [...c.querySelectorAll('.thumb')];
     let current = 0, target = null;
+    // Slides are spaced apart so a neighbour's edge never shows at the border.
+    const step = () => slides[1].offsetLeft - slides[0].offsetLeft;
     const show = i => {
       current = i;
       thumbs.forEach((t, j) => t.setAttribute('aria-current', j === i));
@@ -172,7 +174,7 @@
     const go = i => {
       target = Math.max(0, Math.min(slides.length - 1, i));
       show(target);
-      track.scrollTo({ left: target * track.clientWidth, behavior: 'smooth' });
+      track.scrollTo({ left: target * step(), behavior: 'smooth' });
     };
     prev.onclick = () => go(current - 1);
     next.onclick = () => go(current + 1);
@@ -183,7 +185,7 @@
     });
     // Swipes and trackpad scrolls update the caption once they settle on a slide.
     track.addEventListener('scroll', () => {
-      const i = Math.round(track.scrollLeft / track.clientWidth);
+      const i = Math.round(track.scrollLeft / step());
       if (target === null || i === target) { target = null; if (i !== current) show(i); }
     }, { passive: true });
     show(0);

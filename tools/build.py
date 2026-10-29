@@ -150,8 +150,12 @@ def carousel(images):
             f'<button class="next" aria-label="Next slide">→</button></div></div></figure>')
 
 
-def render_blocks(lines):
-    """Turn one chapter's lines into HTML, grouping runs of quotes and sheets."""
+def render_blocks(lines, media_first=False):
+    """Turn one chapter's lines into HTML, grouping runs of quotes and sheets.
+
+    With media_first, carousels move to the top of the chapter, right under
+    the headline.
+    """
     blocks, i = [], 0
     while i < len(lines):
         line = lines[i]
@@ -190,6 +194,9 @@ def render_blocks(lines):
                 para.append(lines[i].strip())
                 i += 1
             blocks.append(("p", " ".join(para)))
+
+    if media_first:
+        blocks = [b for b in blocks if b[0] == "carousel"] + [b for b in blocks if b[0] != "carousel"]
 
     out, j = [], 0
     while j < len(blocks):
@@ -301,7 +308,7 @@ def page(meta, chapters, next_project=None):
             heading = f'<h2>{esc(name)}</h2>'
         body.append(
             f'<section class="{cls}" id="{ch["id"]}">\n{heading}\n'
-            f'{render_blocks(ch["lines"])}\n</section>')
+            f'{render_blocks(ch["lines"], media_first=ch["id"] == "solution")}\n</section>')
 
     if meta.get("page_role_summary"):
         # The Timeline fact already shows the dates, so leave them out of the role.
@@ -396,6 +403,8 @@ def page(meta, chapters, next_project=None):
     const prev = c.querySelector('.prev'), next = c.querySelector('.next');
     const thumbs = [...c.querySelectorAll('.thumb')];
     let current = 0, target = null;
+    // Slides are spaced apart so a neighbour's edge never shows at the border.
+    const step = () => slides[1].offsetLeft - slides[0].offsetLeft;
     const show = i => {{
       current = i;
       thumbs.forEach((t, j) => t.setAttribute('aria-current', j === i));
@@ -408,7 +417,7 @@ def page(meta, chapters, next_project=None):
     const go = i => {{
       target = Math.max(0, Math.min(slides.length - 1, i));
       show(target);
-      track.scrollTo({{ left: target * track.clientWidth, behavior: 'smooth' }});
+      track.scrollTo({{ left: target * step(), behavior: 'smooth' }});
     }};
     prev.onclick = () => go(current - 1);
     next.onclick = () => go(current + 1);
@@ -419,7 +428,7 @@ def page(meta, chapters, next_project=None):
     }});
     // Swipes and trackpad scrolls update the caption once they settle on a slide.
     track.addEventListener('scroll', () => {{
-      const i = Math.round(track.scrollLeft / track.clientWidth);
+      const i = Math.round(track.scrollLeft / step());
       if (target === null || i === target) {{ target = null; if (i !== current) show(i); }}
     }}, {{ passive: true }});
     show(0);
