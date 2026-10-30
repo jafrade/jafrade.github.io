@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning how HubSpot Ads reports tracking errors — Jason Frade</title>
+<meta name="description" content="Tracking errors gathered on the ads page marketers already check, grouped by type, with clear steps to fix each one, and shown only for ads that are still running.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=0d3101fa">
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="site-nav">
+    <a class="mark" href="../"><span class="disc"></span>JASON FRADE</a>
+    <ul><li><a href="../#work">Work</a></li><li><a href="../about.html">About</a></li><li><a href="../documents/Frade_resume.pdf">Résumé</a></li></ul>
+  </nav>
+</div>
+
+<main>
+  <header class="wrap cs-hero">
+    <p class="label">HubSpot · Ads tool · 2020</p>
+    <h1>Redesigning how HubSpot Ads reports tracking errors</h1>
+    <p class="lede">Tracking errors gathered on the ads page marketers already check, grouped by type, with clear steps to fix each one, and shown only for ads that are still running.</p>
+    <ul class="tags"><li>Marketing tools</li></ul>
+  </header>
+
+  <div class="wrap cs-hero-media">
+    <div class="stage-panel"><img src="../images/ads-tracking/hero-screen.jpg" alt="Redesigning how HubSpot Ads reports tracking errors"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="cs-summary">
+      <div class="cs-problem">
+        <p class="label">The problem</p>
+        <p>Marketers couldn&#x27;t see all the tracking errors on their ads, didn&#x27;t know what they meant or how to fix them, and got alerts on ads that were no longer running.</p>
+      </div>
+      <div>
+        <p class="label">Results</p>
+        <ul class="metrics"><li><b>~50%</b><span>fewer tracking errors in the months after release</span></li><li><b>16 → 3</b><span>monthly support tickets about ad tracking, November 2020 to January 2021</span></li><li><b>224</b><span>customers surveyed to set the satisfaction baseline we&#x27;ll measure against</span></li></ul>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">My role</dt><dd><ul><li>Product designer</li><li>HubSpot Ads</li></ul></dd></div>
+        <div><dt class="label">Shipped to</dt><dd>All HubSpot customers</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="cs-body">
+      <nav class="toc" aria-label="Chapters">
+        <p class="label">Contents</p>
+        <ol><li><a href="#role"><span></span>My role</a></li><li><a href="#context"><span>01</span>Context</a></li><li><a href="#problem"><span>02</span>Problem</a></li><li><a href="#strategy"><span>03</span>Strategy</a></li><li><a href="#decision"><span>04</span>Design direction</a></li><li><a href="#solution"><span>05</span>Final design</a></li><li><a href="#impact"><span>06</span>Impact</a></li></ol>
+      </nav>
+<section class="chapter" id="role">
+<h2>My role</h2>
+<p>I was the product designer for this redesign, working with my product manager and six front-end and back-end engineers. A product expert helped us dig into support tickets, a user researcher worked with me on the research, and I partnered with another designer who was solving a similar error problem in a different part of HubSpot.</p>
+<p>I owned the design of the new tracking experience, from research planning through the final design. I worked with our researcher on the research plan, ran the analysis of the survey results, and led the iterations and the content audit of every error message.</p>
+</section>
+<section class="chapter" id="context">
+<p class="label num">01 · Context</p>
+<h2>Marketers use HubSpot Ads to show what their ad spend brings in</h2>
+<p>For marketers, being able to measure their work is a big part of the job. It's how they show the business they're helping it grow. For advertising, that means knowing how many leads their ads bring in and what return they're getting on what they spend.</p>
+<p>HubSpot Ads connects a customer's Facebook, Instagram, LinkedIn and Google ad accounts to HubSpot. To connect a contact back to the ad they came from, HubSpot adds tracking parameters to each ad's link. When that works, marketers see contacts, deals and ROI right next to their spend. When it doesn't, the ad shows zero contacts no matter how many people it brought in, and the marketer has no way to prove what it was worth.</p>
+</section>
+<section class="chapter" id="problem">
+<p class="label num">02 · Problem</p>
+<h2>Customers couldn't tell when tracking was broken or how to fix it</h2>
+<p>There was already a solution for tracking errors, so we started by learning what was wrong with it. In the old design, each error showed up as a small "Alert" label in an ad's contacts column. To see what it meant, you had to hover over it, one ad at a time.</p>
+<figure class="fig-screen"><div class="stage-panel"><img src="../images/ads-tracking/problem-1.jpg" alt="The old design: an alert in the contacts column, explained only on hover" width="1600" height="687" loading="lazy"></div><figcaption>The old design: an alert in the contacts column, explained only on hover</figcaption></figure>
+<p>We used three methods to understand what customers were running into. My PM and our product expert went through the support tickets, and I worked with our researcher on a plan that paired a satisfaction survey with usability testing.</p>
+<p>The support tickets showed that most of the tracking volume came from customers seeing alerts on ads that were no longer active. In the survey, 29% of the 224 customers who answered were unhappy with tracking and 45% felt neutral. When I grouped their comments, the most common pattern was that it was unclear what the issue was and how to resolve it. Others asked why they were still seeing errors for campaigns they'd deleted.</p>
+<blockquote class="pull"><p>"Doesn't tell me how to fix them."</p><cite class="label">Customer, satisfaction survey</cite></blockquote>
+<p>In usability testing with five customers, we saw the same patterns, plus one more. Four of the five had a hard time finding all the errors affecting their ads, because they had to move through campaigns and ads to find each one.</p>
+<figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="What we learned from support tickets, the survey and usability testing"><img src="../images/ads-tracking/problem-2.jpg" alt="What we learned from support tickets, the survey and usability testing" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="Survey results: 26% happy, 45% neutral, 29% unhappy out of 224 customers"><img src="../images/ads-tracking/problem-3.jpg" alt="Survey results: 26% happy, 45% neutral, 29% unhappy out of 224 customers" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="Survey comments grouped by theme, with not knowing how to fix errors as the largest group"><img src="../images/ads-tracking/problem-4.jpg" alt="Survey comments grouped by theme, with not knowing how to fix errors as the largest group" width="1600" height="1100" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: What we learned from support tickets, the survey and usability testing"><img src="../images/ads-tracking/problem-2.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: Survey results: 26% happy, 45% neutral, 29% unhappy out of 224 customers"><img src="../images/ads-tracking/problem-3.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 3: Survey comments grouped by theme, with not knowing how to fix errors as the largest group"><img src="../images/ads-tracking/problem-4.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">What we learned from support tickets, the survey and usability testing</figcaption><div class="carousel-nav"><span class="label count">1 / 3</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+</section>
+<section class="chapter" id="strategy">
+<p class="label num">03 · Strategy</p>
+<h2>We set out to put every error in one place and explain how to fix it</h2>
+<p>The research left us with three problems. Customers had a hard time seeing how many errors they had, it was unclear what each issue was and how to resolve it, and they were getting alerts on ads that were no longer active.</p>
+<p>Our goal was to make it easier for customers to learn when they weren't measuring their ads successfully, and to give them ways to fix the issues that came up. The idea was to stop treating errors as something you found ad by ad. Instead, we'd bring them all into one place, explain each one in plain language, and stop showing errors that no longer mattered.</p>
+</section>
+<section class="chapter" id="decision">
+<p class="label num">04 · Design direction</p>
+<h2>I worked with another designer on a shared error pattern and we rewrote every error message</h2>
+<p>We went back to the drawing board on how to tell customers their ads had tracking issues and give them an easy way to resolve them. Another designer was solving a similar problem in a different part of HubSpot, so we worked together on a common pattern. That way customers would get the same experience for errors as they moved between different parts of the product.</p>
+<p>I explored a panel that listed every error in one place. The iterations looked at how to group errors, including splitting the ones customers could fix from the ones they couldn't, and how to show each step of a fix, from refreshing tracking to confirming it worked.</p>
+<figure class="fig-sheet"><img src="../images/ads-tracking/direction-1.jpg" alt="Iterations on the errors panel, exploring groups and fix states" width="1480" height="1374" loading="lazy"><figcaption>Iterations on the errors panel, exploring groups and fix states</figcaption></figure>
+<p>Since customers didn't understand what the errors meant, we also did a full content audit of every error message and rewrote them. Each one now follows the same structure: what's wrong, and then either how to fix it in HubSpot, how to fix it in the ad network, or a plain note that it can't be fixed and can be dismissed.</p>
+<figure class="fig-sheet"><img src="../images/ads-tracking/direction-2.jpg" alt="The content audit: each error&#x27;s old label and text next to the rewrite" width="1600" height="1352" loading="lazy"><figcaption>The content audit: each error's old label and text next to the rewrite</figcaption></figure>
+</section>
+<section class="chapter" id="solution">
+<p class="label num">05 · Final design</p>
+<h2>Each part of the new design answers one of the problems we found</h2>
+<figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="The ads page shows a total count of tracking errors, with a link to view them all"><img src="../images/ads-tracking/final-1.jpg" alt="The ads page shows a total count of tracking errors, with a link to view them all" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed"><img src="../images/ads-tracking/final-2.jpg" alt="The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed" width="1600" height="1100" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: The ads page shows a total count of tracking errors, with a link to view them all"><img src="../images/ads-tracking/final-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed"><img src="../images/ads-tracking/final-2.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">The ads page shows a total count of tracking errors, with a link to view them all</figcaption><div class="carousel-nav"><span class="label count">1 / 2</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+<ul class="shifts"><li><span class="was">Customers had a hard time seeing how many errors they had,</span><span class="now">so every error now rolls up to a single count on the ads page, with one place to review and resolve them all.</span></li><li><span class="was">It was unclear what each issue was,</span><span class="now">so errors are grouped by category with a count for each, which makes similar issues easier to understand and fix together.</span></li><li><span class="was">Each error explains what went wrong and how to fix it. Errors that can't be fixed say so and can be dismissed,</span><span class="now">so they stop showing up.</span></li><li><span class="was">Customers got alerts on ads that were no longer running,</span><span class="now">so inactive ads no longer show any errors.</span></li></ul>
+</section>
+<section class="chapter" id="impact">
+<p class="label num">06 · Impact</p>
+<h2>Errors dropped by about half in the months after release</h2>
+<p>Customers had been getting errors they didn't understand, including on ads that weren't running anymore. In the months after release, the number of tracking errors dropped by about 50%, which met the goal we set before launch.</p>
+<p>Before release we set three goals, and planned to measure them the same way we'd researched the problem:</p>
+<ul class="points"><li>Cut the total number of tracking errors by 50%.</li><li>Reduce support volume about tracking by 30%.</li><li>Increase customer happiness with tracking by 20%.</li></ul>
+<p>Support tickets about ad tracking also went down, from 16 in November 2020 to 3 in January 2021. It's still too early to say whether that drop comes from the redesign or something else, so we're keeping an eye on it.</p>
+<figure class="fig-sheet"><img src="../images/ads-tracking/impact-1.jpg" alt="Product analytics from October 2020 to January 2021" width="1600" height="730" loading="lazy"><figcaption>Product analytics from October 2020 to January 2021</figcaption></figure>
+<figure class="fig-sheet"><img src="../images/ads-tracking/impact-2.jpg" alt="Support tickets by topic, November 2020 to January 2021" width="1600" height="442" loading="lazy"><figcaption>Support tickets by topic, November 2020 to January 2021</figcaption></figure>
+<p>We plan to run the satisfaction survey again and compare it to the baseline from our research. Until then, the drop in errors and the early fall in support tickets are the signals that tracking got easier for customers.</p>
+</section>
+    </article>
+  </div>
+  <div class="wrap cs-next"><a href="action-sets.html"><p class="label">Next project</p><h2>Building reusable action sets for HubSpot workflows →</h2></a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="label">Jason Frade · Product designer</span>
+    <a class="label" href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Highlight the chapter currently in view in the contents list.
+  const links = [...document.querySelectorAll('.toc a')];
+  const seen = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting ? seen.add(e.target.id) : seen.delete(e.target.id));
+    const first = links.find(a => seen.has(a.hash.slice(1)));
+    if (first) links.forEach(a => a.classList.toggle('active', a === first));
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  document.querySelectorAll('.chapter').forEach(el => observer.observe(el));
+
+  // Carousels: arrows and thumbnails move between slides; the caption and count follow.
+  document.querySelectorAll('.carousel').forEach(c => {
+    const track = c.querySelector('.carousel-track');
+    const slides = [...track.children];
+    const cap = c.querySelector('figcaption'), count = c.querySelector('.count');
+    const prev = c.querySelector('.prev'), next = c.querySelector('.next');
+    const thumbs = [...c.querySelectorAll('.thumb')];
+    let current = 0, target = null;
+    // Slides are spaced apart so a neighbour's edge never shows at the border.
+    const step = () => slides[1].offsetLeft - slides[0].offsetLeft;
+    const show = i => {
+      current = i;
+      thumbs.forEach((t, j) => t.setAttribute('aria-current', j === i));
+      cap.innerHTML = slides[i].dataset.caption;
+      count.textContent = `${i + 1} / ${slides.length}`;
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    };
+    // Arrows step from the slide we're heading to, so quick clicks add up.
+    const go = i => {
+      target = Math.max(0, Math.min(slides.length - 1, i));
+      show(target);
+      track.scrollTo({ left: target * step(), behavior: 'smooth' });
+    };
+    prev.onclick = () => go(current - 1);
+    next.onclick = () => go(current + 1);
+    thumbs.forEach((t, j) => t.onclick = () => go(j));
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+    });
+    // Swipes and trackpad scrolls update the caption once they settle on a slide.
+    track.addEventListener('scroll', () => {
+      const i = Math.round(track.scrollLeft / step());
+      if (target === null || i === target) { target = null; if (i !== current) show(i); }
+    }, { passive: true });
+    show(0);
+  });
+</script>
+</body>
+</html>

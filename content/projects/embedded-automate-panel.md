@@ -34,7 +34,7 @@ page_chapters:
   - { id: strategy, label: "Strategy",     headline: "We moved automation onto the pages people already use" }
   - { id: research, label: "Concept validation", headline: "Customers backed the direction and showed us what was missing" }
   - { id: decision, label: "Design direction", headline: "Stakeholders and my team disagreed on the builder, so we tested both" }
-  - { id: solution, label: "Final design",     headline: "Each part of the panel addresses something we saw in research" }
+  - { id: solution, label: "Final design",     headline: "Automation now lives on the pages people already use, written as plain sentences" }
   - { id: impact,   label: "Impact",       headline: "Most workflows built in the panel used features Starter didn't have before" }
 
 filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design", "Prototyping", "Cross-team leadership"]
@@ -105,7 +105,9 @@ From there I proposed a single Automate experience that would look and work the 
 ## 04 · Concept validation {#research}
 ### Customers backed the direction and showed us what was missing
 
-We tested the idea in two steps before building the panel. First, we moved the Automate button from settings onto the deal records page and ran an A/B test. Discovery went up 3x and activation went up 2x, and the result was statistically significant.
+We tested the idea in two steps before building the panel. The first was about where the Automate button would live. The deal records page belonged to another team, who had been simplifying the record pages by moving buttons into menus to cut clutter. They worried a new button would add clutter without enough people getting value from it, and saw a rise in clicks as a vanity metric that wouldn't show customers found it useful.
+
+So we ran an A/B test that moved the Automate button from settings onto the deal records page. Discovery went up 3x, and activation, meaning customers created a workflow, went up 2x. The result was statistically significant. The activation result showed that people who found the button went on to build automations, and we used it to show the team that owned the page, and their leadership, that the button was worth the space.
 
 We then tested our first node and card design concept for the Automate panel with 12 customers, to check whether the new builder was easy to understand and use. Having automation right on the page made sense to them, and pre-filling the trigger from the record they were viewing made the biggest difference. One person said, "It's remembered all the context I've gone through. I haven't got to reselect or hunt for it."
 
@@ -165,20 +167,21 @@ My biggest concern had been scale, since every action needs its own sentence. So
 Translation was the tradeoff we accepted. Each sentence follows the order of the fields in the form, so translators can change the words but can't reorder them. In languages with a different word order, some sentences read less naturally.
 
 ## 06 · Final design {#solution}
-### Each part of the panel addresses something we saw in research
-
-- Automation used to be buried in settings, so the Automate button now sits on the CRM pages people already use.
-- People used to start from an empty builder, so the panel now opens with recommendations for the record they're viewing.
-- Setting up a trigger from scratch confused people, so the panel fills in the trigger based on where it was opened.
-- Fields used to be hidden inside forms, so each automation now reads as a sentence with the editable parts highlighted.
+### Automation now lives on the pages people already use, written as plain sentences
 
 <!-- carousel -->
-![Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it](images/embedded-automate-panel/final-2.jpg)
 ![Automate opens from the contacts page with suggestions based on the team's activity](images/embedded-automate-panel/final-1.jpg)
+![Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it](images/embedded-automate-panel/final-2.jpg)
 ![Picking data from the trigger to fill in a task title](images/embedded-automate-panel/final-3.jpg)
 <!-- /carousel -->
 
-Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business and never why HubSpot picked it. If an account has enough activity, the recommendation can point to real evidence, like "28x this week deal owners were manually assigned." Newer accounts get suggestions that teach good habits instead.
+Once the sentence builder was settled, we finalized the visual and interaction design around our original goal: making automation easy to find and easy to start.
+
+We created a globally recognizable button that could be added to any app, and it passes that app's context into the Automate panel. Customers can start from suggestions based on that context and their team's activity, or create an automation from scratch or from a template. Picking one fills in the trigger based on where they opened the panel. Each automation reads as a sentence with the editable parts highlighted, so they can change a field in place, pull in data from the trigger, or ask the assistant beside it to make the change. Automations already set up for that page are listed below the suggestions.
+
+Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business, never why HubSpot picked it. Accounts with enough activity see real evidence, like "28x this week deal owners were manually assigned," and newer accounts get suggestions that teach good habits instead.
+
+The panel went to beta on July 23, 2026, and reached every Starter account by July 30.
 
 ## 07 · Impact {#impact}
 ### Most workflows built in the panel used features Starter didn't have before

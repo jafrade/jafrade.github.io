@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Building reusable action sets for HubSpot workflows — Jason Frade</title>
+<meta name="description" content="Saved groups of actions that anyone on a team can drop into a workflow, so builders start from steps their team already worked out.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css?v=0d3101fa">
+</head>
+<body>
+
+<div class="wrap">
+  <nav class="site-nav">
+    <a class="mark" href="../"><span class="disc"></span>JASON FRADE</a>
+    <ul><li><a href="../#work">Work</a></li><li><a href="../about.html">About</a></li><li><a href="../documents/Frade_resume.pdf">Résumé</a></li></ul>
+  </nav>
+</div>
+
+<main>
+  <header class="wrap cs-hero">
+    <p class="label">HubSpot · B2B CRM · 2023</p>
+    <h1>Building reusable action sets for HubSpot workflows</h1>
+    <p class="lede">Saved groups of actions that anyone on a team can drop into a workflow, so builders start from steps their team already worked out.</p>
+    <ul class="tags"><li>0→1</li><li>Adoption</li><li>Monetization</li></ul>
+  </header>
+
+  <div class="wrap cs-hero-media">
+    <div class="stage-panel"><img src="../images/action-sets/hero.jpg" alt="Building reusable action sets for HubSpot workflows"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="cs-summary">
+      <div class="cs-problem">
+        <p class="label">The problem</p>
+        <p>Teams building lots of workflows rebuilt the same groups of actions in each one, which was slow and made consistency hard to keep.</p>
+      </div>
+      <div>
+        <p class="label">Results</p>
+        <ul class="metrics"><li><b>2,400</b><span>customers used Action Sets within two months of launch</span></li><li><b>25%</b><span>of those customers inserted a set more than 200 times, saving each of them at least 3 hours of building</span></li><li><b>106</b><span>accounts upgraded to Operations Hub Enterprise, with Action Sets as one of the features behind the upgrade</span></li></ul>
+      </div>
+      <dl class="facts">
+        <div><dt class="label">My role</dt><dd><ul><li>Lead product designer</li><li>Led research and design</li></ul></dd></div>
+        <div><dt class="label">Timeline</dt><dd>Apr 2023 – early 2024 (alpha November 2023, launched December 2023, v2 paused early 2024)</dd></div>
+        <div><dt class="label">Shipped to</dt><dd>HubSpot Operations Hub Enterprise</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <article class="cs-body">
+      <nav class="toc" aria-label="Chapters">
+        <p class="label">Contents</p>
+        <ol><li><a href="#role"><span></span>My role</a></li><li><a href="#context"><span>01</span>Context</a></li><li><a href="#problem"><span>02</span>Problem</a></li><li><a href="#strategy"><span>03</span>Strategy</a></li><li><a href="#research"><span>04</span>Concept validation</a></li><li><a href="#decision"><span>05</span>Design direction</a></li><li><a href="#solution"><span>06</span>Final design</a></li><li><a href="#impact"><span>07</span>Impact</a></li><li><a href="#reflection"><span></span>Reflection</a></li></ol>
+      </nav>
+<section class="chapter" id="role">
+<h2>My role</h2>
+<p>I led design and research for Action Sets on the workflows team. I worked with a product manager, a content designer, and four front-end and back-end engineers.</p>
+<p>I planned and ran all of the research, from discovery calls and a comic strip concept test to usability testing. I owned the interaction design and specs for the first version, and I designed and tested a second version that linked every copy of a set to the original.</p>
+<p>I started on the project in April 2023. The first version went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023. I designed the second version and tested it in December 2023. After a team reorg in early 2024, another designer took over the next round of changes, and the second version never launched.</p>
+</section>
+<section class="chapter" id="context">
+<p class="label num">01 · Context</p>
+<h2>Growing teams were building more workflows, with more people building them</h2>
+<p>HubSpot workflows automate the work behind sales, marketing and operations. Each one starts with a trigger and runs a series of actions, like sending an email, waiting a few days, branching on a property, or running custom code. As customers grow with HubSpot, they build more workflows, and more people on the team start building them.</p>
+<p>Action Sets was built for Operations Hub Enterprise, the top plan of HubSpot's product for operations teams. Those customers tend to have larger teams and more complex automation. The people we talked to ranged from one person who owned every workflow to partners building workflows for their clients, and one systems director managed 195 workflows. At that size, the person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.</p>
+</section>
+<section class="chapter" id="problem">
+<p class="label num">02 · Problem</p>
+<h2>Customers rebuilt the same steps in every workflow and fixed each copy manually</h2>
+<p>Many workflows share the same pieces: a branch that routes contacts by language, a set of checks before a deal moves forward, or a block of custom code. HubSpot had no way to save those pieces and reuse them. Customers either rebuilt them action by action, or cloned a whole workflow and deleted what they didn't need, which risked missing something in a large one. When a shared piece needed to change, they had to find every workflow that used it and update each one manually.</p>
+<p>The requests came from customer feedback surveys, the ideas forum, and support. As more people created workflows, admins saw more inconsistencies and more chances for a workflow to be wrong.</p>
+<blockquote class="pull"><p>"Sometimes we make updates which require us to add 15+ actions to several workflows and currently we have to make all of those updates one action at a time."</p><cite class="label">Customer, HubSpot ideas forum</cite></blockquote>
+<figure class="fig-screen"><div class="stage-panel"><img src="../images/action-sets/problem-1.jpg" alt="The same language branch, rebuilt action by action in every workflow that needed it" width="1600" height="1100" loading="lazy"></div><figcaption>The same language branch, rebuilt action by action in every workflow that needed it</figcaption></figure>
+</section>
+<section class="chapter" id="strategy">
+<p class="label num">03 · Strategy</p>
+<h2>Discovery calls pointed us to one goal: save a group of actions once and reuse it anywhere</h2>
+<p>The goal was to make building many workflows faster, and to give admins a way to guide their teams. It also gave HubSpot an Enterprise feature that showed workflows could grow with a company.</p>
+<p>I planned and ran discovery calls with six customers who cloned workflows often or had asked for this in the ideas forum. Their reuse cases included language branches, deal checks, custom code, and the same email campaign across several blogs. They wanted it to save time, keep their work accurate, and keep workflows consistent. Most reuses weren't exact copies, since a property or an email often changed each time. Everyone we asked wanted to control who could edit a shared set, though no one said it would stop them from using it. A few already reused work in other tools, like Zapier's Sub-Zaps, and liked that a change made in one place reached everywhere it was used.</p>
+<blockquote class="pull"><p>"I want a head start. I don't want to always have to start from scratch."</p><cite class="label">Customer, discovery call</cite></blockquote>
+<p>From there my PM and I scoped the idea: let customers save a group of actions as a kind of mini template, find it in the action panel, and add it to any workflow of the same type.</p>
+</section>
+<section class="chapter" id="research">
+<p class="label num">04 · Concept validation</p>
+<h2>A comic strip test showed customers expected one edit to reach every copy</h2>
+<p>We had two very different ways to build this and needed customer reactions before designing either in detail. A prototype would have pulled people into the UI, so I used a comic strip test. Each concept was a short story of two coworkers, where one saves a language branch and the other reuses it.</p>
+<p>In the Saved Actions concept, the actions were a new kind of action you drag onto the canvas, and you could change your copy freely. In the Shared Workflow concept, the actions were their own workflow, and other workflows sent contacts to it and waited for them to come back.</p>
+<figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="Saved Actions: Jason needs to build a new workflow"><img src="../images/action-sets/concept-a-1.jpg" alt="Saved Actions: Jason needs to build a new workflow" width="1440" height="1260" loading="lazy"></div><div class="slide" data-caption="He and Emma keep rebuilding the same language branch, so he decides to save it"><img src="../images/action-sets/concept-a-2.jpg" alt="He and Emma keep rebuilding the same language branch, so he decides to save it" width="1440" height="1260" loading="lazy"></div><div class="slide" data-caption="He selects the branch and its actions, and names it so Emma will recognize it"><img src="../images/action-sets/concept-a-3.jpg" alt="He selects the branch and its actions, and names it so Emma will recognize it" width="1440" height="1260" loading="lazy"></div><div class="slide" data-caption="Emma finds the saved branch in her actions and drags it onto her workflow"><img src="../images/action-sets/concept-a-4.jpg" alt="Emma finds the saved branch in her actions and drags it onto her workflow" width="1440" height="1260" loading="lazy"></div><div class="slide" data-caption="She deletes the part she doesn&#x27;t need"><img src="../images/action-sets/concept-a-5.jpg" alt="She deletes the part she doesn&#x27;t need" width="1440" height="1260" loading="lazy"></div><div class="slide" data-caption="She publishes her workflow with the saved branch, changed to fit her needs"><img src="../images/action-sets/concept-a-6.jpg" alt="She publishes her workflow with the saved branch, changed to fit her needs" width="1440" height="1260" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: Saved Actions: Jason needs to build a new workflow"><img src="../images/action-sets/concept-a-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: He and Emma keep rebuilding the same language branch, so he decides to save it"><img src="../images/action-sets/concept-a-2.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 3: He selects the branch and its actions, and names it so Emma will recognize it"><img src="../images/action-sets/concept-a-3.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 4: Emma finds the saved branch in her actions and drags it onto her workflow"><img src="../images/action-sets/concept-a-4.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 5: She deletes the part she doesn&#x27;t need"><img src="../images/action-sets/concept-a-5.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 6: She publishes her workflow with the saved branch, changed to fit her needs"><img src="../images/action-sets/concept-a-6.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">Saved Actions: Jason needs to build a new workflow</figcaption><div class="carousel-nav"><span class="label count">1 / 6</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+<figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="Shared Workflow: Jason needs to build a new workflow"><img src="../images/action-sets/concept-b-1.jpg" alt="Shared Workflow: Jason needs to build a new workflow" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="He decides to clone the language branch and rename it so the team can reuse it"><img src="../images/action-sets/concept-b-2.jpg" alt="He decides to clone the language branch and rename it so the team can reuse it" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="He removes the other actions and sets it to run only when contacts are sent from other workflows"><img src="../images/action-sets/concept-b-3.jpg" alt="He removes the other actions and sets it to run only when contacts are sent from other workflows" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="When contacts finish the branch, they return to the workflow they came from"><img src="../images/action-sets/concept-b-4.jpg" alt="When contacts finish the branch, they return to the workflow they came from" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="Emma sends her contacts to Jason&#x27;s branch instead of building it herself"><img src="../images/action-sets/concept-b-5.jpg" alt="Emma sends her contacts to Jason&#x27;s branch instead of building it herself" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="The branch has steps she doesn&#x27;t need, so she clones it rather than break Jason&#x27;s version"><img src="../images/action-sets/concept-b-6.jpg" alt="The branch has steps she doesn&#x27;t need, so she clones it rather than break Jason&#x27;s version" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="She removes the extra actions, renames her copy, and publishes it"><img src="../images/action-sets/concept-b-7.jpg" alt="She removes the extra actions, renames her copy, and publishes it" width="1441" height="1260" loading="lazy"></div><div class="slide" data-caption="Back in her workflow, she sends contacts to her own copy"><img src="../images/action-sets/concept-b-8.jpg" alt="Back in her workflow, she sends contacts to her own copy" width="1441" height="1260" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: Shared Workflow: Jason needs to build a new workflow"><img src="../images/action-sets/concept-b-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: He decides to clone the language branch and rename it so the team can reuse it"><img src="../images/action-sets/concept-b-2.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 3: He removes the other actions and sets it to run only when contacts are sent from other workflows"><img src="../images/action-sets/concept-b-3.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 4: When contacts finish the branch, they return to the workflow they came from"><img src="../images/action-sets/concept-b-4.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 5: Emma sends her contacts to Jason&#x27;s branch instead of building it herself"><img src="../images/action-sets/concept-b-5.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 6: The branch has steps she doesn&#x27;t need, so she clones it rather than break Jason&#x27;s version"><img src="../images/action-sets/concept-b-6.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 7: She removes the extra actions, renames her copy, and publishes it"><img src="../images/action-sets/concept-b-7.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 8: Back in her workflow, she sends contacts to her own copy"><img src="../images/action-sets/concept-b-8.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">Shared Workflow: Jason needs to build a new workflow</figcaption><div class="carousel-nav"><span class="label count">1 / 8</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+<p>I ran it with five people, three of them customers. Three picked Saved Actions outright, and the other two wanted parts of both.</p>
+<blockquote class="pull"><p>"The 'Shared Workflow' concept seems like a beta version of the 'Saved Actions' concept."</p><cite class="label">Customer, comic strip test</cite></blockquote>
+<p>The biggest finding was about editing. Most people assumed a change to the saved set would update every workflow that used it, and that editing a copy in your own workflow would break it away from the original. They didn't want changes pushed out without warning, and one person asked for a draft step so edits could be reviewed before they went live. I went with Saved Actions, since most people preferred it, and linked updates became the core of the second version.</p>
+</section>
+<section class="chapter" id="decision">
+<p class="label num">05 · Design direction</p>
+<h2>We shipped independent copies first and designed linked updates for the next release</h2>
+<p>After the comic strip test, I worked out where sets would live and how people would build them, starting with low-fidelity wireframes of saved "snippets" in the action panel. We considered three ways to build a set: as a single collapsed action, as a container around actions on the canvas, and in its own editor. We went with the editor, since building on the canvas wasn't technically feasible at the time.</p>
+<figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="A set shown as a single collapsed action"><img src="../images/action-sets/build-1.jpg" alt="A set shown as a single collapsed action" width="1441" height="1173" loading="lazy"></div><div class="slide" data-caption="A set built as a container around actions on the canvas"><img src="../images/action-sets/build-2.jpg" alt="A set built as a container around actions on the canvas" width="1441" height="1168" loading="lazy"></div><div class="slide" data-caption="A set built in its own editor, the direction we shipped"><img src="../images/action-sets/build-3.jpg" alt="A set built in its own editor, the direction we shipped" width="1440" height="900" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: A set shown as a single collapsed action"><img src="../images/action-sets/build-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: A set built as a container around actions on the canvas"><img src="../images/action-sets/build-2.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 3: A set built in its own editor, the direction we shipped"><img src="../images/action-sets/build-3.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">A set shown as a single collapsed action</figcaption><div class="carousel-nav"><span class="label count">1 / 3</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+<p>Participants didn't agree on a name. They called it a saved branch, a mini flow, a block, and a template. Our content designer made the case for the strongest options, and the team chose "action sets." It did slightly better in the moderated test, held up in unmoderated testing, and avoided "template," which already meant something else in workflows.</p>
+<figure class="fig-sheet"><img src="../images/action-sets/naming.jpg" alt="The naming matrix we used to compare templates, blocks, modules and sets" width="2400" height="1406" loading="lazy"><figcaption>The naming matrix we used to compare templates, blocks, modules and sets</figcaption></figure>
+<p>Our original design linked every copy to the original set, which is what customers expected. Engineering pushed back on what was feasible for the first release. Rather than delay it, my PM and I agreed to ship sets as independent copies, since saving and reusing actions was valuable on its own. My job was to make the difference clear to customers. The panel says that changes to your copy won't affect the original set, and editing the original shows a notice that workflows already using it won't change.</p>
+<p>While v1 was being built, I designed v2: global action sets. I mapped how creating, updating and detaching would work, and how publishing should behave when a change could break workflows that already used the set.</p>
+<figure class="fig-sheet"><img src="../images/action-sets/v2-concepts.jpg" alt="The v2 concepts: the original set and its copies, and what happens when you publish a change" width="1600" height="1548" loading="lazy"><figcaption>The v2 concepts: the original set and its copies, and what happens when you publish a change</figcaption></figure>
+<p>I also explored how a global set should show up on the canvas. Collapsing it into a single action would have hidden what the set was doing, and it raised questions about branches and execution logs. So we tested a version that kept every action visible and tagged each one with the set it came from.</p>
+<figure class="fig-sheet"><img src="../images/action-sets/v2-canvas-explorations.jpg" alt="Explorations for showing a global set on the canvas, with my notes on the tradeoffs" width="2400" height="1619" loading="lazy"><figcaption>Explorations for showing a global set on the canvas, with my notes on the tradeoffs</figcaption></figure>
+<figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="The prototype we tested: turning on Global when creating a set"><img src="../images/action-sets/v2-test-1.jpg" alt="The prototype we tested: turning on Global when creating a set" width="1440" height="900" loading="lazy"></div><div class="slide" data-caption="The set&#x27;s settings: Global, allow detaching, editing permissions, and the workflows that use it"><img src="../images/action-sets/v2-test-2.jpg" alt="The set&#x27;s settings: Global, allow detaching, editing permissions, and the workflows that use it" width="1440" height="900" loading="lazy"></div><div class="slide" data-caption="Detaching a set&#x27;s actions inside a workflow"><img src="../images/action-sets/v2-test-3.jpg" alt="Detaching a set&#x27;s actions inside a workflow" width="1440" height="900" loading="lazy"></div><div class="slide" data-caption="A workflow showing that its set has an update to review"><img src="../images/action-sets/v2-test-4.jpg" alt="A workflow showing that its set has an update to review" width="1440" height="900" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: The prototype we tested: turning on Global when creating a set"><img src="../images/action-sets/v2-test-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: The set&#x27;s settings: Global, allow detaching, editing permissions, and the workflows that use it"><img src="../images/action-sets/v2-test-2.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 3: Detaching a set&#x27;s actions inside a workflow"><img src="../images/action-sets/v2-test-3.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 4: A workflow showing that its set has an update to review"><img src="../images/action-sets/v2-test-4.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">The prototype we tested: turning on Global when creating a set</figcaption><div class="carousel-nav"><span class="label count">1 / 4</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
+<p>In December 2023, I tested the prototype with six workflow builders in an unmoderated study. Only two of the six found the global setting when creating a set, and average confidence was 3 out of 7. All five who updated a set expected the change to reach other workflows automatically, not after a manual update. When we asked what "global action set" meant, the answers were all over the place.</p>
+<blockquote class="pull"><p>"I believe it means that it will send [an] outreach in a different language."</p><cite class="label">Participant, v2 usability test</cite></blockquote>
+</section>
+<section class="chapter" id="solution">
+<p class="label num">06 · Final design</p>
+<h2>Saving and reusing a set works like adding any other action</h2>
+<p>Once we agreed to ship sets as independent copies, we finished the first version around our original goal: making it faster to build workflows that share the same steps.</p>
+<p>We put action sets in the action panel next to HubSpot's own actions, so adding a set works the same way as adding any other action. That kept it familiar, since the Shared Workflow concept had confused some people in testing.</p>
+<p>Customers can save a group of actions as a set, starting from scratch or from the workflow they're in, and build it in its own editor. Sets are grouped by the type of record they work with, and a tip explains why one might be missing. Each set shows a description and a preview before you add it, and it can go anywhere in a workflow, including inside a branch. Once it's in, its actions can be changed like any others.</p>
+<p>Action Sets went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023.</p>
+</section>
+<section class="chapter" id="impact">
+<p class="label num">07 · Impact</p>
+<h2>A quarter of the customers using Action Sets inserted a set more than 200 times</h2>
+<p>Customers had been rebuilding the same steps in workflow after workflow. Within two months of launch, about 2,400 customers used Action Sets.</p>
+<ul class="points"><li>25% of the 2,400 customers inserted a set more than 200 times.</li><li>Each insert saved about 1 to 2 minutes of building the same actions again.</li><li>For those heavy users, that added up to at least 3 hours each.</li></ul>
+<p>Action Sets was part of Operations Hub Enterprise, and it contributed to 106 accounts upgrading to that plan.</p>
+<p>The linked updates customers asked for in research never shipped. After a team reorg in early 2024, another designer iterated on the version I tested, but it was deprioritized before launch.</p>
+</section>
+<section class="chapter reflection" id="reflection">
+<p class="label num">Reflection</p>
+<h2>What I'd do differently</h2>
+<p>Looking back, I would have spent more time weighing what people preferred against what it would take to build and how easy it would be to use. Saved Actions was the concept people preferred, but it was much more technically complicated to build.</p>
+<p>The comic strip test was good for early reactions without influencing too much, but it made it hard to judge how something works when you can't click through it. If I'd pushed for testing with a working prototype, we might have learned that the Shared Workflow concept would have been just as successful and a lot easier to build.</p>
+<p>I'd also keep the scope tighter. I folded saving custom code into Action Sets, hoping to solve both problems at once. But people think of their code as a single file they reuse, not a group of actions, and that should have been its own feature.</p>
+</section>
+    </article>
+  </div>
+  <div class="wrap cs-next"><a href="embedded-automate-panel.html"><p class="label">Next project</p><h2>Redesigning HubSpot&#x27;s embedded automation →</h2></a></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="label">Jason Frade · Product designer</span>
+    <a class="label" href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+  // Highlight the chapter currently in view in the contents list.
+  const links = [...document.querySelectorAll('.toc a')];
+  const seen = new Set();
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting ? seen.add(e.target.id) : seen.delete(e.target.id));
+    const first = links.find(a => seen.has(a.hash.slice(1)));
+    if (first) links.forEach(a => a.classList.toggle('active', a === first));
+  }, { rootMargin: '-20% 0px -60% 0px' });
+  document.querySelectorAll('.chapter').forEach(el => observer.observe(el));
+
+  // Carousels: arrows and thumbnails move between slides; the caption and count follow.
+  document.querySelectorAll('.carousel').forEach(c => {
+    const track = c.querySelector('.carousel-track');
+    const slides = [...track.children];
+    const cap = c.querySelector('figcaption'), count = c.querySelector('.count');
+    const prev = c.querySelector('.prev'), next = c.querySelector('.next');
+    const thumbs = [...c.querySelectorAll('.thumb')];
+    let current = 0, target = null;
+    // Slides are spaced apart so a neighbour's edge never shows at the border.
+    const step = () => slides[1].offsetLeft - slides[0].offsetLeft;
+    const show = i => {
+      current = i;
+      thumbs.forEach((t, j) => t.setAttribute('aria-current', j === i));
+      cap.innerHTML = slides[i].dataset.caption;
+      count.textContent = `${i + 1} / ${slides.length}`;
+      prev.disabled = i === 0;
+      next.disabled = i === slides.length - 1;
+    };
+    // Arrows step from the slide we're heading to, so quick clicks add up.
+    const go = i => {
+      target = Math.max(0, Math.min(slides.length - 1, i));
+      show(target);
+      track.scrollTo({ left: target * step(), behavior: 'smooth' });
+    };
+    prev.onclick = () => go(current - 1);
+    next.onclick = () => go(current + 1);
+    thumbs.forEach((t, j) => t.onclick = () => go(j));
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current + 1); }
+    });
+    // Swipes and trackpad scrolls update the caption once they settle on a slide.
+    track.addEventListener('scroll', () => {
+      const i = Math.round(track.scrollLeft / step());
+      if (target === null || i === target) { target = null; if (i !== current) show(i); }
+    }, { passive: true });
+    show(0);
+  });
+</script>
+</body>
+</html>

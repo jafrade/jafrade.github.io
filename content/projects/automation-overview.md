@@ -40,16 +40,10 @@ page_chapters:
 
 filter_skills: ["Strategy", "Research", "Interaction design", "Visual design", "Prototyping"]
 ---
-
 <!--
-  CAROUSELS: images between the 'carousel' and '/carousel' comment markers render as one carousel, in order. Each image's alt text is that slide's caption.
-
-  OPEN ITEMS before publishing
-  - [ ] "2x" new portal metric: kept at Jason's request, in the body only, worded as the Enablement PDF states it. The dashboard's closest comparison shows ~1.5x, and the comparison group is unclear. Be ready to explain it, or drop it.
-  - [ ] Zero state: which of the two A/B tested versions shipped? zero-state.jpg is a frame from the redesign M2 Figma page; confirm it matches what shipped.
-  - [ ] Starter figure (1 in 3 visitors interact) comes from the Enablement PDF, not the dashboard.
-  - [ ] Images show "Welcome, Jason" and your name in "Pick up where you left off" (your own name, fine), plus HubSpot Academy instructors in video thumbnails (public content). Portal names in top bars are blurred.
-  - [ ] Voice pass: rewrite anything that doesn't sound like you.
+  NOTES FOR THE SITE BUILD
+  - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel, in order; each alt text is that slide's caption
+  - Single images outside a carousel use their alt text as the caption
 -->
 
 ## My role {#role}
@@ -152,29 +146,26 @@ After launch, we turned our attention to new accounts. Nearly half of new custom
 ## 06 · Final design {#solution}
 ### Each part of the page answers something we heard from customers
 
-With the overview model settled, we focused on two things: getting people to the page, and making it clear what each part was for.
-
-Most people went straight to the Workflows list and never saw the Overview, which lived on its own page. So in September 2025 we combined them into one Automation app with the Overview as the first tab. A month later, the redesign organized the page around four jobs:
-
-- Orient: customers didn't know where to start or what needed attention, so the top of the page holds the AI prompt, with suggested prompts based on the account's activity, plus issues to review and "Pick up where you left off."
-- Discover: recommendations felt random, so each card says why it's there, like "700 form submissions on this form aren't automated."
-- Monitor: the reporting read like a dashboard to look at and leave, so it's condensed into one row, and each count links to the automations behind it.
-- Learn: short HubSpot Academy videos sit at the bottom for people who want to go further.
-
-New accounts with no automations get a guided start instead: a short intro video, the AI prompt next to two of the most popular automations, and charts with sample data so they can see what to expect.
-
-The last step was bringing the page to Starter. In November 2025, as part of a company-wide push to improve product quality, we brought the Overview to Starter. Automation came up in about a third of Starter churn calls, often about features Starter already had.
-
-I reframed the page around the automation Starter customers already have, like simple workflows in forms and emails and pipeline automation, instead of the Workflows tool they don't. Charts became a simple count of the customer's automations by type, because Starter customers can't drill into reporting. We launched it in January 2026 without testing first, and learned from live usage.
-
 <!-- carousel -->
 ![The redesign, organized around four jobs: orient, discover, monitor and learn](images/automation-overview/final-1-four-jobs.jpg)
 ![The top of the page: the AI prompt, issues to review and recent workflows, then recommended automations and a condensed performance row](images/automation-overview/final-2-orient-discover-monitor.jpg)
 ![Suggested prompts open under the AI prompt, so people can start from an example instead of a blank box](images/automation-overview/final-3-suggestions.jpg)
 ![Further down: apps to automate and short HubSpot Academy videos](images/automation-overview/final-4-apps-learn.jpg)
-![The zero state for new accounts: an intro video, the AI prompt and popular automations](images/automation-overview/final-5-zero-state.jpg)
-![The Starter Overview: automations available on Starter, Academy lessons, and a count of active automations](images/automation-overview/final-6-starter.jpg)
 <!-- /carousel -->
+
+With the overview model settled, we focused on two things: getting people to the page, and making it clear what each part was for.
+
+The Overview originally lived on its own page, which meant fewer people visited it. So we moved it into a tab alongside Workflows to make it easier to find and understand. We then organized the page around four jobs: orient, discover, monitor and learn.
+
+Customers can describe what they want to automate and get a drafted workflow to review, or start from a suggestion based on their account's activity. They can see which automations need attention, pick up where they left off, and turn on recommended automations that explain why they fit the account. Reporting stays short and links to the automations behind each number, so the page stays focused on what to do next. People who want to go further can find apps to connect and short Academy videos.
+
+Accounts with no automations get a guided start instead, built around the AI prompt, since it was the most common place to start in every version we tested.
+
+![The zero state for new accounts: an intro video, the AI prompt and popular automations](images/automation-overview/final-5-zero-state.jpg)
+
+In November 2025, as part of a company-wide push to improve product quality, we brought the Overview to Starter. Automation came up in about a third of Starter churn calls, often about features Starter already had. So I built the Starter version around the automation those customers already have, instead of the Workflows tool they don't, and kept reporting to a simple count, since they can't drill into reports. It launched to every Starter account in January 2026 without testing first, and we learned from live usage.
+
+![The Starter Overview: automations available on Starter, Academy lessons, and a count of active automations](images/automation-overview/final-6-starter.jpg)
 
 ## 07 · Impact {#impact}
 ### More customers found the Overview, and it helped them get automation running

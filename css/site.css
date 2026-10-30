@@ -113,9 +113,39 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .home-hero h1 { font-size: clamp(48px, 8vw, 96px); line-height: 1; font-weight: 300; margin-top: 16px; }
 .home-hero .lede { font-size: clamp(19px, 2vw, 22px); line-height: 1.55; color: var(--ink-soft); max-width: 36ch; margin: 24px auto 0; }
 .home-work .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 32px; margin-top: 24px; }
-.home-about { display: grid; grid-template-columns: 200px minmax(0, var(--measure)); column-gap: 64px; margin-top: 120px; padding-top: 48px; border-top: 1px solid var(--rule); }
-.home-about p:not(.label) { margin: 0 0 24px; font-size: clamp(19px, 2vw, 22px); line-height: 1.55; font-weight: 300; }
-.home-about .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+
+.about-intro { padding-top: 72px; padding-bottom: 72px; }
+.about-intro.has-photo { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 64px; align-items: start; }
+.about-intro p:not(.label) { max-width: var(--measure); margin: 0 0 20px; }
+.about-intro h1 + p { font-size: clamp(24px, 3vw, 34px); line-height: 1.35; font-weight: 300; margin-top: 18px; margin-bottom: 32px; }
+.about-photo { border-radius: 8px; box-shadow: var(--shadow-sm); }
+
+.about-section { display: grid; grid-template-columns: 200px minmax(0, 1fr); column-gap: 64px; row-gap: 16px; padding-top: 48px; padding-bottom: 72px; border-top: 1px solid var(--rule); }
+.about-section > div > p { max-width: var(--measure); margin: 0 0 16px; }
+.about-section .pull { margin: 0; }
+
+.values { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.values li { background: var(--paper-2); border-radius: 8px; padding: 28px 28px 32px; }
+.values h3 { font-size: 21px; line-height: 1.3; font-weight: 400; margin-bottom: 10px; }
+.values p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--ink-soft); }
+
+.experience { list-style: none; margin: 0; padding: 0; }
+.experience li { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 24px; align-items: baseline; padding: 18px 0; border-top: 1px solid var(--rule); }
+.experience li:first-child { border-top: 0; padding-top: 0; }
+.experience b { font-weight: 500; }
+.experience small { display: block; font-size: 15px; color: var(--ink-soft); margin-top: 2px; }
+
+.outside-photos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+.outside-photos figure { margin: 0; }
+.outside-photos img { aspect-ratio: 1; object-fit: cover; border-radius: 6px; }
+.outside-photos figcaption { margin-top: 8px; font-size: 13px; }
+
+.about-contact h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; font-weight: 300; margin-bottom: 24px; }
+.about-contact .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
 
 /* ==========================================================================
    Case study
@@ -236,9 +266,13 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
   .project-card.featured .screen img { width: 80%; }
   .home-work .projects { grid-template-columns: 1fr; }
   .home-hero { padding: 56px 0 80px; }
-  .home-about { grid-template-columns: 1fr; row-gap: 16px; margin-top: 80px; }
 }
 @media (max-width: 860px) {
+  .about-intro.has-photo { grid-template-columns: 1fr; }
+  .about-intro.has-photo .about-photo { max-width: 280px; grid-row: 1; }
+  .about-section { grid-template-columns: 1fr; }
+  .values { grid-template-columns: 1fr; }
+  .outside-photos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .cs-summary { grid-template-columns: 1fr; gap: 48px; }
   .facts { grid-template-columns: 1fr 1fr; }
   .fig-row { grid-template-columns: 1fr; }
@@ -249,6 +283,9 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
   .facts { grid-template-columns: 1fr; }
   .metrics { column-gap: 16px; }
   .carousel .thumb { flex-basis: 64px; }
+  .experience li { grid-template-columns: 1fr auto; gap: 4px 16px; }
+  .experience li span { grid-column: 1 / -1; grid-row: 2; }
+  .experience li .label { grid-column: 2; grid-row: 1; }
   .metrics b { font-size: 40px; }
   .chapter ul.shifts li { grid-template-columns: 1fr; gap: 6px; }
   .chapter ul.shifts .now { padding-left: 22px; }

@@ -27,7 +27,20 @@ OUT = ROOT / "work"
 # Diagrams on white sit on a sheet; composed boards (already on a cream
 # background) break out of the reading column as they are; anything else is
 # a product screen on a panel.
-SHEET_HINTS = ("audit", "all-workflows", "vision", "pros-cons", "tier-map", "jobs-by-stage")
+SHEET_HINTS = ("audit", "all-workflows", "vision", "pros-cons", "tier-map", "jobs-by-stage",
+               "direction-1", "direction-2", "impact-1", "impact-2", "naming", "v2-concepts",
+               "v2-canvas-explorations")
+
+# Images a project file refers to that aren't in images/ yet; they're left out
+# of the page and listed when the build finishes.
+MISSING = []
+
+
+def exists(src):
+    if (ROOT / src).is_file():
+        return True
+    MISSING.append(src)
+    return False
 WIDE_HINTS = ("iterations", "final-panel", "research-styles", "explorations", "ab-test", "concepts", "fit-diagram", "problem-map")
 
 
@@ -83,8 +96,11 @@ def parse_front_matter(text):
                 data[key].append({k.strip(): scalar(v)})
             continue
         cont = re.match(r"^\s+(\w+):\s*(.*)$", line)
-        if cont and key and data[key]:
-            data[key][-1][cont.group(1)] = scalar(cont.group(2))
+        if cont and key:
+            if data[key] == []:
+                data[key] = {}  # a nested group of fields, like page_contact
+            target = data[key] if isinstance(data[key], dict) else data[key][-1]
+            target[cont.group(1)] = scalar(cont.group(2))
     return data
 
 
@@ -116,10 +132,10 @@ def image_size(src):
     return None
 
 
-def img_tag(src, alt):
+def img_tag(src, alt, prefix="../"):
     size = image_size(src)
     dims = f' width="{size[0]}" height="{size[1]}"' if size else ""
-    return f'<img src="../{src}" alt="{html.escape(alt)}"{dims} loading="lazy">'
+    return f'<img src="{prefix}{src}" alt="{html.escape(alt)}"{dims} loading="lazy">'
 
 
 def figure(alt, src):
@@ -151,7 +167,7 @@ def carousel(images):
 
 
 def render_blocks(lines, media_first=False):
-    """Turn one chapter's lines into HTML, grouping runs of quotes and sheets.
+    """Turn one chapter's lines into HTML, grouping runs of quotes.
 
     With media_first, carousels move to the top of the chapter, right under
     the headline.
@@ -166,10 +182,11 @@ def render_blocks(lines, media_first=False):
             i += 1
             while i < len(lines) and lines[i] != "::/carousel":
                 m = re.match(r"!\[(.*?)\]\((.*?)\)", lines[i])
-                if m:
+                if m and exists(m.group(2)):
                     images.append((m.group(1), m.group(2)))
                 i += 1
-            blocks.append(("carousel", images))
+            if images:
+                blocks.append(("carousel", images))
             i += 1
         elif line.startswith(">"):
             quote = []
@@ -180,7 +197,8 @@ def render_blocks(lines, media_first=False):
             blocks.append(("quote", parts))
         elif line.startswith("!["):
             m = re.match(r"!\[(.*?)\]\((.*?)\)", line)
-            blocks.append(("figure",) + figure(m.group(1), m.group(2)))
+            if exists(m.group(2)):
+                blocks.append(("figure",) + figure(m.group(1), m.group(2)))
             i += 1
         elif line.startswith("- "):
             items = []
@@ -211,11 +229,6 @@ def render_blocks(lines, media_first=False):
                 f'<cite class="label">{inline(q[-1])}</cite></blockquote>' for q in run
             ]
             out.append(quotes[0] if len(quotes) == 1 else f'<div class="pulls">{"".join(quotes)}</div>')
-            continue
-        if kind == "figure" and blocks[j][1] == "sheet" and j + 1 < len(blocks) \
-                and blocks[j + 1][0] == "figure" and blocks[j + 1][1] == "sheet":
-            out.append(f'<div class="fig-row">{blocks[j][2]}{blocks[j + 1][2]}</div>')
-            j += 2
             continue
         if kind == "carousel":
             out.append(carousel(blocks[j][1]))
@@ -272,7 +285,7 @@ def nav(root):
     return f"""<div class="wrap">
   <nav class="site-nav">
     <a class="mark" href="{home}"><span class="disc"></span>JASON FRADE</a>
-    <ul><li><a href="{root}#work">Work</a></li><li><a href="{root}#about">About</a></li><li><a href="{root}documents/Frade_resume.pdf">Résumé</a></li></ul>
+    <ul><li><a href="{root}#work">Work</a></li><li><a href="{root}about.html">About</a></li><li><a href="{root}documents/Frade_resume.pdf">Résumé</a></li></ul>
   </nav>
 </div>"""
 
@@ -321,6 +334,10 @@ def page(meta, chapters, next_project=None):
                       f'        <div><dt class="label">Team</dt><dd>{bullets(meta.get("page_role_team", ""))}</dd></div>')
 
     hero = meta.get("page_hero_fallback") or meta.get("card_thumbnail")
+    # Facts with no value (like a project without a timeline) are left out.
+    other_facts = "\n".join(
+        f'        <div><dt class="label">{label}</dt><dd>{esc(meta[key])}</dd></div>'
+        for label, key in (("Timeline", "page_timeline"), ("Shipped to", "page_shipped_to")) if meta.get(key))
     nxt = ""
     if next_project:
         nxt = (f'<div class="wrap cs-next"><a href="{next_project[0]}"><p class="label">Next project</p>'
@@ -364,8 +381,7 @@ def page(meta, chapters, next_project=None):
       </div>
       <dl class="facts">
 {role_facts}
-        <div><dt class="label">Timeline</dt><dd>{esc(meta.get("page_timeline", ""))}</dd></div>
-        <div><dt class="label">Shipped to</dt><dd>{esc(meta.get("page_shipped_to", ""))}</dd></div>
+{other_facts}
       </dl>
     </div>
   </div>
@@ -474,12 +490,11 @@ def home(projects):
 {nav("")}
 
 <main>
-  <!-- DRAFT copy: rewrite the intro and about in your own voice -->
   <header class="home-hero dotted">
     <div class="wrap">
-      <p class="label">Product designer</p>
+      <p class="label">Senior product designer</p>
       <h1>Hi, I'm Jason.</h1>
-      <p class="lede">I design tools that make complicated workflows feel calm, clear and a little bit warm.</p>
+      <p class="lede">I make complicated software simple for the people who use it.</p>
     </div>
   </header>
 
@@ -490,14 +505,140 @@ def home(projects):
     </div>
   </section>
 
-  <section class="wrap home-about" id="about">
-    <p class="label">About</p>
+</main>
+
+{FOOTER}
+</body>
+</html>
+"""
+
+
+# --- About ------------------------------------------------------------------
+
+EMAIL = "jason.a.frade@gmail.com"     # used until about.md has a real email
+RESUME = "documents/Frade_resume.pdf"  # used until about.md's resume file exists
+
+
+def known(v):
+    """False for values still marked TBD in about.md, so they stay off the page."""
+    return bool(v) and "TBD" not in str(v)
+
+
+def about_sections(body):
+    """Split about.md into {id: (label, lines)} by its ## headings."""
+    body = re.sub(r"<!--.*?-->", "", body, flags=re.S)
+    sections, cur = {}, None
+    for line in body.splitlines():
+        h2 = re.match(r"^##\s+(.*?)\s*\{#([\w-]+)\}\s*$", line)
+        if h2:
+            cur = sections.setdefault(h2.group(2), (h2.group(1), []))
+        elif cur:
+            cur[1].append(line.rstrip())
+    return sections
+
+
+def paragraphs(lines):
+    return [p.strip().replace("\n", " ") for p in "\n".join(lines).split("\n\n") if p.strip()]
+
+
+def about(meta, body):
+    esc = html.escape
+    sec = about_sections(body)
+
+    intro = paragraphs(sec.get("intro", ("", []))[1])
+    photo = meta.get("page_photo")
+    photo_html = (f'<img class="about-photo" src="{esc(photo)}" alt="{esc(meta.get("page_photo_alt", ""))}">'
+                  if photo and (ROOT / photo).is_file() else "")
+
+    values_label, value_lines = sec.get("values", ("", []))
+    cards, cur = [], None
+    for line in value_lines:
+        h3 = re.match(r"^###\s+(.*)$", line)
+        if h3:
+            cur = [h3.group(1), []]
+            cards.append(cur)
+        elif cur and line.strip():
+            cur[1].append(line.strip())
+    values = "".join(f'<li><h3>{inline(t)}</h3><p>{inline(" ".join(p))}</p></li>' for t, p in cards)
+
+    def dates(d):
+        return f'<span class="label">{esc(d)}</span>' if known(d) else ""
+    jobs = "".join(
+        f'<li><b>{esc(j["company"])}</b><span>{esc(j["role"])}<small>{esc(j.get("note", ""))}</small></span>'
+        f'{dates(j.get("dates"))}</li>' for j in meta.get("page_experience", []))
+
+    t = meta.get("page_testimonial") or {}
+    testimonial = ""
+    if isinstance(t, dict) and known(t.get("quote")):
+        who = " · ".join(x for x in (t.get("name"), t.get("role")) if known(x))
+        testimonial = f"""
+  <section class="wrap about-section">
+    <p class="label">Kind words</p>
+    <blockquote class="pull"><p>{inline(t["quote"])}</p><cite class="label">{esc(who)}</cite></blockquote>
+  </section>"""
+
+    outside_label, outside_lines = sec.get("outside", ("", []))
+    outside_text = [l for l in outside_lines if l.strip() and not l.startswith("![")]
+    photos = "".join(
+        f'<figure>{img_tag(m.group(2), m.group(1), prefix="")}<figcaption>{inline(m.group(1))}</figcaption></figure>'
+        for m in (re.match(r"!\[(.*?)\]\((.*?)\)", l) for l in outside_lines if l.startswith("!["))
+        if m and exists(m.group(2)))
+
+    c = meta.get("page_contact") or {}
+    email = c.get("email") if known(c.get("email")) else EMAIL
+    resume = c.get("resume") if known(c.get("resume")) and (ROOT / c["resume"]).is_file() else RESUME
+    links = [f'<li><a href="mailto:{esc(email)}">{esc(email)}</a></li>']
+    if known(c.get("linkedin")):
+        links.append(f'<li><a href="{esc(c["linkedin"])}">LinkedIn</a></li>')
+    links.append(f'<li><a href="{esc(resume)}">Résumé</a></li>')
+
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Jason Frade</title>
+<meta name="description" content="{esc(meta.get("meta_description", ""))}">
+<link rel="icon" href="favicon.ico">
+{FONTS}
+<link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
+</head>
+<body>
+
+{nav("")}
+
+<main>
+  <header class="wrap about-intro{" has-photo" if photo_html else ""}">
     <div>
-      <p>I'm a lead product designer at HubSpot, where I work on automation for small businesses. I like starting from research, testing ideas early, and working closely with product and engineering from strategy through launch.</p>
-      <ul class="links">
-        <li><a href="documents/Frade_resume.pdf">Résumé</a></li>
-        <li><a href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a></li>
-      </ul>
+      <h1 class="label">{esc(meta.get("title", "About"))}</h1>
+      {"".join(f"<p>{inline(p)}</p>" for p in intro)}
+    </div>
+    {photo_html}
+  </header>
+
+  <section class="wrap about-section">
+    <p class="label">{esc(values_label)}</p>
+    <ul class="values">{values}</ul>
+  </section>
+
+  <section class="wrap about-section">
+    <p class="label">Experience</p>
+    <ul class="experience">{jobs}</ul>
+  </section>
+{testimonial}
+  <section class="wrap about-section">
+    <p class="label">{esc(outside_label)}</p>
+    <div>
+      {"".join(f"<p>{inline(l)}</p>" for l in outside_text)}
+      {f'<div class="outside-photos">{photos}</div>' if photos else ""}
+    </div>
+  </section>
+
+  <section class="wrap about-section about-contact">
+    <p class="label">Contact</p>
+    <div>
+      <h2>{esc(c.get("heading") or "Get in touch")}</h2>
+      <ul class="links">{"".join(links)}</ul>
     </div>
   </section>
 </main>
@@ -528,6 +669,17 @@ def build():
     projects = [m for m, _ in projects]
     (ROOT / "index.html").write_text(home(projects), encoding="utf-8")
     print(f"built index.html  ({len(projects)} projects)")
+
+    about_md = ROOT / "content" / "about.md"
+    if about_md.is_file():
+        _, fm, body = about_md.read_text(encoding="utf-8").split("---", 2)
+        (ROOT / "about.html").write_text(about(parse_front_matter(fm), body), encoding="utf-8")
+        print("built about.html")
+
+    if MISSING:
+        print("\nLeft out because the image isn't in images/ yet:")
+        for src in dict.fromkeys(MISSING):
+            print(f"  {src}")
 
 
 if __name__ == "__main__":
