@@ -16,7 +16,7 @@ card_context: "HubSpot · B2B CRM · 2026"
 card_summary: "Led design and co-led strategy for HubSpot's Automate panel. 72% of the workflows customers built used features new to Starter, and AI-recommended ones went live at 2× the rate."
 
 page_subtitle: "An automation experience built into the pages where customers spend their time, with personalized recommendations that help them find what's worth automating."
-page_problem: "Automation was scattered across five different patterns, hard to find, and customers couldn't get what they needed."
+page_problem: "A home page made automation easier to find, but the tools behind it were still five separate patterns that each worked differently, and every one pulled customers away from their work."
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
   - value: "3×"
@@ -73,7 +73,7 @@ HubSpot Starter is the entry-level paid plan, used by more than 150,000 customer
 ## 02 · Problem {#problem}
 ### Automation for Starter customers was scattered and hard to find
 
-Starter customers didn't have access to a central Workflows app. Instead, their automation experience was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt."
+Starter customers didn't have access to a central Workflows app. Instead, their automation experience was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.
 
 > "A little bit of an Easter egg hunt."
 >

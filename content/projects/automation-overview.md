@@ -16,7 +16,7 @@ card_context: "HubSpot · B2B CRM · 2025"
 card_summary: "Led design and co-led the vision for HubSpot's Automation Overview. Monthly visits grew from about 52,000 to 150,000 in a year, passing 2 million total views since launch."
 
 page_subtitle: "The first thing customers see when they open automation, with suggestions for what to automate next and a quick view of how their automation is running."
-page_problem: "Automation was spread across many tools, and customers didn't know where to start or whether their automation was working."
+page_problem: "Automation was spread across 14 places with nothing tying them together, so customers didn't know where to start or whether what they'd built was working."
 page_hero_media: images/automation-overview/hero.jpg
 page_hero_fallback: images/automation-overview/hero.jpg
 page_metrics:
