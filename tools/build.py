@@ -565,31 +565,17 @@ def original(src):
     return src
 
 
-LAZY = ' loading="lazy"'
+def mosaic(photos):
+    """The Outside of work photos as a mosaic, placed using MOSAIC."""
+    cells = []
+    for alt, src in photos:
+        area, wide = MOSAIC.get(Path(src).stem, ("auto", ""))
+        cells.append(f'<figure class="{wide}" style="grid-area: {area}">'
+                     f'{img_tag(original(src), alt, prefix="")}</figure>')
+    return f'<div class="mosaic">{"".join(cells)}</div>'
 
 
-def outside_photos(photos, style):
-    """The Outside of work photos as a mosaic, or as an auto-scrolling strip."""
-    esc = html.escape
-    if style == "mosaic":
-        cells = []
-        for alt, src in photos:
-            area, wide = MOSAIC.get(Path(src).stem, ("auto", ""))
-            cells.append(f'<figure class="{wide}" style="grid-area: {area}">'
-                         f'{img_tag(original(src), alt, prefix="")}</figure>')
-        return f'<div class="mosaic">{"".join(cells)}</div>'
-    # The strip holds two copies of the photos and slides left by one copy,
-    # so the loop is seamless. The second copy is hidden from screen readers.
-    def copy(hidden):
-        attr = ' aria-hidden="true"' if hidden else ""
-        return (f'<div class="marquee-set"{attr}>' + "".join(
-            # Not lazy: photos waiting off to the side of the strip would never load.
-            f'<figure>{img_tag(original(src), "" if hidden else alt, prefix="").replace(LAZY, "")}</figure>'
-            for alt, src in photos) + "</div>")
-    return f'<div class="marquee"><div class="marquee-track">{copy(False)}{copy(True)}</div></div>'
-
-
-def about(meta, body, photo_style="mosaic"):
+def about(meta, body):
     esc = html.escape
     sec = about_sections(body)
 
@@ -635,7 +621,7 @@ def about(meta, body, photo_style="mosaic"):
     photos = [(m.group(1), m.group(2))
               for m in (re.match(r"!\[(.*?)\]\((.*?)\)", l) for l in outside_lines if l.startswith("!["))
               if m and exists(m.group(2))]
-    photos_html = outside_photos(photos, photo_style) if photos else ""
+    photos_html = mosaic(photos) if photos else ""
 
     c = meta.get("page_contact") or {}
     email = c.get("email") if known(c.get("email")) else EMAIL
@@ -650,7 +636,7 @@ def about(meta, body, photo_style="mosaic"):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Jason Frade</title>{'<meta name="robots" content="noindex">' if photo_style != "mosaic" else ""}
+<title>About — Jason Frade</title>
 <meta name="description" content="{esc(meta.get("meta_description", ""))}">
 <link rel="icon" href="favicon.ico">
 {FONTS}
@@ -684,9 +670,8 @@ def about(meta, body, photo_style="mosaic"):
     <div>
       {"".join(f"<p>{inline(l)}</p>" for l in outside_text)}
     </div>
-    {photos_html if photo_style == "mosaic" else ""}
+    {photos_html}
   </section>
-  {photos_html if photo_style != "mosaic" else ""}
 
   <section class="wrap about-section about-contact">
     <p class="label">Contact</p>
@@ -729,9 +714,7 @@ def build():
         _, fm, body = about_md.read_text(encoding="utf-8").split("---", 2)
         meta = parse_front_matter(fm)
         (ROOT / "about.html").write_text(about(meta, body), encoding="utf-8")
-        # Preview only, not linked anywhere: the same page with a scrolling photo strip.
-        (ROOT / "about-scroll.html").write_text(about(meta, body, photo_style="scroll"), encoding="utf-8")
-        print("built about.html (and the about-scroll.html preview)")
+        print("built about.html")
 
     if MISSING:
         print("\nLeft out because the image isn't in images/ yet:")

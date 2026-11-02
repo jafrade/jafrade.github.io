@@ -1,5 +1,5 @@
 #!/bin/sh
-# Make web-sized copies of the About photos for the mosaic and photo strip.
+# Make web-sized copies of the About photos for the mosaic.
 #
 #     sh tools/resize-about-photos.sh
 #

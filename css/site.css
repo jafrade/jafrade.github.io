@@ -139,23 +139,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .experience b { font-weight: 500; }
 .experience small { display: block; font-size: 15px; color: var(--ink-soft); margin-top: 2px; }
 
-/* Outside of work: a mosaic of square cells, or (preview) an auto-scrolling strip */
+/* Outside of work: a mosaic of square cells */
 .mosaic { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); aspect-ratio: 5 / 3; gap: 6px; margin-top: 24px; }
-.mosaic figure, .marquee figure { position: relative; margin: 0; overflow: hidden; background: var(--paper-2); }
+.mosaic figure { position: relative; margin: 0; overflow: hidden; background: var(--paper-2); }
 .mosaic img { width: 100%; height: 100%; object-fit: cover; }
-
-.marquee { overflow: hidden; margin: -24px 0 72px; }
-.marquee-track { display: flex; width: max-content; animation: marquee 70s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
-.marquee-set { display: flex; gap: 8px; padding-right: 8px; }
-.marquee figure { flex: none; height: 360px; }
-.marquee img { height: 100%; width: auto; max-width: none; }
-@keyframes marquee { to { transform: translateX(-50%); } }
-@media (prefers-reduced-motion: reduce) {
-  .marquee { overflow-x: auto; }
-  .marquee-track { animation: none; }
-  .marquee-set[aria-hidden] { display: none; }
-}
 
 .about-contact h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.1; font-weight: 300; margin-bottom: 24px; }
 .about-contact .links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
@@ -288,7 +275,6 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
   .mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-flow: dense; aspect-ratio: auto; }
   .mosaic figure { grid-area: auto !important; aspect-ratio: 1; }
   .mosaic figure.wide { grid-column: span 2 !important; aspect-ratio: 2 / 1; }
-  .marquee figure { height: 240px; }
   .cs-summary { grid-template-columns: 1fr; gap: 48px; }
   .facts { grid-template-columns: 1fr 1fr; }
   .fig-row { grid-template-columns: 1fr; }
