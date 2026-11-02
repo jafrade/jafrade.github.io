@@ -556,9 +556,14 @@ MOSAIC = {
 
 
 def original(src):
-    """The uncropped version of an About photo, if there is one."""
-    o = Path(src).parent / "originals" / Path(src).name
-    return str(o) if (ROOT / o).is_file() else src
+    """The uncropped version of an About photo, if there is one. Prefers the
+    web-sized copy in web/ (made by tools/resize-about-photos.sh) over the
+    full-size file in originals/."""
+    for folder in ("web", "originals"):
+        o = Path(src).parent / folder / Path(src).name
+        if (ROOT / o).is_file():
+            return str(o)
+    return src
 
 
 LAZY = ' loading="lazy"'
