@@ -9,7 +9,7 @@ title: "Redesigning how HubSpot Ads reports tracking errors"
 slug: ads-tracking
 order: 3
 featured: true
-focus: ["Marketing tools"]
+focus: ["Reporting", "Marketing"]
 
 card_thumbnail: images/ads-tracking/card-screen.jpg   # card.jpg cropped to the screenshot, no cream border
 card_context: "HubSpot · Ads tool · 2020"

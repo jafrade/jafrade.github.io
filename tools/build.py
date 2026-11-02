@@ -541,7 +541,51 @@ def paragraphs(lines):
     return [p.strip().replace("\n", " ") for p in "\n".join(lines).split("\n\n") if p.strip()]
 
 
-def about(meta, body):
+# Where each photo sits in the desktop mosaic (column / row / span), from about.md's notes.
+# On phones the mosaic is two columns; "wide" photos span both.
+MOSAIC = {
+    "england":     ("1 / 1 / span 2 / span 2", "wide"),
+    "woodworking": ("1 / 3 / span 2 / span 1", ""),
+    "sourdough":   ("1 / 4 / span 1 / span 1", ""),
+    "van":         ("1 / 5 / span 2 / span 1", ""),
+    "cooking":     ("2 / 4 / span 1 / span 1", ""),
+    "travel":      ("3 / 1 / span 1 / span 2", "wide"),
+    "cats":        ("3 / 3 / span 1 / span 1", ""),
+    "epcot":       ("3 / 4 / span 1 / span 2", ""),
+}
+
+
+def original(src):
+    """The uncropped version of an About photo, if there is one."""
+    o = Path(src).parent / "originals" / Path(src).name
+    return str(o) if (ROOT / o).is_file() else src
+
+
+LAZY = ' loading="lazy"'
+
+
+def outside_photos(photos, style):
+    """The Outside of work photos as a mosaic, or as an auto-scrolling strip."""
+    esc = html.escape
+    if style == "mosaic":
+        cells = []
+        for alt, src in photos:
+            area, wide = MOSAIC.get(Path(src).stem, ("auto", ""))
+            cells.append(f'<figure class="{wide}" style="grid-area: {area}">'
+                         f'{img_tag(original(src), alt, prefix="")}</figure>')
+        return f'<div class="mosaic">{"".join(cells)}</div>'
+    # The strip holds two copies of the photos and slides left by one copy,
+    # so the loop is seamless. The second copy is hidden from screen readers.
+    def copy(hidden):
+        attr = ' aria-hidden="true"' if hidden else ""
+        return (f'<div class="marquee-set"{attr}>' + "".join(
+            # Not lazy: photos waiting off to the side of the strip would never load.
+            f'<figure>{img_tag(original(src), "" if hidden else alt, prefix="").replace(LAZY, "")}</figure>'
+            for alt, src in photos) + "</div>")
+    return f'<div class="marquee"><div class="marquee-track">{copy(False)}{copy(True)}</div></div>'
+
+
+def about(meta, body, photo_style="mosaic"):
     esc = html.escape
     sec = about_sections(body)
 
@@ -579,10 +623,10 @@ def about(meta, body):
 
     outside_label, outside_lines = sec.get("outside", ("", []))
     outside_text = [l for l in outside_lines if l.strip() and not l.startswith("![")]
-    photos = "".join(
-        f'<figure>{img_tag(m.group(2), m.group(1), prefix="")}<figcaption>{inline(m.group(1))}</figcaption></figure>'
-        for m in (re.match(r"!\[(.*?)\]\((.*?)\)", l) for l in outside_lines if l.startswith("!["))
-        if m and exists(m.group(2)))
+    photos = [(m.group(1), m.group(2))
+              for m in (re.match(r"!\[(.*?)\]\((.*?)\)", l) for l in outside_lines if l.startswith("!["))
+              if m and exists(m.group(2))]
+    photos_html = outside_photos(photos, photo_style) if photos else ""
 
     c = meta.get("page_contact") or {}
     email = c.get("email") if known(c.get("email")) else EMAIL
@@ -597,7 +641,7 @@ def about(meta, body):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About — Jason Frade</title>
+<title>About — Jason Frade</title>{'<meta name="robots" content="noindex">' if photo_style != "mosaic" else ""}
 <meta name="description" content="{esc(meta.get("meta_description", ""))}">
 <link rel="icon" href="favicon.ico">
 {FONTS}
@@ -626,13 +670,14 @@ def about(meta, body):
     <ul class="experience">{jobs}</ul>
   </section>
 {testimonial}
-  <section class="wrap about-section">
+  <section class="wrap about-section about-outside">
     <p class="label">{esc(outside_label)}</p>
     <div>
       {"".join(f"<p>{inline(l)}</p>" for l in outside_text)}
-      {f'<div class="outside-photos">{photos}</div>' if photos else ""}
     </div>
+    {photos_html if photo_style == "mosaic" else ""}
   </section>
+  {photos_html if photo_style != "mosaic" else ""}
 
   <section class="wrap about-section about-contact">
     <p class="label">Contact</p>
@@ -673,8 +718,11 @@ def build():
     about_md = ROOT / "content" / "about.md"
     if about_md.is_file():
         _, fm, body = about_md.read_text(encoding="utf-8").split("---", 2)
-        (ROOT / "about.html").write_text(about(parse_front_matter(fm), body), encoding="utf-8")
-        print("built about.html")
+        meta = parse_front_matter(fm)
+        (ROOT / "about.html").write_text(about(meta, body), encoding="utf-8")
+        # Preview only, not linked anywhere: the same page with a scrolling photo strip.
+        (ROOT / "about-scroll.html").write_text(about(meta, body, photo_style="scroll"), encoding="utf-8")
+        print("built about.html (and the about-scroll.html preview)")
 
     if MISSING:
         print("\nLeft out because the image isn't in images/ yet:")

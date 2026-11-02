@@ -9,7 +9,7 @@ title: "Building reusable action sets for HubSpot workflows"
 slug: action-sets
 order: 5
 featured: false
-focus: ["0→1", "Adoption", "Monetization"]
+focus: ["Complex workflows", "Systems thinking", "Craft"]
 
 card_thumbnail: images/action-sets/card.jpg
 card_context: "HubSpot · B2B CRM · 2023"
@@ -55,6 +55,7 @@ filter_skills: ["Research", "Interaction design", "Prototyping", "Cross-team lea
   8. Undecided: keep or drop the v1 editing notice image (v1-editing.jpg) in Design direction; keep or drop strategy-1.jpg (early questions list).
   9. Timeline: v1 launched Dec 2023 (Jason). v2 designed and tested Dec 2023 (Jason). v3 iterations Feb 2024 by another designer after the reorg; not shown on the page.
   10. Voice pass.
+  11. Focus tags use the new list (Complex workflows, Systems thinking, Craft, AI, Growth, Onboarding, Admin, Reporting, Marketing); skill tag list needs updating. Craft needs specific craft details on the page to back it.
 -->
 
 ## My role {#role}

@@ -32,18 +32,29 @@ page_contact:
 
 <!--
   OPEN ITEMS
-  - Headshot: add images/about/headshot.jpg (warm, natural light, not a studio corporate shot)
+  - Photos: confirm the England caption and that the travel photo is Copenhagen. Swap in original photos if available (current ones are screenshots, about 1,250 px wide)
+  - Woodworking photo: the TV screen reflects Jason and part of a TV box shows on the left; fine as is, or retake if there's a cleaner shot
   - Experience dates: fill in HP and XPO dates so they match the resume and LinkedIn
   - XPO title: the resume says UX Engineer; keep it here only if the resume keeps it
   - Testimonial: optional. Use a real quote from a peer or manager review, with their OK. Delete page_testimonial if there isn't one
   - Contact: add email and LinkedIn URL; add the resume PDF under files/
-  - Outside of work photos: add the four images listed in that section, or drop the photos and keep the single line
 
   NOTES FOR THE SITE BUILD
   - Layout order: intro with headshot, values, experience timeline, testimonial (if any), outside of work, contact
   - Values: render each value as a card with the bold label as its heading. Grid of 2 or 3 columns on desktop, 1 column on mobile
   - Experience: a compact list from page_experience, one row per role, not full job descriptions
-  - Outside of work: a small row of photos with a short caption each
+  - Headshot: images/about/headshot.jpg, shown beside the intro
+  - Outside of work: images between the 'photo-grid' and '/photo-grid' comment markers are one grid; each alt text is that photo's caption. Lay them out as a mosaic like Simon Pan's, not a uniform grid:
+    Desktop: 5 columns × 3 rows of square cells, small gap, no rounded corners. Spans (column, row, width × height):
+      England 1,1 2×2 · woodworking 3,1 1×2 · sourdough 4,1 1×1 · van 5,1 1×2 · cooking 4,2 1×1 · Copenhagen 1,3 2×1 · cats 3,3 1×1 · Epcot 4,3 2×1
+    Mobile: 2 columns; England and Copenhagen span both columns, everything else 1×1
+    Use object-fit: cover on the uncropped photos in images/about/originals so each fills its cell
+  - Photo files, so layouts can be compared:
+    images/about/originals: every photo uncropped (same names as below), plus alt-apron, alt-autumn, alt-donuts and alt-park as other headshot or grid options
+    images/about: the same photos pre-cropped to 960 × 1,200 (4:5), for a uniform grid or a scrolling strip
+    about-photos-preview.jpg shows the 4:5 crops side by side
+    Captions: a small label on each photo (bottom left, light text on a soft dark gradient), always visible since hover doesn't work on phones
+    See mosaic-preview.jpg for the intended layout
   - No skill or tool lists on this page; the resume carries those
 -->
 
@@ -61,17 +72,17 @@ Every new industry meant learning how someone else's work actually happens, and 
 
 I believe the best answer is usually the simplest one that works well, so I keep asking what we can take away until only what people need is left. A marketer shouldn't have to think like an engineer to set up a workflow, and a shop owner shouldn't need a manual to use the software that runs their business.
 
+### Care about the craft
+
+I care about how a product looks and feels as much as how it works. I spend real time on visual and interaction details, and on the parts that are easy to skip, like what a screen looks like before there's any data and what happens when something goes wrong. Those moments can decide whether someone trusts the product.
+
 ### Let customers lead the way
 
 I lean on customers to help guide where a design goes, so I talk to them throughout a project, from early interviews, card sorts and tree tests to concept and usability tests. After launch, I watch the data to see whether we got it right.
 
-### Sweat the small stuff
+### Build to learn
 
-I spend real time on the parts that are easy to skip, like what a screen looks like before there's any data and what happens when something goes wrong. Those moments can decide whether someone trusts the product.
-
-### Build alongside engineers
-
-I like working through technical constraints with the people building the product, because they often point to a better design. I also build quick prototypes in code to test how an idea actually feels.
+I use AI tools like Claude and Lovable to turn early ideas into working prototypes. They give me something real to work through with customers, and help me answer technical questions with engineers sooner. The tools help me move faster, and my own design judgment still decides what we ship.
 
 ### Design for the teams who build on it
 
@@ -83,9 +94,15 @@ I make a point of giving thoughtful, specific feedback to every designer I work 
 
 ## Outside of work {#outside}
 
-I bake sourdough, cook vegan food, build things out of wood, and own far too many Blu-rays.
+When I'm not designing, I'm usually making something, whether that's sourdough, a vegan dinner or a piece of furniture. I also converted a van into a camper. I used to live in England, I travel whenever I can, and I share my home with two cats and far too many Blu-rays.
 
-![A loaf of sourdough](images/about/sourdough.jpg)
-![A vegan dish](images/about/cooking.jpg)
-![A woodworking piece](images/about/woodworking.jpg)
-![Part of the Blu-ray shelf](images/about/blu-ray.jpg)
+<!-- photo-grid -->
+![Sourdough, cut open to check the crumb](images/about/sourdough.jpg)
+![Plating a vegan dinner](images/about/cooking.jpg)
+![An entertainment center I built](images/about/woodworking.jpg)
+![The van I converted into a camper](images/about/van.jpg)
+![My two cats](images/about/cats.jpg)
+![When I lived in England](images/about/england.jpg)
+![A quiet morning in Copenhagen](images/about/travel.jpg)
+![Spaceship Earth at Epcot](images/about/epcot.jpg)
+<!-- /photo-grid -->

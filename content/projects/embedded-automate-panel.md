@@ -9,7 +9,7 @@ title: "Redesigning HubSpot's embedded automation"
 slug: embedded-automate-panel
 order: 1
 featured: true
-focus: ["0→1", "Activation", "Adoption", "Platform"]
+focus: ["Craft", "AI", "Complex workflows", "Systems thinking"]
 
 card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as the case study hero
 card_context: "HubSpot · B2B CRM · 2026"

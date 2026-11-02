@@ -9,7 +9,7 @@ title: "Building HubSpot's first home page for automation"
 slug: automation-overview
 order: 2
 featured: true
-focus: ["Adoption", "0→1", "Onboarding", "Activation"]
+focus: ["Growth", "Onboarding", "Systems thinking", "Craft"]
 
 card_thumbnail: images/automation-overview/card.jpg
 card_context: "HubSpot · B2B CRM · 2025"
