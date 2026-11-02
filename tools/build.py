@@ -492,9 +492,8 @@ def home(projects):
 <main>
   <header class="home-hero dotted">
     <div class="wrap">
-      <p class="label">Senior product designer</p>
-      <h1>Hi, I'm Jason.</h1>
-      <p class="lede">I make complicated software simple for the people who use it.</p>
+      <h1>Hi, I’m Jason.</h1>
+      <p class="lede">I design simple, well-crafted software for people doing complicated work.</p>
     </div>
   </header>
 
