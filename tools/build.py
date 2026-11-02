@@ -498,7 +498,6 @@ def home(projects):
   </header>
 
   <section class="wrap home-work" id="work">
-    <p class="label">Selected work</p>
     <div class="projects">
 {cards}
     </div>
