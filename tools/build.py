@@ -590,6 +590,11 @@ def about(meta, body, photo_style="mosaic"):
     sec = about_sections(body)
 
     intro = paragraphs(sec.get("intro", ("", []))[1])
+    # Only the first sentence is the large opening line; the rest of that
+    # paragraph reads as body text.
+    if intro:
+        first, _, rest = intro[0].partition(". ")
+        intro[:1] = [first + "."] + ([rest] if rest else [])
     photo = meta.get("page_photo")
     photo_html = (f'<img class="about-photo" src="{esc(photo)}" alt="{esc(meta.get("page_photo_alt", ""))}">'
                   if photo and (ROOT / photo).is_file() else "")
