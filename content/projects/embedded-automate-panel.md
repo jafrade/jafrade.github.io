@@ -12,11 +12,10 @@ featured: true
 focus: ["Craft", "AI", "Complex workflows", "Systems thinking"]
 
 card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as the case study hero
-card_context: "HubSpot · B2B CRM · 2026"
+card_context: "HubSpot · Workflow automation · 2026"
 card_summary: "Led design and co-led strategy for HubSpot's Automate panel. 72% of the workflows customers built used features new to Starter, and AI-recommended ones went live at 2× the rate."
 
-page_subtitle: "An automation experience built into the pages where customers spend their time, with personalized recommendations that help them find what's worth automating."
-page_problem: "A home page made automation easier to find, but the tools behind it were still five separate patterns that each worked differently, and every one pulled customers away from their work."
+page_overview: "Small business customers were leaving HubSpot because they couldn't automate the work they needed, and the automation they had was scattered and hard to find. We built one Automate panel that opens from the pages they already work in, with AI recommendations that show them where to start."
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
   - value: "3×"
@@ -42,11 +41,12 @@ filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design
 
 <!--
   NOTES FOR THE SITE BUILD
+  - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption
 -->
 
 <!-- ============ CASE STUDY PAGE LAYOUT ============
-  1. Top of page: title + focus + all page_ fields except page_chapters
+  1. Top of page: title + page_overview + focus + hero, then a full-width Results row, then role/timeline/shipped to
   1b. "My role" (unnumbered) comes right after the top section, before 01 Context
   2. Full-story chapters (the body below). Each chapter: "## NN · Label {#id}" then "### Headline".
      Labels/headlines must match page_chapters.

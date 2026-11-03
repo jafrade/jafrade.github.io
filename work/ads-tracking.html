@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Redesigning how HubSpot Ads reports tracking errors — Jason Frade</title>
-<meta name="description" content="Tracking errors gathered on the ads page marketers already check, grouped by type, with clear steps to fix each one, and shown only for ads that are still running.">
+<meta name="description" content="When ad tracking broke, marketers couldn&#x27;t prove what their spend brought in, and HubSpot&#x27;s alerts were hard to find and didn&#x27;t say how to fix anything. We brought every error onto the ads page marketers already check, with clear steps to fix each one.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=40eca225">
+<link rel="stylesheet" href="../css/site.css?v=5f0977ed">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
   <header class="wrap cs-hero">
     <p class="label">HubSpot · Ads tool · 2020</p>
     <h1>Redesigning how HubSpot Ads reports tracking errors</h1>
-    <p class="lede">Tracking errors gathered on the ads page marketers already check, grouped by type, with clear steps to fix each one, and shown only for ads that are still running.</p>
+    <p class="lede">When ad tracking broke, marketers couldn&#x27;t prove what their spend brought in, and HubSpot&#x27;s alerts were hard to find and didn&#x27;t say how to fix anything. We brought every error onto the ads page marketers already check, with clear steps to fix each one.</p>
     <ul class="tags"><li>Reporting</li><li>Marketing</li></ul>
   </header>
 
@@ -33,11 +33,7 @@
 
   <div class="wrap">
     <div class="cs-summary">
-      <div class="cs-problem">
-        <p class="label">The problem</p>
-        <p>Marketers couldn&#x27;t see all the tracking errors on their ads, didn&#x27;t know what they meant or how to fix them, and got alerts on ads that were no longer running.</p>
-      </div>
-      <div>
+      <div class="cs-results">
         <p class="label">Results</p>
         <ul class="metrics"><li><b>~50%</b><span>fewer tracking errors in the months after release</span></li><li><b>16 → 3</b><span>monthly support tickets about ad tracking, November 2020 to January 2021</span></li><li><b>224</b><span>customers surveyed to set the satisfaction baseline we&#x27;ll measure against</span></li></ul>
       </div>
@@ -93,9 +89,12 @@
 </section>
 <section class="chapter" id="solution">
 <p class="label num">05 · Final design</p>
-<h2>Each part of the new design answers one of the problems we found</h2>
+<h2>Every tracking error now lives in one place, with steps to fix it</h2>
 <figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="The ads page shows a total count of tracking errors, with a link to view them all"><img src="../images/ads-tracking/final-1.jpg" alt="The ads page shows a total count of tracking errors, with a link to view them all" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed"><img src="../images/ads-tracking/final-2.jpg" alt="The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed" width="1600" height="1100" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: The ads page shows a total count of tracking errors, with a link to view them all"><img src="../images/ads-tracking/final-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed"><img src="../images/ads-tracking/final-2.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">The ads page shows a total count of tracking errors, with a link to view them all</figcaption><div class="carousel-nav"><span class="label count">1 / 2</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
-<ul class="shifts"><li><span class="was">Customers had a hard time seeing how many errors they had,</span><span class="now">so every error now rolls up to a single count on the ads page, with one place to review and resolve them all.</span></li><li><span class="was">It was unclear what each issue was,</span><span class="now">so errors are grouped by category with a count for each, which makes similar issues easier to understand and fix together.</span></li><li><span class="was">Each error explains what went wrong and how to fix it. Errors that can't be fixed say so and can be dismissed,</span><span class="now">so they stop showing up.</span></li><li><span class="was">Customers got alerts on ads that were no longer running,</span><span class="now">so inactive ads no longer show any errors.</span></li></ul>
+<p>With the shared error pattern and the rewritten messages in place, we finalized the design around our original goal: making it easy for customers to see when their ads aren't being tracked and how to fix it.</p>
+<p>We brought every tracking error up to a single count at the top of the ads page, which opens one panel where customers can review and resolve them all.</p>
+<p>Customers see the number of tracking errors above their campaigns, and each affected campaign is marked with a tracking error. Selecting View errors opens the panel, where errors are grouped by category with a count for each, so similar issues can be worked through together. Each error explains what's wrong and how to fix it, either in HubSpot or in the ad network. Errors that can't be fixed say so, and customers can dismiss them to a separate Dismissed tab.</p>
+<p>We also stopped showing errors on any ad that isn't active, since support tickets showed that alerts on inactive ads drove most of the tracking support volume.</p>
 </section>
 <section class="chapter" id="impact">
 <p class="label num">06 · Impact</p>

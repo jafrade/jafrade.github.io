@@ -334,6 +334,7 @@ def page(meta, chapters, next_project=None):
                       f'        <div><dt class="label">Team</dt><dd>{bullets(meta.get("page_role_team", ""))}</dd></div>')
 
     hero = meta.get("page_hero_fallback") or meta.get("card_thumbnail")
+    overview = meta.get("page_overview") or meta.get("page_subtitle", "")
     # Facts with no value (like a project without a timeline) are left out.
     other_facts = "\n".join(
         f'        <div><dt class="label">{label}</dt><dd>{esc(meta[key])}</dd></div>'
@@ -349,7 +350,7 @@ def page(meta, chapters, next_project=None):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(meta["title"])} — Jason Frade</title>
-<meta name="description" content="{esc(meta.get("page_subtitle", ""))}">
+<meta name="description" content="{esc(overview)}">
 {FONTS}
 <link rel="stylesheet" href="../css/site.css?v={CSS_VERSION}">
 </head>
@@ -361,7 +362,7 @@ def page(meta, chapters, next_project=None):
   <header class="wrap cs-hero">
     <p class="label">{esc(meta.get("card_context", ""))}</p>
     <h1>{esc(meta["title"])}</h1>
-    <p class="lede">{esc(meta.get("page_subtitle", ""))}</p>
+    <p class="lede">{esc(overview)}</p>
     <ul class="tags">{focus}</ul>
   </header>
 
@@ -371,11 +372,7 @@ def page(meta, chapters, next_project=None):
 
   <div class="wrap">
     <div class="cs-summary">
-      <div class="cs-problem">
-        <p class="label">The problem</p>
-        <p>{esc(meta.get("page_problem", ""))}</p>
-      </div>
-      <div>
+      <div class="cs-results">
         <p class="label">Results</p>
         <ul class="metrics">{metrics}</ul>
       </div>

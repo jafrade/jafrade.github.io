@@ -12,11 +12,10 @@ featured: false
 focus: ["Complex workflows", "Systems thinking", "Craft"]
 
 card_thumbnail: images/action-sets/card.jpg
-card_context: "HubSpot · B2B CRM · 2023"
+card_context: "HubSpot · Workflow automation · 2023"
 card_summary: "Led design and research for HubSpot's Action Sets. About 2,400 customers used them, and 25% of those inserted a set more than 200 times."
 
-page_subtitle: "Saved groups of actions that anyone on a team can drop into a workflow, so builders start from steps their team already worked out."
-page_problem: "Teams building lots of workflows rebuilt the same groups of actions in each one, which was slow and made consistency hard to keep."
+page_overview: "Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow."
 page_hero_fallback: images/action-sets/hero.jpg
 page_metrics:
   - value: "2,400"
@@ -43,19 +42,14 @@ filter_skills: ["Research", "Interaction design", "Prototyping", "Cross-team lea
 <!--
   NOTES FOR THE SITE BUILD
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption
+  - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
 
-  OPEN ITEMS (resolve before packaging)
-  1. Metrics: 2,400 customers, 25% inserting more than 200 times, 1 to 2 minutes per insert, and 106 upgrades come from the performance review dated 1/15/2023, which Jason confirmed should read Jan 2024, so the numbers are from within two months of the December 2023 launch. Per-insert time came from a dashboard Jason no longer has (his call to keep). 106 says "contributed", not "caused".
-  2. Launch month: alpha Nov 6, 2023 is from the PRD meeting notes; "launched in December" is from the S2 fact bank.
-  3. Reorg month isn't in the docs; Jason recalls Feb or Mar 2024, so the page says "early 2024".
-  4. Dropped: 128 upgrades in two months (no primary source), the LinkedIn ranking (same), the 87% connected apps (action panel redesign, a different project), the unmoderated UserZoom comic strip results (no notes), and onboarding frames (guided tour and welcome carousel didn't ship).
-  5. Concept validation pull quote is from Travis's session notes (a HubSpot partner), in quotation marks there; attribution reads "Customer". Jason chose to swap "Concept A/B" in the quote for the concept names without brackets. Two of the five moderated participants were HubSpot employees; the text says "five people, three of them customers".
-  6. Final design frames (create 1-6, add 1-3) need the red annotation callouts removed and "Emma's action set" / "Evan's action set" renamed in Add action set 1. Jason to re-export from Figma, or Claude cleans them.
-  7. Final design text: the annotations say the preview moved to a later version and sets are grouped in one accordion. Confirm whether the preview and record-type grouping shipped in v1; text and hero change if not.
-  8. Undecided: keep or drop the v1 editing notice image (v1-editing.jpg) in Design direction; keep or drop strategy-1.jpg (early questions list).
-  9. Timeline: v1 launched Dec 2023 (Jason). v2 designed and tested Dec 2023 (Jason). v3 iterations Feb 2024 by another designer after the reorg; not shown on the page.
-  10. Voice pass.
-  11. Focus tags use the new list (Complex workflows, Systems thinking, Craft, AI, Growth, Onboarding, Admin, Reporting, Marketing); skill tag list needs updating. Craft needs specific craft details on the page to back it.
+  SOURCES AND KNOWN ITEMS (for reference, nothing here renders)
+  - Metrics (2,400 customers, 25% inserting a set more than 200 times, 1 to 2 minutes per insert, 106 upgrades) come from Jason's performance review dated Jan 2024, within two months of the December 2023 launch. The per-insert time came from a dashboard Jason no longer has. 106 says "contributed", not "caused".
+  - Alpha Nov 6, 2023 is from the PRD meeting notes. The reorg month isn't in the docs, so the page says "early 2024".
+  - v1 launched Dec 2023 (Jason). v2 designed and tested Dec 2023 (Jason). v3 iterations in Feb 2024 were by another designer after the reorg and aren't shown.
+  - The Concept validation pull quote is from Travis's session (a HubSpot partner). Jason chose to swap "Concept A/B" for the concept names without brackets.
+  - The hero frame's panel copy describes linked updates (v2 behavior); v1 shipped unlinked copies.
 -->
 
 ## My role {#role}
@@ -99,8 +93,6 @@ I planned and ran discovery calls with six customers who cloned workflows often 
 
 From there my PM and I scoped the idea: let customers save a group of actions as a kind of mini template, find it in the action panel, and add it to any workflow of the same type.
 
-![The early questions my content designer and I worked through: what a reusable set is, who it's for, and how editing copies should work](images/action-sets/strategy-1.jpg)
-
 ## 04 · Concept validation {#research}
 ### A comic strip test showed customers expected one edit to reach every copy
 
@@ -142,6 +134,8 @@ The biggest finding was about editing. Most people assumed a change to the saved
 After the comic strip test, I worked out where sets would live and how people would build them, starting with low-fidelity wireframes of saved "snippets" in the action panel. We considered three ways to build a set: as a single collapsed action, as a container around actions on the canvas, and in its own editor. We went with the editor, since building on the canvas wasn't technically feasible at the time.
 
 <!-- carousel -->
+![Early wireframes of saved "snippets": finding, previewing, selecting and saving groups of actions](images/action-sets/build-0a.jpg)
+![The three build types side by side: a collapsed action, a container on the canvas, and a separate editor](images/action-sets/build-0b.jpg)
 ![A set shown as a single collapsed action](images/action-sets/build-1.jpg)
 ![A set built as a container around actions on the canvas](images/action-sets/build-2.jpg)
 ![A set built in its own editor, the direction we shipped](images/action-sets/build-3.jpg)
@@ -152,8 +146,6 @@ Participants didn't agree on a name. They called it a saved branch, a mini flow,
 ![The naming matrix we used to compare templates, blocks, modules and sets](images/action-sets/naming.jpg)
 
 Our original design linked every copy to the original set, which is what customers expected. Engineering pushed back on what was feasible for the first release. Rather than delay it, my PM and I agreed to ship sets as independent copies, since saving and reusing actions was valuable on its own. My job was to make the difference clear to customers. The panel says that changes to your copy won't affect the original set, and editing the original shows a notice that workflows already using it won't change.
-
-![Editing the original set, with a notice that existing workflows keep their copy](images/action-sets/v1-editing.jpg)
 
 While v1 was being built, I designed v2: global action sets. I mapped how creating, updating and detaching would work, and how publishing should behave when a change could break workflows that already used the set.
 
@@ -180,17 +172,21 @@ In December 2023, I tested the prototype with six workflow builders in an unmode
 ### Saving and reusing a set works like adding any other action
 
 <!-- carousel -->
-![A set in a workflow, with its description and preview in the side panel](images/action-sets/final-1.jpg)
-![Creating a set from the action panel, from scratch or from the current workflow](images/action-sets/final-2.jpg)
-![Building the set in its own editor](images/action-sets/final-3.jpg)
-![Sets listed in the action panel, with a tip explaining why one might be missing](images/action-sets/final-4.jpg)
+![A set's description and preview before adding it to a workflow](images/action-sets/final-1.jpg)
+![The action panel before any sets exist, with Create action set next to HubSpot's actions](images/action-sets/final-2.jpg)
+![Creating a set: name it, then copy the actions from the current workflow or start from scratch](images/action-sets/final-3.jpg)
+![Building the set in its own editor](images/action-sets/final-4.jpg)
+![Editing the set's name and description](images/action-sets/final-5.jpg)
+![A confirmation that says where to find the new set](images/action-sets/final-6.jpg)
+![Saved sets listed in the action panel](images/action-sets/final-7.jpg)
+![The set's actions added to a workflow, inside a branch, where they can be changed like any others](images/action-sets/final-8.jpg)
 <!-- /carousel -->
 
 Once we agreed to ship sets as independent copies, we finished the first version around our original goal: making it faster to build workflows that share the same steps.
 
 We put action sets in the action panel next to HubSpot's own actions, so adding a set works the same way as adding any other action. That kept it familiar, since the Shared Workflow concept had confused some people in testing.
 
-Customers can save a group of actions as a set, starting from scratch or from the workflow they're in, and build it in its own editor. Sets are grouped by the type of record they work with, and a tip explains why one might be missing. Each set shows a description and a preview before you add it, and it can go anywhere in a workflow, including inside a branch. Once it's in, its actions can be changed like any others.
+Customers can save a group of actions as a set, starting from scratch or from the workflow they're in, and build it in its own editor. Saved sets appear in their own section of the action panel. Each set shows a description and a preview before you add it, and it can go anywhere in a workflow, including inside a branch. Once it's in, its actions can be changed like any others.
 
 Action Sets went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023.
 

@@ -12,11 +12,10 @@ featured: true
 focus: ["Growth", "Onboarding", "Systems thinking", "Craft"]
 
 card_thumbnail: images/automation-overview/card.jpg
-card_context: "HubSpot · B2B CRM · 2025"
+card_context: "HubSpot · Workflow automation · 2025"
 card_summary: "Led design and co-led the vision for HubSpot's Automation Overview. Monthly visits grew from about 52,000 to 150,000 in a year, passing 2 million total views since launch."
 
-page_subtitle: "The first thing customers see when they open automation, with suggestions for what to automate next and a quick view of how their automation is running."
-page_problem: "Automation was spread across 14 places with nothing tying them together, so customers didn't know where to start or whether what they'd built was working."
+page_overview: "Automation had grown into so many tools that many customers didn't know where to start. The more customers automated, the more of their business HubSpot kept. We built one home for automation, where AI-assisted workflows and personalized recommendations help customers get started and see what needs attention."
 page_hero_media: images/automation-overview/hero.jpg
 page_hero_fallback: images/automation-overview/hero.jpg
 page_metrics:
@@ -42,6 +41,7 @@ filter_skills: ["Strategy", "Research", "Interaction design", "Visual design", "
 ---
 <!--
   NOTES FOR THE SITE BUILD
+  - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel, in order; each alt text is that slide's caption
   - Single images outside a carousel use their alt text as the caption
 -->

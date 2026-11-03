@@ -15,8 +15,7 @@ card_thumbnail: images/ads-tracking/card-screen.jpg   # card.jpg cropped to the 
 card_context: "HubSpot · Ads tool · 2020"
 card_summary: "Led design for HubSpot Ads tracking errors, from research through launch. In the months after release, the number of tracking errors dropped by about 50%."
 
-page_subtitle: "Tracking errors gathered on the ads page marketers already check, grouped by type, with clear steps to fix each one, and shown only for ads that are still running."
-page_problem: "Marketers couldn't see all the tracking errors on their ads, didn't know what they meant or how to fix them, and got alerts on ads that were no longer running."
+page_overview: "When ad tracking broke, marketers couldn't prove what their spend brought in, and HubSpot's alerts were hard to find and didn't say how to fix anything. We brought every error onto the ads page marketers already check, with clear steps to fix each one."
 page_hero_fallback: images/ads-tracking/hero-screen.jpg   # hero.jpg cropped to the screenshot, no cream border
 page_metrics:
   - value: "~50%"
@@ -32,7 +31,7 @@ page_chapters:
   - { id: problem,  label: "Problem",          headline: "Customers couldn't tell when tracking was broken or how to fix it" }
   - { id: strategy, label: "Strategy",         headline: "We set out to put every error in one place and explain how to fix it" }
   - { id: decision, label: "Design direction", headline: "I worked with another designer on a shared error pattern and we rewrote every error message" }
-  - { id: solution, label: "Final design",     headline: "Each part of the new design answers one of the problems we found" }
+  - { id: solution, label: "Final design",     headline: "Every tracking error now lives in one place, with steps to fix it" }
   - { id: impact,   label: "Impact",           headline: "Errors dropped by about half in the months after release" }
 
 filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team leadership"]
@@ -40,6 +39,7 @@ filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team l
 
 <!--
   NOTES FOR THE SITE BUILD
+  - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption.
   - This page has six numbered chapters (no Concept validation), no timeline field, and no Reflection, by Jason's choice.
   - Metric sources: "about 50%" is total tracking errors from product analytics, Oct 2020 to Jan 2021 (Jan was likely a partial month). 16 → 3 is adsTracking support tickets by month, Nov 2020 to Jan 2021. 224 is the satisfaction survey baseline. All come from Jason's deck, not a live dashboard.
@@ -102,17 +102,20 @@ Since customers didn't understand what the errors meant, we also did a full cont
 ![The content audit: each error's old label and text next to the rewrite](images/ads-tracking/direction-2.jpg)
 
 ## 05 · Final design {#solution}
-### Each part of the new design answers one of the problems we found
-
-- Customers had a hard time seeing how many errors they had, so every error now rolls up to a single count on the ads page, with one place to review and resolve them all.
-- It was unclear what each issue was, so errors are grouped by category with a count for each, which makes similar issues easier to understand and fix together.
-- Each error explains what went wrong and how to fix it. Errors that can't be fixed say so and can be dismissed, so they stop showing up.
-- Customers got alerts on ads that were no longer running, so inactive ads no longer show any errors.
+### Every tracking error now lives in one place, with steps to fix it
 
 <!-- carousel -->
 ![The ads page shows a total count of tracking errors, with a link to view them all](images/ads-tracking/final-1.jpg)
 ![The errors panel groups errors by type, and each one explains how to fix it or that it can't be fixed](images/ads-tracking/final-2.jpg)
 <!-- /carousel -->
+
+With the shared error pattern and the rewritten messages in place, we finalized the design around our original goal: making it easy for customers to see when their ads aren't being tracked and how to fix it.
+
+We brought every tracking error up to a single count at the top of the ads page, which opens one panel where customers can review and resolve them all.
+
+Customers see the number of tracking errors above their campaigns, and each affected campaign is marked with a tracking error. Selecting View errors opens the panel, where errors are grouped by category with a count for each, so similar issues can be worked through together. Each error explains what's wrong and how to fix it, either in HubSpot or in the ad network. Errors that can't be fixed say so, and customers can dismiss them to a separate Dismissed tab.
+
+We also stopped showing errors on any ad that isn't active, since support tickets showed that alerts on inactive ads drove most of the tracking support volume.
 
 ## 06 · Impact {#impact}
 ### Errors dropped by about half in the months after release
