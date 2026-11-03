@@ -151,9 +151,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
    Case study
    ========================================================================== */
 
-.cs-hero { padding-top: 56px; padding-bottom: 48px; }
-.cs-hero h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: 1.02; font-weight: 300; margin: 18px 0 24px; max-width: 16ch; }
-.cs-hero .lede { font-size: clamp(19px, 2vw, 23px); line-height: 1.5; color: var(--ink-soft); max-width: 52ch; margin: 0 0 28px; }
+.cs-hero { padding-top: 56px; padding-bottom: 48px; text-align: center; }
+.cs-hero .tags { justify-content: center; }
+.cs-hero h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: 1.02; font-weight: 300; margin: 18px auto 24px; max-width: 16ch; }
+.cs-hero .lede { font-size: clamp(19px, 2vw, 23px); line-height: 1.5; color: var(--ink-soft); max-width: 52ch; margin: 0 auto 28px; }
 
 .cs-hero-media { padding-bottom: 72px; }
 .stage-panel { background: var(--paper-2); border-radius: 8px; padding: clamp(20px, 5vw, 64px); }
