@@ -91,7 +91,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .card-results b { font-weight: 300; font-size: clamp(36px, 4vw, 48px); line-height: 1; letter-spacing: -.02em; }
 .card-results span { font-size: 14px; line-height: 1.45; color: var(--ink-soft); }
 /* The screenshot starts inside the card and runs off its right and bottom edges */
-.project-card .stage { position: relative; }
+.project-card .stage { position: relative; overflow: hidden; }
 .project-card .stage img { position: absolute; left: 4%; top: 14%; width: 118%; max-width: none; border: 1px solid var(--edge);
                            border-radius: 10px; box-shadow: var(--shadow); transition: transform .4s var(--ease); }
 .project-card:hover .stage img { transform: translate(-6px, -6px); }
@@ -152,12 +152,18 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
    Case study
    ========================================================================== */
 
-.cs-hero { padding-top: 56px; padding-bottom: 48px; text-align: center; }
-.cs-hero .tags { justify-content: center; }
-.cs-hero h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: 1.02; font-weight: 300; margin: 18px auto 24px; max-width: 16ch; }
-.cs-hero .lede { font-size: clamp(19px, 2vw, 23px); line-height: 1.5; color: var(--ink-soft); max-width: 52ch; margin: 0 auto 28px; }
+/* Hero: a band in the project's colour, like its home page card. Title on
+   the left, intro on the right, then the screenshot at full width, whole,
+   hanging below the band's edge. */
+.cs-hero { --hang: clamp(80px, 12vw, 180px); padding: clamp(48px, 7vw, 96px) 0 0; margin-bottom: 72px;
+           background: linear-gradient(color-mix(in srgb, var(--c) 36%, var(--paper-2)) calc(100% - var(--hang)), transparent 0); }
+.cs-hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px clamp(32px, 5vw, 72px); align-items: end; }
+.cs-hero h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.04; font-weight: 300; margin: 16px 0 0; max-width: 15ch; }
+.cs-hero .lede { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.6; color: var(--ink-soft); max-width: 46ch; margin: 0 0 24px; }
+.cs-hero .tags li { border-color: rgba(42, 39, 36, .2); }
+.cs-hero-media { grid-column: 1 / -1; margin-top: clamp(24px, 4vw, 48px); }
+.cs-hero-media img { width: 100%; border: 1px solid var(--edge); border-radius: 10px; box-shadow: var(--shadow); }
 
-.cs-hero-media { padding-bottom: 72px; }
 .stage-panel { background: var(--paper-2); border-radius: 8px; padding: clamp(20px, 5vw, 64px); }
 .stage-panel img { border: 1px solid var(--edge); border-radius: 6px; box-shadow: var(--shadow); margin: 0 auto; }
 
@@ -262,6 +268,7 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
   .chapter figure, .chapter .fig-row { max-width: none; }
 }
 @media (max-width: 720px) {
+  .cs-hero .wrap { grid-template-columns: 1fr; }
   .project-card { grid-template-columns: 1fr; min-height: 0; }
   .project-card .stage { height: 240px; }
   .project-card .stage img { left: 8%; top: 0; width: 130%; }
@@ -292,4 +299,15 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
   .chapter ul.shifts li { grid-template-columns: 1fr; gap: 6px; }
   .chapter ul.shifts .now { padding-left: 22px; }
   .chapter ul.shifts .now::before { left: 0; }
+}
+
+/* ==========================================================================
+   Page transition: a project card grows into its case study hero (and back).
+   Browsers without cross-document view transitions just load the page.
+   ========================================================================== */
+
+@view-transition { navigation: auto; }
+::view-transition-group(*) { animation-duration: .55s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

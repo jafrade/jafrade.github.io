@@ -324,7 +324,7 @@ FOOTER = """<footer class="site-footer">
 
 # --- Page -------------------------------------------------------------------
 
-def page(meta, chapters, next_project=None):
+def page(meta, chapters, colour, next_project=None):
     esc = html.escape
     focus = "".join(f"<li>{esc(t)}</li>" for t in meta.get("focus", []))
     metrics = "".join(
@@ -359,6 +359,7 @@ def page(meta, chapters, next_project=None):
 
     hero = meta.get("page_hero_fallback") or meta.get("card_thumbnail")
     overview = meta.get("page_overview") or meta.get("page_subtitle", "")
+    slug = esc(meta["slug"])
     # Facts with no value (like a project without a timeline) are left out.
     other_facts = "\n".join(
         f'        <div><dt class="label">{label}</dt><dd>{esc(meta[key])}</dd></div>'
@@ -383,16 +384,21 @@ def page(meta, chapters, next_project=None):
 {nav("../")}
 
 <main>
-  <header class="wrap cs-hero">
-    <p class="label">{esc(meta.get("card_context", ""))}</p>
-    <h1>{esc(meta["title"])}</h1>
-    <p class="lede">{esc(overview)}</p>
-    <ul class="tags">{focus}</ul>
+  <header class="cs-hero" style="--c: var(--{colour}); view-transition-name: card-{slug}">
+    <div class="wrap">
+      <div class="cs-hero-title">
+        <p class="label">{esc(meta.get("card_context", ""))}</p>
+        <h1 style="view-transition-name: title-{slug}">{esc(meta["title"])}</h1>
+      </div>
+      <div class="cs-hero-intro">
+        <p class="lede">{esc(overview)}</p>
+        <ul class="tags">{focus}</ul>
+      </div>
+      <div class="cs-hero-media" style="view-transition-name: shot-{slug}">
+        <img src="../{esc(web(hero))}" alt="{esc(meta.get("page_hero_alt") or meta["title"])}">
+      </div>
+    </div>
   </header>
-
-  <div class="wrap cs-hero-media">
-    <div class="stage-panel"><img src="../{esc(web(hero))}" alt="{esc(meta.get("page_hero_alt") or meta["title"])}"></div>
-  </div>
 
   <div class="wrap">
     <div class="cs-summary">
@@ -485,14 +491,16 @@ def card(meta, colour):
     focus = "".join(f"<li>{esc(t)}</li>" for t in meta.get("focus", []))
     results = "".join(f'<li><b>{esc(m["value"])}</b><span>{esc(m["label"])}</span></li>'
                       for m in meta.get("page_metrics", [])[:2])
-    return f"""    <a class="project-card" href="work/{esc(meta["slug"])}.html" style="--c: var(--{colour})">
+    slug = esc(meta["slug"])
+    # These names match the case study hero, so the card grows into it.
+    return f"""    <a class="project-card" href="work/{slug}.html" style="--c: var(--{colour}); view-transition-name: card-{slug}">
       <div class="info">
         <p class="label">{esc(meta.get("card_context", ""))}</p>
-        <h3>{esc(meta["title"])}</h3>
+        <h3 style="view-transition-name: title-{slug}">{esc(meta["title"])}</h3>
         <ul class="card-results">{results}</ul>
         <ul class="tags">{focus}</ul>
       </div>
-      <div class="stage"><img src="{esc(web(meta["card_thumbnail"]))}" alt=""></div>
+      <div class="stage" style="view-transition-name: shot-{slug}"><img src="{esc(web(meta["card_thumbnail"]))}" alt=""></div>
     </a>"""
 
 
@@ -726,7 +734,8 @@ def build():
         nxt = projects[(i + 1) % len(projects)][0] if len(projects) > 1 else None
         nxt = (f'{nxt["slug"]}.html', nxt["title"]) if nxt else None
         out = OUT / f'{meta["slug"]}.html'
-        out.write_text(page(meta, chapters, nxt), encoding="utf-8")
+        colour = CARD_COLOURS[i % len(CARD_COLOURS)]   # the same colour as its home page card
+        out.write_text(page(meta, chapters, colour, nxt), encoding="utf-8")
         print(f"built {out.relative_to(ROOT)}  ({len(chapters)} chapters)")
     projects = [m for m, _ in projects]
     (ROOT / "index.html").write_text(home(projects), encoding="utf-8")
