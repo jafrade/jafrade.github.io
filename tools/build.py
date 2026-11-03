@@ -462,10 +462,12 @@ CARD_COLOURS = ("sage", "oak", "stone", "walnut")
 
 def nav(root):
     home = root or "./"
+    resume = resume_file()
+    resume_item = f'<li><a href="{root}{resume}">Résumé</a></li>' if resume else ""
     return f"""<div class="wrap">
   <nav class="site-nav">
     <a class="mark" href="{home}"><span class="disc"></span>JASON FRADE</a>
-    <ul><li><a href="{root}#work">Work</a></li><li><a href="{root}about.html">About</a></li><li><a href="{root}documents/Frade_resume.pdf">Résumé</a></li></ul>
+    <ul><li><a href="{home}#work">Work</a></li><li><a href="{root}about.html">About</a></li>{resume_item}</ul>
   </nav>
 </div>"""
 
@@ -707,7 +709,15 @@ def home(projects):
 # --- About ------------------------------------------------------------------
 
 EMAIL = "jason.a.frade@gmail.com"     # used until about.md has a real email
-RESUME = "documents/Frade_resume.pdf"  # used until about.md's resume file exists
+def resume_file():
+    """The résumé to link to: the one about.md names, once that file exists.
+    Until then there's no Résumé link (the old 2016 PDF stays unlinked)."""
+    about_md = ROOT / "content" / "about.md"
+    if not about_md.is_file():
+        return None
+    resume = (parse_front_matter(about_md.read_text(encoding="utf-8").split("---", 2)[1])
+              .get("page_contact") or {}).get("resume")
+    return resume if known(resume) and (ROOT / resume).is_file() else None
 
 
 def known(v):
@@ -817,11 +827,12 @@ def about(meta, body):
 
     c = meta.get("page_contact") or {}
     email = c.get("email") if known(c.get("email")) else EMAIL
-    resume = c.get("resume") if known(c.get("resume")) and (ROOT / c["resume"]).is_file() else RESUME
+    resume = resume_file()
     links = [f'<li><a href="mailto:{esc(email)}">{esc(email)}</a></li>']
     if known(c.get("linkedin")):
         links.append(f'<li><a href="{esc(c["linkedin"])}">LinkedIn</a></li>')
-    links.append(f'<li><a href="{esc(resume)}">Résumé</a></li>')
+    if resume:
+        links.append(f'<li><a href="{esc(resume)}">Résumé</a></li>')
 
     return f"""<!doctype html>
 <html lang="en">
