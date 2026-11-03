@@ -479,17 +479,20 @@ def page(meta, chapters, next_project=None):
 # --- Home -------------------------------------------------------------------
 
 def card(meta, colour):
+    """A wide card: the story and two results on the left, the work on the
+    right, running off the card's edge."""
     esc = html.escape
     focus = "".join(f"<li>{esc(t)}</li>" for t in meta.get("focus", []))
-    cls = "project-card" + (" featured" if meta.get("featured") else "")
-    return f"""    <a class="{cls}" href="work/{esc(meta["slug"])}.html" style="--c: var(--{colour})">
-      <div class="stage"><div class="art screen"><img src="{esc(web(meta["card_thumbnail"]))}" alt=""></div></div>
+    results = "".join(f'<li><b>{esc(m["value"])}</b><span>{esc(m["label"])}</span></li>'
+                      for m in meta.get("page_metrics", [])[:2])
+    return f"""    <a class="project-card" href="work/{esc(meta["slug"])}.html" style="--c: var(--{colour})">
       <div class="info">
         <p class="label">{esc(meta.get("card_context", ""))}</p>
         <h3>{esc(meta["title"])}</h3>
-        <p class="outcome">{esc(meta.get("card_summary", ""))}</p>
+        <ul class="card-results">{results}</ul>
         <ul class="tags">{focus}</ul>
       </div>
+      <div class="stage"><img src="{esc(web(meta["card_thumbnail"]))}" alt=""></div>
     </a>"""
 
 
