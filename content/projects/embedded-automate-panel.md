@@ -170,9 +170,15 @@ Translation was the tradeoff we accepted. Each sentence follows the order of the
 ### Automation now lives on the pages people already use, written as plain sentences
 
 <!-- carousel -->
-![Automate opens from the contacts page with suggestions based on the team's activity](images/embedded-automate-panel/final-1.jpg)
-![Each automation reads as a sentence, with the editable parts highlighted and the assistant beside it](images/embedded-automate-panel/final-2.jpg)
-![Picking data from the trigger to fill in a task title](images/embedded-automate-panel/final-3.jpg)
+![The Automate button on the contacts page](images/embedded-automate-panel/final-01.jpg)
+![The panel opens with suggestions. A newer account sees automations that teams commonly set up first](images/embedded-automate-panel/final-02.jpg)
+![Picking a suggestion opens it as a sentence, with the trigger filled in and the assistant beside it](images/embedded-automate-panel/final-03.jpg)
+![Selecting an empty field to edit it in place](images/embedded-automate-panel/final-04.jpg)
+![Typing a task title, then adding data from the trigger](images/embedded-automate-panel/final-05.jpg)
+![Picking the contact's first name from the trigger data](images/embedded-automate-panel/final-06.jpg)
+![The task title now includes the contact's first name](images/embedded-automate-panel/final-07.jpg)
+![Adding another step from the action menu](images/embedded-automate-panel/final-08.jpg)
+![A delay added as the next step, ready to publish](images/embedded-automate-panel/final-09.jpg)
 <!-- /carousel -->
 
 Once the sentence builder was settled, we finalized the visual and interaction design around our original goal: making automation easy to find and easy to start.

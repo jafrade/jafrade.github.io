@@ -142,37 +142,103 @@
   ],
   "mtime": 1793671934.0
  },
- "images/embedded-automate-panel/final-1.jpg": {
+ "images/embedded-automate-panel/final-01.jpg": {
   "box": [
-   96,
-   60,
-   1502,
-   1039,
-   1600,
-   1100
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
   ],
-  "mtime": 1793671934.0
+  "mtime": 1793722666.0
  },
- "images/embedded-automate-panel/final-2.jpg": {
+ "images/embedded-automate-panel/final-02.jpg": {
   "box": [
-   96,
-   59,
-   1503,
-   1039,
-   1600,
-   1100
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
   ],
-  "mtime": 1793671934.0
+  "mtime": 1793722666.0
  },
- "images/embedded-automate-panel/final-3.jpg": {
+ "images/embedded-automate-panel/final-03.jpg": {
   "box": [
-   96,
-   59,
-   1503,
-   1039,
-   1600,
-   1100
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
   ],
-  "mtime": 1793671934.0
+  "mtime": 1793722666.0
+ },
+ "images/embedded-automate-panel/final-04.jpg": {
+  "box": [
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
+  ],
+  "mtime": 1793722666.0
+ },
+ "images/embedded-automate-panel/final-05.jpg": {
+  "box": [
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
+  ],
+  "mtime": 1793722668.0
+ },
+ "images/embedded-automate-panel/final-06.jpg": {
+  "box": [
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
+  ],
+  "mtime": 1793722668.0
+ },
+ "images/embedded-automate-panel/final-07.jpg": {
+  "box": [
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
+  ],
+  "mtime": 1793722668.0
+ },
+ "images/embedded-automate-panel/final-08.jpg": {
+  "box": [
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
+  ],
+  "mtime": 1793722668.0
+ },
+ "images/embedded-automate-panel/final-09.jpg": {
+  "box": [
+   0,
+   0,
+   1491,
+   1038,
+   1492,
+   1039
+  ],
+  "mtime": 1793722668.0
  }
 }
