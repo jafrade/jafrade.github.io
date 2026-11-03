@@ -159,7 +159,7 @@ def web(src):
 # --- Final design slideshow --------------------------------------------------
 # The home page card and the case study hero both show the Final design
 # carousel as a slideshow: hovering one of its dots fades to that slide. No
-# arrows, thumbnails or autoplay.
+# arrows or thumbnails; the case study's also plays on its own.
 
 CROPS = ROOT / "images" / "web" / "crops.json"
 
@@ -272,6 +272,9 @@ SLIDESHOW_JS = """<script>
   // Final design slideshows: hovering a dot shows that screen (clicking or
   // focusing one does too, for touch and keyboard). A card remembers its
   // screen so the case study opens on the same one.
+  // On the case study the slideshow also plays on its own while it's on
+  // screen, pausing while hovered or focused, and not at all with reduced motion.
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.slideshow').forEach(s => {
     const slides = [...s.querySelectorAll('.slide')];
     const dots = [...s.querySelectorAll('.dots > *')];
@@ -294,7 +297,17 @@ SLIDESHOW_JS = """<script>
       try { sessionStorage.setItem(key, n); } catch (e) {}
     };
     try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
-    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
+    let timer = null, visible = false, paused = false;
+    const play = () => {
+      clearInterval(timer);
+      if ('autoplay' in s.dataset && !still && visible && !paused)
+        timer = setInterval(() => show((current + 1) % slides.length), 1000);
+    };
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => { show(i); play(); })));
+    const hold = on => () => { paused = on; play(); };
+    s.addEventListener('mouseenter', hold(true)); s.addEventListener('mouseleave', hold(false));
+    s.addEventListener('focusin', hold(true)); s.addEventListener('focusout', hold(false));
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; play(); }).observe(s);
   });
 </script>"""
 
@@ -539,7 +552,7 @@ def page(meta, chapters, colour, next_project=None):
         <p class="lede">{esc(overview)}</p>
         <ul class="tags">{focus}</ul>
       </div>
-      <div class="cs-hero-media slideshow" data-key="{slug}" style="view-transition-name: shot-{slug}">
+      <div class="cs-hero-media slideshow" data-key="{slug}" data-autoplay style="view-transition-name: shot-{slug}">
         {hero_media}
       </div>
     </div>

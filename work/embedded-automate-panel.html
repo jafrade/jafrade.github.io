@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=5785b9b1">
+<link rel="stylesheet" href="../css/site.css?v=c5ded38b">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
         <p class="lede">Small business customers were leaving HubSpot because they couldn&#x27;t automate the work they needed, and the automation they had was scattered and hard to find. We built one Automate panel that opens from the pages they already work in, with AI recommendations that show them where to start.</p>
         <ul class="tags"><li>Craft</li><li>AI</li><li>Complex workflows</li><li>Systems thinking</li></ul>
       </div>
-      <div class="cs-hero-media slideshow" data-key="embedded-automate-panel" style="view-transition-name: shot-embedded-automate-panel">
+      <div class="cs-hero-media slideshow" data-key="embedded-automate-panel" data-autoplay style="view-transition-name: shot-embedded-automate-panel">
         <div class="slides"><img class="slide is-current" src="../images/embedded-automate-panel/final-01.jpg" alt="The Automate button on the contacts page"><img class="slide" src="../images/embedded-automate-panel/final-02.jpg" alt="The panel opens with suggestions. A newer account sees automations that teams commonly set up first" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-03.jpg" alt="Picking a suggestion opens it as a sentence, with the trigger filled in and the assistant beside it" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-04.jpg" alt="Selecting an empty field to edit it in place" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-05.jpg" alt="Typing a task title, then adding data from the trigger" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-06.jpg" alt="Picking the contact&#x27;s first name from the trigger data" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-07.jpg" alt="The task title now includes the contact&#x27;s first name" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-08.jpg" alt="Adding another step from the action menu" loading="lazy"><img class="slide" src="../images/embedded-automate-panel/final-09.jpg" alt="A delay added as the next step, ready to publish" loading="lazy"></div><div class="dots"><button aria-label="Show screen 1 of 9" aria-current="true"></button><button aria-label="Show screen 2 of 9"></button><button aria-label="Show screen 3 of 9"></button><button aria-label="Show screen 4 of 9"></button><button aria-label="Show screen 5 of 9"></button><button aria-label="Show screen 6 of 9"></button><button aria-label="Show screen 7 of 9"></button><button aria-label="Show screen 8 of 9"></button><button aria-label="Show screen 9 of 9"></button></div>
       </div>
     </div>
@@ -199,6 +199,9 @@
   // Final design slideshows: hovering a dot shows that screen (clicking or
   // focusing one does too, for touch and keyboard). A card remembers its
   // screen so the case study opens on the same one.
+  // On the case study the slideshow also plays on its own while it's on
+  // screen, pausing while hovered or focused, and not at all with reduced motion.
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.slideshow').forEach(s => {
     const slides = [...s.querySelectorAll('.slide')];
     const dots = [...s.querySelectorAll('.dots > *')];
@@ -221,7 +224,17 @@
       try { sessionStorage.setItem(key, n); } catch (e) {}
     };
     try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
-    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
+    let timer = null, visible = false, paused = false;
+    const play = () => {
+      clearInterval(timer);
+      if ('autoplay' in s.dataset && !still && visible && !paused)
+        timer = setInterval(() => show((current + 1) % slides.length), 1000);
+    };
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => { show(i); play(); })));
+    const hold = on => () => { paused = on; play(); };
+    s.addEventListener('mouseenter', hold(true)); s.addEventListener('mouseleave', hold(false));
+    s.addEventListener('focusin', hold(true)); s.addEventListener('focusout', hold(false));
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; play(); }).observe(s);
   });
 </script>
 </body>

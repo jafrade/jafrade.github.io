@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=5785b9b1">
+<link rel="stylesheet" href="css/site.css?v=c5ded38b">
 </head>
 <body>
 
@@ -81,6 +81,9 @@
   // Final design slideshows: hovering a dot shows that screen (clicking or
   // focusing one does too, for touch and keyboard). A card remembers its
   // screen so the case study opens on the same one.
+  // On the case study the slideshow also plays on its own while it's on
+  // screen, pausing while hovered or focused, and not at all with reduced motion.
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.querySelectorAll('.slideshow').forEach(s => {
     const slides = [...s.querySelectorAll('.slide')];
     const dots = [...s.querySelectorAll('.dots > *')];
@@ -103,7 +106,17 @@
       try { sessionStorage.setItem(key, n); } catch (e) {}
     };
     try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
-    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
+    let timer = null, visible = false, paused = false;
+    const play = () => {
+      clearInterval(timer);
+      if ('autoplay' in s.dataset && !still && visible && !paused)
+        timer = setInterval(() => show((current + 1) % slides.length), 1000);
+    };
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => { show(i); play(); })));
+    const hold = on => () => { paused = on; play(); };
+    s.addEventListener('mouseenter', hold(true)); s.addEventListener('mouseleave', hold(false));
+    s.addEventListener('focusin', hold(true)); s.addEventListener('focusout', hold(false));
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; play(); }).observe(s);
   });
 </script>
 </body>
