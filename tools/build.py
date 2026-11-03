@@ -277,8 +277,18 @@ SLIDESHOW_JS = """<script>
     const dots = [...s.querySelectorAll('.dots > *')];
     if (slides.length < 2) return;
     const key = 'slide-' + s.dataset.key;
+    let current = 0, settle = null;
     const show = n => {
-      slides.forEach((el, i) => el.classList.toggle('is-current', i === n));
+      if (n === current) return;
+      // The last screen stays visible underneath while the new one fades in,
+      // then goes, in case it's taller than the new one.
+      slides.forEach((el, i) => {
+        el.classList.toggle('was-current', i === current);
+        el.classList.toggle('is-current', i === n);
+      });
+      clearTimeout(settle);
+      settle = setTimeout(() => slides.forEach(el => el.classList.remove('was-current')), 500);
+      current = n;
       dots.forEach((d, i) => d.tagName === 'BUTTON' ? d.toggleAttribute('aria-current', i === n)
                                                      : d.classList.toggle('on', i === n));
       try { sessionStorage.setItem(key, n); } catch (e) {}
