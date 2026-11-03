@@ -18,6 +18,7 @@ import html
 import json
 import re
 import struct
+import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -132,7 +133,30 @@ def image_size(src):
     return None
 
 
+# Pages show images at most about 820px wide, so 1640px is sharp on retina
+# screens. Anything wider gets a smaller copy in images/web/, which the pages
+# use instead; the original stays as it is.
+WEB_WIDTH = 1640
+
+
+def web(src):
+    """The web-sized copy of an image, made with sips (part of macOS) the
+    first time it's needed and again whenever the original changes."""
+    size = image_size(src)
+    if not size or size[0] <= WEB_WIDTH:
+        return src
+    out = Path("images/web") / Path(src).relative_to("images")
+    source, target = ROOT / src, ROOT / out
+    if not target.is_file() or target.stat().st_mtime < source.stat().st_mtime:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        quality = ["-s", "formatOptions", "80"] if source.suffix.lower() in (".jpg", ".jpeg") else []
+        subprocess.run(["sips", "--resampleWidth", str(WEB_WIDTH), *quality, str(source), "--out", str(target)],
+                       check=True, capture_output=True)
+    return str(out)
+
+
 def img_tag(src, alt, prefix="../"):
+    src = web(src)
     size = image_size(src)
     dims = f' width="{size[0]}" height="{size[1]}"' if size else ""
     return f'<img src="{prefix}{src}" alt="{html.escape(alt)}"{dims} loading="lazy">'
@@ -157,7 +181,7 @@ def carousel(images):
     # Thumbnails let readers scan every slide at a glance and jump to one.
     thumbs = "".join(
         f'<button class="thumb" aria-label="Show slide {i + 1}: {html.escape(alt)}">'
-        f'<img src="../{src}" alt="" loading="lazy"></button>' for i, (alt, src) in enumerate(images))
+        f'<img src="../{web(src)}" alt="" loading="lazy"></button>' for i, (alt, src) in enumerate(images))
     return (f'<figure class="carousel wide"><div class="carousel-track" tabindex="0">{slides}</div>'
             f'<div class="carousel-thumbs">{thumbs}</div>'
             f'<div class="carousel-bar"><figcaption aria-live="polite">{inline(images[0][0])}</figcaption>'
@@ -367,7 +391,7 @@ def page(meta, chapters, next_project=None):
   </header>
 
   <div class="wrap cs-hero-media">
-    <div class="stage-panel"><img src="../{esc(hero)}" alt="{esc(meta.get("page_hero_alt") or meta["title"])}"></div>
+    <div class="stage-panel"><img src="../{esc(web(hero))}" alt="{esc(meta.get("page_hero_alt") or meta["title"])}"></div>
   </div>
 
   <div class="wrap">
@@ -459,7 +483,7 @@ def card(meta, colour):
     focus = "".join(f"<li>{esc(t)}</li>" for t in meta.get("focus", []))
     cls = "project-card" + (" featured" if meta.get("featured") else "")
     return f"""    <a class="{cls}" href="work/{esc(meta["slug"])}.html" style="--c: var(--{colour})">
-      <div class="stage"><div class="art screen"><img src="{esc(meta["card_thumbnail"])}" alt=""></div></div>
+      <div class="stage"><div class="art screen"><img src="{esc(web(meta["card_thumbnail"]))}" alt=""></div></div>
       <div class="info">
         <p class="label">{esc(meta.get("card_context", ""))}</p>
         <h3>{esc(meta["title"])}</h3>
