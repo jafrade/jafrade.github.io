@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=3afb8a8d">
+<link rel="stylesheet" href="../css/site.css?v=78d303f7">
 </head>
 <body>
 
@@ -30,8 +30,8 @@
         <p class="lede">When ad tracking broke, marketers couldn&#x27;t prove what their spend brought in, and HubSpot&#x27;s alerts were hard to find and didn&#x27;t say how to fix anything. We brought every error onto the ads page marketers already check, with clear steps to fix each one.</p>
         <ul class="tags"><li>Reporting</li><li>Marketing</li></ul>
       </div>
-      <div class="cs-hero-media" style="view-transition-name: shot-ads-tracking">
-        <img src="../images/ads-tracking/hero-screen.jpg" alt="Redesigning how HubSpot Ads reports tracking errors">
+      <div class="cs-hero-media slideshow" data-key="ads-tracking" style="view-transition-name: shot-ads-tracking">
+        <div class="slides"><img class="slide is-current" src="../images/web/ads-tracking/final-1-screen.jpg" alt="The ads page shows a total count of tracking errors, with a link to view them all"><img class="slide" src="../images/web/ads-tracking/final-2-screen.jpg" alt="The errors panel groups errors by type, and each one explains how to fix it or that it can&#x27;t be fixed" loading="lazy"></div><div class="dots"><button aria-label="Show screen 1 of 2" aria-current="true"></button><button aria-label="Show screen 2 of 2"></button></div>
       </div>
     </div>
   </header>
@@ -172,6 +172,25 @@
       if (target === null || i === target) { target = null; if (i !== current) show(i); }
     }, { passive: true });
     show(0);
+  });
+</script>
+<script>
+  // Final design slideshows: hovering a dot shows that screen (clicking or
+  // focusing one does too, for touch and keyboard). A card remembers its
+  // screen so the case study opens on the same one.
+  document.querySelectorAll('.slideshow').forEach(s => {
+    const slides = [...s.querySelectorAll('.slide')];
+    const dots = [...s.querySelectorAll('.dots > *')];
+    if (slides.length < 2) return;
+    const key = 'slide-' + s.dataset.key;
+    const show = n => {
+      slides.forEach((el, i) => el.classList.toggle('is-current', i === n));
+      dots.forEach((d, i) => d.tagName === 'BUTTON' ? d.toggleAttribute('aria-current', i === n)
+                                                     : d.classList.toggle('on', i === n));
+      try { sessionStorage.setItem(key, n); } catch (e) {}
+    };
+    try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
   });
 </script>
 </body>

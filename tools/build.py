@@ -155,6 +155,139 @@ def web(src):
     return str(out)
 
 
+
+# --- Final design slideshow --------------------------------------------------
+# The home page card and the case study hero both show the Final design
+# carousel as a slideshow: hovering one of its dots fades to that slide. No
+# arrows, thumbnails or autoplay.
+
+CROPS = ROOT / "images" / "web" / "crops.json"
+
+# Final design slides that are labelled boards rather than screens. Their
+# labels sit on the cream, so they can't go on a card colour.
+SLIDESHOW_SKIP = ("four-jobs",)
+
+
+def _margin_box(src, tol=10):
+    """Where the screenshot sits inside an image composed on a flat
+    background, as (left, top, right, bottom), or None if it fills the image.
+    Reads the pixels by converting to BMP with sips."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as tmp:
+        bmp = Path(tmp) / "p.bmp"
+        subprocess.run(["sips", "-s", "format", "bmp", str(ROOT / src), "--out", str(bmp)],
+                       check=True, capture_output=True)
+        d = bmp.read_bytes()
+    off, = struct.unpack("<I", d[10:14])
+    w, h = struct.unpack("<ii", d[18:26])
+    bp = struct.unpack("<H", d[28:30])[0] // 8
+    stride = (w * bp + 3) & ~3
+    bottom_up = h > 0          # BMP rows run bottom to top unless the height is negative
+    w, h = abs(w), abs(h)
+
+    def px(x, y):
+        i = off + ((h - 1 - y) if bottom_up else y) * stride + x * bp
+        return d[i + 2], d[i + 1], d[i]
+    bg = px(2, 2)
+
+    def differs(p):
+        return max(abs(a - b) for a, b in zip(p, bg)) > tol
+    top = next(y for y in range(h) if any(differs(px(x, y)) for x in range(0, w, 2)))
+    bottom = next(y for y in range(h - 1, -1, -1) if any(differs(px(x, y)) for x in range(0, w, 2)))
+    left = next(x for x in range(w) if any(differs(px(x, y)) for y in range(0, h, 2)))
+    right = next(x for x in range(w - 1, -1, -1) if any(differs(px(x, y)) for y in range(0, h, 2)))
+    return left, top, right, bottom, w, h
+
+
+def screen(src):
+    """The image without the cream it was composed on, so only the screenshot
+    sits on the card colour. Crops are cached in images/web/."""
+    cache = json.loads(CROPS.read_text()) if CROPS.is_file() else {}
+    mtime = (ROOT / src).stat().st_mtime
+    if cache.get(src, {}).get("mtime") != mtime:
+        cache[src] = {"mtime": mtime, "box": _margin_box(src)}
+        CROPS.parent.mkdir(parents=True, exist_ok=True)
+        CROPS.write_text(json.dumps(cache, indent=1, sort_keys=True))
+    left, top, right, bottom, w, h = cache[src]["box"]
+    # Composed images have background on all four sides. A screenshot whose
+    # own top bar or edge matches its corner isn't one.
+    if min(left, top, w - 1 - right, h - 1 - bottom) < min(w, h) * .02:
+        return src
+    out = Path("images/web") / Path(src).relative_to("images").with_name(Path(src).stem + "-screen.jpg")
+    target = ROOT / out
+    if not target.is_file() or target.stat().st_mtime < mtime:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        cw, ch = right - left + 1, bottom - top + 1
+        subprocess.run(["sips", "--cropToHeightWidth", str(ch), str(cw),
+                        "--cropOffset", str(top), str(left), "-s", "formatOptions", "85",
+                        str(ROOT / src), "--out", str(target)], check=True, capture_output=True)
+    return str(out)
+
+
+def final_slides(chapters):
+    """The first carousel in the Final design chapter, as (alt, src) pairs."""
+    for ch in chapters:
+        if ch["id"] != "solution":
+            continue
+        lines, inside, slides = ch["lines"], False, []
+        for line in lines:
+            if line == "::carousel":
+                inside = True
+            elif line == "::/carousel":
+                if slides:
+                    return slides
+                inside = False
+            elif inside:
+                m = re.match(r"!\[(.*?)\]\((.*?)\)", line)
+                if m and (ROOT / m.group(2)).is_file():
+                    slides.append((m.group(1), m.group(2)))
+    return []
+
+
+def slideshow(slides, prefix, buttons):
+    """Stacked slides that fade into each other, and a dot for each one. Dots
+    are buttons on the case study; on a card (itself a link) they only show
+    where you are."""
+    slides = [(alt, screen(src)) for alt, src in slides if not any(h in src for h in SLIDESHOW_SKIP)]
+    imgs = []
+    for i, (alt, src) in enumerate(slides):
+        cls = "slide is-current" if i == 0 else "slide"
+        lazy = "" if i == 0 else ' loading="lazy"'
+        alt = html.escape(alt) if buttons else ""
+        imgs.append(f'<img class="{cls}" src="{prefix}{html.escape(web(src))}" alt="{alt}"{lazy}>')
+    imgs = "".join(imgs)
+    if len(slides) < 2:
+        return imgs
+    if buttons:
+        current = ' aria-current="true"'
+        dots = "".join(f'<button aria-label="Show screen {i + 1} of {len(slides)}"{current if i == 0 else ""}></button>'
+                       for i in range(len(slides)))
+        return f'<div class="slides">{imgs}</div><div class="dots">{dots}</div>'
+    on = ' class="on"'
+    dots = "".join(f'<span{on if i == 0 else ""}></span>' for i in range(len(slides)))
+    return f'{imgs}<div class="dots" aria-hidden="true">{dots}</div>'
+
+
+SLIDESHOW_JS = """<script>
+  // Final design slideshows: hovering a dot shows that screen (clicking or
+  // focusing one does too, for touch and keyboard). A card remembers its
+  // screen so the case study opens on the same one.
+  document.querySelectorAll('.slideshow').forEach(s => {
+    const slides = [...s.querySelectorAll('.slide')];
+    const dots = [...s.querySelectorAll('.dots > *')];
+    if (slides.length < 2) return;
+    const key = 'slide-' + s.dataset.key;
+    const show = n => {
+      slides.forEach((el, i) => el.classList.toggle('is-current', i === n));
+      dots.forEach((d, i) => d.tagName === 'BUTTON' ? d.toggleAttribute('aria-current', i === n)
+                                                     : d.classList.toggle('on', i === n));
+      try { sessionStorage.setItem(key, n); } catch (e) {}
+    };
+    try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
+  });
+</script>"""
+
 def img_tag(src, alt, prefix="../"):
     src = web(src)
     size = image_size(src)
@@ -360,6 +493,8 @@ def page(meta, chapters, colour, next_project=None):
     hero = meta.get("page_hero_fallback") or meta.get("card_thumbnail")
     overview = meta.get("page_overview") or meta.get("page_subtitle", "")
     slug = esc(meta["slug"])
+    slides = final_slides(chapters) or [(meta.get("page_hero_alt") or meta["title"], hero)]
+    hero_media = slideshow(slides, "../", buttons=True)
     # Facts with no value (like a project without a timeline) are left out.
     other_facts = "\n".join(
         f'        <div><dt class="label">{label}</dt><dd>{esc(meta[key])}</dd></div>'
@@ -394,8 +529,8 @@ def page(meta, chapters, colour, next_project=None):
         <p class="lede">{esc(overview)}</p>
         <ul class="tags">{focus}</ul>
       </div>
-      <div class="cs-hero-media" style="view-transition-name: shot-{slug}">
-        <img src="../{esc(web(hero))}" alt="{esc(meta.get("page_hero_alt") or meta["title"])}">
+      <div class="cs-hero-media slideshow" data-key="{slug}" style="view-transition-name: shot-{slug}">
+        {hero_media}
       </div>
     </div>
   </header>
@@ -477,6 +612,7 @@ def page(meta, chapters, colour, next_project=None):
     show(0);
   }});
 </script>
+{SLIDESHOW_JS}
 </body>
 </html>
 """
@@ -492,6 +628,7 @@ def card(meta, colour):
     results = "".join(f'<li><b>{esc(m["value"])}</b><span>{esc(m["label"])}</span></li>'
                       for m in meta.get("page_metrics", [])[:2])
     slug = esc(meta["slug"])
+    media = slideshow(meta["_slides"] or [("", meta["card_thumbnail"])], "", buttons=False)
     # These names match the case study hero, so the card grows into it.
     return f"""    <a class="project-card" href="work/{slug}.html" style="--c: var(--{colour}); view-transition-name: card-{slug}">
       <div class="info">
@@ -500,7 +637,7 @@ def card(meta, colour):
         <ul class="card-results">{results}</ul>
         <ul class="tags">{focus}</ul>
       </div>
-      <div class="stage" style="view-transition-name: shot-{slug}"><img src="{esc(web(meta["card_thumbnail"]))}" alt=""></div>
+      <div class="stage slideshow" data-key="{slug}" style="view-transition-name: shot-{slug}">{media}</div>
     </a>"""
 
 
@@ -538,6 +675,7 @@ def home(projects):
 </main>
 
 {FOOTER}
+{SLIDESHOW_JS}
 </body>
 </html>
 """
@@ -737,6 +875,8 @@ def build():
         colour = CARD_COLOURS[i % len(CARD_COLOURS)]   # the same colour as its home page card
         out.write_text(page(meta, chapters, colour, nxt), encoding="utf-8")
         print(f"built {out.relative_to(ROOT)}  ({len(chapters)} chapters)")
+    for meta, chapters in projects:
+        meta["_slides"] = final_slides(chapters)
     projects = [m for m, _ in projects]
     (ROOT / "index.html").write_text(home(projects), encoding="utf-8")
     print(f"built index.html  ({len(projects)} projects)")

@@ -168,6 +168,24 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .cs-hero-media { grid-column: 1 / -1; margin-top: clamp(24px, 4vw, 48px); }
 .cs-hero-media img { width: 100%; border: 1px solid var(--edge); border-radius: 10px; box-shadow: var(--shadow); }
 
+/* Final design slideshow (home card and case study hero): hovering a dot at
+   the bottom fades to that screen. */
+.slideshow { position: relative; }
+.slideshow .slide { transition: opacity .8s ease; }
+.slideshow .slide:not(.is-current) { opacity: 0; }
+.cs-hero-media .slides { display: grid; }
+.cs-hero-media .slide { grid-area: 1 / 1; align-self: start; }
+.dots { position: absolute; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 1; display: flex; gap: 2px;
+        padding: 4px 6px; border-radius: 999px; background: rgba(42, 39, 36, .5); backdrop-filter: blur(6px); }
+.dots > * { width: 7px; height: 7px; margin: 4px; border-radius: 50%; background: rgba(255, 255, 255, .45); transition: background .3s; }
+.dots .on, .dots [aria-current="true"] { background: #fff; }
+/* Dots get a bigger hover target than they show */
+.dots > * { position: relative; cursor: pointer; }
+.dots > *::after { content: ""; position: absolute; inset: -6px; }
+.dots button { padding: 0; border: 0; }
+.dots button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.cs-hero-media .dots { bottom: 20px; }
+
 .stage-panel { background: var(--paper-2); border-radius: 8px; padding: clamp(20px, 5vw, 64px); }
 .stage-panel img { border: 1px solid var(--edge); border-radius: 6px; box-shadow: var(--shadow); margin: 0 auto; }
 

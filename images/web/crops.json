@@ -1,0 +1,178 @@
+{
+ "images/action-sets/final-1.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-2.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-3.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-4.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-5.jpg": {
+  "box": [
+   0,
+   26,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-6.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-7.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/action-sets/final-8.jpg": {
+  "box": [
+   0,
+   0,
+   1439,
+   899,
+   1440,
+   900
+  ],
+  "mtime": 1793672216.0
+ },
+ "images/ads-tracking/final-1.jpg": {
+  "box": [
+   208,
+   79,
+   1387,
+   1023,
+   1600,
+   1100
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/ads-tracking/final-2.jpg": {
+  "box": [
+   215,
+   79,
+   1383,
+   1020,
+   1600,
+   1100
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/automation-overview/final-2-orient-discover-monitor.jpg": {
+  "box": [
+   18,
+   87,
+   2879,
+   2305,
+   2880,
+   2306
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/automation-overview/final-3-suggestions.jpg": {
+  "box": [
+   11,
+   44,
+   1439,
+   1152,
+   1440,
+   1153
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/automation-overview/final-4-apps-learn.jpg": {
+  "box": [
+   18,
+   87,
+   2879,
+   2305,
+   2880,
+   2306
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/embedded-automate-panel/final-1.jpg": {
+  "box": [
+   96,
+   60,
+   1502,
+   1039,
+   1600,
+   1100
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/embedded-automate-panel/final-2.jpg": {
+  "box": [
+   96,
+   59,
+   1503,
+   1039,
+   1600,
+   1100
+  ],
+  "mtime": 1793671934.0
+ },
+ "images/embedded-automate-panel/final-3.jpg": {
+  "box": [
+   96,
+   59,
+   1503,
+   1039,
+   1600,
+   1100
+  ],
+  "mtime": 1793671934.0
+ }
+}

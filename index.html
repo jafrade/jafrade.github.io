@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=3afb8a8d">
+<link rel="stylesheet" href="css/site.css?v=78d303f7">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
         <ul class="card-results"><li><b>3×</b><span>increase in automation discovery when we added an Automate button to the deal page (A/B test)</span></li><li><b>45%</b><span>of AI-recommended workflows went live, twice the rate of starting from a blank page</span></li></ul>
         <ul class="tags"><li>Craft</li><li>AI</li><li>Complex workflows</li><li>Systems thinking</li></ul>
       </div>
-      <div class="stage" style="view-transition-name: shot-embedded-automate-panel"><img src="images/embedded-automate-panel/hero.jpg" alt=""></div>
+      <div class="stage slideshow" data-key="embedded-automate-panel" style="view-transition-name: shot-embedded-automate-panel"><img class="slide is-current" src="images/web/embedded-automate-panel/final-1-screen.jpg" alt=""><img class="slide" src="images/web/embedded-automate-panel/final-2-screen.jpg" alt="" loading="lazy"><img class="slide" src="images/web/embedded-automate-panel/final-3-screen.jpg" alt="" loading="lazy"><div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div></div>
     </a>
     <a class="project-card" href="work/automation-overview.html" style="--c: var(--oak); view-transition-name: card-automation-overview">
       <div class="info">
@@ -46,7 +46,7 @@
         <ul class="card-results"><li><b>2M+</b><span>Overview page views from the May 2025 launch to October 2026</span></li><li><b>26%</b><span>of people who described an automation in the AI prompt turned on the workflow it drafted</span></li></ul>
         <ul class="tags"><li>Growth</li><li>Onboarding</li><li>Systems thinking</li><li>Craft</li></ul>
       </div>
-      <div class="stage" style="view-transition-name: shot-automation-overview"><img src="images/automation-overview/card.jpg" alt=""></div>
+      <div class="stage slideshow" data-key="automation-overview" style="view-transition-name: shot-automation-overview"><img class="slide is-current" src="images/web/automation-overview/final-2-orient-discover-monitor.jpg" alt=""><img class="slide" src="images/automation-overview/final-3-suggestions.jpg" alt="" loading="lazy"><img class="slide" src="images/web/automation-overview/final-4-apps-learn.jpg" alt="" loading="lazy"><div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span></div></div>
     </a>
     <a class="project-card" href="work/ads-tracking.html" style="--c: var(--stone); view-transition-name: card-ads-tracking">
       <div class="info">
@@ -55,7 +55,7 @@
         <ul class="card-results"><li><b>~50%</b><span>fewer tracking errors in the months after release</span></li><li><b>16 → 3</b><span>monthly support tickets about ad tracking, November 2020 to January 2021</span></li></ul>
         <ul class="tags"><li>Reporting</li><li>Marketing</li></ul>
       </div>
-      <div class="stage" style="view-transition-name: shot-ads-tracking"><img src="images/ads-tracking/card-screen.jpg" alt=""></div>
+      <div class="stage slideshow" data-key="ads-tracking" style="view-transition-name: shot-ads-tracking"><img class="slide is-current" src="images/web/ads-tracking/final-1-screen.jpg" alt=""><img class="slide" src="images/web/ads-tracking/final-2-screen.jpg" alt="" loading="lazy"><div class="dots" aria-hidden="true"><span class="on"></span><span></span></div></div>
     </a>
     <a class="project-card" href="work/action-sets.html" style="--c: var(--walnut); view-transition-name: card-action-sets">
       <div class="info">
@@ -64,7 +64,7 @@
         <ul class="card-results"><li><b>2,400</b><span>customers used Action Sets within two months of launch</span></li><li><b>25%</b><span>of those customers inserted a set more than 200 times, saving each of them at least 3 hours of building</span></li></ul>
         <ul class="tags"><li>Complex workflows</li><li>Systems thinking</li><li>Craft</li></ul>
       </div>
-      <div class="stage" style="view-transition-name: shot-action-sets"><img src="images/action-sets/card.jpg" alt=""></div>
+      <div class="stage slideshow" data-key="action-sets" style="view-transition-name: shot-action-sets"><img class="slide is-current" src="images/action-sets/final-1.jpg" alt=""><img class="slide" src="images/action-sets/final-2.jpg" alt="" loading="lazy"><img class="slide" src="images/action-sets/final-3.jpg" alt="" loading="lazy"><img class="slide" src="images/action-sets/final-4.jpg" alt="" loading="lazy"><img class="slide" src="images/action-sets/final-5.jpg" alt="" loading="lazy"><img class="slide" src="images/action-sets/final-6.jpg" alt="" loading="lazy"><img class="slide" src="images/action-sets/final-7.jpg" alt="" loading="lazy"><img class="slide" src="images/action-sets/final-8.jpg" alt="" loading="lazy"><div class="dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
     </a>
     </div>
   </section>
@@ -77,5 +77,24 @@
     <a class="label" href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a>
   </div>
 </footer>
+<script>
+  // Final design slideshows: hovering a dot shows that screen (clicking or
+  // focusing one does too, for touch and keyboard). A card remembers its
+  // screen so the case study opens on the same one.
+  document.querySelectorAll('.slideshow').forEach(s => {
+    const slides = [...s.querySelectorAll('.slide')];
+    const dots = [...s.querySelectorAll('.dots > *')];
+    if (slides.length < 2) return;
+    const key = 'slide-' + s.dataset.key;
+    const show = n => {
+      slides.forEach((el, i) => el.classList.toggle('is-current', i === n));
+      dots.forEach((d, i) => d.tagName === 'BUTTON' ? d.toggleAttribute('aria-current', i === n)
+                                                     : d.classList.toggle('on', i === n));
+      try { sessionStorage.setItem(key, n); } catch (e) {}
+    };
+    try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
+  });
+</script>
 </body>
 </html>

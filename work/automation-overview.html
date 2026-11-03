@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=3afb8a8d">
+<link rel="stylesheet" href="../css/site.css?v=78d303f7">
 </head>
 <body>
 
@@ -30,8 +30,8 @@
         <p class="lede">Automation had grown into so many tools that many customers didn&#x27;t know where to start. The more customers automated, the more of their business HubSpot kept. We built one home for automation, where AI-assisted workflows and personalized recommendations help customers get started and see what needs attention.</p>
         <ul class="tags"><li>Growth</li><li>Onboarding</li><li>Systems thinking</li><li>Craft</li></ul>
       </div>
-      <div class="cs-hero-media" style="view-transition-name: shot-automation-overview">
-        <img src="../images/automation-overview/hero.jpg" alt="Building HubSpot&#x27;s first home page for automation">
+      <div class="cs-hero-media slideshow" data-key="automation-overview" style="view-transition-name: shot-automation-overview">
+        <div class="slides"><img class="slide is-current" src="../images/web/automation-overview/final-2-orient-discover-monitor.jpg" alt="The top of the page: the AI prompt, issues to review and recent workflows, then recommended automations and a condensed performance row"><img class="slide" src="../images/automation-overview/final-3-suggestions.jpg" alt="Suggested prompts open under the AI prompt, so people can start from an example instead of a blank box" loading="lazy"><img class="slide" src="../images/web/automation-overview/final-4-apps-learn.jpg" alt="Further down: apps to automate and short HubSpot Academy videos" loading="lazy"></div><div class="dots"><button aria-label="Show screen 1 of 3" aria-current="true"></button><button aria-label="Show screen 2 of 3"></button><button aria-label="Show screen 3 of 3"></button></div>
       </div>
     </div>
   </header>
@@ -195,6 +195,25 @@
       if (target === null || i === target) { target = null; if (i !== current) show(i); }
     }, { passive: true });
     show(0);
+  });
+</script>
+<script>
+  // Final design slideshows: hovering a dot shows that screen (clicking or
+  // focusing one does too, for touch and keyboard). A card remembers its
+  // screen so the case study opens on the same one.
+  document.querySelectorAll('.slideshow').forEach(s => {
+    const slides = [...s.querySelectorAll('.slide')];
+    const dots = [...s.querySelectorAll('.dots > *')];
+    if (slides.length < 2) return;
+    const key = 'slide-' + s.dataset.key;
+    const show = n => {
+      slides.forEach((el, i) => el.classList.toggle('is-current', i === n));
+      dots.forEach((d, i) => d.tagName === 'BUTTON' ? d.toggleAttribute('aria-current', i === n)
+                                                     : d.classList.toggle('on', i === n));
+      try { sessionStorage.setItem(key, n); } catch (e) {}
+    };
+    try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
   });
 </script>
 </body>

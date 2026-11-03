@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=3afb8a8d">
+<link rel="stylesheet" href="../css/site.css?v=78d303f7">
 </head>
 <body>
 
@@ -30,8 +30,8 @@
         <p class="lede">Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow.</p>
         <ul class="tags"><li>Complex workflows</li><li>Systems thinking</li><li>Craft</li></ul>
       </div>
-      <div class="cs-hero-media" style="view-transition-name: shot-action-sets">
-        <img src="../images/action-sets/hero.jpg" alt="Building reusable action sets for HubSpot workflows">
+      <div class="cs-hero-media slideshow" data-key="action-sets" style="view-transition-name: shot-action-sets">
+        <div class="slides"><img class="slide is-current" src="../images/action-sets/final-1.jpg" alt="A set&#x27;s description and preview before adding it to a workflow"><img class="slide" src="../images/action-sets/final-2.jpg" alt="The action panel before any sets exist, with Create action set next to HubSpot&#x27;s actions" loading="lazy"><img class="slide" src="../images/action-sets/final-3.jpg" alt="Creating a set: name it, then copy the actions from the current workflow or start from scratch" loading="lazy"><img class="slide" src="../images/action-sets/final-4.jpg" alt="Building the set in its own editor" loading="lazy"><img class="slide" src="../images/action-sets/final-5.jpg" alt="Editing the set&#x27;s name and description" loading="lazy"><img class="slide" src="../images/action-sets/final-6.jpg" alt="A confirmation that says where to find the new set" loading="lazy"><img class="slide" src="../images/action-sets/final-7.jpg" alt="Saved sets listed in the action panel" loading="lazy"><img class="slide" src="../images/action-sets/final-8.jpg" alt="The set&#x27;s actions added to a workflow, inside a branch, where they can be changed like any others" loading="lazy"></div><div class="dots"><button aria-label="Show screen 1 of 8" aria-current="true"></button><button aria-label="Show screen 2 of 8"></button><button aria-label="Show screen 3 of 8"></button><button aria-label="Show screen 4 of 8"></button><button aria-label="Show screen 5 of 8"></button><button aria-label="Show screen 6 of 8"></button><button aria-label="Show screen 7 of 8"></button><button aria-label="Show screen 8 of 8"></button></div>
       </div>
     </div>
   </header>
@@ -195,6 +195,25 @@
       if (target === null || i === target) { target = null; if (i !== current) show(i); }
     }, { passive: true });
     show(0);
+  });
+</script>
+<script>
+  // Final design slideshows: hovering a dot shows that screen (clicking or
+  // focusing one does too, for touch and keyboard). A card remembers its
+  // screen so the case study opens on the same one.
+  document.querySelectorAll('.slideshow').forEach(s => {
+    const slides = [...s.querySelectorAll('.slide')];
+    const dots = [...s.querySelectorAll('.dots > *')];
+    if (slides.length < 2) return;
+    const key = 'slide-' + s.dataset.key;
+    const show = n => {
+      slides.forEach((el, i) => el.classList.toggle('is-current', i === n));
+      dots.forEach((d, i) => d.tagName === 'BUTTON' ? d.toggleAttribute('aria-current', i === n)
+                                                     : d.classList.toggle('on', i === n));
+      try { sessionStorage.setItem(key, n); } catch (e) {}
+    };
+    try { const saved = +sessionStorage.getItem(key); if (saved && saved < slides.length) show(saved); } catch (e) {}
+    dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => show(i))));
   });
 </script>
 </body>
