@@ -225,7 +225,7 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
 .carousel-track { display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 6px; }
 .carousel-track::-webkit-scrollbar { display: none; }
 .carousel-track:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 4px; }
-.carousel .slide { flex: 0 0 100%; scroll-snap-align: start; }
+.carousel .slide { flex: 0 0 100%; scroll-snap-align: start; align-self: center; }
 .carousel .slide img { width: 100%; }
 .carousel-thumbs { display: flex; gap: 8px; margin-top: 12px; overflow-x: auto; scrollbar-width: none; padding: 2px; }
 .carousel-thumbs::-webkit-scrollbar { display: none; }

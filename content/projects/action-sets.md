@@ -101,7 +101,8 @@ We had two very different ways to build this and needed customer reactions befor
 In the Saved Actions concept, the actions were a new kind of action you drag onto the canvas, and you could change your copy freely. In the Shared Workflow concept, the actions were their own workflow, and other workflows sent contacts to it and waited for them to come back.
 
 <!-- carousel -->
-![Saved Actions: Jason needs to build a new workflow](images/action-sets/concept-a-1.jpg)
+![Saved Actions: the whole story on one page](images/action-sets/concept-a-summary.jpg)
+![Jason needs to build a new workflow](images/action-sets/concept-a-1.jpg)
 ![He and Emma keep rebuilding the same language branch, so he decides to save it](images/action-sets/concept-a-2.jpg)
 ![He selects the branch and its actions, and names it so Emma will recognize it](images/action-sets/concept-a-3.jpg)
 ![Emma finds the saved branch in her actions and drags it onto her workflow](images/action-sets/concept-a-4.jpg)
@@ -110,7 +111,8 @@ In the Saved Actions concept, the actions were a new kind of action you drag ont
 <!-- /carousel -->
 
 <!-- carousel -->
-![Shared Workflow: Jason needs to build a new workflow](images/action-sets/concept-b-1.jpg)
+![Shared Workflow: the whole story on one page](images/action-sets/concept-b-summary.jpg)
+![Jason needs to build a new workflow](images/action-sets/concept-b-1.jpg)
 ![He decides to clone the language branch and rename it so the team can reuse it](images/action-sets/concept-b-2.jpg)
 ![He removes the other actions and sets it to run only when contacts are sent from other workflows](images/action-sets/concept-b-3.jpg)
 ![When contacts finish the branch, they return to the workflow they came from](images/action-sets/concept-b-4.jpg)
