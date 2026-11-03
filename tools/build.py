@@ -203,9 +203,12 @@ def screen(src):
     """The image without the cream it was composed on, so only the screenshot
     sits on the card colour. Crops are cached in images/web/."""
     cache = json.loads(CROPS.read_text()) if CROPS.is_file() else {}
-    mtime = (ROOT / src).stat().st_mtime
-    if cache.get(src, {}).get("mtime") != mtime:
-        cache[src] = {"mtime": mtime, "box": _margin_box(src)}
+    # Keyed on the file's contents, not its date, so switching branches
+    # doesn't make every crop look stale.
+    digest = hashlib.md5((ROOT / src).read_bytes()).hexdigest()
+    changed = cache.get(src, {}).get("md5") != digest
+    if changed:
+        cache[src] = {"md5": digest, "box": _margin_box(src)}
         CROPS.parent.mkdir(parents=True, exist_ok=True)
         CROPS.write_text(json.dumps(cache, indent=1, sort_keys=True))
     left, top, right, bottom, w, h = cache[src]["box"]
@@ -215,7 +218,7 @@ def screen(src):
         return src
     out = Path("images/web") / Path(src).relative_to("images").with_name(Path(src).stem + "-screen.jpg")
     target = ROOT / out
-    if not target.is_file() or target.stat().st_mtime < mtime:
+    if changed or not target.is_file():
         target.parent.mkdir(parents=True, exist_ok=True)
         cw, ch = right - left + 1, bottom - top + 1
         subprocess.run(["sips", "--cropToHeightWidth", str(ch), str(cw),
