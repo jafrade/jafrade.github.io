@@ -301,7 +301,7 @@ SLIDESHOW_JS = """<script>
     const play = () => {
       clearInterval(timer);
       if ('autoplay' in s.dataset && !still && visible && !paused)
-        timer = setInterval(() => show((current + 1) % slides.length), 1000);
+        timer = setInterval(() => show((current + 1) % slides.length), 2000);
     };
     dots.forEach((d, i) => ['mouseenter', 'focus', 'click'].forEach(type => d.addEventListener(type, () => { show(i); play(); })));
     const hold = on => () => { paused = on; play(); };

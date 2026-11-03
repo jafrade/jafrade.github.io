@@ -161,7 +161,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .project-card, .cs-hero { --ink-soft: var(--ink-soft-on-colour); }
 .cs-hero { --hang: clamp(80px, 12vw, 180px); padding: clamp(48px, 7vw, 96px) 0 0; margin-bottom: 72px;
            background: linear-gradient(color-mix(in srgb, var(--c) 36%, var(--paper-2)) calc(100% - var(--hang)), transparent 0); }
-.cs-hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px clamp(32px, 5vw, 72px); align-items: end; }
+.cs-hero .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px clamp(32px, 5vw, 72px); align-items: end; }
 .cs-hero h1 { font-size: clamp(36px, 4vw, 56px); line-height: 1.04; font-weight: 300; margin: 16px 0 0; }
 .cs-hero .lede { font-size: clamp(17px, 1.5vw, 19px); line-height: 1.6; color: var(--ink-soft); max-width: 46ch; margin: 0 0 24px; }
 /* Tags on a project colour (card and hero) need a darker outline than on paper */
