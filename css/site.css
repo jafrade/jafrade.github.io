@@ -244,6 +244,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .pulls .pull { margin: 0; }
 .pulls .pull:nth-child(2) { border-color: var(--sage); }
 
+/* The question each case study sets out to answer */
+.question { background: color-mix(in srgb, var(--c) 36%, var(--paper-2)); border-radius: 8px; padding: 22px 26px 24px; margin: 8px 0 22px; }
+.question .label { color: var(--ink-soft-on-colour); }
+.chapter .question p { font-size: 21px; line-height: 1.4; margin: 8px 0 0; text-wrap: pretty; }
+
 /* Figures */
 figure { margin: 16px 0 48px; }
 figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-height: 1.5; color: var(--ink-soft); }

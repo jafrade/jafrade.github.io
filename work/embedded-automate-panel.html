@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/site.css?v=ff73694e">
+<link rel="stylesheet" href="../css/site.css?v=93469f2e">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
   </div>
 
   <div class="wrap">
-    <article class="cs-body">
+    <article class="cs-body" style="--c: var(--sage)">
       <nav class="toc" aria-label="Chapters">
         <p class="label">Contents</p>
         <ol><li><a href="#role"><span></span>My role</a></li><li><a href="#context"><span>01</span>Context</a></li><li><a href="#problem"><span>02</span>Problem</a></li><li><a href="#strategy"><span>03</span>Strategy</a></li><li><a href="#research"><span>04</span>Concept validation</a></li><li><a href="#decision"><span>05</span>Key decisions</a></li><li><a href="#solution"><span>06</span>Final design</a></li><li><a href="#impact"><span>07</span>Impact</a></li><li><a href="#reflection"><span></span>Reflection</a></li></ol>
@@ -70,13 +70,14 @@
 <section class="chapter" id="problem">
 <p class="label num">02 · Problem</p>
 <h2>Starter customers were leaving because finding automation was an Easter egg hunt</h2>
-<p>Automation came up in about a third of Starter churn calls, often about things Starter could already do but customers couldn't find. Starter is also the path to Pro, so HubSpot cared about upgrades as well as retention.</p>
-<p>Customers couldn't find it because Starter didn't have a central Workflows app. Instead, their automation was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.</p>
+<p>HubSpot was losing Starter customers, and fewer new accounts were signing up. When an analyst dug into why customers were leaving, about a third were leaving because they didn't have the automation they needed to run their business. With fewer customers staying and fewer coming in, fewer were upgrading to Pro, and upgrades are a big part of how HubSpot keeps customers and grows revenue.</p>
+<p>Much of what they needed was already in Starter, but customers couldn't find it, because Starter didn't have a central Workflows app. Instead, their automation was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.</p>
 <blockquote class="pull"><p>"A little bit of an Easter egg hunt."</p><cite class="label">Customer, describing how they found existing automations</cite></blockquote>
 <figure class="carousel wide"><div class="carousel-track" tabindex="0"><div class="slide" data-caption="Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences"><img src="../images/embedded-automate-panel/problem-1.jpg" alt="Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences" width="1600" height="1100" loading="lazy"></div><div class="slide" data-caption="A few of those patterns as customers saw them: forms, deal pipelines, privacy settings, quotes, and the prospecting agent"><img src="../images/embedded-automate-panel/problem-2.jpg" alt="A few of those patterns as customers saw them: forms, deal pipelines, privacy settings, quotes, and the prospecting agent" width="1600" height="1100" loading="lazy"></div></div><div class="carousel-thumbs"><button class="thumb" aria-label="Show slide 1: Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences"><img src="../images/embedded-automate-panel/problem-1.jpg" alt="" loading="lazy"></button><button class="thumb" aria-label="Show slide 2: A few of those patterns as customers saw them: forms, deal pipelines, privacy settings, quotes, and the prospecting agent"><img src="../images/embedded-automate-panel/problem-2.jpg" alt="" loading="lazy"></button></div><div class="carousel-bar"><figcaption aria-live="polite">Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences</figcaption><div class="carousel-nav"><span class="label count">1 / 2</span><button class="prev" aria-label="Previous slide">←</button><button class="next" aria-label="Next slide">→</button></div></div></figure>
 <p>Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Even our own teams had trouble keeping track of where automations lived. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.</p>
 <p>We measured progress with two numbers: the share of Starter customers who created a workflow, which we aimed to raise from 60% to 70%, and the share who turned one on.</p>
-<p>The churn calls and our audit told us what was wrong. What we didn't know yet was whether customers would find and use automation if it lived on the pages where they already work. That gave us our question: how might we make automation easy for Starter customers to find and use, so more of them stay and upgrading to Pro feels like a natural next step?</p>
+<p>The churn analysis and our audit told us what was wrong. What we didn't know yet was whether customers would find and use automation if it lived on the pages where they already work.</p>
+<div class="question"><span class="label">The question</span><p>How might we make automation easy for Starter customers to find and use, so more customers sign up and stay, and upgrading to Pro feels like a natural next step?</p></div>
 </section>
 <section class="chapter" id="strategy">
 <p class="label num">03 · Strategy</p>

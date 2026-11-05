@@ -74,9 +74,9 @@ HubSpot Starter is the entry-level paid plan, used by more than 150,000 customer
 ## 02 · Problem {#problem}
 ### Starter customers were leaving because finding automation was an Easter egg hunt
 
-Automation came up in about a third of Starter churn calls, often about things Starter could already do but customers couldn't find. Starter is also the path to Pro, so HubSpot cared about upgrades as well as retention.
+HubSpot was losing Starter customers, and fewer new accounts were signing up. When an analyst dug into why customers were leaving, about a third were leaving because they didn't have the automation they needed to run their business. With fewer customers staying and fewer coming in, fewer were upgrading to Pro, and upgrades are a big part of how HubSpot keeps customers and grows revenue.
 
-Customers couldn't find it because Starter didn't have a central Workflows app. Instead, their automation was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.
+Much of what they needed was already in Starter, but customers couldn't find it, because Starter didn't have a central Workflows app. Instead, their automation was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.
 
 > "A little bit of an Easter egg hunt."
 >
@@ -91,7 +91,7 @@ Automating a simple task meant leaving your work to find the right screen, figur
 
 We measured progress with two numbers: the share of Starter customers who created a workflow, which we aimed to raise from 60% to 70%, and the share who turned one on.
 
-The churn calls and our audit told us what was wrong. What we didn't know yet was whether customers would find and use automation if it lived on the pages where they already work. That gave us our question: how might we make automation easy for Starter customers to find and use, so more of them stay and upgrading to Pro feels like a natural next step?
+The churn analysis and our audit told us what was wrong. What we didn't know yet was whether customers would find and use automation if it lived on the pages where they already work. That gave us our question: how might we make automation easy for Starter customers to find and use, so more customers sign up and stay, and upgrading to Pro feels like a natural next step?
 
 ## 03 · Strategy {#strategy}
 ### It turned out every automation was a workflow

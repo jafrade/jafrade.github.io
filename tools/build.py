@@ -349,6 +349,19 @@ def carousel(images):
             f'<button class="next" aria-label="Next slide">→</button></div></div></figure>')
 
 
+# The sentence that frames each case study, pulled out of its paragraph into a panel.
+QUESTION = re.compile(r"^(.*?)\s*That gave us our question: how might we (.*\?)$")
+
+
+def paragraph(text):
+    m = QUESTION.match(text)
+    if not m:
+        return f"<p>{inline(text)}</p>"
+    before = f"<p>{inline(m.group(1))}</p>\n" if m.group(1) else ""
+    return (f'{before}<div class="question"><span class="label">The question</span>'
+            f'<p>How might we {inline(m.group(2))}</p></div>')
+
+
 def render_blocks(lines, media_first=False):
     """Turn one chapter's lines into HTML, grouping runs of quotes.
 
@@ -432,7 +445,7 @@ def render_blocks(lines, media_first=False):
             else:
                 out.append('<ul class="points">' + "".join(f"<li>{inline(it)}</li>" for it in items) + "</ul>")
         else:
-            out.append(f"<p>{inline(blocks[j][1])}</p>")
+            out.append(paragraph(blocks[j][1]))
         j += 1
     return "\n".join(out)
 
@@ -582,7 +595,7 @@ def page(meta, chapters, colour, next_project=None):
   </div>
 
   <div class="wrap">
-    <article class="cs-body">
+    <article class="cs-body" style="--c: var(--{colour})">
       <nav class="toc" aria-label="Chapters">
         <p class="label">Contents</p>
         <ol>{"".join(toc)}</ol>
