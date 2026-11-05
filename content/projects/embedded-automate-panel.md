@@ -93,7 +93,7 @@ Automating a simple task meant leaving your work to find the right screen, figur
 ## 03 · Strategy {#strategy}
 ### We moved automation onto the pages people already use
 
-My PM and I worked through that question in a brainstorm.
+My PM and I started with a brainstorm on how to make automation easy for Starter customers to find and use.
 
 The idea that shaped how we'd get there was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it, which would also make the move to Pro easier.
 
