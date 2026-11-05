@@ -28,13 +28,13 @@ page_role_summary: "Lead product designer · Co-led vision with PM"
 page_timeline: "Feb – Oct 2026 (beta July 23, launched to all Starter customers July 28–30, iterated through October)"
 page_shipped_to: "HubSpot Starter"
 page_chapters:
-  - { id: context,  label: "Context",      headline: "Starter customers were leaving because they couldn't automate what they needed" }
-  - { id: problem,  label: "Problem",      headline: "Automation for Starter customers was scattered and hard to find" }
-  - { id: strategy, label: "Strategy",     headline: "We moved automation onto the pages people already use" }
-  - { id: research, label: "Concept validation", headline: "Customers backed the direction and showed us what was missing" }
-  - { id: decision, label: "Design direction", headline: "Stakeholders and my team disagreed on the builder, so we tested both" }
-  - { id: solution, label: "Final design",     headline: "Automation now lives on the pages people already use, written as plain sentences" }
-  - { id: impact,   label: "Impact",       headline: "The panel doubled the number of workflows Starter customers created each week" }
+  - { id: context,  label: "Context",            headline: "Starter customers have a business to run and no time to learn automation" }
+  - { id: problem,  label: "Problem",            headline: "Starter customers were leaving because finding automation was an Easter egg hunt" }
+  - { id: strategy, label: "Strategy",           headline: "It turned out every automation was a workflow" }
+  - { id: research, label: "Concept validation", headline: "We had to earn a button on another team's page" }
+  - { id: decision, label: "Key decisions",      headline: "My team lost the builder debate, so I made the winning version work" }
+  - { id: solution, label: "Final design",       headline: "Automation now reads like a sentence and lives where the work happens" }
+  - { id: impact,   label: "Impact",             headline: "Starter customers built twice as many workflows a week" }
 
 filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design", "Prototyping", "Cross-team leadership"]
 ---
@@ -43,6 +43,7 @@ filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design
   NOTES FOR THE SITE BUILD
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption
+  - Key decisions (05) uses "####" subheads to separate its three decisions. Style them smaller than the chapter headline.
 -->
 
 <!-- ============ CASE STUDY PAGE LAYOUT ============
@@ -53,7 +54,7 @@ filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design
   3. Reflection (unnumbered, last)
   Pull quotes: a blockquote (">") is a pull quote for people scanning the page. It repeats a customer
   quote that already appears in the text; it never replaces it. Last line of the blockquote = attribution.
-  Max one per chapter (Design direction uses a pair to show the split).
+  Max one per chapter (Key decisions uses a pair to show the split).
   Nothing below this line appears on the home page card.
 =================================================== -->
 
@@ -66,36 +67,38 @@ I owned the interaction and visual design, from the first concepts in Lovable to
 I started on the project in February 2026. The panel went to beta on July 23 and launched to all Starter customers by July 30, and I kept improving it through October.
 
 ## 01 · Context {#context}
-### Starter customers were leaving because they couldn't automate what they needed
+### Starter customers have a business to run and no time to learn automation
 
 HubSpot Starter is the entry-level paid plan, used by more than 150,000 customers, mostly founders and early hires at companies with 1 to 25 people. They’re wearing a lot of hats, and their attention is on finding customers and growing the business. Learning a tool like HubSpot, and automation in particular, feels like a big investment of time they don’t have. What they need is simple: leads that don’t fall through the cracks, deals that get followed up on, and tasks that get created without doing it manually.
 
-Automation came up in about a third of Starter churn calls, often about things Starter could already do but customers couldn't find. Starter is also the path to Pro, so HubSpot cared about upgrades as well as retention. We measured progress with two numbers: the share of Starter customers who created a workflow, which we aimed to raise to 70%, and the share who turned one on.
-
-That gave us our question: how might we make automation easy for Starter customers to find and use, so more of them stay and upgrading to Pro feels like a natural next step?
-
 ## 02 · Problem {#problem}
-### Automation for Starter customers was scattered and hard to find
+### Starter customers were leaving because finding automation was an Easter egg hunt
 
-Starter customers didn't have access to a central Workflows app. Instead, their automation experience was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.
+Automation came up in about a third of Starter churn calls, often about things Starter could already do but customers couldn't find. Starter is also the path to Pro, so HubSpot cared about upgrades as well as retention.
+
+Customers couldn't find it because Starter didn't have a central Workflows app. Instead, their automation was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.
 
 > "A little bit of an Easter egg hunt."
 >
 > Customer, describing how they found existing automations
-
-Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Even our own teams had trouble keeping track of where automations lived. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.
 
 <!-- carousel -->
 ![Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences](images/embedded-automate-panel/problem-1.jpg)
 ![A few of those patterns as customers saw them: forms, deal pipelines, privacy settings, quotes, and the prospecting agent](images/embedded-automate-panel/problem-2.jpg)
 <!-- /carousel -->
 
+Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Even our own teams had trouble keeping track of where automations lived. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.
+
+We measured progress with two numbers: the share of Starter customers who created a workflow, which we aimed to raise from 60% to 70%, and the share who turned one on.
+
+The churn calls and our audit told us what was wrong. What we didn't know yet was whether customers would find and use automation if it lived on the pages where they already work. That gave us our question: how might we make automation easy for Starter customers to find and use, so more of them stay and upgrading to Pro feels like a natural next step?
+
 ## 03 · Strategy {#strategy}
-### We moved automation onto the pages people already use
+### It turned out every automation was a workflow
 
 My PM and I started with a brainstorm on how to make automation easy for Starter customers to find and use.
 
-The idea that shaped how we'd get there was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it, which would also make the move to Pro easier.
+The idea that shaped our approach was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it, which would also make the move to Pro easier.
 
 From there I proposed a single Automate experience that would look and work the same on every page where people already do their work. AI-generated recommendations, based on how each customer used their account, would show them where to start.
 
@@ -107,7 +110,7 @@ From there I proposed a single Automate experience that would look and work the 
 <!-- /carousel -->
 
 ## 04 · Concept validation {#research}
-### Customers backed the direction and showed us what was missing
+### We had to earn a button on another team's page
 
 We tested the idea in two steps before building the panel. The first was about where the Automate button would live. The deal records page belonged to another team, who had been simplifying the record pages by moving buttons into menus to cut clutter. They worried a new button would add clutter without enough people getting value from it, and saw a rise in clicks as a vanity metric that wouldn't show customers found it useful.
 
@@ -127,10 +130,12 @@ We then tested our first node and card design concept for the Automate panel wit
 ![The first node and card builder, with the assistant next to it](images/embedded-automate-panel/concept-5.jpg)
 <!-- /carousel -->
 
-One finding changed our plans: recommendations felt like ads unless they fit what the person was doing and explained why they mattered. That led to the recommendation framework in the final design.
+One finding changed our plans: recommendations felt like ads unless they fit what the person was doing and explained why they mattered. That led to the recommendation framework in the next chapter.
 
-## 05 · Design direction {#decision}
-### Stakeholders and my team disagreed on the builder, so we tested both
+## 05 · Key decisions {#decision}
+### My team lost the builder debate, so I made the winning version work
+
+#### Sentences or nodes
 
 Partner teams and leadership thought the builder looked too technical, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team didn't think rewording triggers and conditions would make them easier to understand. We wanted to build on the node-and-card pattern people already knew from the Workflows app, so it would be easier to learn and customers who upgraded to Pro would find the full app familiar. Our first brainstorm also listed the downsides of sentences: lots of custom UI to build, and they might not translate well.
 
@@ -154,9 +159,11 @@ The test also showed something I didn't expect: the builder's design changed how
 ![The sentence version and the node and canvas version, side by side as tested](images/embedded-automate-panel/research-styles.jpg)
 <!-- IMAGE: the two tested prototypes side by side -->
 
-With customers split, we went with the sentence version the stakeholders favored, and I led its visual design from there.
+With customers split, we went with the sentence version the stakeholders favored.
 
-I started by exploring how the sentences should look. I tried a few builder layouts, from plain sentences to each step in its own card, and several styles for the parts people could edit, including tinted chips, bold underlined text, and dashed outlines for empty fields.
+#### Making the sentence version work
+
+I led the visual design from there, starting with how the sentences should look. I tried a few builder layouts, from plain sentences to each step in its own card, and several styles for the parts people could edit, including tinted chips, bold underlined text, and dashed outlines for empty fields.
 
 <!-- carousel -->
 ![Builder layout: plain sentences with no containers](images/embedded-automate-panel/builder-1.jpg)
@@ -170,8 +177,12 @@ My biggest concern had been scale, since every action needs its own sentence. So
 
 Translation was the tradeoff we accepted. Each sentence follows the order of the fields in the form, so translators can change the words but can't reorder them. In languages with a different word order, some sentences read less naturally.
 
+#### Recommendations that explain themselves
+
+Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business, never why HubSpot picked it. Accounts with enough activity see real evidence, like "28x this week deal owners were manually assigned," and newer accounts get suggestions that teach good habits instead.
+
 ## 06 · Final design {#solution}
-### Automation now lives on the pages people already use, written as plain sentences
+### Automation now reads like a sentence and lives where the work happens
 
 <!-- carousel -->
 ![The Automate button on the contacts page](images/embedded-automate-panel/final-01.jpg)
@@ -185,16 +196,14 @@ Translation was the tradeoff we accepted. Each sentence follows the order of the
 ![A delay added as the next step, ready to publish](images/embedded-automate-panel/final-09.jpg)
 <!-- /carousel -->
 
-Once the sentence builder was settled, we finalized the visual and interaction design around the question we started with: making automation easy to find and use.
+We finalized the visual and interaction design around the question we started with: making automation easy to find and use.
 
 We created a globally recognizable button that could be added to any app, and it passes that app's context into the Automate panel. Customers can start from suggestions based on that context and their team's activity, or create an automation from scratch or from a template. Picking one fills in the trigger based on where they opened the panel. Each automation reads as a sentence with the editable parts highlighted, so they can change a field in place, pull in data from the trigger, or ask the assistant beside it to make the change. Automations already set up for that page are listed below the suggestions.
-
-Because recommendations felt like ads in research, I wrote a framework for how they explain themselves. Each one says what it will do for the business, never why HubSpot picked it. Accounts with enough activity see real evidence, like "28x this week deal owners were manually assigned," and newer accounts get suggestions that teach good habits instead.
 
 The panel went to beta on July 23, 2026, and reached every Starter account by July 30.
 
 ## 07 · Impact {#impact}
-### The panel doubled the number of workflows Starter customers created each week
+### Starter customers built twice as many workflows a week
 
 Across our Starter work from January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal. The share who turned one on rose from 40% to 60%.
 
@@ -215,4 +224,3 @@ We looked at much more than ease of use. Our brainstorm weighed build time, scal
 I'd also test more ideas, and test them sooner. Putting several directions in front of customers early would have given everyone the same evidence to work from.
 
 Once we committed to the sentence version, my job was to make it work. The scaling problem I'd worried about is what led me to build the rulebook and skill.
-

@@ -389,9 +389,12 @@ def render_blocks(lines, media_first=False):
                 items.append(lines[i][2:].strip())
                 i += 1
             blocks.append(("list", items))
+        elif line.startswith("#### "):
+            blocks.append(("subhead", line[5:].strip()))
+            i += 1
         else:
             para = []
-            while i < len(lines) and lines[i].strip() and not re.match(r"^(>|!\[|- |::)", lines[i]):
+            while i < len(lines) and lines[i].strip() and not re.match(r"^(>|!\[|- |::|#### )", lines[i]):
                 para.append(lines[i].strip())
                 i += 1
             blocks.append(("p", " ".join(para)))
@@ -417,6 +420,8 @@ def render_blocks(lines, media_first=False):
             out.append(carousel(blocks[j][1]))
         elif kind == "figure":
             out.append(blocks[j][2])
+        elif kind == "subhead":
+            out.append(f'<h3 class="subhead">{inline(blocks[j][1])}</h3>')
         elif kind == "list":
             items = blocks[j][1]
             if all(", so " in it for it in items):

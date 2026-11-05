@@ -28,13 +28,13 @@ page_role_summary: "Lead product designer · Led research and design"
 page_timeline: "Apr 2023 – early 2024 (alpha November 2023, launched December 2023, v2 paused early 2024)"
 page_shipped_to: "HubSpot Operations Hub Enterprise"
 page_chapters:
-  - { id: context,  label: "Context",            headline: "Enterprise needed features for teams whose workflows had become hard to manage" }
-  - { id: problem,  label: "Problem",            headline: "Customers rebuilt the same steps in every workflow and fixed each copy manually" }
-  - { id: strategy, label: "Strategy",           headline: "Discovery calls pointed us to one goal: save a group of actions once and reuse it anywhere" }
-  - { id: research, label: "Concept validation", headline: "A comic strip test showed customers expected one edit to reach every copy" }
-  - { id: decision, label: "Design direction",   headline: "We shipped independent copies first and designed linked updates for the next release" }
-  - { id: solution, label: "Final design",       headline: "Saving and reusing a set works like adding any other action" }
-  - { id: impact,   label: "Impact",             headline: "Action Sets contributed to 106 upgrades to Operations Hub Enterprise" }
+  - { id: context,  label: "Context",            headline: "Enterprise teams had a lot of people building a lot of workflows" }
+  - { id: problem,  label: "Problem",            headline: "Customers rebuilt the same steps in every workflow, then fixed each copy by hand" }
+  - { id: strategy, label: "Strategy",           headline: "Six discovery calls turned a pile of requests into one idea" }
+  - { id: research, label: "Concept validation", headline: "We drew a comic strip, and customers told us edits should reach every copy" }
+  - { id: decision, label: "Key decisions",      headline: "Engineering said linked updates had to wait, so we shipped copies first" }
+  - { id: solution, label: "Final design",       headline: "Adding a set works just like adding any other action" }
+  - { id: impact,   label: "Impact",             headline: "Action Sets contributed to 106 Enterprise upgrades" }
 
 filter_skills: ["Research", "Interaction design", "Prototyping", "Cross-team leadership"]
 ---
@@ -43,6 +43,7 @@ filter_skills: ["Research", "Interaction design", "Prototyping", "Cross-team lea
   NOTES FOR THE SITE BUILD
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
+  - Key decisions (05) uses "####" subheads to separate its four decisions. Style them smaller than the chapter headline.
 
   SOURCES AND KNOWN ITEMS (for reference, nothing here renders)
   - Metrics (2,400 customers, 25% inserting a set more than 200 times, 1 to 2 minutes per insert, 106 upgrades) come from Jason's performance review dated Jan 2024, within two months of the December 2023 launch. The per-insert time came from a dashboard Jason no longer has. 106 says "contributed", not "caused".
@@ -61,22 +62,18 @@ I planned and ran all of the research, from discovery calls and a comic strip co
 I started on the project in April 2023. The first version went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023. I designed the second version and tested it in December 2023. After a team reorg in early 2024, another designer took over the next round of changes, and the second version never launched.
 
 ## 01 · Context {#context}
-### Enterprise needed features for teams whose workflows had become hard to manage
+### Enterprise teams had a lot of people building a lot of workflows
 
 HubSpot workflows automate the work behind sales, marketing and operations. Each one starts with a trigger and runs a series of actions, like sending an email, waiting a few days, branching on a property, or running custom code. As customers grow with HubSpot, they build more workflows, and more people on the team start building them.
 
-Action Sets was built for Operations Hub Enterprise, the top plan of HubSpot's product for operations teams. Those customers tend to have larger teams and more complex automation. The people we talked to ranged from one person who owned every workflow to partners building workflows for their clients, and one systems director managed nearly 200 workflows. At that size, the person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.
-
-Customers upgrade to Enterprise when they need tools that work at a larger scale and for more people. As teams grew, their workflows became harder to manage. Several people were often building them, with no way to keep shared steps consistent. HubSpot wanted more advanced features in Enterprise that would help with that and give customers a reason to upgrade.
-
-That gave us our question: how might we make building many workflows faster and safer for large teams, in a way that makes Enterprise worth upgrading to?
+On Operations Hub Enterprise, HubSpot's top plan for operations teams, that adds up fast. One systems director we talked to managed nearly 200 workflows. The person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.
 
 ## 02 · Problem {#problem}
-### Customers rebuilt the same steps in every workflow and fixed each copy manually
+### Customers rebuilt the same steps in every workflow, then fixed each copy by hand
 
 Many workflows share the same pieces: a branch that routes contacts by language, a set of checks before a deal moves forward, or a block of custom code. HubSpot had no way to save those pieces and reuse them. Customers either rebuilt them action by action, or cloned a whole workflow and deleted what they didn't need, which risked missing something in a large one. When a shared piece needed to change, they had to find every workflow that used it and update each one manually.
 
-The requests came from customer feedback surveys, the ideas forum, and support. As more people created workflows, admins saw more inconsistencies and more chances for a workflow to be wrong.
+As more people created workflows, admins saw more inconsistencies and more chances for a workflow to be wrong. One customer wrote on the ideas forum, "Sometimes we make updates which require us to add 15+ actions to several workflows and currently we have to make all of those updates one action at a time."
 
 > "Sometimes we make updates which require us to add 15+ actions to several workflows and currently we have to make all of those updates one action at a time."
 >
@@ -84,12 +81,16 @@ The requests came from customer feedback surveys, the ideas forum, and support. 
 
 ![The same language branch, rebuilt action by action in every workflow that needed it](images/action-sets/problem-1.jpg)
 
+The problem was worst for large teams with several people building workflows, which made it a good fit for Enterprise, where HubSpot wanted more advanced features that gave customers a reason to upgrade.
+
+Customer feedback told us what people wanted. What we didn't know yet was how they actually reused their work. That gave us our question: how might we make building many workflows faster and safer for large teams, in a way that makes Enterprise worth upgrading to?
+
 ## 03 · Strategy {#strategy}
-### Discovery calls pointed us to one goal: save a group of actions once and reuse it anywhere
+### Six discovery calls turned a pile of requests into one idea
 
 The goal was to make building many workflows faster, and to give admins a way to guide their teams.
 
-I planned and ran discovery calls with six customers who cloned workflows often or had asked for this in the ideas forum. Their reuse cases included language branches, deal checks, custom code, and the same email campaign across several blogs. They wanted it to save time, keep their work accurate, and keep workflows consistent. Most reuses weren't exact copies, since a property or an email often changed each time. Everyone we asked wanted to control who could edit a shared set, though no one said it would stop them from using it. A few already reused work in other tools, like Zapier's Sub-Zaps, and liked that a change made in one place reached everywhere it was used.
+I planned and ran discovery calls with six customers who cloned workflows often or had asked for this in the ideas forum. Their reuse cases included language branches, deal checks, custom code, and the same email campaign across several blogs. They wanted it to save time, keep their work accurate, and keep workflows consistent. As one put it, "I want a head start. I don't want to always have to start from scratch." Most reuses weren't exact copies, since a property or an email often changed each time. Everyone we asked wanted to control who could edit a shared set, though no one said it would stop them from using it. A few already reused work in other tools, like Zapier's Sub-Zaps, and liked that a change made in one place reached everywhere it was used.
 
 > "I want a head start. I don't want to always have to start from scratch."
 >
@@ -98,7 +99,7 @@ I planned and ran discovery calls with six customers who cloned workflows often 
 From there my PM and I scoped the idea: let customers save a group of actions as a kind of mini template, find it in the action panel, and add it to any workflow of the same type.
 
 ## 04 · Concept validation {#research}
-### A comic strip test showed customers expected one edit to reach every copy
+### We drew a comic strip, and customers told us edits should reach every copy
 
 We had two very different ways to build this and needed customer reactions before designing either in detail. A prototype would have pulled people into the UI, so I used a comic strip test. Each concept was a short story of two coworkers, where one saves a language branch and the other reuses it.
 
@@ -126,7 +127,7 @@ In the Saved Actions concept, the actions were a new kind of action you drag ont
 ![Back in her workflow, she sends contacts to her own copy](images/action-sets/concept-b-8.jpg)
 <!-- /carousel -->
 
-I ran it with five people, three of them customers. Three picked Saved Actions outright, and the other two wanted parts of both.
+I ran it with five people, three of them customers. Three picked Saved Actions outright, and the other two wanted parts of both. One said, "The 'Shared Workflow' concept seems like a beta version of the 'Saved Actions' concept."
 
 > "The 'Shared Workflow' concept seems like a beta version of the 'Saved Actions' concept."
 >
@@ -134,8 +135,10 @@ I ran it with five people, three of them customers. Three picked Saved Actions o
 
 The biggest finding was about editing. Most people assumed a change to the saved set would update every workflow that used it, and that editing a copy in your own workflow would break it away from the original. They didn't want changes pushed out without warning, and one person asked for a draft step so edits could be reviewed before they went live. I went with Saved Actions, since most people preferred it, and linked updates became the core of the second version.
 
-## 05 · Design direction {#decision}
-### We shipped independent copies first and designed linked updates for the next release
+## 05 · Key decisions {#decision}
+### Engineering said linked updates had to wait, so we shipped copies first
+
+#### Where sets get built
 
 After the comic strip test, I worked out where sets would live and how people would build them, starting with low-fidelity wireframes of saved "snippets" in the action panel. We considered three ways to build a set: as a single collapsed action, as a container around actions on the canvas, and in its own editor. We went with the editor, since building on the canvas wasn't technically feasible at the time.
 
@@ -147,11 +150,17 @@ After the comic strip test, I worked out where sets would live and how people wo
 ![A set built in its own editor, the direction we shipped](images/action-sets/build-3.jpg)
 <!-- /carousel -->
 
+#### What to call them
+
 Participants didn't agree on a name. They called it a saved branch, a mini flow, a block, and a template. Our content designer made the case for the strongest options, and the team chose "action sets." It did slightly better in the moderated test, held up in unmoderated testing, and avoided "template," which already meant something else in workflows.
 
 ![The naming matrix we used to compare templates, blocks, modules and sets](images/action-sets/naming.jpg)
 
+#### Shipping copies before linked updates
+
 Our original design linked every copy to the original set, which is what customers expected. Engineering pushed back on what was feasible for the first release. Rather than delay it, my PM and I agreed to ship sets as independent copies, since saving and reusing actions was valuable on its own. My job was to make the difference clear to customers. The panel says that changes to your copy won't affect the original set, and editing the original shows a notice that workflows already using it won't change.
+
+#### Designing linked updates for v2
 
 While v1 was being built, I designed v2: global action sets. I mapped how creating, updating and detaching would work, and how publishing should behave when a change could break workflows that already used the set.
 
@@ -168,14 +177,14 @@ I also explored how a global set should show up on the canvas. Collapsing it int
 ![A workflow showing that its set has an update to review](images/action-sets/v2-test-4.jpg)
 <!-- /carousel -->
 
-In December 2023, I tested the prototype with six workflow builders in an unmoderated study. Only two of the six found the global setting when creating a set, and average confidence was 3 out of 7. All five who updated a set expected the change to reach other workflows automatically, not after a manual update. When we asked what "global action set" meant, the answers were all over the place.
+In December 2023, I tested the prototype with six workflow builders in an unmoderated study. Only two of the six found the global setting when creating a set, and average confidence was 3 out of 7. All five who updated a set expected the change to reach other workflows automatically, not after a manual update. When we asked what "global action set" meant, the answers were all over the place. One participant said, "I believe it means that it will send [an] outreach in a different language."
 
 > "I believe it means that it will send [an] outreach in a different language."
 >
 > Participant, v2 usability test
 
 ## 06 · Final design {#solution}
-### Saving and reusing a set works like adding any other action
+### Adding a set works just like adding any other action
 
 <!-- carousel -->
 ![A set's description and preview before adding it to a workflow](images/action-sets/final-1.jpg)
@@ -197,7 +206,7 @@ Customers can save a group of actions as a set, starting from scratch or from th
 Action Sets went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023.
 
 ## 07 · Impact {#impact}
-### Action Sets contributed to 106 upgrades to Operations Hub Enterprise
+### Action Sets contributed to 106 Enterprise upgrades
 
 Our goal was to make workflows easier to build and manage for large teams, and to give customers a reason to upgrade to Enterprise. Action Sets was one of the features behind 106 accounts upgrading to Operations Hub Enterprise.
 
