@@ -13,28 +13,28 @@ focus: ["Complex workflows", "Systems thinking", "Craft"]
 
 card_thumbnail: images/action-sets/card.jpg
 card_context: "HubSpot · Workflow automation · 2023"
-card_summary: "Led design and research for HubSpot's Action Sets. About 2,400 customers used them, and 25% of those inserted a set more than 200 times."
+card_summary: "Led design and research for HubSpot's Action Sets. They contributed to 106 upgrades to Operations Hub Enterprise, and about 2,400 customers used them within two months."
 
-page_overview: "Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow."
+page_overview: "Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. HubSpot also needed Enterprise features that made upgrading worth it. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow."
 page_hero_fallback: images/action-sets/hero.jpg
 page_metrics:
+  - value: "106"
+    label: "accounts upgraded to Operations Hub Enterprise, with Action Sets as one of the features behind the upgrade"
   - value: "2,400"
     label: "customers used Action Sets within two months of launch"
   - value: "25%"
-    label: "of those customers inserted a set more than 200 times, saving each of them at least 3 hours of building"
-  - value: "106"
-    label: "accounts upgraded to Operations Hub Enterprise, with Action Sets as one of the features behind the upgrade"
+    label: "of those customers inserted a set more than 200 times, saving each of them at least 3 hours of rebuilding the same steps"
 page_role_summary: "Lead product designer · Led research and design"
 page_timeline: "Apr 2023 – early 2024 (alpha November 2023, launched December 2023, v2 paused early 2024)"
 page_shipped_to: "HubSpot Operations Hub Enterprise"
 page_chapters:
-  - { id: context,  label: "Context",            headline: "Growing teams were building more workflows, with more people building them" }
+  - { id: context,  label: "Context",            headline: "Enterprise needed features for teams whose workflows had become hard to manage" }
   - { id: problem,  label: "Problem",            headline: "Customers rebuilt the same steps in every workflow and fixed each copy manually" }
   - { id: strategy, label: "Strategy",           headline: "Discovery calls pointed us to one goal: save a group of actions once and reuse it anywhere" }
   - { id: research, label: "Concept validation", headline: "A comic strip test showed customers expected one edit to reach every copy" }
   - { id: decision, label: "Design direction",   headline: "We shipped independent copies first and designed linked updates for the next release" }
   - { id: solution, label: "Final design",       headline: "Saving and reusing a set works like adding any other action" }
-  - { id: impact,   label: "Impact",             headline: "A quarter of the customers using Action Sets inserted a set more than 200 times" }
+  - { id: impact,   label: "Impact",             headline: "Action Sets contributed to 106 upgrades to Operations Hub Enterprise" }
 
 filter_skills: ["Research", "Interaction design", "Prototyping", "Cross-team leadership"]
 ---
@@ -61,11 +61,15 @@ I planned and ran all of the research, from discovery calls and a comic strip co
 I started on the project in April 2023. The first version went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023. I designed the second version and tested it in December 2023. After a team reorg in early 2024, another designer took over the next round of changes, and the second version never launched.
 
 ## 01 · Context {#context}
-### Growing teams were building more workflows, with more people building them
+### Enterprise needed features for teams whose workflows had become hard to manage
 
 HubSpot workflows automate the work behind sales, marketing and operations. Each one starts with a trigger and runs a series of actions, like sending an email, waiting a few days, branching on a property, or running custom code. As customers grow with HubSpot, they build more workflows, and more people on the team start building them.
 
-Action Sets was built for Operations Hub Enterprise, the top plan of HubSpot's product for operations teams. Those customers tend to have larger teams and more complex automation. The people we talked to ranged from one person who owned every workflow to partners building workflows for their clients, and one systems director managed 195 workflows. At that size, the person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.
+Action Sets was built for Operations Hub Enterprise, the top plan of HubSpot's product for operations teams. Those customers tend to have larger teams and more complex automation. The people we talked to ranged from one person who owned every workflow to partners building workflows for their clients, and one systems director managed nearly 200 workflows. At that size, the person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.
+
+Customers upgrade to Enterprise when they need tools that work at a larger scale and for more people. As teams grew, their workflows became harder to manage. Several people were often building them, with no way to keep shared steps consistent. HubSpot wanted more advanced features in Enterprise that would help with that and give customers a reason to upgrade.
+
+That gave us our question: how might we make building many workflows faster and safer for large teams, in a way that makes Enterprise worth upgrading to?
 
 ## 02 · Problem {#problem}
 ### Customers rebuilt the same steps in every workflow and fixed each copy manually
@@ -83,7 +87,7 @@ The requests came from customer feedback surveys, the ideas forum, and support. 
 ## 03 · Strategy {#strategy}
 ### Discovery calls pointed us to one goal: save a group of actions once and reuse it anywhere
 
-The goal was to make building many workflows faster, and to give admins a way to guide their teams. It also gave HubSpot an Enterprise feature that showed workflows could grow with a company.
+The goal was to make building many workflows faster, and to give admins a way to guide their teams.
 
 I planned and ran discovery calls with six customers who cloned workflows often or had asked for this in the ideas forum. Their reuse cases included language branches, deal checks, custom code, and the same email campaign across several blogs. They wanted it to save time, keep their work accurate, and keep workflows consistent. Most reuses weren't exact copies, since a property or an email often changed each time. Everyone we asked wanted to control who could edit a shared set, though no one said it would stop them from using it. A few already reused work in other tools, like Zapier's Sub-Zaps, and liked that a change made in one place reached everywhere it was used.
 
@@ -193,15 +197,11 @@ Customers can save a group of actions as a set, starting from scratch or from th
 Action Sets went to alpha in November 2023 and launched to Operations Hub Enterprise customers in December 2023.
 
 ## 07 · Impact {#impact}
-### A quarter of the customers using Action Sets inserted a set more than 200 times
+### Action Sets contributed to 106 upgrades to Operations Hub Enterprise
 
-Customers had been rebuilding the same steps in workflow after workflow. Within two months of launch, about 2,400 customers used Action Sets.
+Our goal was to make workflows easier to build and manage for large teams, and to give customers a reason to upgrade to Enterprise. Action Sets was one of the features behind 106 accounts upgrading to Operations Hub Enterprise.
 
-- 25% of the 2,400 customers inserted a set more than 200 times.
-- Each insert saved about 1 to 2 minutes of building the same actions again.
-- For those heavy users, that added up to at least 3 hours each.
-
-Action Sets was part of Operations Hub Enterprise, and it contributed to 106 accounts upgrading to that plan.
+Within two months of launch, about 2,400 customers had used Action Sets, and a quarter of them inserted a set more than 200 times. That saved each of those heavy users at least 3 hours of rebuilding the same steps.
 
 The linked updates customers asked for in research never shipped. After a team reorg in early 2024, another designer iterated on the version I tested, but it was deprioritized before launch.
 

@@ -13,13 +13,13 @@ focus: ["Craft", "AI", "Complex workflows", "Systems thinking"]
 
 card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as the case study hero
 card_context: "HubSpot · Workflow automation · 2026"
-card_summary: "Led design and co-led strategy for HubSpot's Automate panel. 72% of the workflows customers built used features new to Starter, and AI-recommended ones went live at 2× the rate."
+card_summary: "Led design and co-led strategy for HubSpot's Automate panel. The panel doubled the number of workflows Starter customers created each week, and 72% of them used features new to Starter."
 
 page_overview: "Small business customers were leaving HubSpot because they couldn't automate the work they needed, and the automation they had was scattered and hard to find. We built one Automate panel that opens from the pages they already work in, with AI recommendations that show them where to start."
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
-  - value: "3×"
-    label: "increase in automation discovery when we added an Automate button to the deal page (A/B test)"
+  - value: "2×"
+    label: "workflows created per week by Starter customers, before launch compared with after, through August"
   - value: "45%"
     label: "of AI-recommended workflows went live, twice the rate of starting from a blank page"
   - value: "72%"
@@ -28,13 +28,13 @@ page_role_summary: "Lead product designer · Co-led vision with PM"
 page_timeline: "Feb – Oct 2026 (beta July 23, launched to all Starter customers July 28–30, iterated through October)"
 page_shipped_to: "HubSpot Starter"
 page_chapters:
-  - { id: context,  label: "Context",      headline: "Starter customers are small teams with little time to learn new tools" }
+  - { id: context,  label: "Context",      headline: "Starter customers were leaving because they couldn't automate what they needed" }
   - { id: problem,  label: "Problem",      headline: "Automation for Starter customers was scattered and hard to find" }
   - { id: strategy, label: "Strategy",     headline: "We moved automation onto the pages people already use" }
   - { id: research, label: "Concept validation", headline: "Customers backed the direction and showed us what was missing" }
   - { id: decision, label: "Design direction", headline: "Stakeholders and my team disagreed on the builder, so we tested both" }
   - { id: solution, label: "Final design",     headline: "Automation now lives on the pages people already use, written as plain sentences" }
-  - { id: impact,   label: "Impact",       headline: "Most workflows built in the panel used features Starter didn't have before" }
+  - { id: impact,   label: "Impact",       headline: "The panel doubled the number of workflows Starter customers created each week" }
 
 filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design", "Prototyping", "Cross-team leadership"]
 ---
@@ -66,9 +66,13 @@ I owned the interaction and visual design, from the first concepts in Lovable to
 I started on the project in February 2026. The panel went to beta on July 23 and launched to all Starter customers by July 30, and I kept improving it through October.
 
 ## 01 · Context {#context}
-### Starter customers are small teams with little time to learn new tools
+### Starter customers were leaving because they couldn't automate what they needed
 
 HubSpot Starter is the entry-level paid plan, used by more than 150,000 customers, mostly founders and early hires at companies with 1 to 25 people. They’re wearing a lot of hats, and their attention is on finding customers and growing the business. Learning a tool like HubSpot, and automation in particular, feels like a big investment of time they don’t have. What they need is simple: leads that don’t fall through the cracks, deals that get followed up on, and tasks that get created without doing it manually.
+
+Automation came up in about a third of Starter churn calls, often about things Starter could already do but customers couldn't find. Starter is also the path to Pro, so HubSpot cared about upgrades as well as retention. We measured progress with two numbers: the share of Starter customers who created a workflow, which we aimed to raise to 70%, and the share who turned one on.
+
+That gave us our question: how might we make automation easy for Starter customers to find and use, so more of them stay and upgrading to Pro feels like a natural next step?
 
 ## 02 · Problem {#problem}
 ### Automation for Starter customers was scattered and hard to find
@@ -89,9 +93,9 @@ Automating a simple task meant leaving your work to find the right screen, figur
 ## 03 · Strategy {#strategy}
 ### We moved automation onto the pages people already use
 
-My PM and I started with a brainstorm to define the goal for the project and how we might reach it. Our goal was to give Starter customers automation that was easy to find and easy to start, so they could stop doing repetitive work manually and wouldn't need to leave HubSpot for other tools.
+My PM and I worked through that question in a brainstorm.
 
-The idea that shaped how we'd get there was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it.
+The idea that shaped how we'd get there was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it, which would also make the move to Pro easier.
 
 From there I proposed a single Automate experience that would look and work the same on every page where people already do their work. AI-generated recommendations, based on how each customer used their account, would show them where to start.
 
@@ -181,7 +185,7 @@ Translation was the tradeoff we accepted. Each sentence follows the order of the
 ![A delay added as the next step, ready to publish](images/embedded-automate-panel/final-09.jpg)
 <!-- /carousel -->
 
-Once the sentence builder was settled, we finalized the visual and interaction design around our original goal: making automation easy to find and easy to start.
+Once the sentence builder was settled, we finalized the visual and interaction design around the question we started with: making automation easy to find and use.
 
 We created a globally recognizable button that could be added to any app, and it passes that app's context into the Automate panel. Customers can start from suggestions based on that context and their team's activity, or create an automation from scratch or from a template. Picking one fills in the trigger based on where they opened the panel. Each automation reads as a sentence with the editable parts highlighted, so they can change a field in place, pull in data from the trigger, or ask the assistant beside it to make the change. Automations already set up for that page are listed below the suggestions.
 
@@ -190,16 +194,18 @@ Because recommendations felt like ads in research, I wrote a framework for how t
 The panel went to beta on July 23, 2026, and reached every Starter account by July 30.
 
 ## 07 · Impact {#impact}
-### Most workflows built in the panel used features Starter didn't have before
+### The panel doubled the number of workflows Starter customers created each week
 
-Starter customers had been leaving because HubSpot couldn't automate the work they needed. After launch, 72% of the workflows built in the panel used features that weren't available on Starter before.
+Across our Starter work from January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal. The share who turned one on rose from 40% to 60%.
 
-- 44K Starter accounts clicked Automate in the first 11 weeks, which is more than 1 in 4 Starter customers.
-- About 1 in 3 of the 3,663 workflows that about 2,000 accounts started in the panel went live.
+The panel launched at the end of July, so it was one of several launches behind that rise. Its own effect showed up right away. Through the end of August, Starter customers created twice as many workflows each week as they did before launch, and 72% of the workflows built in the panel used features Starter didn't have before.
 
-Workflows that started from an AI recommendation went live 45% of the time, compared with only 23% of workflows built from scratch.
+- About a third of the workflows started in the panel went live.
+- Workflows that started from an AI recommendation went live 45% of the time, about twice the rate of workflows built from scratch.
 
-We built the panel so other teams could reuse it, and Agent Hub Starter did. It launched on September 21 with the panel as its builder, and gave Starter customers one place to create and manage all their workflows for the first time. Weekly workflows turned on went from about 100 to about 340 in the weeks after.
+We tracked upgrades to Pro as well, but I don't have final results to share.
+
+We built the panel so other teams could reuse it, and Agent Hub Starter did. It launched on September 21 with the panel as its builder, and gave Starter customers one place to create and manage all their workflows for the first time. The number of workflows turned on each week more than tripled in the weeks after.
 
 ## Reflection {#reflection}
 ### What I'd do differently

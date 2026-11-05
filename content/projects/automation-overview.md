@@ -13,7 +13,7 @@ focus: ["Growth", "Onboarding", "Systems thinking", "Craft"]
 
 card_thumbnail: images/automation-overview/card.jpg
 card_context: "HubSpot · Workflow automation · 2025"
-card_summary: "Led design and co-led the vision for HubSpot's Automation Overview. Monthly visits grew from about 52,000 to 150,000 in a year, passing 2 million total views since launch."
+card_summary: "Led design and co-led the vision for HubSpot's Automation Overview. Monthly visits nearly tripled in a year, to about 150,000, and the page passed 2 million views."
 
 page_overview: "Automation had grown into so many tools that many customers didn't know where to start. The more customers automated, the more of their business HubSpot kept. We built one home for automation, where AI-assisted workflows and personalized recommendations help customers get started and see what needs attention."
 page_hero_media: images/automation-overview/hero.jpg
@@ -23,13 +23,13 @@ page_metrics:
     label: "Overview page views from the May 2025 launch to October 2026"
   - value: "26%"
     label: "of people who described an automation in the AI prompt turned on the workflow it drafted"
-  - value: "31.7%"
-    label: "of visitors came back to the Overview within 7 days"
+  - value: "40% → 60%"
+    label: "of Starter customers turned on a workflow from January to August 2026, across several launches starting with the Starter Overview"
 page_role_summary: "Lead product designer · Co-led vision with PM"
 page_timeline: "Aug 2024 – Jan 2026 (private beta March 2025, Pro and Enterprise launch May 2025, Starter launch January 2026)"
 page_shipped_to: "HubSpot Pro and Enterprise, then Starter"
 page_chapters:
-  - { id: context,  label: "Context",            headline: "Customers had more automation tools than they knew how to use" }
+  - { id: context,  label: "Context",            headline: "Customers who automated more jobs stayed with HubSpot, but few got there quickly" }
   - { id: problem,  label: "Problem",            headline: "Customers didn't know which tool to use or where to start" }
   - { id: strategy, label: "Strategy",           headline: "We set out to build one home for automation where everything leads to an action" }
   - { id: research, label: "Concept validation", headline: "Customers wanted to fix what they had before building something new" }
@@ -44,6 +44,7 @@ filter_skills: ["Strategy", "Research", "Interaction design", "Visual design", "
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel, in order; each alt text is that slide's caption
   - Single images outside a carousel use their alt text as the caption
+  - Metric sources: Starter create and turn-on rates (60% to 75%, 40% to 60%, January to August) come from the Enablement project report and a Hex dashboard
 -->
 
 ## My role {#role}
@@ -55,11 +56,11 @@ I owned the experience end to end, from early concepts and prototypes to final d
 I started on the project in August 2024. The Overview went to a private beta in March 2025 and launched to all Pro and Enterprise customers in May 2025. My work ended with the Starter version, which reached every Starter account in January 2026.
 
 ## 01 · Context {#context}
-### Customers had more automation tools than they knew how to use
+### Customers who automated more jobs stayed with HubSpot, but few got there quickly
 
-HubSpot's automation had grown from workflows into a whole set of tools, from sequences and chatbots to simple workflows inside forms and rules tucked into pipeline settings. HubSpot measured success by how many different jobs a customer automates, like updating a deal stage or emailing a new lead.
+HubSpot's automation had grown from workflows into a whole set of tools, from sequences and chatbots to rules tucked into pipeline settings. HubSpot measured how many different jobs each customer automated, like updating a deal stage or emailing a new lead. Customers who automated ten or more jobs were more likely to stay, and HubSpot kept more of their revenue. But only about 1 in 3 customers using automation had reached ten jobs, and it took about five months to get there.
 
-Only 31% of customers using automation had automated ten or more jobs. More than half had automated six or fewer, and it took about five months to reach ten. These were Pro and Enterprise customers, with access to the most automation tools, and only a fraction of them were getting the most value. We set out to understand why and what we could do about it.
+That gave us our question: how might we help more customers reach ten automated jobs, and get there sooner?
 
 ## 02 · Problem {#problem}
 ### Customers didn't know which tool to use or where to start
@@ -74,7 +75,7 @@ Customers said they "spend a lot of time going from tool to tool, or don't know 
 >
 > Customer, automation research
 
-That held customers back. They weren't saving the time HubSpot could save them, so they got less return on what they paid. And our data showed that the more jobs a company automated, the more of its revenue HubSpot kept over time.
+That held customers back. They weren't saving the time HubSpot could save them, so they got less return on what they paid.
 
 ## 03 · Strategy {#strategy}
 ### We set out to build one home for automation where everything leads to an action
@@ -122,7 +123,7 @@ So I designed a second concept in a compact, workspace style, with issues, a per
 >
 > Customer, concept test 2
 
-Beta customers were getting value from the first concept, but they found it hard to navigate, and advanced customers saw little in it for them. Interviews could only tell us so much, so we launched the first concept to all Pro and Enterprise customers on May 12, 2025, and built the workspace version to A/B test against it.
+Beta customers were getting value from the first concept, but they found it hard to navigate, and advanced customers saw little in it for them. Interviews could only tell us so much, so we launched the first concept to all Pro and Enterprise customers in May 2025, and built the workspace version to A/B test against it.
 
 ![The launched first concept and the workspace version we A/B tested](images/automation-overview/ab-test.jpg)
 
@@ -131,16 +132,16 @@ At the same time, HubSpot's UX group was defining a framework for what each kind
 ![Where the Automation Overview fits between a global home and a workspace](images/automation-overview/fit-diagram.jpg)
 <!-- IMAGE: redrawn from the PRD appendix and the "Overview v Workspace" deck -->
 
-The framework hadn't been tested with customers, so we wanted our own data before following it. From June 30 to July 14, 2025, we ran the A/B test. The results were nearly identical across activation, interaction and retention, so the team kept the overview model.
+The framework hadn't been tested with customers, so we wanted our own data before following it. We ran the A/B test for two weeks that summer, and the results were nearly identical across activation, interaction and retention, so the team kept the overview model.
 
 The test still taught us something. In the launched page, the AI prompt came first and got the most use. In the workspace version, issues came first and usage shifted to issues. Whatever we put at the top got used.
 
 After launch, we turned our attention to new accounts. Nearly half of new customers weren't getting any value from automation in their first month, and for an account with no automations, the Overview was mostly empty charts. I ran another round of research to find which zero state would get people started fastest: unmoderated click tests of three versions, with about seven people each. In every version, the AI prompt was the most common place to start. After the click tests, we combined the best of each version into one design and released it to customers.
 
 <!-- carousel -->
-![Version 1, hero with widgets: encouraged exploring, with a first click in 11.6 seconds](images/automation-overview/zero-state-v1.jpg)
-![Version 2, hero with widgets below: 71% chose the AI prompt to set up their first automation](images/automation-overview/zero-state-v2.jpg)
-![Version 3, onboarding guide: the fastest first click, at 6.6 seconds](images/automation-overview/zero-state-v3.jpg)
+![Version 1, hero with widgets: encouraged exploring, with a first click in about 12 seconds](images/automation-overview/zero-state-v1.jpg)
+![Version 2, hero with widgets below: 7 in 10 chose the AI prompt to set up their first automation](images/automation-overview/zero-state-v2.jpg)
+![Version 3, onboarding guide: the fastest first click, in under 7 seconds](images/automation-overview/zero-state-v3.jpg)
 <!-- /carousel -->
 
 ## 06 · Final design {#solution}
@@ -170,15 +171,15 @@ In November 2025, as part of a company-wide push to improve product quality, we 
 ## 07 · Impact {#impact}
 ### More customers found the Overview, and it helped them get automation running
 
-Customers had been automating very little because they didn't know where to start. After launch, monthly visits to the Overview grew from about 52,000 to 150,000 a year later.
+Our goal was to help more customers reach ten automated jobs, because those customers stay with HubSpot. New accounts that used the Overview turned on automations twice as often in their first month as older accounts, and the AI prompt gave customers a reliable way to get a workflow running.
 
-- The page passed 2 million views by October 2026.
-- 31.7% of visitors came back within 7 days.
-- 26% of the 22,021 people who described an automation in the AI prompt turned on the workflow it drafted.
+- Monthly visits to the Overview nearly tripled in a year, to about 150,000, and the page passed 2 million views.
+- About 1 in 4 people who described an automation in the AI prompt turned on the workflow it drafted.
+- Nearly 1 in 3 visitors came back within a week.
 
-On Starter, about 1 in 3 visitors interact with the page, more than on Pro.
+On Starter, about 1 in 3 visitors interact with the page, more than on Pro. The Starter Overview was the first of several launches aimed at getting more Starter customers to create and turn on workflows. From January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our goal, and the share who turned one on rose from 40% to 60%.
 
-Our main goal was to help customers automate more jobs. Several launches landed close together, so we couldn't isolate the Overview's effect on that number, but we did see clear signs in the steps leading up to it. New accounts that used the Overview turned on automations twice as often in their first month as older accounts, and the AI prompt gave customers a reliable way to get a workflow running. We believe this helped customers automate more jobs than before, or get there faster.
+Several launches landed close together, so we couldn't isolate the Overview's effect on the number of jobs customers automated, or on retention. We believe it helped customers automate more jobs than before, or get there faster.
 
 ## Reflection {#reflection}
 ### What I'd do differently

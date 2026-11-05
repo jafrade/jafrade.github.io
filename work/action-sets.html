@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Building reusable action sets for HubSpot workflows — Jason Frade</title>
-<meta name="description" content="Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow.">
+<meta name="description" content="Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. HubSpot also needed Enterprise features that made upgrading worth it. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
         <h1 style="view-transition-name: title-action-sets">Building reusable action sets for HubSpot workflows</h1>
       </div>
       <div class="cs-hero-intro">
-        <p class="lede">Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow.</p>
+        <p class="lede">Ops teams were rebuilding the same steps in workflow after workflow, which was slow and led to more mistakes as more people built them. HubSpot also needed Enterprise features that made upgrading worth it. We built Action Sets, saved groups of actions anyone on the team can reuse in any workflow.</p>
         <ul class="tags"><li>Complex workflows</li><li>Systems thinking</li><li>Craft</li></ul>
       </div>
       <div class="cs-hero-media slideshow" data-key="action-sets" data-autoplay style="view-transition-name: shot-action-sets">
@@ -40,7 +40,7 @@
     <div class="cs-summary">
       <div class="cs-results">
         <p class="label">Results</p>
-        <ul class="metrics"><li><b>2,400</b><span>customers used Action Sets within two months of launch</span></li><li><b>25%</b><span>of those customers inserted a set more than 200 times, saving each of them at least 3 hours of building</span></li><li><b>106</b><span>accounts upgraded to Operations Hub Enterprise, with Action Sets as one of the features behind the upgrade</span></li></ul>
+        <ul class="metrics"><li><b>106</b><span>accounts upgraded to Operations Hub Enterprise, with Action Sets as one of the features behind the upgrade</span></li><li><b>2,400</b><span>customers used Action Sets within two months of launch</span></li><li><b>25%</b><span>of those customers inserted a set more than 200 times, saving each of them at least 3 hours of rebuilding the same steps</span></li></ul>
       </div>
       <dl class="facts">
         <div><dt class="label">My role</dt><dd><ul><li>Lead product designer</li><li>Led research and design</li></ul></dd></div>
@@ -64,9 +64,11 @@
 </section>
 <section class="chapter" id="context">
 <p class="label num">01 · Context</p>
-<h2>Growing teams were building more workflows, with more people building them</h2>
+<h2>Enterprise needed features for teams whose workflows had become hard to manage</h2>
 <p>HubSpot workflows automate the work behind sales, marketing and operations. Each one starts with a trigger and runs a series of actions, like sending an email, waiting a few days, branching on a property, or running custom code. As customers grow with HubSpot, they build more workflows, and more people on the team start building them.</p>
-<p>Action Sets was built for Operations Hub Enterprise, the top plan of HubSpot's product for operations teams. Those customers tend to have larger teams and more complex automation. The people we talked to ranged from one person who owned every workflow to partners building workflows for their clients, and one systems director managed 195 workflows. At that size, the person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.</p>
+<p>Action Sets was built for Operations Hub Enterprise, the top plan of HubSpot's product for operations teams. Those customers tend to have larger teams and more complex automation. The people we talked to ranged from one person who owned every workflow to partners building workflows for their clients, and one systems director managed nearly 200 workflows. At that size, the person who owns automation, usually an admin or ops manager, wants the rest of the team to build workflows without things going wrong.</p>
+<p>Customers upgrade to Enterprise when they need tools that work at a larger scale and for more people. As teams grew, their workflows became harder to manage. Several people were often building them, with no way to keep shared steps consistent. HubSpot wanted more advanced features in Enterprise that would help with that and give customers a reason to upgrade.</p>
+<p>That gave us our question: how might we make building many workflows faster and safer for large teams, in a way that makes Enterprise worth upgrading to?</p>
 </section>
 <section class="chapter" id="problem">
 <p class="label num">02 · Problem</p>
@@ -79,7 +81,7 @@
 <section class="chapter" id="strategy">
 <p class="label num">03 · Strategy</p>
 <h2>Discovery calls pointed us to one goal: save a group of actions once and reuse it anywhere</h2>
-<p>The goal was to make building many workflows faster, and to give admins a way to guide their teams. It also gave HubSpot an Enterprise feature that showed workflows could grow with a company.</p>
+<p>The goal was to make building many workflows faster, and to give admins a way to guide their teams.</p>
 <p>I planned and ran discovery calls with six customers who cloned workflows often or had asked for this in the ideas forum. Their reuse cases included language branches, deal checks, custom code, and the same email campaign across several blogs. They wanted it to save time, keep their work accurate, and keep workflows consistent. Most reuses weren't exact copies, since a property or an email often changed each time. Everyone we asked wanted to control who could edit a shared set, though no one said it would stop them from using it. A few already reused work in other tools, like Zapier's Sub-Zaps, and liked that a change made in one place reached everywhere it was used.</p>
 <blockquote class="pull"><p>"I want a head start. I don't want to always have to start from scratch."</p><cite class="label">Customer, discovery call</cite></blockquote>
 <p>From there my PM and I scoped the idea: let customers save a group of actions as a kind of mini template, find it in the action panel, and add it to any workflow of the same type.</p>
@@ -122,10 +124,9 @@
 </section>
 <section class="chapter" id="impact">
 <p class="label num">07 · Impact</p>
-<h2>A quarter of the customers using Action Sets inserted a set more than 200 times</h2>
-<p>Customers had been rebuilding the same steps in workflow after workflow. Within two months of launch, about 2,400 customers used Action Sets.</p>
-<ul class="points"><li>25% of the 2,400 customers inserted a set more than 200 times.</li><li>Each insert saved about 1 to 2 minutes of building the same actions again.</li><li>For those heavy users, that added up to at least 3 hours each.</li></ul>
-<p>Action Sets was part of Operations Hub Enterprise, and it contributed to 106 accounts upgrading to that plan.</p>
+<h2>Action Sets contributed to 106 upgrades to Operations Hub Enterprise</h2>
+<p>Our goal was to make workflows easier to build and manage for large teams, and to give customers a reason to upgrade to Enterprise. Action Sets was one of the features behind 106 accounts upgrading to Operations Hub Enterprise.</p>
+<p>Within two months of launch, about 2,400 customers had used Action Sets, and a quarter of them inserted a set more than 200 times. That saved each of those heavy users at least 3 hours of rebuilding the same steps.</p>
 <p>The linked updates customers asked for in research never shipped. After a team reorg in early 2024, another designer iterated on the version I tested, but it was deprioritized before launch.</p>
 </section>
 <section class="chapter reflection" id="reflection">

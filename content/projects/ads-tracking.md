@@ -13,17 +13,15 @@ focus: ["Reporting", "Marketing"]
 
 card_thumbnail: images/ads-tracking/card-screen.jpg   # card.jpg cropped to the screenshot, no cream border
 card_context: "HubSpot · Ads tool · 2020"
-card_summary: "Led design for HubSpot Ads tracking errors, from research through launch. In the months after release, the number of tracking errors dropped by about 50%."
+card_summary: "Led design for HubSpot Ads tracking errors, from research through launch. In the months after release, the number of tracking errors dropped by about half."
 
 page_overview: "When ad tracking broke, marketers couldn't prove what their spend brought in, and HubSpot's alerts were hard to find and didn't say how to fix anything. We brought every error onto the ads page marketers already check, with clear steps to fix each one."
 page_hero_fallback: images/ads-tracking/hero-screen.jpg   # hero.jpg cropped to the screenshot, no cream border
 page_metrics:
   - value: "~50%"
     label: "fewer tracking errors in the months after release"
-  - value: "16 → 3"
-    label: "monthly support tickets about ad tracking, November 2020 to January 2021"
-  - value: "224"
-    label: "customers surveyed to set the satisfaction baseline we'll measure against"
+  - value: "~80%"
+    label: "fewer monthly support tickets about ad tracking"
 page_role_summary: "Product designer · HubSpot Ads"
 page_shipped_to: "All HubSpot customers"
 page_chapters:
@@ -42,7 +40,8 @@ filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team l
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption.
   - This page has six numbered chapters (no Concept validation), no timeline field, and no Reflection, by Jason's choice.
-  - Metric sources: "about 50%" is total tracking errors from product analytics, Oct 2020 to Jan 2021 (Jan was likely a partial month). 16 → 3 is adsTracking support tickets by month, Nov 2020 to Jan 2021. 224 is the satisfaction survey baseline. All come from Jason's deck, not a live dashboard.
+  - This page has two headline metrics, not three. Lay out the Results row with two side by side, and skip the Timeline row since there's no timeline field.
+  - Metric sources: "about 50%" is total tracking errors from product analytics, Oct 2020 to Jan 2021 (Jan was likely a partial month). "About 80%" is adsTracking support tickets by month, 16 in Nov 2020 to 3 in Jan 2021 (an 81% drop; Jan was likely a partial month). All come from Jason's deck, not a live dashboard.
 -->
 
 ## My role {#role}
@@ -54,9 +53,13 @@ I owned the design of the new tracking experience, from research planning throug
 ## 01 · Context {#context}
 ### Marketers use HubSpot Ads to show what their ad spend brings in
 
-For marketers, being able to measure their work is a big part of the job. It's how they show the business they're helping it grow. For advertising, that means knowing how many leads their ads bring in and what return they're getting on what they spend.
+Showing ROI was the main reason marketers managed their ads in HubSpot instead of in each ad network. It's how they show the business how many leads their ads bring in and what return they're getting on what they spend.
 
 HubSpot Ads connects a customer's Facebook, Instagram, LinkedIn and Google ad accounts to HubSpot. To connect a contact back to the ad they came from, HubSpot adds tracking parameters to each ad's link. When that works, marketers see contacts, deals and ROI right next to their spend. When it doesn't, the ad shows zero contacts no matter how many people it brought in, and the marketer has no way to prove what it was worth.
+
+When tracking broke, customers lost the main reason to use HubSpot Ads, and they turned to support to find out what had gone wrong. That made broken tracking a cost for HubSpot too.
+
+That gave us our question: how might we help marketers catch and fix tracking problems on their own, so they can trust their ROI without contacting support?
 
 ## 02 · Problem {#problem}
 ### Customers couldn't tell when tracking was broken or how to fix it
@@ -67,7 +70,7 @@ There was already a solution for tracking errors, so we started by learning what
 
 We used three methods to understand what customers were running into. My PM and our product expert went through the support tickets, and I worked with our researcher on a plan that paired a satisfaction survey with usability testing.
 
-The support tickets showed that most of the tracking volume came from customers seeing alerts on ads that were no longer active. In the survey, 29% of the 224 customers who answered were unhappy with tracking and 45% felt neutral. When I grouped their comments, the most common pattern was that it was unclear what the issue was and how to resolve it. Others asked why they were still seeing errors for campaigns they'd deleted.
+The support tickets showed that most of the tracking volume came from customers seeing alerts on ads that were no longer active. In the survey, only about 1 in 4 customers who answered were happy with tracking. When I grouped their comments, the most common pattern was that it was unclear what the issue was and how to resolve it. Others asked why they were still seeing errors for campaigns they'd deleted.
 
 > "Doesn't tell me how to fix them."
 >
@@ -87,6 +90,8 @@ In usability testing with five customers, we saw the same patterns, plus one mor
 The research left us with three problems. Customers had a hard time seeing how many errors they had, it was unclear what each issue was and how to resolve it, and they were getting alerts on ads that were no longer active.
 
 Our goal was to make it easier for customers to learn when they weren't measuring their ads successfully, and to give them ways to fix the issues that came up. The idea was to stop treating errors as something you found ad by ad. Instead, we'd bring them all into one place, explain each one in plain language, and stop showing errors that no longer mattered.
+
+Before launch, we set three targets to measure it, using the same sources we'd used to research the problem: cut tracking errors in half, cut tracking support tickets by 30%, and raise satisfaction with tracking by 20%.
 
 ## 04 · Design direction {#decision}
 ### I worked with another designer on a shared error pattern and we rewrote every error message
@@ -120,17 +125,11 @@ We also stopped showing errors on any ad that isn't active, since support ticket
 ## 06 · Impact {#impact}
 ### Errors dropped by about half in the months after release
 
-Customers had been getting errors they didn't understand, including on ads that weren't running anymore. In the months after release, the number of tracking errors dropped by about 50%, which met the goal we set before launch.
+Customers had been getting errors they didn't understand, including on ads that weren't running anymore, which put the main reason to use HubSpot Ads at risk. In the months after release, the number of tracking errors dropped by about half, which met our first target.
 
-Before release we set three goals, and planned to measure them the same way we'd researched the problem:
-
-- Cut the total number of tracking errors by 50%.
-- Reduce support volume about tracking by 30%.
-- Increase customer happiness with tracking by 20%.
-
-Support tickets about ad tracking also went down, from 16 in November 2020 to 3 in January 2021. It's still too early to say whether that drop comes from the redesign or something else, so we're keeping an eye on it.
+Support tickets about ad tracking also fell by about 80%, well past our 30% target, but it was too early to say how much of the drop came from the redesign.
 
 ![Product analytics from October 2020 to January 2021](images/ads-tracking/impact-1.jpg)
 ![Support tickets by topic, November 2020 to January 2021](images/ads-tracking/impact-2.jpg)
 
-We plan to run the satisfaction survey again and compare it to the baseline from our research. Until then, the drop in errors and the early fall in support tickets are the signals that tracking got easier for customers.
+We didn't get to rerun the satisfaction survey, so that target was never measured. The drop in errors and the fall in support tickets are the signs we have that tracking got easier for customers.
