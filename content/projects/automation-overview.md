@@ -19,12 +19,12 @@ page_overview: "Automation had grown into so many tools that many customers didn
 page_hero_media: images/automation-overview/hero.jpg
 page_hero_fallback: images/automation-overview/hero.jpg
 page_metrics:
+  - value: "60%"
+    label: "of Starter customers had turned on a workflow, up from 40%"
   - value: "2M+"
     label: "Overview page views from the May 2025 launch to October 2026"
   - value: "26%"
     label: "of people who described an automation in the AI prompt turned on the workflow it drafted"
-  - value: "40% → 60%"
-    label: "of Starter customers turned on a workflow from January to August 2026, across several launches starting with the Starter Overview"
 page_role_summary: "Lead product designer · Co-led vision with PM"
 page_timeline: "Aug 2024 – Jan 2026 (private beta March 2025, Pro and Enterprise launch May 2025, Starter launch January 2026)"
 page_shipped_to: "HubSpot Pro and Enterprise, then Starter"
