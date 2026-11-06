@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=dc4f86ad">
+<link rel="stylesheet" href="css/site.css?v=c9d497ad">
 </head>
 <body>
 
@@ -51,7 +51,7 @@
     <p class="label">Contact</p>
     <div>
       <h2>Let&#x27;s work together</h2>
-      <ul class="links"><li><span class="copy-email"><span class="">jason.a.frade@gmail.com</span><button type="button" class="copy-btn" data-copy="jason.a.frade@gmail.com" aria-label="Copy email address">Copy</button><span class="sr-only" role="status"></span></span></li><li><a href="files/jason-frade-resume.pdf">Résumé</a></li></ul>
+      <ul class="links"><li><button type="button" class="copy-btn " data-copy="jason.a.frade@gmail.com" aria-label="Copy email address, jason.a.frade@gmail.com"><span class="copy-text">jason.a.frade@gmail.com</span><svg class="copy-icon" viewBox="0 0 16 16" aria-hidden="true"><g class="icon-copy"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></g><path class="icon-check" d="M3 8.5l3.5 3.5L13 4.5"/></svg></button><span class="sr-only" role="status"></span></li><li><a href="files/jason-frade-resume.pdf">Résumé</a></li></ul>
     </div>
   </section>
 </main>
@@ -59,7 +59,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <span class="label">Jason Frade · Product designer</span>
-    <span class="copy-email"><span class="label">jason.a.frade@gmail.com</span><button type="button" class="copy-btn" data-copy="jason.a.frade@gmail.com" aria-label="Copy email address">Copy</button><span class="sr-only" role="status"></span></span>
+    <button type="button" class="copy-btn label" data-copy="jason.a.frade@gmail.com" aria-label="Copy email address, jason.a.frade@gmail.com"><span class="copy-text">jason.a.frade@gmail.com</span><svg class="copy-icon" viewBox="0 0 16 16" aria-hidden="true"><g class="icon-copy"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 3.5v-.5a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></g><path class="icon-check" d="M3 8.5l3.5 3.5L13 4.5"/></svg></button><span class="sr-only" role="status"></span>
   </div>
 </footer>
 <script>
@@ -84,15 +84,13 @@
         b.focus();
       }
       if (!ok) {
-        getSelection().selectAllChildren(b.previousElementSibling);
+        getSelection().selectAllChildren(b.querySelector('.copy-text'));
         return;
       }
-      b.textContent = 'Copied';
       b.classList.add('is-copied');
       b.nextElementSibling.textContent = 'Email address copied';
       clearTimeout(timer);
       timer = setTimeout(() => {
-        b.textContent = 'Copy';
         b.classList.remove('is-copied');
         b.nextElementSibling.textContent = '';
       }, 2000);

@@ -498,11 +498,15 @@ def nav(root):
 
 
 def copy_email(email, text_class=""):
-    """The address as text, with a button that copies it."""
+    """The address as a button that copies it, with a copy icon that turns into a check."""
     email = html.escape(email)
-    return (f'<span class="copy-email"><span class="{text_class}">{email}</span>'
-            f'<button type="button" class="copy-btn" data-copy="{email}" aria-label="Copy email address">Copy</button>'
-            f'<span class="sr-only" role="status"></span></span>')
+    icon = ('<svg class="copy-icon" viewBox="0 0 16 16" aria-hidden="true">'
+            '<g class="icon-copy"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/>'
+            '<path d="M10.5 3.5v-.5a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5"/></g>'
+            '<path class="icon-check" d="M3 8.5l3.5 3.5L13 4.5"/></svg>')
+    return (f'<button type="button" class="copy-btn {text_class}" data-copy="{email}" '
+            f'aria-label="Copy email address, {email}"><span class="copy-text">{email}</span>{icon}</button>'
+            f'<span class="sr-only" role="status"></span>')
 
 
 COPY_JS = """<script>
@@ -527,15 +531,13 @@ COPY_JS = """<script>
         b.focus();
       }
       if (!ok) {
-        getSelection().selectAllChildren(b.previousElementSibling);
+        getSelection().selectAllChildren(b.querySelector('.copy-text'));
         return;
       }
-      b.textContent = 'Copied';
       b.classList.add('is-copied');
       b.nextElementSibling.textContent = 'Email address copied';
       clearTimeout(timer);
       timer = setTimeout(() => {
-        b.textContent = 'Copy';
         b.classList.remove('is-copied');
         b.nextElementSibling.textContent = '';
       }, 2000);

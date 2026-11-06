@@ -79,12 +79,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .site-footer { border-top: 1px solid var(--rule); padding: 40px 0 56px; margin-top: 96px; }
 .site-footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
 
-/* Email address with a copy button */
-.copy-email { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
-.copy-btn { min-width: 72px; min-height: 30px; padding: 0 12px; border: 1px solid var(--edge); border-radius: 999px; background: none; color: var(--ink); font: 500 11px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, color .2s; }
-.copy-btn:hover { border-color: var(--ink); }
-.copy-btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
-.copy-btn.is-copied { border-color: var(--accent-text); color: var(--accent-text); }
+/* Email address as a button that copies it */
+.copy-btn { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0; border: 0; background: none; font-family: inherit; font-size: inherit; line-height: inherit; color: var(--walnut); cursor: pointer; }
+.copy-btn.label { font: 500 12px/1.4 var(--font-mono); color: var(--ink-soft); }
+.copy-btn .copy-text { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.copy-btn:hover { color: var(--ink); }
+.copy-btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; border-radius: 2px; }
+.copy-icon { flex: none; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.copy-icon .icon-check { display: none; }
+.copy-btn.is-copied .icon-copy { display: none; }
+.copy-btn.is-copied .icon-check { display: inline; }
+.copy-btn.is-copied::after { content: "Copied"; position: absolute; right: 0; bottom: calc(100% + 4px); padding: 4px 8px; border-radius: 4px; background: var(--ink); color: var(--paper); font: 500 11px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* ==========================================================================
