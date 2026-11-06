@@ -43,6 +43,7 @@ filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design
   NOTES FOR THE SITE BUILD
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption
+  - Metric sources: Starter create and turn-on rates (60% to 75%, 40% to 60%, January to August) come from the Enablement project report and a Hex dashboard. This page is the only one that claims them; the Automation Overview links here instead.
   - Key decisions (05) uses "####" subheads to separate its three decisions. Style them smaller than the chapter headline.
 -->
 
@@ -207,7 +208,7 @@ The panel went to beta on July 23, 2026, and reached every Starter account by Ju
 
 Across our Starter work from January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal. The share who turned one on rose from 40% to 60%.
 
-The panel launched at the end of July, so it was one of several launches behind that rise. Its own effect showed up right away. Through the end of August, Starter customers created twice as many workflows each week as they did before launch, and 72% of the workflows built in the panel used features Starter didn't have before.
+That work started with the Starter version of the Automation Overview in January. The panel launched at the end of July, so it was one of several launches behind that rise. Its own effect showed up right away. Through the end of August, Starter customers created twice as many workflows each week as they did before launch, and 72% of the workflows built in the panel used features Starter didn't have before.
 
 - About a third of the workflows started in the panel went live.
 - Workflows that started from an AI recommendation went live 45% of the time, about twice the rate of workflows built from scratch.

@@ -21,8 +21,8 @@ page_hero_fallback: images/automation-overview/hero.jpg
 page_metrics:
   - value: "3×"
     label: "monthly visits to the Overview in a year, to about 150,000"
-  - value: "2×"
-    label: "as many new accounts that used the Overview turned on automations in their first month, compared with older accounts"
+  - value: "32%"
+    label: "of Overview visitors came back within a week"
   - value: "26%"
     label: "of people who described an automation in the AI prompt turned on the workflow it drafted"
 page_role_summary: "Lead product designer · Co-led vision with PM"
@@ -45,7 +45,8 @@ filter_skills: ["Strategy", "Research", "Interaction design", "Visual design", "
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel, in order; each alt text is that slide's caption
   - Single images outside a carousel use their alt text as the caption
   - Key decisions (05) uses "####" subheads to separate its two decisions. Style them smaller than the chapter headline.
-  - Metric sources: Starter create and turn-on rates (60% to 75%, 40% to 60%, January to August) come from the Enablement project report and a Hex dashboard
+  - Metric sources: the 32% return rate is 31.7% of visitors who came back within 7 days, rounded. The Starter create and turn-on rates are claimed only on the Automate panel page.
+  - Impact links to the Automate panel case study as [Automate panel case study](embedded-automate-panel). Point it at that case study's page using the site's URL format.
 -->
 
 ## My role {#role}
@@ -178,13 +179,13 @@ In November 2025, as part of a company-wide push to improve product quality, we 
 ## 07 · Impact {#impact}
 ### Monthly visits nearly tripled in a year
 
-Our goal was to help more customers reach ten automated jobs, because those customers stay with HubSpot. New accounts that used the Overview turned on automations twice as often in their first month as older accounts, and the AI prompt gave customers a reliable way to get a workflow running.
+Our goal was to help more customers reach ten automated jobs, because those customers stay with HubSpot. The AI prompt gave customers a reliable way to get a workflow running.
 
 - Monthly visits to the Overview nearly tripled in a year, to about 150,000, and the page passed 2 million views.
 - About 1 in 4 people who described an automation in the AI prompt turned on the workflow it drafted.
 - Nearly 1 in 3 visitors came back within a week.
 
-On Starter, about 1 in 3 visitors interact with the page, more than on Pro. The Starter Overview was the first of several launches aimed at getting more Starter customers to create and turn on workflows. From January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our goal, and the share who turned one on rose from 40% to 60%.
+On Starter, about 1 in 3 visitors interact with the page, more than on Pro. The Starter Overview was the first of several launches aimed at getting more Starter customers to create and turn on workflows. The [Automate panel case study](embedded-automate-panel) covers what that work added up to.
 
 Several launches landed close together, so we couldn't isolate the Overview's effect on the number of jobs customers automated, or on retention. We believe it helped customers automate more jobs than before, or get there faster.
 

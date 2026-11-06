@@ -111,6 +111,8 @@ def inline(s):
     s = html.escape(s, quote=False)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", s)
+    # A bare slug links to that case study, which sits beside this page.
+    s = re.sub(r"\[(.+?)\]\(([\w-]+)\)", r'<a href="\2.html">\1</a>', s)
     s = re.sub(r"\[(.+?)\]\((.+?)\)", r'<a href="\2">\1</a>', s)
     return s
 
@@ -256,8 +258,9 @@ def slideshow(slides, prefix, buttons):
     for i, (alt, src) in enumerate(slides):
         cls = "slide is-current" if i == 0 else "slide"
         lazy = "" if i == 0 else ' loading="lazy"'
-        alt = html.escape(alt) if buttons else ""
-        imgs.append(f'<img class="{cls}" src="{prefix}{html.escape(web(src))}" alt="{alt}"{lazy}>')
+        # Only the slide showing is read out, or a card's link would read them all.
+        hidden = "" if i == 0 else ' aria-hidden="true"'
+        imgs.append(f'<img class="{cls}" src="{prefix}{html.escape(web(src))}" alt="{html.escape(alt)}"{hidden}{lazy}>')
     imgs = "".join(imgs)
     if len(slides) < 2:
         return imgs
@@ -291,6 +294,7 @@ SLIDESHOW_JS = """<script>
       slides.forEach((el, i) => {
         el.classList.toggle('was-current', i === current);
         el.classList.toggle('is-current', i === n);
+        el.setAttribute('aria-hidden', i !== n);
       });
       clearTimeout(settle);
       settle = setTimeout(() => slides.forEach(el => el.classList.remove('was-current')), 500);
@@ -339,8 +343,8 @@ def carousel(images):
         f'{img_tag(src, alt)}</div>' for alt, src in images)
     # Thumbnails let readers scan every slide at a glance and jump to one.
     thumbs = "".join(
-        f'<button class="thumb" aria-label="Show slide {i + 1}: {html.escape(alt)}">'
-        f'<img src="../{web(src)}" alt="" loading="lazy"></button>' for i, (alt, src) in enumerate(images))
+        f'<button class="thumb"><img src="../{web(src)}" alt="Show slide {i + 1}: {html.escape(alt)}" loading="lazy"></button>'
+        for i, (alt, src) in enumerate(images))
     return (f'<figure class="carousel wide"><div class="carousel-track" tabindex="0">{slides}</div>'
             f'<div class="carousel-thumbs">{thumbs}</div>'
             f'<div class="carousel-bar"><figcaption aria-live="polite">{inline(images[0][0])}</figcaption>'
@@ -674,7 +678,7 @@ def card(meta, colour):
     results = "".join(f'<li><b>{esc(m["value"])}</b><span>{esc(m["label"])}</span></li>'
                       for m in meta.get("page_metrics", [])[:2])
     slug = esc(meta["slug"])
-    media = slideshow(meta["_slides"] or [("", meta["card_thumbnail"])], "", buttons=False)
+    media = slideshow(meta["_slides"] or [(meta["title"], meta["card_thumbnail"])], "", buttons=False)
     # These names match the case study hero, so the card grows into it.
     return f"""    <a class="project-card" href="work/{slug}.html" style="--c: var(--{colour}); view-transition-name: card-{slug}">
       <div class="info">
@@ -708,7 +712,7 @@ def home(projects):
   <header class="home-hero dotted">
     <div class="wrap">
       <h1>Hi, I’m Jason.</h1>
-      <p class="lede">I’m a senior product designer, and I design simple, well-crafted software for people doing complicated work.</p>
+      <p class="lede">A senior product designer solving complex, <span style="white-space: nowrap">multi-step</span> workflows by turning them into simple, carefully crafted experiences.</p>
     </div>
   </header>
 
