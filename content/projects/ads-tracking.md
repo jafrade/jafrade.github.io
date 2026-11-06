@@ -13,13 +13,13 @@ focus: ["Reporting", "Marketing"]
 
 card_thumbnail: images/ads-tracking/card-screen.jpg   # card.jpg cropped to the screenshot, no cream border
 card_context: "HubSpot · Ads tool · 2020"
-card_summary: "Led design for HubSpot Ads tracking errors, from research through launch. In the months after release, the number of tracking errors dropped by about half."
+card_summary: "Led design for HubSpot Ads tracking errors, from research through launch. In the months after release, the number of customers seeing tracking errors dropped by about half."
 
 page_overview: "When ad tracking broke, marketers couldn't prove what their spend brought in, and HubSpot's alerts were hard to find and didn't say how to fix anything. We brought every error onto the ads page marketers already check, with clear steps to fix each one."
 page_hero_fallback: images/ads-tracking/hero-screen.jpg   # hero.jpg cropped to the screenshot, no cream border
 page_metrics:
   - value: "~50%"
-    label: "fewer tracking errors in the months after release"
+    label: "fewer customers seeing tracking errors in the months after release"
   - value: "~80%"
     label: "fewer monthly support tickets about ad tracking"
 page_role_summary: "Product designer · HubSpot Ads"
@@ -30,7 +30,7 @@ page_chapters:
   - { id: strategy, label: "Strategy",      headline: "We wanted customers to see every error at once instead of one ad at a time" }
   - { id: decision, label: "Key decisions", headline: "Another designer had the same problem, so we solved it once" }
   - { id: solution, label: "Final design",  headline: "Every error now shows up in one count and comes with a fix" }
-  - { id: impact,   label: "Impact",        headline: "Tracking errors dropped by about half" }
+  - { id: impact,   label: "Impact",        headline: "Half as many customers ran into tracking errors" }
 
 filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team leadership"]
 ---
@@ -42,7 +42,7 @@ filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team l
   - This page has six numbered chapters (no Concept validation), no timeline field, and no Reflection, by Jason's choice.
   - This page has two headline metrics, not three. Lay out the Results row with two side by side, and skip the Timeline row since there's no timeline field.
   - Key decisions (04) uses "####" subheads to separate its three decisions. Style them smaller than the chapter headline.
-  - Metric sources: "about 50%" is total tracking errors from product analytics, Oct 2020 to Jan 2021 (Jan was likely a partial month). "About 80%" is adsTracking support tickets by month, 16 in Nov 2020 to 3 in Jan 2021 (an 81% drop; Jan was likely a partial month). All come from Jason's deck, not a live dashboard.
+  - Metric sources: "About 50%" is unique users who saw a tracking error, from product analytics, Oct 2020 to Jan 2021. The redesign shipped in October 2020. Jan 2021 was a partial month (dotted on the chart); Oct to Dec alone is a drop of a bit over a third. Jason chose to keep "about half". "About 80%" is adsTracking support tickets by month, 16 in Nov 2020 to 3 in Jan 2021 (an 81% drop; Jan was likely a partial month). All come from Jason's deck, not a live dashboard.
 -->
 
 ## My role {#role}
@@ -92,7 +92,7 @@ The research left us with three problems. Customers had a hard time seeing how m
 
 Our goal was to make it easier for customers to learn when they weren't measuring their ads successfully, and to give them ways to fix the issues that came up. The idea was to stop treating errors as something you found ad by ad. Instead, we'd bring them all into one place, explain each one in plain language, and stop showing errors that no longer mattered.
 
-Before launch, we set three targets to measure it, using the same sources we'd used to research the problem: cut tracking errors in half, cut tracking support tickets by 30%, and raise satisfaction with tracking by 20%.
+Before launch, we set three targets to measure it, using the same sources we'd used to research the problem: cut the number of customers seeing tracking errors in half, cut tracking support tickets by 30%, and raise satisfaction with tracking by 20%.
 
 ## 04 · Key decisions {#decision}
 ### Another designer had the same problem, so we solved it once
@@ -130,13 +130,13 @@ We brought every tracking error up to a single count at the top of the ads page,
 Customers see the number of tracking errors above their campaigns, and each affected campaign is marked with a tracking error. Selecting View errors opens the panel, where errors are grouped by category with a count for each, so similar issues can be worked through together. Each error explains what's wrong and how to fix it, either in HubSpot or in the ad network. Errors that can't be fixed say so, and customers can dismiss them to a separate Dismissed tab.
 
 ## 06 · Impact {#impact}
-### Tracking errors dropped by about half
+### Half as many customers ran into tracking errors
 
-Customers had been getting errors they didn't understand, including on ads that weren't running anymore, which put the main reason to use HubSpot Ads at risk. In the months after release, the number of tracking errors dropped by about half, which met our first target.
+Customers had been getting errors they didn't understand, including on ads that weren't running anymore, which put the main reason to use HubSpot Ads at risk. In the months after release, the number of customers seeing tracking errors dropped by about half, which met our first target.
 
-Support tickets about ad tracking also fell by about 80%, well past our 30% target, but it was too early to say how much of the drop came from the redesign.
+Support tickets about ad tracking fell from 16 in November to 3 in January, far past our 30% target.
 
 ![Product analytics from October 2020 to January 2021](images/ads-tracking/impact-1.jpg)
 ![Support tickets by topic, November 2020 to January 2021](images/ads-tracking/impact-2.jpg)
 
-We didn't get to rerun the satisfaction survey, so that target was never measured. The drop in errors and the fall in support tickets are the signs we have that tracking got easier for customers.
+We didn't get to rerun the satisfaction survey, so that target was never measured. The drop in customers seeing errors and the fall in support tickets are the signs we have that tracking got easier for customers.
