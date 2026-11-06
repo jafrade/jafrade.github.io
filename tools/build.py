@@ -708,7 +708,7 @@ def home(projects):
   <header class="home-hero dotted">
     <div class="wrap">
       <h1>Hi, I’m Jason.</h1>
-      <p class="lede">I design simple, well-crafted software for people doing complicated work.</p>
+      <p class="lede">I’m a senior product designer, and I design simple, well-crafted software for people doing complicated work.</p>
     </div>
   </header>
 
