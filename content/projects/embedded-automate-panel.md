@@ -211,7 +211,7 @@ Through the end of August, Starter customers **created twice as many workflows e
 - About a third of the workflows started in the panel went live.
 - **Workflows that started from an AI recommendation went live 45% of the time, about twice the rate of workflows built from scratch.**
 
-The panel was part of a bigger push on Starter that started with the Starter version of the Automation Overview in January. From January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal, and the share who turned one on rose from 40% to 60%.
+The panel was part of a bigger push on Starter that started with the Starter version of the Automation Overview in January. From January to August, the **share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal, and the share who turned one on rose from 40% to 60%.**
 
 We tracked upgrades to Pro as well, but I don't have final results to share.
 
