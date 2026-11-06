@@ -77,7 +77,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .site-nav a:hover { text-decoration: underline; }
 
 .site-footer { border-top: 1px solid var(--rule); padding: 40px 0 56px; margin-top: 96px; }
-.site-footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.site-footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+
+/* Email address with a copy button */
+.copy-email { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+.copy-btn { min-width: 72px; min-height: 30px; padding: 0 12px; border: 1px solid var(--edge); border-radius: 999px; background: none; color: var(--ink); font: 500 11px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, color .2s; }
+.copy-btn:hover { border-color: var(--ink); }
+.copy-btn:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; }
+.copy-btn.is-copied { border-color: var(--accent-text); color: var(--accent-text); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 /* ==========================================================================
    Project cards: a panel tinted with the project colour (--c), work on top

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=1c35199c">
+<link rel="stylesheet" href="css/site.css?v=dc4f86ad">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
   <header class="home-hero dotted">
     <div class="wrap">
       <h1>Hi, I’m Jason.</h1>
-      <p class="lede">A senior product designer solving complex, <span style="white-space: nowrap">multi-step</span> workflows by turning them into simple, carefully crafted experiences.</p>
+      <p class="lede">A senior product designer with nine years at HubSpot, most recently leading design for workflow automation and AI-assisted building.</p>
     </div>
   </header>
 
@@ -74,9 +74,46 @@
 <footer class="site-footer">
   <div class="wrap">
     <span class="label">Jason Frade · Product designer</span>
-    <a class="label" href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a>
+    <span class="copy-email"><span class="label">jason.a.frade@gmail.com</span><button type="button" class="copy-btn" data-copy="jason.a.frade@gmail.com" aria-label="Copy email address">Copy</button><span class="sr-only" role="status"></span></span>
   </div>
 </footer>
+<script>
+  // Copy buttons. navigator.clipboard only exists over HTTPS, so fall back to
+  // execCommand on http, and select the address if neither works.
+  document.querySelectorAll('.copy-btn').forEach(b => {
+    let timer = null;
+    b.addEventListener('click', async () => {
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(b.dataset.copy);
+        ok = true;
+      } catch (e) {
+        const t = document.createElement('textarea');
+        t.value = b.dataset.copy;
+        t.setAttribute('readonly', '');
+        t.style.cssText = 'position: fixed; opacity: 0';
+        document.body.append(t);
+        t.select();
+        try { ok = document.execCommand('copy'); } catch (e2) {}
+        t.remove();
+        b.focus();
+      }
+      if (!ok) {
+        getSelection().selectAllChildren(b.previousElementSibling);
+        return;
+      }
+      b.textContent = 'Copied';
+      b.classList.add('is-copied');
+      b.nextElementSibling.textContent = 'Email address copied';
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        b.textContent = 'Copy';
+        b.classList.remove('is-copied');
+        b.nextElementSibling.textContent = '';
+      }, 2000);
+    });
+  });
+</script>
 <script>
   // Final design slideshows: hovering a dot shows that screen (clicking or
   // focusing one does too, for touch and keyboard). A card remembers its

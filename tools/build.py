@@ -497,12 +497,59 @@ def nav(root):
 </div>"""
 
 
-FOOTER = """<footer class="site-footer">
+def copy_email(email, text_class=""):
+    """The address as text, with a button that copies it."""
+    email = html.escape(email)
+    return (f'<span class="copy-email"><span class="{text_class}">{email}</span>'
+            f'<button type="button" class="copy-btn" data-copy="{email}" aria-label="Copy email address">Copy</button>'
+            f'<span class="sr-only" role="status"></span></span>')
+
+
+COPY_JS = """<script>
+  // Copy buttons. navigator.clipboard only exists over HTTPS, so fall back to
+  // execCommand on http, and select the address if neither works.
+  document.querySelectorAll('.copy-btn').forEach(b => {
+    let timer = null;
+    b.addEventListener('click', async () => {
+      let ok = false;
+      try {
+        await navigator.clipboard.writeText(b.dataset.copy);
+        ok = true;
+      } catch (e) {
+        const t = document.createElement('textarea');
+        t.value = b.dataset.copy;
+        t.setAttribute('readonly', '');
+        t.style.cssText = 'position: fixed; opacity: 0';
+        document.body.append(t);
+        t.select();
+        try { ok = document.execCommand('copy'); } catch (e2) {}
+        t.remove();
+        b.focus();
+      }
+      if (!ok) {
+        getSelection().selectAllChildren(b.previousElementSibling);
+        return;
+      }
+      b.textContent = 'Copied';
+      b.classList.add('is-copied');
+      b.nextElementSibling.textContent = 'Email address copied';
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        b.textContent = 'Copy';
+        b.classList.remove('is-copied');
+        b.nextElementSibling.textContent = '';
+      }, 2000);
+    });
+  });
+</script>"""
+
+FOOTER = f"""<footer class="site-footer">
   <div class="wrap">
     <span class="label">Jason Frade · Product designer</span>
-    <a class="label" href="mailto:jason.a.frade@gmail.com">jason.a.frade@gmail.com</a>
+    {copy_email("jason.a.frade@gmail.com", "label")}
   </div>
-</footer>"""
+</footer>
+{COPY_JS}"""
 
 
 # --- Page -------------------------------------------------------------------
@@ -712,7 +759,7 @@ def home(projects):
   <header class="home-hero dotted">
     <div class="wrap">
       <h1>Hi, I’m Jason.</h1>
-      <p class="lede">A senior product designer solving complex, <span style="white-space: nowrap">multi-step</span> workflows by turning them into simple, carefully crafted experiences.</p>
+      <p class="lede">A senior product designer with nine years at HubSpot, most recently leading design for workflow automation and AI-assisted building.</p>
     </div>
   </header>
 
@@ -853,7 +900,7 @@ def about(meta, body):
     c = meta.get("page_contact") or {}
     email = c.get("email") if known(c.get("email")) else EMAIL
     resume = resume_file()
-    links = [f'<li><a href="mailto:{esc(email)}">{esc(email)}</a></li>']
+    links = [f"<li>{copy_email(email)}</li>"]
     if known(c.get("linkedin")):
         links.append(f'<li><a href="{esc(c["linkedin"])}">LinkedIn</a></li>')
     if resume:
