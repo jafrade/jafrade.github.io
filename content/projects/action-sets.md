@@ -208,9 +208,9 @@ Action Sets went to alpha in November 2023 and launched to Operations Hub Enterp
 ## 07 · Impact {#impact}
 ### Action Sets contributed to 106 Enterprise upgrades
 
-Our goal was to make workflows easier to build and manage for large teams, and to give customers a reason to upgrade to Enterprise. Action Sets was one of the features behind 106 accounts upgrading to Operations Hub Enterprise.
+Our goal was to make workflows easier to build and manage for large teams, and to give customers a reason to upgrade to Enterprise. **Action Sets was one of the features behind 106 accounts upgrading to Operations Hub Enterprise.**
 
-Within two months of launch, about 2,400 customers had used Action Sets, and a quarter of them inserted a set more than 200 times. That saved each of those heavy users at least 3 hours of rebuilding the same steps.
+Within two months of launch, **about 2,400 customers had used Action Sets**, and **a quarter of them inserted a set more than 200 times. That saved each of those heavy users at least 3 hours of rebuilding the same steps.**
 
 The linked updates customers asked for in research never shipped. After a team reorg in early 2024, another designer iterated on the version I tested, but it was deprioritized before launch.
 

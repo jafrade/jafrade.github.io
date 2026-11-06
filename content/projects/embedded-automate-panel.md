@@ -206,12 +206,12 @@ The panel went to beta on July 23, 2026, and reached every Starter account by Ju
 ## 07 · Impact {#impact}
 ### Starter customers built twice as many workflows a week
 
-Through the end of August, Starter customers created ==twice as many workflows each week== as they did before the panel launched, and ==72% of the workflows built in the panel== used features Starter didn't have before.
+Through the end of August, Starter customers **created twice as many workflows each week** as they did before the panel launched, and **72% of the workflows built in the panel used features Starter didn't have before**.
 
-- ==About a third of the workflows started in the panel== went live.
-- Workflows that started from an AI recommendation ==went live 45% of the time==, about twice the rate of workflows built from scratch.
+- About a third of the workflows started in the panel went live.
+- **Workflows that started from an AI recommendation went live 45% of the time, about twice the rate of workflows built from scratch.**
 
-The panel was part of a bigger push on Starter that started with the Starter version of the Automation Overview in January. From January to August, ==the share of Starter customers who created a workflow rose from 60% to 75%==, beating our 70% goal, and ==the share who turned one on rose from 40% to 60%==.
+The panel was part of a bigger push on Starter that started with the Starter version of the Automation Overview in January. From January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal, and the share who turned one on rose from 40% to 60%.
 
 We tracked upgrades to Pro as well, but I don't have final results to share.
 

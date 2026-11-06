@@ -133,9 +133,9 @@ Customers see the number of tracking errors above their campaigns, and each affe
 ## 06 · Impact {#impact}
 ### Half as many customers ran into tracking errors
 
-Customers had been getting errors they didn't understand, including on ads that weren't running anymore, which put the main reason to use HubSpot Ads at risk. In the months after release, the number of customers seeing tracking errors dropped by about half, which met our first target.
+Customers had been getting errors they didn't understand, including on ads that weren't running anymore, which put the main reason to use HubSpot Ads at risk. In the months after release, **the number of customers seeing tracking errors dropped by about half**, which met our first target.
 
-Support tickets about ad tracking fell from 16 in November to 3 in January, far past our 30% target.
+**Support tickets about ad tracking fell from 16 in November to 3 in January**, far past our 30% target.
 
 ![Product analytics from October 2020 to January 2021](images/ads-tracking/impact-1.jpg)
 ![Support tickets by topic, November 2020 to January 2021](images/ads-tracking/impact-2.jpg)
