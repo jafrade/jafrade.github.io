@@ -15,8 +15,8 @@ page_experience:
   - { company: "HubSpot", role: "Senior Product Designer", dates: "2022 – 2026", note: "Automation and AI agents" }
   - { company: "HubSpot", role: "Product Designer", dates: "2017 – 2022", note: "Advertising" }
   - { company: "Kyruus", role: "Lead Product Designer, Product Designer", dates: "2015 – 2017", note: "Healthcare provider matching" }
-  - { company: "Hewlett Packard", role: "UX/UI Designer", dates: "TBD", note: "Cloud automation software" }
-  - { company: "XPO Logistics", role: "UX Engineer", dates: "2012 – TBD", note: "Internal logistics tools" }
+  - { company: "Hewlett Packard", role: "UX/UI Designer", dates: "2014 – 2015", note: "Cloud automation software" }
+  - { company: "XPO Logistics", role: "UX Engineer", dates: "2013 – 2014", note: "Internal logistics tools" }
 
 page_testimonial:
   quote: "TBD"
@@ -60,7 +60,7 @@ page_contact:
 
 ## Intro {#intro}
 
-I'm Jason, a senior product designer with 14 years of experience. I believe software should help people get their work done, however complicated the problem underneath and however technical they are.
+I'm Jason, a senior product designer with more than a decade of experience. I believe software should help people get their work done, however complicated the problem underneath and however technical they are.
 
 That belief has taken me through a lot of industries. At HubSpot, I designed automation and AI agents that take repetitive work off small business teams, and before that spent five years on advertising tools for marketers. At Kyruus, I improved how patients get matched with the right doctor, on consumer websites and through call centers. At HP I worked on cloud automation software, and at XPO I designed internal tools for a logistics company.
 
