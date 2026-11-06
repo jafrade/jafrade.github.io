@@ -111,6 +111,7 @@ def inline(s):
     s = html.escape(s, quote=False)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<!\*)\*(?!\s)(.+?)(?<!\s)\*(?!\*)", r"<em>\1</em>", s)
+    s = re.sub(r"==(.+?)==", r"<mark>\1</mark>", s)
     # A bare slug links to that case study, which sits beside this page.
     s = re.sub(r"\[(.+?)\]\(([\w-]+)\)", r'<a href="\2.html">\1</a>', s)
     s = re.sub(r"\[(.+?)\]\((.+?)\)", r'<a href="\2">\1</a>', s)
