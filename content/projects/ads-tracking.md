@@ -23,6 +23,7 @@ page_metrics:
   - value: "~80%"
     label: "fewer monthly support tickets about ad tracking"
 page_role_summary: "Product designer · HubSpot Ads"
+page_timeline: "Sept 2020 – Oct 2020"
 page_shipped_to: "All HubSpot customers"
 page_chapters:
   - { id: context,  label: "Context",       headline: "Tracking is how marketers prove their ads are worth paying for" }
