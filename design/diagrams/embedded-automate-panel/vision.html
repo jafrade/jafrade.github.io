@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vision</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Jost:wght@300;400;500&display=block" rel="stylesheet">
+<link rel="stylesheet" href="../diagram.css">
+<style>
+  .wrap { flex: 1; display: flex; justify-content: center; align-items: center; }
+  .venn { position: relative; width: 800px; height: 800px; margin-top: -10px; }
+  .c { position: absolute; width: 420px; height: 420px; border-radius: 50%; mix-blend-mode: multiply; }
+  .c.top    { left: 190px; top: 20px;  background: color-mix(in srgb, var(--oak) 42%, transparent); }
+  .c.left   { left: 20px;  top: 190px; background: color-mix(in srgb, var(--stone) 48%, transparent); }
+  .c.right  { left: 360px; top: 190px; background: color-mix(in srgb, var(--walnut) 22%, transparent); }
+  .c.bottom { left: 190px; top: 360px; background: color-mix(in srgb, var(--sage) 50%, transparent); }
+  .t { position: absolute; width: 220px; text-align: center; font-size: 32px; line-height: 1.15; font-weight: 500; }
+  .t.top    { left: 290px; top: 105px; }
+  .t.left   { left: 34px;  top: 370px; width: 190px; }
+  .t.right  { left: 576px; top: 370px; width: 200px; }
+  .t.bottom { left: 290px; top: 640px; }
+</style>
+</head>
+<body>
+<div class="board">
+  <p class="label">Strategy · The vision</p>
+  <h1>Four parts of one automation system</h1>
+  <div class="wrap">
+    <div class="venn">
+      <div class="c top"></div><div class="c left"></div><div class="c right"></div><div class="c bottom"></div>
+      <div class="t top">Agents</div>
+      <div class="t left">Unified canvas</div>
+      <div class="t right">Unified manage&shy;ment</div>
+      <div class="t bottom">Embedded experience</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

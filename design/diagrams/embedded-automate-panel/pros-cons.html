@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pros and cons</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Jost:wght@300;400;500&display=block" rel="stylesheet">
+<link rel="stylesheet" href="../diagram.css">
+<style>
+  .cols { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 48px; }
+  .idea { --c: var(--sage); background: var(--card); border: 1px solid var(--edge); border-radius: 12px; padding: 38px 40px; }
+  .idea + .idea { --c: var(--oak); }
+  .idea > .label { color: var(--ink); padding-bottom: 10px; border-bottom: 3px solid var(--c); display: inline-block; }
+  .idea h2 { font-size: 40px; font-weight: 400; margin-top: 22px; }
+  .idea > p { color: var(--ink-soft); margin-top: 8px; font-size: 26px; }
+  .pc { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 34px; }
+  .pc .label { margin-bottom: 10px; }
+  .pc ul { list-style: none; margin: 0; padding: 0; }
+  .pc li { position: relative; padding: 14px 0 14px 30px; border-top: 1px solid var(--rule); font-size: 27px; line-height: 1.25; }
+  .pc li::before { position: absolute; left: 2px; top: 13px; font: 500 26px/1.25 var(--font-mono); color: var(--accent-text); }
+  .pros li::before { content: "+"; }
+  .cons li::before { content: "–"; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<div class="board">
+  <p class="label">Brainstorm · Two ideas for the builder</p>
+  <h1>Write automations as sentences, or start from AI</h1>
+  <div class="cols">
+    <div class="idea">
+      <p class="label">Idea 1</p>
+      <h2>A sentence builder</h2>
+      <p>Fill in a sentence, with the fields inline</p>
+      <div class="pc">
+        <div class="pros"><p class="label">Pros</p><ul><li>Much more streamlined</li><li>Like monday.com</li></ul></div>
+        <div class="cons"><p class="label">Cons</p><ul><li>May not translate well</li><li>Lots of custom UI to build</li></ul></div>
+      </div>
+    </div>
+    <div class="idea">
+      <p class="label">Idea 2</p>
+      <h2>AI-first creation</h2>
+      <p>AI drafts it, with suggested templates</p>
+      <div class="pc">
+        <div class="pros"><p class="label">Pros</p><ul><li>Natural language is becoming standard</li><li>No need to know how workflows work</li></ul></div>
+        <div class="cons"><p class="label">Cons</p><ul><li>The technology is still behind</li><li>We don't own it</li><li>May only work in Workflows</li><li>May depend on plan</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

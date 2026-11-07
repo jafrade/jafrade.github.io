@@ -1,0 +1,37 @@
+/* Redrawn brainstorm boards for the case studies. Each page is one image:
+   tools/render-diagrams.sh screenshots it at 2x into images/<project>/. */
+
+:root {
+  --paper:   #F5F0E7;
+  --paper-2: #EDE6DB;
+  --card:    #FBF8F3;
+  --ink:     #2A2724;
+  --ink-soft: #625B53;
+  --rule:    #E0D8CB;
+  --edge:    rgba(42, 39, 36, .14);
+  --oak:     #B88B60;
+  --sage:    #7F8A74;
+  --stone:   #AFA091;
+  --walnut:  #4B3E33;
+  --accent-text: #86633F;
+  --font-display: "Jost", "Futura", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  width: 1600px; height: 1100px; overflow: hidden;
+  background: var(--paper-2); color: var(--ink);
+  font: 400 28px/1.35 var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+.board { position: absolute; inset: 0; padding: 76px 88px; display: flex; flex-direction: column; }
+/* These images display at about half size on the page, so nothing goes below 24px. */
+.label { font: 500 20px/1.3 var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); margin: 0; }
+h1 { font-weight: 300; font-size: 58px; line-height: 1.12; letter-spacing: -.01em; margin: 12px 0 0; }
+h2 { font-weight: 500; font-size: 30px; line-height: 1.25; margin: 0; }
+p { margin: 0; }
+.card { background: var(--card); border: 1px solid var(--edge); border-radius: 10px; padding: 22px 26px; }
+.card p { color: var(--ink-soft); font-size: 25px; line-height: 1.3; margin-top: 4px; }
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: var(--oak); }

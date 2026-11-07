@@ -42,7 +42,7 @@ def exists(src):
         return True
     MISSING.append(src)
     return False
-WIDE_HINTS = ("iterations", "final-panel", "research-styles", "explorations", "ab-test", "concepts", "fit-diagram", "problem-map")
+WIDE_HINTS = ("diagram-", "iterations", "final-panel", "research-styles", "explorations", "ab-test", "concepts", "fit-diagram", "problem-map")
 
 
 # --- Front matter -----------------------------------------------------------

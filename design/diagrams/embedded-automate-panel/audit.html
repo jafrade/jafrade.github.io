@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Automation audit</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Jost:wght@300;400;500&display=block" rel="stylesheet">
+<link rel="stylesheet" href="../diagram.css">
+<style>
+  .scale { display: flex; justify-content: space-between; align-items: center; margin: 48px 0 22px; }
+  .scale .bar { flex: 1; height: 2px; margin: 0 18px; background: linear-gradient(90deg, var(--stone), var(--walnut)); }
+  .cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  .col > .label { padding: 0 2px 10px; border-bottom: 3px solid var(--c); color: var(--ink); }
+  .col:nth-child(1) { --c: var(--stone); }
+  .col:nth-child(2) { --c: var(--sage); }
+  .col:nth-child(3) { --c: var(--oak); }
+  .col:nth-child(4) { --c: var(--walnut); }
+  .foot { margin-top: auto; color: var(--ink-soft); font-size: 25px; }
+</style>
+</head>
+<body>
+<div class="board">
+  <p class="label">Audit · Automation across HubSpot</p>
+  <h1>Twelve ways to automate, each built differently</h1>
+  <div class="scale"><span class="label">Customers can change less</span><span class="bar"></span><span class="label">More</span></div>
+  <div class="cols">
+    <div class="col">
+      <p class="label">Fixed rules</p>
+      <div class="card"><h2>Rulesets</h2><p>On or off only</p></div>
+      <div class="card"><h2>Pipeline settings</h2><p>Early rulesets</p></div>
+      <div class="card"><h2>Settings pages</h2><p>Preset, little to change</p></div>
+      <div class="card"><h2>Sequences</h2><p>Fixed triggers and actions</p></div>
+    </div>
+    <div class="col">
+      <p class="label">Some setup</p>
+      <div class="card"><h2>Simple workflows</h2><p>Locked trigger, up to 10 actions</p></div>
+      <div class="card"><h2>Pipeline workflows</h2><p>Preset trigger in deal settings</p></div>
+      <div class="card"><h2>Templates</h2><p>Recommended starting points</p></div>
+    </div>
+    <div class="col">
+      <p class="label">Anything</p>
+      <div class="card"><h2>Workflows</h2><p>AI agents and rules on the full canvas</p></div>
+    </div>
+    <div class="col">
+      <p class="label">Built by each team</p>
+      <div class="card"><h2>Direct API</h2><p>Each team builds its own interface</p></div>
+      <div class="card"><h2>Skills routing</h2><p>Ticket rules built on the API</p></div>
+    </div>
+  </div>
+  <p class="foot">Plus Marketing Studio and account insights, each with their own automation.</p>
+</div>
+</body>
+</html>

@@ -84,7 +84,7 @@ Much of what they needed was already in Starter, but customers couldn't find it,
 > Customer, describing how they found existing automations
 
 <!-- carousel -->
-![Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences](images/embedded-automate-panel/problem-1.jpg)
+![Our audit of every automation surface in HubSpot, from pipeline settings to rulesets to sequences](images/embedded-automate-panel/diagram-audit.jpg)
 ![A few of those patterns as customers saw them: forms, deal pipelines, privacy settings, quotes, and the prospecting agent](images/embedded-automate-panel/problem-2.jpg)
 <!-- /carousel -->
 
@@ -104,10 +104,9 @@ The idea that shaped our approach was that they're all workflows. Every embedded
 From there I proposed a single Automate experience that would look and work the same on every page where people already do their work. AI-generated recommendations, based on how each customer used their account, would show them where to start.
 
 <!-- carousel -->
-![The full brainstorm board](images/embedded-automate-panel/strategy-1.jpg)
-![Core problems and what customers needed](images/embedded-automate-panel/strategy-2.jpg)
-![The new approach: every embedded automation is a workflow](images/embedded-automate-panel/strategy-3.jpg)
-![The vision for the whole system: embedded experience, unified canvas, unified management, and agents](images/embedded-automate-panel/strategy-4.jpg)
+![Core problems and what customers needed](images/embedded-automate-panel/diagram-problems-needs.jpg)
+![The new approach: every embedded automation is a workflow](images/embedded-automate-panel/diagram-approach.jpg)
+![The vision for the whole system: embedded experience, unified canvas, unified management, and agents](images/embedded-automate-panel/diagram-vision.jpg)
 <!-- /carousel -->
 
 ## 04 · Concept validation {#research}
@@ -140,7 +139,7 @@ One finding changed our plans: recommendations felt like ads unless they fit wha
 
 Partner teams and leadership thought the builder looked too technical, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team didn't think rewording triggers and conditions would make them easier to understand. We wanted to build on the node-and-card pattern people already knew from the Workflows app, so it would be easier to learn and customers who upgraded to Pro would find the full app familiar. Our first brainstorm also listed the downsides of sentences: lots of custom UI to build, and they might not translate well.
 
-![Early pros and cons: sentence-style builder vs. AI-first creation](images/embedded-automate-panel/pros-cons.jpg)
+![Early pros and cons: sentence-style builder vs. AI-first creation](images/embedded-automate-panel/diagram-pros-cons.jpg)
 <!-- IMAGE: brainstorm pros/cons board (unnamed-11) -->
 
 ![Three builder styles we explored, rules, sentences, and workflow nodes, each in a split or full view](images/embedded-automate-panel/explorations.jpg)

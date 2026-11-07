@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>New approach</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Jost:wght@300;400;500&display=block" rel="stylesheet">
+<link rel="stylesheet" href="../diagram.css">
+<style>
+  .stack { flex: 1; display: flex; flex-direction: column; justify-content: center; margin-top: 24px; }
+  .layer { display: grid; grid-template-columns: 290px 1fr; gap: 36px; align-items: center; }
+  .layer .label { color: var(--ink); }
+  .layer .note { color: var(--ink-soft); font-size: 25px; margin-top: 4px; }
+  .bar { border-radius: 12px; padding: 30px 34px; font-size: 32px; }
+  .workflows { background: var(--sage); color: #fff; }
+  .embedded { background: color-mix(in srgb, var(--sage) 36%, var(--paper-2)); }
+  .templates { background: var(--card); border: 1px solid var(--edge); }
+  .apps { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .apps .card { text-align: center; padding: 24px 6px; font-size: 26px; }
+  .link { display: grid; grid-template-columns: 290px 1fr; gap: 36px; height: 40px; }
+  .link span { display: block; width: 2px; height: 100%; margin: 0 auto; background: repeating-linear-gradient(var(--stone) 0 7px, transparent 7px 14px); }
+</style>
+</head>
+<body>
+<div class="board">
+  <p class="label">Strategy · The new approach</p>
+  <h1>Every embedded automation is a workflow</h1>
+  <div class="stack">
+    <div class="layer"><div><p class="label">Workflows</p><p class="note">What everything runs on</p></div><div class="bar workflows">Open any automation in the full Workflows app</div></div>
+    <div class="link"><i></i><span></span></div>
+    <div class="layer"><div><p class="label">Embedded</p><p class="note">One Automate experience</p></div><div class="bar embedded">The same panel on every page</div></div>
+    <div class="link"><i></i><span></span></div>
+    <div class="layer"><div><p class="label">Apps</p><p class="note">Where people work</p></div>
+      <div class="apps"><div class="card">Contacts</div><div class="card">Deals</div><div class="card">Tickets</div><div class="card">Forms</div><div class="card">Emails</div><div class="card">Sequences</div></div></div>
+    <div class="link"><i></i><span></span></div>
+    <div class="layer"><div><p class="label">Templates</p><p class="note">The foundation</p></div><div class="bar templates">Every automation starts from a template</div></div>
+  </div>
+</div>
+</body>
+</html>
