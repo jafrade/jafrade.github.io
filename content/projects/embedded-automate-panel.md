@@ -105,8 +105,8 @@ From there I proposed a single Automate experience that would look and work the 
 
 <!-- carousel -->
 ![The new approach: every embedded automation is a workflow](images/embedded-automate-panel/strategy-4.jpg)
-![The full brainstorm board, including our vision for the whole system: embedded experience, unified canvas, unified management, and agents](images/embedded-automate-panel/strategy-1.jpg)
 ![Core problems and what customers needed](images/embedded-automate-panel/strategy-3.jpg)
+![The full brainstorm board, including our vision for the whole system: embedded experience, unified canvas, unified management, and agents](images/embedded-automate-panel/strategy-1.jpg)
 <!-- /carousel -->
 
 ## 04 · Concept validation {#research}
