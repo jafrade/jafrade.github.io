@@ -473,6 +473,13 @@ def parse_body(text):
 
 # --- Shared chrome ----------------------------------------------------------
 
+def icons(prefix=""):
+    """Tab and home-screen icons; make them with tools/make-favicons.py."""
+    return (f'<link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">\n'
+            f'<link rel="icon" href="{prefix}favicon.ico" sizes="any">\n'
+            f'<link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png">')
+
+
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400'
@@ -617,6 +624,7 @@ def page(meta, chapters, colour, next_project=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(meta["title"])} — Jason Frade</title>
 <meta name="description" content="{esc(overview)}">
+{icons("../")}
 {FONTS}
 <link rel="stylesheet" href="../css/site.css?v={CSS_VERSION}">
 </head>
@@ -756,7 +764,7 @@ def home(projects):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jason Frade — Product designer</title>
 <meta name="description" content="Product design portfolio of Jason Frade.">
-<link rel="icon" href="favicon.ico">
+{icons()}
 {FONTS}
 <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 </head>
@@ -922,7 +930,7 @@ def about(meta, body):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Jason Frade</title>
 <meta name="description" content="{esc(meta.get("meta_description", ""))}">
-<link rel="icon" href="favicon.ico">
+{icons()}
 {FONTS}
 <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 </head>
