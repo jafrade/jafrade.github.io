@@ -79,6 +79,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .site-footer { border-top: 1px solid var(--rule); padding: 40px 0 56px; margin-top: 96px; }
 .site-footer .wrap { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
 
+.footer-links { display: inline-flex; align-items: center; gap: 20px; }
+.footer-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; color: var(--ink-soft); transition: color .2s; }
+.footer-icon svg { width: 18px; height: 18px; fill: currentColor; }
+.footer-icon:hover { color: var(--ink); }
+.footer-icon:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 2px; border-radius: 2px; }
+
 /* Email address as a button that copies it */
 .copy-btn { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; padding: 0; border: 0; background: none; font-family: inherit; font-size: inherit; line-height: inherit; color: var(--walnut); cursor: pointer; }
 .copy-btn.label { font: 500 12px/1.4 var(--font-mono); color: var(--ink-soft); }
