@@ -21,7 +21,7 @@ page_metrics:
   - value: "~50%"
     label: "fewer customers seeing tracking errors in the months after release"
   - value: "~80%"
-    label: "fewer monthly support tickets about ad tracking"
+    label: "fewer monthly support tickets about ad tracking in the three months after launch"
 page_role_summary: "Product designer · HubSpot Ads"
 page_timeline: "Sep – Oct 2020 (launched October 2020, results tracked through January 2021)"
 page_shipped_to: "All HubSpot customers"
@@ -135,7 +135,7 @@ Customers see the number of tracking errors above their campaigns, and each affe
 
 In the months after release, **the number of customers seeing tracking errors dropped by about half**, which met our first target.
 
-**Support tickets about ad tracking fell from 16 in November to 3 in January**, far past our 30% target.
+**Support tickets about ad tracking fell about 80%, from 16 in November to 3 in January**, far past our 30% target.
 
 ![Product analytics from October 2020 to January 2021](images/ads-tracking/impact-1.jpg)
 ![Support tickets by topic, November 2020 to January 2021](images/ads-tracking/impact-2.jpg)

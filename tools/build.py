@@ -551,7 +551,7 @@ COPY_JS = """<script>
 
 FOOTER = f"""<footer class="site-footer">
   <div class="wrap">
-    <span class="label">Jason Frade · Product designer</span>
+    <span class="label">Jason Frade · Senior product designer</span>
     <span class="footer-links">
       {copy_email("jason.a.frade@gmail.com", "label")}
       <a class="footer-icon" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)">{LINKEDIN_ICON}</a>

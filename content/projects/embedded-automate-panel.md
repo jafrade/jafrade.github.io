@@ -19,7 +19,7 @@ page_overview: "Small business customers were leaving HubSpot because they could
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
   - value: "2×"
-    label: "workflows created per week by Starter customers, before launch compared with after, through August"
+    label: "as many workflows created each week by Starter customers in the month after launch"
   - value: "45%"
     label: "of AI-recommended workflows went live, twice the rate of starting from a blank page"
   - value: "72%"
