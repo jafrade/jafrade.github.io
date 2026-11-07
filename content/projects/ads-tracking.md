@@ -23,7 +23,7 @@ page_metrics:
   - value: "~80%"
     label: "fewer monthly support tickets about ad tracking"
 page_role_summary: "Product designer · HubSpot Ads"
-page_timeline: "Sept 2020 – Oct 2020"
+page_timeline: "Sep – Oct 2020 (launched October 2020, results tracked through January 2021)"
 page_shipped_to: "All HubSpot customers"
 page_chapters:
   - { id: context,  label: "Context",       headline: "Tracking is how marketers prove their ads are worth paying for" }
@@ -40,8 +40,8 @@ filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team l
   NOTES FOR THE SITE BUILD
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption.
-  - This page has six numbered chapters (no Concept validation), no timeline field, and no Reflection, by Jason's choice.
-  - This page has two headline metrics, not three. Lay out the Results row with two side by side, and skip the Timeline row since there's no timeline field.
+  - This page has six numbered chapters (no Concept validation) and no Reflection, by Jason's choice.
+  - This page has two headline metrics, not three. Lay out the Results row with two side by side.
   - Key decisions (04) uses "####" subheads to separate its three decisions. Style them smaller than the chapter headline.
   - Metric sources: "About 50%" is unique users who saw a tracking error, from product analytics, Oct 2020 to Jan 2021. The redesign shipped in October 2020. Jan 2021 was a partial month (dotted on the chart); Oct to Dec alone is a drop of a bit over a third. Jason chose to keep "about half". "About 80%" is adsTracking support tickets by month, 16 in Nov 2020 to 3 in Jan 2021 (an 81% drop; Jan was likely a partial month). All come from Jason's deck, not a live dashboard.
 -->
@@ -133,7 +133,7 @@ Customers see the number of tracking errors above their campaigns, and each affe
 ## 06 · Impact {#impact}
 ### Half as many customers ran into tracking errors
 
-Customers had been getting errors they didn't understand, including on ads that weren't running anymore, which put the main reason to use HubSpot Ads at risk. In the months after release, **the number of customers seeing tracking errors dropped by about half**, which met our first target.
+In the months after release, **the number of customers seeing tracking errors dropped by about half**, which met our first target.
 
 **Support tickets about ad tracking fell from 16 in November to 3 in January**, far past our 30% target.
 

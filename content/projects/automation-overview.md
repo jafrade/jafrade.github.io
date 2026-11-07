@@ -179,15 +179,11 @@ In November 2025, as part of a company-wide push to improve product quality, we 
 ## 07 · Impact {#impact}
 ### Monthly visits nearly tripled in a year
 
-Our goal was to help more customers reach ten automated jobs, because those customers stay with HubSpot. The AI prompt gave customers a reliable way to get a workflow running.
+**Monthly visits to the Overview nearly tripled in a year, to about 150,000**, and the page passed 2 million views by October 2026. More visits meant more chances for customers to find automation they didn't know about and turn it on. **About 1 in 4 people who described an automation in the AI prompt turned on the workflow it drafted**, and **nearly 1 in 3 visitors came back within a week**.
 
-- **Monthly visits to the Overview nearly tripled in a year, to about 150,000**, and the page passed 2 million views.
-- **About 1 in 4 people who described an automation in the AI prompt turned on the workflow it drafted.**
-- **Nearly 1 in 3 visitors came back within a week.**
+On Starter, about 1 in 3 visitors interact with the page, more than on Pro. The Starter Overview was the first of several launches aimed at getting more Starter customers to create and turn on workflows, and the [Automate panel case study](embedded-automate-panel) covers what that work added up to.
 
-On Starter, about 1 in 3 visitors interact with the page, more than on Pro. The Starter Overview was the first of several launches aimed at getting more Starter customers to create and turn on workflows. The [Automate panel case study](embedded-automate-panel) covers what that work added up to.
-
-Several launches landed close together, so we couldn't isolate the Overview's effect on the number of jobs customers automated, or on retention. We believe it helped customers automate more jobs than before, or get there faster.
+Our goal was to help more customers reach ten automated jobs, because those customers stay with HubSpot. Several launches landed close together, so we couldn't isolate the Overview's effect on that number, or on retention. We believe it helped customers automate more jobs than before, or get there faster.
 
 ## Reflection {#reflection}
 ### What I'd do differently
