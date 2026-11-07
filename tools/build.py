@@ -776,7 +776,7 @@ def home(projects):
   <header class="home-hero dotted">
     <div class="wrap">
       <h1>Hi, I’m Jason.</h1>
-      <p class="lede">A senior product designer with nine years at HubSpot, most recently leading design for workflow automation and AI-assisted building.</p>
+      <p class="lede">A senior product designer with more than a decade of experience, most recently designing automation and AI agents that take repetitive work off small business teams.</p>
     </div>
   </header>
 
