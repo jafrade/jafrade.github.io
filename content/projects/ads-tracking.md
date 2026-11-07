@@ -40,7 +40,7 @@ filter_skills: ["Research", "Interaction design", "Visual design", "Cross-team l
   NOTES FOR THE SITE BUILD
   - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption.
-  - This page has six numbered chapters (no Concept validation) and no Reflection, by Jason's choice.
+  - This page has six numbered chapters (no Concept validation), then a Reflection.
   - This page has two headline metrics, not three. Lay out the Results row with two side by side.
   - Key decisions (04) uses "####" subheads to separate its three decisions. Style them smaller than the chapter headline.
   - Metric sources: "About 50%" is unique users who saw a tracking error, from product analytics, Oct 2020 to Jan 2021. The redesign shipped in October 2020. Jan 2021 was a partial month (dotted on the chart); Oct to Dec alone is a drop of a bit over a third. Jason chose to keep "about half". "About 80%" is adsTracking support tickets by month, 16 in Nov 2020 to 3 in Jan 2021 (an 81% drop; Jan was likely a partial month). All come from Jason's deck, not a live dashboard.
@@ -141,3 +141,10 @@ In the months after release, **the number of customers seeing tracking errors dr
 ![Support tickets by topic, November 2020 to January 2021](images/ads-tracking/impact-2.jpg)
 
 We didn't get to rerun the satisfaction survey, so that target was never measured. The drop in customers seeing errors and the fall in support tickets are the signs we have that tracking got easier for customers.
+
+## Reflection {#reflection}
+### What I'd do differently
+
+Looking back, our solution was more of a bandage than a fix. Customers could finally see every tracking error and how to resolve it, but they were still the ones resolving it. The bigger issue was that the errors existed in the first place.
+
+Next time, I'd push to fix the systems that caused the errors, or have HubSpot fix them for customers wherever it could. Marketers came to HubSpot Ads to see their ROI, and every error they had to fix was time spent checking whether the tool was working instead.
