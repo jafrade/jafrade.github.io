@@ -473,6 +473,19 @@ def parse_body(text):
 
 # --- Shared chrome ----------------------------------------------------------
 
+# GoatCounter site code, from https://<code>.goatcounter.com. Empty means no
+# analytics. Visits to a link like jasonfrade.com/?ref=acme show "acme" as the
+# referrer, so each job application can get its own link.
+GOATCOUNTER = ""
+
+
+def analytics():
+    if not GOATCOUNTER:
+        return ""
+    return (f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" '
+            'async src="https://gc.zgo.at/count.js"></script>')
+
+
 def icons(prefix=""):
     """Tab and home-screen icons; make them with tools/make-favicons.py."""
     return (f'<link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">\n'
@@ -495,7 +508,7 @@ CARD_COLOURS = ("sage", "oak", "stone", "walnut")
 def nav(root):
     home = root or "./"
     resume = resume_file()
-    resume_item = f'<li><a href="{root}{resume}">Résumé</a></li>' if resume else ""
+    resume_item = f'<li><a href="{root}{resume}" data-goatcounter-click="resume-nav">Résumé</a></li>' if resume else ""
     return f"""<div class="wrap">
   <nav class="site-nav">
     <a class="mark" href="{home}"><span class="disc"></span>JASON FRADE</a>
@@ -547,6 +560,7 @@ COPY_JS = """<script>
       }
       b.classList.add('is-copied');
       b.nextElementSibling.textContent = 'Email address copied';
+      if (window.goatcounter && goatcounter.count) goatcounter.count({ path: 'copy-email', title: 'Copied email address', event: true });
       clearTimeout(timer);
       timer = setTimeout(() => {
         b.classList.remove('is-copied');
@@ -561,7 +575,7 @@ FOOTER = f"""<footer class="site-footer">
     <span class="label">Jason Frade · Senior product designer</span>
     <span class="footer-links">
       {copy_email("jason.a.frade@gmail.com", "label")}
-      <a class="footer-icon" href="{LINKEDIN}" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)">{LINKEDIN_ICON}</a>
+      <a class="footer-icon" href="{LINKEDIN}" data-goatcounter-click="linkedin" target="_blank" rel="noopener" aria-label="LinkedIn profile (opens in a new tab)">{LINKEDIN_ICON}</a>
     </span>
   </div>
 </footer>
@@ -625,6 +639,7 @@ def page(meta, chapters, colour, next_project=None):
 <title>{esc(meta["title"])} — Jason Frade</title>
 <meta name="description" content="{esc(overview)}">
 {icons("../")}
+{analytics()}
 {FONTS}
 <link rel="stylesheet" href="../css/site.css?v={CSS_VERSION}">
 </head>
@@ -765,6 +780,7 @@ def home(projects):
 <title>Jason Frade — Product designer</title>
 <meta name="description" content="Product design portfolio of Jason Frade.">
 {icons()}
+{analytics()}
 {FONTS}
 <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 </head>
@@ -921,7 +937,7 @@ def about(meta, body):
     if known(c.get("linkedin")):
         links.append(f'<li><a href="{esc(c["linkedin"])}">LinkedIn</a></li>')
     if resume:
-        links.append(f'<li><a href="{esc(resume)}">Résumé</a></li>')
+        links.append(f'<li><a href="{esc(resume)}" data-goatcounter-click="resume-about">Résumé</a></li>')
 
     return f"""<!doctype html>
 <html lang="en">
@@ -931,6 +947,7 @@ def about(meta, body):
 <title>About — Jason Frade</title>
 <meta name="description" content="{esc(meta.get("meta_description", ""))}">
 {icons()}
+{analytics()}
 {FONTS}
 <link rel="stylesheet" href="css/site.css?v={CSS_VERSION}">
 </head>
