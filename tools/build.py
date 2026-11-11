@@ -476,7 +476,7 @@ def parse_body(text):
 # GoatCounter site code, from https://<code>.goatcounter.com. Empty means no
 # analytics. Visits to a link like jasonfrade.com/?ref=acme show "acme" as the
 # referrer, so each job application can get its own link.
-GOATCOUNTER = ""
+GOATCOUNTER = "jafrade"
 
 
 def analytics():
