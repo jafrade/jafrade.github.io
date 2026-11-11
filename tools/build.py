@@ -495,6 +495,31 @@ def icons(prefix=""):
             f'<link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png">')
 
 
+SITE = "https://www.jasonfrade.com"
+HOME_DESCRIPTION = ("Portfolio of Jason Frade, a senior product designer with more than a decade of "
+                    "experience designing automation and AI agents for small business teams.")
+
+
+def preview(path, title, description, image="og-image.jpg"):
+    """The canonical address plus the title, summary and image that search
+    results and link previews show. og-image.jpg comes from tools/render-preview.sh."""
+    esc = html.escape
+    url = f"{SITE}/{path}"
+    tags = [f'<link rel="canonical" href="{url}">',
+            '<meta property="og:type" content="website">',
+            '<meta property="og:site_name" content="Jason Frade">',
+            f'<meta property="og:url" content="{url}">',
+            f'<meta property="og:title" content="{esc(title)}">',
+            f'<meta property="og:description" content="{esc(description)}">',
+            f'<meta property="og:image" content="{SITE}/{image}">',
+            '<meta name="twitter:card" content="summary_large_image">']
+    size = image_size(image)
+    if size:
+        tags[7:7] = [f'<meta property="og:image:width" content="{size[0]}">',
+                     f'<meta property="og:image:height" content="{size[1]}">']
+    return "\n".join(tags)
+
+
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">\n'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'
          '<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,400'
@@ -640,6 +665,7 @@ def page(meta, chapters, colour, next_project=None):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(meta["title"])} — Jason Frade</title>
 <meta name="description" content="{esc(overview)}">
+{preview(f"work/{meta['slug']}.html", meta["title"] + " — Jason Frade", overview, web(hero))}
 {icons("../")}
 {analytics()}
 {FONTS}
@@ -779,8 +805,9 @@ def home(projects):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jason Frade — Product designer</title>
-<meta name="description" content="Product design portfolio of Jason Frade.">
+<title>Jason Frade — Senior product designer</title>
+<meta name="description" content="{HOME_DESCRIPTION}">
+{preview("", "Jason Frade — Senior product designer", HOME_DESCRIPTION)}
 {icons()}
 {analytics()}
 {FONTS}
@@ -948,6 +975,7 @@ def about(meta, body):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About — Jason Frade</title>
 <meta name="description" content="{esc(meta.get("meta_description", ""))}">
+{preview("about.html", "About — Jason Frade", meta.get("meta_description", ""))}
 {icons()}
 {analytics()}
 {FONTS}
@@ -1029,6 +1057,15 @@ def build():
         meta = parse_front_matter(fm)
         (ROOT / "about.html").write_text(about(meta, body), encoding="utf-8")
         print("built about.html")
+
+    # The pages search engines should index; the older pages still on the site are left out.
+    pages = [""] + [f'work/{m["slug"]}.html' for m in projects] + (["about.html"] if about_md.is_file() else [])
+    (ROOT / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        + "".join(f"  <url><loc>{SITE}/{page}</loc></url>\n" for page in pages)
+        + "</urlset>\n", encoding="utf-8")
+    print(f"built sitemap.xml  ({len(pages)} pages)")
 
     if MISSING:
         print("\nLeft out because the image isn't in images/ yet:")
