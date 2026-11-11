@@ -482,7 +482,9 @@ GOATCOUNTER = "jafrade"
 def analytics():
     if not GOATCOUNTER:
         return ""
-    return (f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" '
+    # Count the page without its ?ref=, which GoatCounter still reads as the referrer.
+    return ('<script>window.goatcounter = { path: function () { return location.pathname } }</script>\n'
+            f'<script data-goatcounter="https://{GOATCOUNTER}.goatcounter.com/count" '
             'async src="https://gc.zgo.at/count.js"></script>')
 
 
