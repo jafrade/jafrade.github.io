@@ -190,7 +190,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 
 /* Final design slideshow (home card and case study hero): hovering a dot at
    the bottom fades to that screen. */
-.slideshow { position: relative; }
+.slideshow { position: relative; touch-action: pan-y; }   /* sideways swipes change the screen */
 /* The new screen fades in over the last one, which stays put underneath, so
    the fade never dips through to the background. */
 .slideshow .slide { opacity: 0; z-index: 0; }

@@ -314,6 +314,20 @@ SLIDESHOW_JS = """<script>
     const hold = on => () => { paused = on; play(); };
     s.addEventListener('mouseenter', hold(true)); s.addEventListener('mouseleave', hold(false));
     s.addEventListener('focusin', hold(true)); s.addEventListener('focusout', hold(false));
+    // Swiping sideways on a phone moves a screen either way. A swipe on a
+    // home page card changes its screen without opening the case study.
+    let x0 = null, y0 = 0, swiped = false;
+    s.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; swiped = false; }, { passive: true });
+    s.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      x0 = null;
+      if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+      swiped = true;
+      show((current + (dx < 0 ? 1 : slides.length - 1)) % slides.length);
+      play();
+    });
+    s.addEventListener('click', e => { if (swiped) { e.preventDefault(); swiped = false; } });
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; play(); }).observe(s);
   });
 </script>"""
