@@ -549,7 +549,7 @@ CARD_COLOURS = ("sage", "oak", "stone", "walnut")
 def nav(root):
     home = root or "./"
     resume = resume_file()
-    resume_item = f'<li><a href="{root}{resume}" data-goatcounter-click="resume-nav">Résumé</a></li>' if resume else ""
+    resume_item = f'<li><a href="{root}{resume}" target="_blank" rel="noopener" aria-label="Résumé (opens in a new tab)" data-goatcounter-click="resume-nav">Résumé</a></li>' if resume else ""
     return f"""<div class="wrap">
   <nav class="site-nav">
     <a class="mark" href="{home}"><span class="disc"></span>JASON FRADE</a>
@@ -980,7 +980,7 @@ def about(meta, body):
     if known(c.get("linkedin")):
         links.append(f'<li><a href="{esc(c["linkedin"])}">LinkedIn</a></li>')
     if resume:
-        links.append(f'<li><a href="{esc(resume)}" data-goatcounter-click="resume-about">Résumé</a></li>')
+        links.append(f'<li><a href="{esc(resume)}" target="_blank" rel="noopener" aria-label="Résumé (opens in a new tab)" data-goatcounter-click="resume-about">Résumé</a></li>')
 
     return f"""<!doctype html>
 <html lang="en">
