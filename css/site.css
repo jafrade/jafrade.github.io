@@ -323,9 +323,11 @@ figcaption { margin-top: 12px; max-width: var(--measure); font-size: 14px; line-
 @media (max-width: 720px) {
   .cs-hero .wrap { grid-template-columns: 1fr; }
   .project-card { grid-template-columns: 1fr; min-height: 0; }
-  .project-card .stage { height: 240px; }
-  .project-card .stage img { left: 8%; top: 0; width: 130%; }
-  .card-results { margin-top: 32px; }
+  /* On phones the whole screenshot sits centred in the card, with the dots below it */
+  .project-card .stage { display: grid; padding: 0 28px 20px; overflow: visible; }
+  .project-card .stage img { position: static; grid-area: 1 / 1; align-self: start; width: 100%; }
+  .project-card:hover .stage img { transform: none; }
+  .project-card .stage .dots { position: static; grid-area: 2 / 1; justify-self: center; transform: none; margin-top: 12px; }  .card-results { margin-top: 32px; }
   .home-hero { padding: 56px 0 80px; }
 }
 @media (max-width: 860px) {
