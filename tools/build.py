@@ -667,6 +667,10 @@ def page(meta, chapters, colour, next_project=None):
     other_facts = "\n".join(
         f'        <div><dt class="label">{label}</dt><dd>{esc(meta[key])}</dd></div>'
         for label, key in (("Timeline", "page_timeline"), ("Shipped to", "page_shipped_to")) if meta.get(key))
+    key_decision = ""
+    if meta.get("page_key_decision"):
+        key_decision = (f'\n        <div class="key-decision"><p class="label">Key decision</p>'
+                        f'<p>{esc(meta["page_key_decision"])}</p></div>')
     nxt = ""
     if next_project:
         nxt = (f'<div class="wrap cs-next"><a href="{next_project[0]}"><p class="label">Next project</p>'
@@ -697,7 +701,7 @@ def page(meta, chapters, colour, next_project=None):
         <h1 style="view-transition-name: title-{slug}">{esc(meta["title"])}</h1>
       </div>
       <div class="cs-hero-intro">
-        <p class="lede">{esc(overview)}</p>
+        <p class="lede">{esc(overview)}</p>{key_decision}
         <ul class="tags">{focus}</ul>
       </div>
       <div class="cs-hero-media slideshow" data-key="{slug}" data-autoplay style="view-transition-name: shot-{slug}">
@@ -1087,5 +1091,22 @@ def build():
             print(f"  {src}")
 
 
+def build_draft(path):
+    """Render one draft project file to work/<slug>-draft.html, unlisted and
+    kept out of search, without touching the home page or sitemap."""
+    text = Path(path).read_text(encoding="utf-8")
+    _, fm, body = text.split("---", 2)
+    meta = parse_front_matter(fm)
+    out = OUT / f'{meta["slug"]}-draft.html'
+    html_ = page(meta, parse_body(body), CARD_COLOURS[(meta.get("order", 1) - 1) % len(CARD_COLOURS)])
+    html_ = html_.replace("<head>", '<head>\n<meta name="robots" content="noindex">', 1)
+    out.write_text(html_, encoding="utf-8")
+    print(f"built draft {out.relative_to(ROOT)}")
+
+
 if __name__ == "__main__":
-    build()
+    import sys
+    if len(sys.argv) == 3 and sys.argv[1] == "--draft":
+        build_draft(sys.argv[2])
+    else:
+        build()
