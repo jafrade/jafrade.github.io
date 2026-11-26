@@ -15,7 +15,7 @@ card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as t
 card_context: "HubSpot · Workflow automation · 2026"
 card_summary: "Led design and co-led strategy for HubSpot's Automate panel. The panel doubled the number of workflows Starter customers created each week, and 72% of them used features new to Starter."
 
-page_overview: "Small business customers were leaving HubSpot because they couldn't automate the work they needed, and the automation they had was scattered and hard to find. We built one Automate panel that opens from the pages they already work in, with AI recommendations that show them where to start."
+page_overview: "Small business customers were leaving HubSpot because they couldn't find the automation they needed. It was scattered across five patterns, each on its own screen. We built one Automate panel that opens on the pages where they already work, and every automation in it is a real workflow they can grow into."
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
   - value: "2×"
@@ -30,9 +30,9 @@ page_shipped_to: "HubSpot Starter"
 page_chapters:
   - { id: context,  label: "Context",            headline: "Starter customers have a business to run and no time to learn automation" }
   - { id: problem,  label: "Problem",            headline: "Starter customers were leaving because finding automation was an Easter egg hunt" }
-  - { id: strategy, label: "Strategy",           headline: "It turned out every automation was a workflow" }
+  - { id: strategy, label: "Strategy",           headline: "I proposed one way to automate, on every page, with a real workflow behind it" }
   - { id: research, label: "Concept validation", headline: "We had to earn a button on another team's page" }
-  - { id: decision, label: "Key decisions",      headline: "My team lost the builder debate, so I made the winning version work" }
+  - { id: decision, label: "Key decisions",      headline: "One builder had to work for first-timers and for customers moving up to Pro" }
   - { id: solution, label: "Final design",       headline: "Automation now reads like a sentence and lives where the work happens" }
   - { id: impact,   label: "Impact",             headline: "Starter customers built twice as many workflows a week" }
 
@@ -61,7 +61,7 @@ filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design
 
 ## My role {#role}
 
-I led design for the Automate panel and co-led the vision with my PM. I worked with six front-end and back-end engineers, and with partner product teams who reviewed the design and placement of the panel on their pages.
+I led design for the Automate panel and co-led the vision with my PM, starting with the proposal to bring automation onto the pages where customers already work. I worked with six front-end and back-end engineers, and with partner product teams who reviewed the design and placement of the panel on their pages.
 
 I owned the interaction and visual design, from the first concepts in Lovable to the final specs in Figma. I also ran the research, wrote the framework for how AI recommendations explain themselves, and built the rulebook and agent skill that write each automation's sentence.
 
@@ -77,7 +77,7 @@ HubSpot Starter is the entry-level paid plan, used by more than 150,000 customer
 
 HubSpot was losing Starter customers, and fewer new accounts were signing up. When an analyst dug into why customers were leaving, about a third were leaving because they didn't have the automation they needed to run their business. With fewer customers staying and fewer coming in, fewer were upgrading to Pro, and upgrades are a big part of how HubSpot keeps customers and grows revenue.
 
-Much of what they needed was already in Starter, but customers couldn't find it, because Starter didn't have a central Workflows app. Instead, their automation was scattered across five different patterns. Each one had its own UI, its own entry point, and its own permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt." Before this project, my team built a home page for automation that pointed customers to all of these tools. It helped them find automation, but it couldn't change how scattered the tools behind it were.
+Much of what they needed was already in Starter, but customers couldn't find it. Starter didn't have a central Workflows app, so their automation was scattered across five different patterns, each with its own UI, entry point and permissions. Some lived in settings, some lived inside individual apps, and some weren't visible anywhere. One customer described finding the automations tied to their records as "a little bit of an Easter egg hunt."
 
 > "A little bit of an Easter egg hunt."
 >
@@ -88,18 +88,18 @@ Much of what they needed was already in Starter, but customers couldn't find it,
 ![A few of those patterns as customers saw them: forms, deal pipelines, privacy settings, quotes, and the prospecting agent](images/embedded-automate-panel/problem-2.jpg)
 <!-- /carousel -->
 
-Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Even our own teams had trouble keeping track of where automations lived. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.
+Automating a simple task meant leaving your work to find the right screen, figuring out how that screen worked, and then coming back later to check what was running. Adoption stayed low, and Starter customers who couldn't get what they needed were leaving to find other tools.
 
 We measured progress with two numbers: the share of Starter customers who created a workflow, which we aimed to raise from 60% to 70%, and the share who turned one on.
 
-The churn analysis and our audit told us what was wrong. What we didn't know yet was whether customers would find and use automation if it lived on the pages where they already work. That gave us our question: how might we make automation easy for Starter customers to find and use, so more customers sign up and stay, and upgrading to Pro feels like a natural next step?
+That gave us our question: how might we make automation easy for Starter customers to find and use, so more customers sign up and stay, and upgrading to Pro feels like a natural next step?
 
 ## 03 · Strategy {#strategy}
-### It turned out every automation was a workflow
+### I proposed one way to automate, on every page, with a real workflow behind it
 
-My PM and I started with a brainstorm on how to make automation easy for Starter customers to find and use.
+We'd already tried pointing people to automation. Before this project, my team built a home page for automation that linked customers to all of these tools. It helped them find automation, but they still had to leave their work to use it, and the five patterns behind it were as scattered as ever.
 
-The idea that shaped our approach was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. That meant someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it, which would also make the move to Pro easier.
+My PM and I started with a brainstorm, and the idea that shaped everything after it was that they're all workflows. Every embedded automation, wherever it showed up, could be backed by a real workflow. Someone could start with something simple on a deal page and later open the same automation in the full Workflows app without rebuilding it, which would also make the move to Pro easier.
 
 From there I proposed a single Automate experience that would look and work the same on every page where people already do their work. AI-generated recommendations, based on how each customer used their account, would show them where to start.
 
@@ -109,14 +109,16 @@ From there I proposed a single Automate experience that would look and work the 
 ![The full brainstorm board, including our vision for the whole system: embedded experience, unified canvas, unified management, and agents](images/embedded-automate-panel/strategy-1.jpg)
 <!-- /carousel -->
 
+The bet came with two costs. Our button would have to live on pages other teams owned, and we'd need a builder simple enough for a first-timer that still led somewhere for customers who upgraded. The next two chapters are how we earned each one.
+
 ## 04 · Concept validation {#research}
 ### We had to earn a button on another team's page
 
-We tested the idea in two steps before building the panel. The first was about where the Automate button would live. The deal records page belonged to another team, who had been simplifying the record pages by moving buttons into menus to cut clutter. They worried a new button would add clutter without enough people getting value from it, and saw a rise in clicks as a vanity metric that wouldn't show customers found it useful.
+The deal records page belonged to another team, who had been simplifying record pages by moving buttons into menus to cut clutter. They worried a new button would add clutter without enough people getting value from it, and saw a rise in clicks as a vanity metric.
 
 So we ran an A/B test that moved the Automate button from settings onto the deal records page. Discovery went up 3x, and activation, meaning customers created a workflow, went up 2x. The result was statistically significant. The activation result showed that people who found the button went on to build automations, and we used it to show the team that owned the page, and their leadership, that the button was worth the space.
 
-We then tested our first node and card design concept for the Automate panel with 12 customers, to check whether the new builder was easy to understand and use. Having automation right on the page made sense to them, and pre-filling the trigger from the record they were viewing made the biggest difference. One person said, "It's remembered all the context I've gone through. I haven't got to reselect or hunt for it."
+We then tested our first node and card concept for the panel with 12 customers, to check whether the new builder was easy to understand and use. Having automation right on the page made sense to them, and pre-filling the trigger from the record they were viewing made the biggest difference. One person said, "It's remembered all the context I've gone through. I haven't got to reselect or hunt for it."
 
 > "It's remembered all the context I've gone through. I haven't got to reselect or hunt for it."
 >
@@ -133,18 +135,18 @@ We then tested our first node and card design concept for the Automate panel wit
 One finding changed our plans: recommendations felt like ads unless they fit what the person was doing and explained why they mattered. That led to the recommendation framework in the next chapter.
 
 ## 05 · Key decisions {#decision}
-### My team lost the builder debate, so I made the winning version work
+### One builder had to work for first-timers and for customers moving up to Pro
 
 #### Sentences or nodes
 
-Partner teams and leadership thought the builder looked too technical, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team didn't think rewording triggers and conditions would make them easier to understand. We wanted to build on the node-and-card pattern people already knew from the Workflows app, so it would be easier to learn and customers who upgraded to Pro would find the full app familiar. Our first brainstorm also listed the downsides of sentences: lots of custom UI to build, and they might not translate well.
+The builder had two audiences pulling in different directions. Partner teams and leadership thought it looked too technical for first-timers, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team wanted to build on the node-and-card pattern from the Workflows app, so customers who upgraded to Pro would already know the full app. Our first brainstorm also listed the costs of sentences: lots of custom UI to build, and they might not translate well.
 
 ![Early pros and cons: sentence-style builder vs. AI-first creation](images/embedded-automate-panel/pros-cons.jpg)
 <!-- IMAGE: brainstorm pros/cons board (unnamed-11) -->
 
 ![Three builder styles we explored, rules, sentences, and workflow nodes, each in a split or full view](images/embedded-automate-panel/explorations.jpg)
 
-We took the stakeholders' feedback and built two Lovable prototypes to test both concepts with customers and see whether one was actually easier to use. The results were split. People who liked the sentence version said it felt "less like programming and more like just editing a Word doc." People who liked the node and canvas version said, "Makes me feel like I am building a workflow. Nodes are familiar."
+We took that feedback and built two Lovable prototypes to see whether one was actually easier to use. Customers were split. People who liked the sentence version said it felt "less like programming and more like just editing a Word doc." People who liked the node and canvas version said, "Makes me feel like I am building a workflow. Nodes are familiar."
 
 > "Less like programming and more like just editing a Word doc."
 >
@@ -159,7 +161,7 @@ The test also showed something I didn't expect: the builder's design changed how
 ![The sentence version and the node and canvas version, side by side as tested](images/embedded-automate-panel/research-styles.jpg)
 <!-- IMAGE: the two tested prototypes side by side -->
 
-With customers split, we went with the sentence version the stakeholders favored.
+With customers split, we went with the sentence version the stakeholders favored, and my job became making it work at scale.
 
 #### Making the sentence version work
 
@@ -173,7 +175,7 @@ I led the visual design from there, starting with how the sentences should look.
 ![Token styles: a single accent color, compared with dashed outlines on empty fields](images/embedded-automate-panel/tokens-2.jpg)
 <!-- /carousel -->
 
-My biggest concern had been scale, since every action needs its own sentence. So I built a rulebook and an agent skill that read an action's definition (its field labels, input order, and dependencies) and write its sentence automatically, for every existing and future action. The definition decides the structure, and the skill only handles the grammar.
+My biggest concern had been scale, since every action needs its own sentence. So I built a rulebook and an agent skill that read an action's definition (its field labels, input order, and dependencies) and write its sentence automatically, for every existing and future action. The definition decides the structure, and the skill only handles the grammar. Because every sentence is still a real workflow underneath, customers who upgrade can open it in the full app.
 
 Translation was the tradeoff we accepted. Each sentence follows the order of the fields in the form, so translators can change the words but can't reorder them. In languages with a different word order, some sentences read less naturally.
 
@@ -211,7 +213,7 @@ The panel was part of a bigger push on Starter that started with the Starter ver
 
 We tracked upgrades to Pro as well, but I don't have final results to share.
 
-We built the panel so other teams could reuse it, and Agent Hub Starter did. It launched on September 21 with the panel as its builder, and gave Starter customers one place to create and manage all their workflows for the first time. The number of workflows turned on each week more than tripled in the weeks after.
+Because every automation was a real workflow, the panel could be reused, and Agent Hub Starter did. It launched on September 21 with the panel as its builder, and gave Starter customers one place to create and manage all their workflows for the first time. The number of workflows turned on each week more than tripled in the weeks after.
 
 ## Reflection {#reflection}
 ### What I'd do differently
