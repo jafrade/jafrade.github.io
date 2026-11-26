@@ -88,7 +88,7 @@ Research told us customers were overwhelmed. What we didn't know yet was what wo
 
 My PM and I wrote the brief in August 2024 and ran a brainstorm with our engineers. Our goal was one home for automation, where customers could find tools and use cases they didn't know about and get started with little effort.
 
-The hard part was who "customers" meant. A new account needed something to turn on, while an established account needed to know which ones were working. Building two pages would have added a fifteenth place to go, so we set out to build one page that could serve both.
+The hard part was who "customers" meant. A new account needed something to turn on, while an established account needed to know which ones were working. The challenge was figuring out how the page's content should change to fit whoever was looking at it.
 
 <!-- carousel -->
 ![Our brainstorm: problems, ideas, then a prioritization matrix](images/automation-overview/brainstorm-1-board.jpg)
