@@ -15,7 +15,7 @@ card_thumbnail: images/automation-overview/card.jpg
 card_context: "HubSpot · Workflow automation · 2025"
 card_summary: "Led design and co-led the vision for HubSpot's Automation Overview. Monthly visits nearly tripled in a year, to about 150,000, and the page passed 2 million views."
 
-page_overview: "Automation had grown into so many tools that many customers didn't know where to start. The more customers automated, the more of their business HubSpot kept. We built one home for automation, where AI-assisted workflows and personalized recommendations help customers get started and see what needs attention."
+page_overview: "Automation had grown into so many tools that customers didn't know where to start, and the more they automated, the more of their business HubSpot kept. We built one home for automation that gets new accounts started and shows experienced customers what needs their attention."
 page_hero_media: images/automation-overview/hero.jpg
 page_hero_fallback: images/automation-overview/hero.jpg
 page_metrics:
@@ -31,9 +31,9 @@ page_shipped_to: "HubSpot Pro and Enterprise, then Starter"
 page_chapters:
   - { id: context,  label: "Context",            headline: "The more jobs customers automated, the longer they stayed" }
   - { id: problem,  label: "Problem",            headline: "With fourteen places to create automation, customers didn't know where to start" }
-  - { id: strategy, label: "Strategy",           headline: "We made one rule so the page wouldn't become another dashboard" }
+  - { id: strategy, label: "Strategy",           headline: "One page had to work for customers automating their first job and their tenth" }
   - { id: research, label: "Concept validation", headline: "Our first concept had everything, which was the problem" }
-  - { id: decision, label: "Key decisions",      headline: "Customers liked the workspace better, but the A/B test called it a tie" }
+  - { id: decision, label: "Key decisions",      headline: "Whatever we put at the top got used, so the top had to serve new and experienced customers" }
   - { id: solution, label: "Final design",       headline: "The page does four jobs, and new accounts get a guided start" }
   - { id: impact,   label: "Impact",             headline: "Monthly visits nearly tripled in a year" }
 
@@ -82,9 +82,11 @@ That held customers back. They weren't saving the time HubSpot could save them, 
 Research told us customers were overwhelmed. What we didn't know yet was what would get them to start. That gave us our question: how might we help more customers reach ten automated jobs, and get there sooner?
 
 ## 03 · Strategy {#strategy}
-### We made one rule so the page wouldn't become another dashboard
+### One page had to work for customers automating their first job and their tenth
 
 My PM and I wrote the brief in August 2024 and ran a brainstorm with our engineers. Our goal was one home for automation, where customers could find tools and use cases they didn't know about and get started with little effort.
+
+The hard part was who "customers" meant. A new account needed something to turn on, while an established account needed to know which ones were working. The challenge was figuring out how the page's content should change to fit whoever was looking at it.
 
 <!-- carousel -->
 ![Our brainstorm: problems, ideas, then a prioritization matrix](images/automation-overview/brainstorm-1-board.jpg)
@@ -94,7 +96,9 @@ My PM and I wrote the brief in August 2024 and ran a brainstorm with our enginee
 <!-- /carousel -->
 <!-- IMAGE: FigJam brainstorm; coworker names and avatars blurred on close-ups, a coworker's sticky removed from the problems slide -->
 
-We set one firm rule. HubSpot had tried a similar home page before, and it failed because it became another reporting dashboard. So every part of the Overview had to lead to an action. A recommendation opens a ready-made automation, and the AI prompt drafts a workflow for the customer to review. To decide what to recommend, we mapped which jobs customers automate at each stage. Recommendations could then suggest the next jobs for each stage, without overwhelming people who were just starting.
+To make that work, we mapped which jobs customers automate at each stage. Recommendations could then suggest the next jobs for each stage, without overwhelming people who were just starting.
+
+We also set one firm rule. HubSpot had tried a similar home page before, and it failed because it became another reporting dashboard. So every part of the Overview had to lead to an action. A recommendation opens a ready-made automation, and the AI prompt drafts a workflow for the customer to review.
 
 ![The jobs customers automate at each stage, and what we'd recommend next](images/automation-overview/jobs-by-stage.jpg)
 
@@ -119,7 +123,7 @@ The page itself had problems. People had to scroll too far, and as one customer 
 <!-- /carousel -->
 
 ## 05 · Key decisions {#decision}
-### Customers liked the workspace better, but the A/B test called it a tie
+### Whatever we put at the top got used, so the top had to serve new and experienced customers
 
 #### Overview or workspace
 
@@ -140,7 +144,7 @@ At the same time, HubSpot's UX group was defining a framework for what each kind
 
 The framework hadn't been tested with customers, so we wanted our own data before following it. We ran the A/B test for two weeks that summer, and the results were nearly identical across activation, interaction and retention, so the team kept the overview model.
 
-The test still taught us something. In the launched page, the AI prompt came first and got the most use. In the workspace version, issues came first and usage shifted to issues. Whatever we put at the top got used.
+The test still taught us the most important thing about the page. In the launched page, the AI prompt came first and got the most use. In the workspace version, issues came first and usage shifted to issues. Whatever we put at the top got used, so the top of the page decided which customers it served.
 
 #### A first run for new accounts
 
@@ -164,7 +168,7 @@ After launch, we turned our attention to new accounts. Nearly half of new custom
 
 With the overview model settled, we focused on two things: getting people to the page, and making it clear what each part was for.
 
-The Overview originally lived on its own page, which meant fewer people visited it. So we moved it into a tab alongside Workflows to make it easier to find and understand. We then organized the page around four jobs: orient, discover, monitor and learn.
+The Overview originally lived on its own page, which meant fewer people visited it. So we moved it into a tab alongside Workflows to make it easier to find and understand. We then organized the page around four jobs: orient, discover, monitor and learn. The top of the page now holds something for each kind of customer: the AI prompt for starting something new, and issues and recent workflows for people with automations already running.
 
 Customers can describe what they want to automate and get a drafted workflow to review, or start from a suggestion based on their account's activity. They can see which automations need attention, pick up where they left off, and turn on recommended automations that explain why they fit the account. Reporting stays short and links to the automations behind each number, so the page stays focused on what to do next. People who want to go further can find apps to connect and short Academy videos.
 
