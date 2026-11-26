@@ -31,7 +31,7 @@ page_chapters:
   - { id: context,  label: "Context",            headline: "Enterprise teams had a lot of people building a lot of workflows" }
   - { id: problem,  label: "Problem",            headline: "Customers rebuilt the same steps in every workflow, then fixed each copy by hand" }
   - { id: strategy, label: "Strategy",           headline: "Six discovery calls turned a pile of requests into one idea" }
-  - { id: research, label: "Concept validation", headline: "We drew a comic strip, and customers told us edits should reach every copy" }
+  - { id: research, label: "Concept validation", headline: "Customers wanted sets they could drop in and change" }
   - { id: decision, label: "Key decisions",      headline: "Engineering said linked updates had to wait, so we shipped copies first" }
   - { id: solution, label: "Final design",       headline: "Adding a set works just like adding any other action" }
   - { id: impact,   label: "Impact",             headline: "Action Sets contributed to 106 Enterprise upgrades" }
@@ -96,10 +96,10 @@ I planned and ran discovery calls with six customers who cloned workflows often 
 >
 > Customer, discovery call
 
-From there my PM and I scoped the idea: let customers save a group of actions as a kind of mini template, find it in the action panel, and add it to any workflow of the same type.
+From there my PM and I scoped the idea: let customers save a group of actions as a kind of mini template, find it in the action panel, and add it to any workflow of the same type. What we still had to decide was what a reusable piece should be, and that choice shaped everything after it.
 
 ## 04 · Concept validation {#research}
-### We drew a comic strip, and customers told us edits should reach every copy
+### Customers wanted sets they could drop in and change
 
 We had two very different ways to build this and needed customer reactions before designing either in detail. A prototype would have pulled people into the UI, so I used a comic strip test. Each concept was a short story of two coworkers, where one saves a language branch and the other reuses it.
 
@@ -133,7 +133,9 @@ I ran it with five people, three of them customers. Three picked Saved Actions o
 >
 > Customer, comic strip test
 
-The biggest finding was about editing. Most people assumed a change to the saved set would update every workflow that used it, and that editing a copy in your own workflow would break it away from the original. They didn't want changes pushed out without warning, and one person asked for a draft step so edits could be reviewed before they went live. I went with Saved Actions, since most people preferred it, and linked updates became the core of the second version.
+I went with Saved Actions. Most people preferred it, and it matched what we heard in discovery: most reuses weren't exact copies, so people needed to change a set once it was in their workflow. In the Shared Workflow story, Emma had to clone Jason's branch just to remove steps she didn't need. Saved Actions was also the harder concept to build, which shaped the rest of the project.
+
+The test also told us how editing should work. Most people assumed a change to the saved set would update every workflow that used it, and that editing a copy in your own workflow would break it away from the original. They didn't want changes pushed out without warning, and one person asked for a draft step so edits could be reviewed before they went live. Linked updates became the core of the second version.
 
 ## 05 · Key decisions {#decision}
 ### Engineering said linked updates had to wait, so we shipped copies first
