@@ -221,7 +221,7 @@ Because every automation was a real workflow, the panel could be reused, and Age
 ## Reflection {#reflection}
 ### What I'd do differently
 
-The A/B test on the deal page worked because it gave everyone the same evidence. I'd bring that to the builder debate sooner. Our brainstorm weighed build time, scalability and translation, but we didn't lay those tradeoffs out clearly for stakeholders, so the conversation stayed on which version looked easier.
+We looked at much more than ease of use. Our brainstorm weighed build time, scalability, and translation. But we didn't make that case strongly enough. If I'd laid out the pros, cons, and tradeoffs of each direction clearly for stakeholders, the conversation would have been about those tradeoffs.
 
 I'd also test more ideas, and test them sooner. Putting several directions in front of customers early would have given everyone the same evidence to work from.
 
