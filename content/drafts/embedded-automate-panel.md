@@ -2,6 +2,11 @@
 # DRAFT: decision-first redraft of content/projects/embedded-automate-panel.md.
 # Build with: python3 tools/build.py --draft content/drafts/embedded-automate-panel.md
 # Writes work/embedded-automate-panel-draft.html (unlisted, noindex). The live page is unchanged.
+# Field prefixes say where each field appears:
+#   (no prefix) = both the home page card and the case study page
+#   card_       = home page project card only
+#   page_       = case study page only
+#   filter_     = not displayed; used for filtering
 
 title: "Redesigning HubSpot's embedded automation"
 slug: embedded-automate-panel
@@ -9,12 +14,11 @@ order: 1
 featured: true
 focus: ["Craft", "AI", "Complex workflows", "Systems thinking"]
 
-card_thumbnail: images/embedded-automate-panel/hero.jpg
+card_thumbnail: images/embedded-automate-panel/hero.jpg   # same screenshot as the case study hero
 card_context: "HubSpot · Workflow automation · 2026"
 card_summary: "Led design and co-led strategy for HubSpot's Automate panel. The panel doubled the number of workflows Starter customers created each week, and 72% of them used features new to Starter."
 
 page_overview: "Small business customers were leaving HubSpot because they couldn't find the automation they needed. It was scattered across five patterns, each on its own screen. We built one Automate panel that opens on the pages where they already work, and every automation in it is a real workflow they can grow into."
-page_key_decision: "I proposed bringing automation to the pages where customers already work, instead of giving them another place to go for it. Every automation would be a real workflow, so someone could start simple on a deal page and later open the same automation in the full Workflows app after upgrading to Pro. Before another team would give us a button on their page, we had to prove it with an A/B test. Discovery tripled."
 page_hero_fallback: images/embedded-automate-panel/hero.jpg
 page_metrics:
   - value: "2×"
@@ -40,11 +44,23 @@ filter_skills: ["Strategy", "Research", "AI and LLM design", "Interaction design
 
 <!--
   NOTES FOR THE SITE BUILD
-  - New field page_key_decision: shown under the overview in the hero, labeled "Key decision". Not part of the case-study skill yet; add it to the skill's top-of-page rules if this sticks.
+  - Top of page layout: context line, title, page_overview (in the spot the old subtitle used), focus tags, hero, then a full-width Results row with the three page_metrics side by side (number above label), then My role, Timeline and Shipped to below. page_subtitle and page_problem are retired; remove the subtitle and the "The problem" block.
   - Carousels: images between the 'carousel' and '/carousel' comment markers are one carousel; each alt text is that slide's caption
+  - Metric sources: Starter create and turn-on rates (60% to 75%, 40% to 60%, January to August) come from the Enablement project report and a Hex dashboard. This page is the only one that claims them; the Automation Overview links here instead.
   - Key decisions (05) uses "####" subheads to separate its three decisions. Style them smaller than the chapter headline.
-  - The how-might-we question is its own paragraph at the end of Problem, starting "That gave us our question:".
 -->
+
+<!-- ============ CASE STUDY PAGE LAYOUT ============
+  1. Top of page: title + page_overview + focus + hero, then a full-width Results row, then role/timeline/shipped to
+  1b. "My role" (unnumbered) comes right after the top section, before 01 Context
+  2. Full-story chapters (the body below). Each chapter: "## NN · Label {#id}" then "### Headline".
+     Labels/headlines must match page_chapters.
+  3. Reflection (unnumbered, last)
+  Pull quotes: a blockquote (">") is a pull quote for people scanning the page. It repeats a customer
+  quote that already appears in the text; it never replaces it. Last line of the blockquote = attribution.
+  Max one per chapter (Key decisions uses a pair to show the split).
+  Nothing below this line appears on the home page card.
+=================================================== -->
 
 ## My role {#role}
 
@@ -57,7 +73,7 @@ I started on the project in February 2026. The panel went to beta on July 23 and
 ## 01 · Context {#context}
 ### Starter customers have a business to run and no time to learn automation
 
-HubSpot Starter is the entry-level paid plan, used by more than 150,000 customers, mostly founders and early hires at companies with 1 to 25 people. They're wearing a lot of hats, and their attention is on finding customers and growing the business. Learning a tool like HubSpot, and automation in particular, feels like a big investment of time they don't have. What they need is simple: leads that don't fall through the cracks, deals that get followed up on, and tasks that get created without doing it manually.
+HubSpot Starter is the entry-level paid plan, used by more than 150,000 customers, mostly founders and early hires at companies with 1 to 25 people. They’re wearing a lot of hats, and their attention is on finding customers and growing the business. Learning a tool like HubSpot, and automation in particular, feels like a big investment of time they don’t have. What they need is simple: leads that don’t fall through the cracks, deals that get followed up on, and tasks that get created without doing it manually.
 
 ## 02 · Problem {#problem}
 ### Starter customers were leaving because finding automation was an Easter egg hunt
@@ -129,6 +145,7 @@ One finding changed our plans: recommendations felt like ads unless they fit wha
 The builder had two audiences pulling in different directions. Partner teams and leadership thought it looked too technical for first-timers, and that writing each automation as a plain sentence ("When a deal moves to Closed Won, create a task for the deal owner") would make it easier. My team wanted to build on the node-and-card pattern from the Workflows app, so customers who upgraded to Pro would already know the full app. Our first brainstorm also listed the costs of sentences: lots of custom UI to build, and they might not translate well.
 
 ![Early pros and cons: sentence-style builder vs. AI-first creation](images/embedded-automate-panel/pros-cons.jpg)
+<!-- IMAGE: brainstorm pros/cons board (unnamed-11) -->
 
 ![Three builder styles we explored, rules, sentences, and workflow nodes, each in a split or full view](images/embedded-automate-panel/explorations.jpg)
 
@@ -145,6 +162,7 @@ We took that feedback and built two Lovable prototypes to see whether one was ac
 The test also showed something I didn't expect: the builder's design changed how people used AI. In the sentence version, people typed their changes to the AI. In the node and canvas version, they edited the cards directly.
 
 ![The sentence version and the node and canvas version, side by side as tested](images/embedded-automate-panel/research-styles.jpg)
+<!-- IMAGE: the two tested prototypes side by side -->
 
 With customers split, we went with the sentence version the stakeholders favored, and my job became making it work at scale.
 
@@ -192,9 +210,9 @@ The panel went to beta on July 23, 2026, and reached every Starter account by Ju
 ## 07 · Impact {#impact}
 ### Starter customers built twice as many workflows a week
 
-Through the end of August, Starter customers created twice as many workflows each week as they did before the panel launched, and 72% of the workflows built in the panel used features Starter didn't have before. About a third of the workflows started in the panel went live. The ones that started from an AI recommendation went live 45% of the time, about twice the rate of workflows built from scratch.
+Through the end of August, Starter customers **created twice as many workflows each week** as they did before the panel launched, and **72% of the workflows built in the panel used features Starter didn't have before**. About a third of the workflows started in the panel went live. **The ones that started from an AI recommendation went live 45% of the time, about twice the rate of workflows built from scratch.**
 
-The panel was part of a bigger push on Starter that started with the Starter version of the Automation Overview in January. From January to August, the share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal, and the share who turned one on rose from 40% to 60%.
+The panel was part of a bigger push on Starter that started with the Starter version of the Automation Overview in January. From January to August, the **share of Starter customers who created a workflow rose from 60% to 75%, beating our 70% goal, and the share who turned one on rose from 40% to 60%.**
 
 We tracked upgrades to Pro as well, but I don't have final results to share.
 

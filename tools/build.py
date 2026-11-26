@@ -667,10 +667,6 @@ def page(meta, chapters, colour, next_project=None):
     other_facts = "\n".join(
         f'        <div><dt class="label">{label}</dt><dd>{esc(meta[key])}</dd></div>'
         for label, key in (("Timeline", "page_timeline"), ("Shipped to", "page_shipped_to")) if meta.get(key))
-    key_decision = ""
-    if meta.get("page_key_decision"):
-        key_decision = (f'\n        <div class="key-decision"><p class="label">Key decision</p>'
-                        f'<p>{esc(meta["page_key_decision"])}</p></div>')
     nxt = ""
     if next_project:
         nxt = (f'<div class="wrap cs-next"><a href="{next_project[0]}"><p class="label">Next project</p>'
@@ -701,7 +697,7 @@ def page(meta, chapters, colour, next_project=None):
         <h1 style="view-transition-name: title-{slug}">{esc(meta["title"])}</h1>
       </div>
       <div class="cs-hero-intro">
-        <p class="lede">{esc(overview)}</p>{key_decision}
+        <p class="lede">{esc(overview)}</p>
         <ul class="tags">{focus}</ul>
       </div>
       <div class="cs-hero-media slideshow" data-key="{slug}" data-autoplay style="view-transition-name: shot-{slug}">
